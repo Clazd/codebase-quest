@@ -17,6 +17,7 @@ export const SKIP_DIRS = new Set([
   "__pycache__",
   ".next",
   ".cache",
+  ".codequest",
 ]);
 export function secretPath(path: string): boolean {
   return path

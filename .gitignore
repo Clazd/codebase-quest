@@ -19,6 +19,7 @@ fixtures/pinned/
 
 # Local outputs
 out/
+.codequest/cache/
 *.log
 
 # Secrets never belong in this repo

@@ -12,6 +12,7 @@ order, never renumbered. Superseded records stay, with a link to the new one.
 | [0004](0004-art-style.md) | Blender pixel style study; adoption pending playtest | Prototype accepted |
 | [0005](0005-analyzer-contract-and-confidence.md) | Analyzer contract, confidence and known grammar recoveries | Accepted |
 | [0006](0006-world-layout-and-export-contract.md) | Deterministic world layout and portable exports | Accepted |
+| [0007](0007-walkable-client-and-local-play.md) | Walkable client, accessible HUD and local play cache | Accepted |
 
 Template:
 

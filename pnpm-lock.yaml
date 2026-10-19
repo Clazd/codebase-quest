@@ -44,6 +44,9 @@ importers:
       '@codebase-quest/worldgen':
         specifier: workspace:*
         version: link:../../packages/worldgen
+      vite:
+        specifier: 8.3.4
+        version: 8.3.4(@types/node@24.19.2)
 
   apps/game:
     dependencies:
@@ -63,6 +66,9 @@ importers:
         specifier: 4.6.7
         version: 4.6.7
     devDependencies:
+      '@codebase-quest/worldgen':
+        specifier: workspace:*
+        version: link:../../packages/worldgen
       vite:
         specifier: 8.3.4
         version: 8.3.4(@types/node@24.19.2)

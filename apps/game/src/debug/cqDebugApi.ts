@@ -16,6 +16,13 @@ export interface CqDebugApi {
   teleport(x: number, y: number): void;
   /** Holds a key (`ArrowRight`, `w`…) for `ms` milliseconds; resolves when released. */
   pressKey(key: string, ms: number): Promise<void>;
+  getWorldSummary(): { regions: number; buildings: number; npcs: number };
+  getLocation(): { scene: string; regionId?: string; buildingId?: string; breadcrumb: string };
+  enterBuilding(buildingId: string): Promise<void>;
+  gotoRegion(regionId: string): Promise<void>;
+  getFogSeenRatio(): number;
+  getFrameStats(): { samples: number; averageMs: number; chunks: number };
+  getCamera(): { scrollX: number; scrollY: number; zoom: number; width: number; height: number };
 }
 
 /** A scene that has a player the debug API can read and move. */
@@ -50,6 +57,17 @@ export function createDebugApi(game: SceneSource, virtualKeys: VirtualKeys): CqD
   };
 
   return {
+    getWorldSummary: () => ({ regions: 0, buildings: 0, npcs: 0 }),
+    getLocation: () => ({ scene: "Test", breadcrumb: "Test scene" }),
+    enterBuilding: async () => {
+      throw new Error("Load a world to enter buildings");
+    },
+    gotoRegion: async () => {
+      throw new Error("Load a world to enter regions");
+    },
+    getFogSeenRatio: () => 0,
+    getFrameStats: () => ({ samples: 0, averageMs: 0, chunks: 0 }),
+    getCamera: () => ({ scrollX: 0, scrollY: 0, zoom: 1, width: 320, height: 240 }),
     version: pkg.version,
     getScene() {
       const scenes = activeScenes();

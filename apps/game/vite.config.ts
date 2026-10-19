@@ -1,9 +1,11 @@
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
+import { fixtureWorlds } from "./fixtureWorlds.ts";
 
 const page = (path: string) => fileURLToPath(new URL(path, import.meta.url));
 
 export default defineConfig(({ mode }) => ({
+  plugins: mode === "production" ? [] : [fixtureWorlds(mode === "test")],
   base: "./",
   define: {
     // The `window.__CQ__` debug API exists in dev and test builds only. In a

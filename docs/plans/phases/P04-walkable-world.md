@@ -1,7 +1,7 @@
 # Phase 04: Walkable World
 
 > **Milestone:** B · The Map · **Depends on:** 03 · **Effort:** 1–1.5 weeks ·
-> **Status:** Not started
+> **Status:** Implemented and tested; owner mini playtest pending
 > **Read first:** MASTER-PLAN §5, §5.7, §16.9
 
 ## Goal
@@ -112,18 +112,18 @@ getFogSeenRatio(): number;
 ```
 
 ## Tasks
-- [ ] World loader (fetch `world.json` + maps; validate with zod; theme → tileset mapping).
-- [ ] Boot/Preload/Title scenes (title shows the kingdom name).
-- [ ] Overworld, Region and Interior scenes with transitions.
-- [ ] Player controller (keyboard, gamepad, click-to-move with A\*).
-- [ ] Camera, zoom, chunked loading for large maps.
-- [ ] Labels: regions, building signs, streets.
-- [ ] Fog of war + seen tracking.
-- [ ] Minimap + full map.
-- [ ] HUD breadcrumb.
-- [ ] Static placeholder markers for NPCs, monsters, bosses, portals and landmarks.
-- [ ] Debug overlay (FPS, tile coords, entity IDs under cursor) + debug API additions.
-- [ ] `cq play` (analyze → generate → cache → serve → open browser).
+- [x] World loader (fetch `world.json` + maps; validate with zod; theme → tileset mapping).
+- [x] Boot/Preload/Title scenes (title shows the kingdom name).
+- [x] Overworld, Region and Interior scenes with transitions.
+- [x] Player controller (keyboard, gamepad, click-to-move with A\*).
+- [x] Camera, zoom, chunked loading for large maps.
+- [x] Labels: regions, building signs, streets.
+- [x] Fog of war + seen tracking.
+- [x] Minimap + full map.
+- [x] HUD breadcrumb.
+- [x] Static placeholder markers for NPCs, monsters, bosses, portals and landmarks.
+- [x] Debug overlay (FPS, tile coords, entity IDs under cursor) + debug API additions.
+- [x] `cq play` (analyze → generate → cache → serve → open browser).
 
 ## Automated tests
 - **Unit:** world loader validates good worlds and rejects broken ones with
@@ -151,8 +151,8 @@ getFogSeenRatio(): number;
 6. Run `cq play` on **your own project**. Walk for 5 minutes. Write down 3 things that feel good and 3 that feel confusing. This is your first mini playtest.
 
 ## Definition of done
-- [ ] All tests green.
-- [ ] `cq play` works on fixtures and on your own project.
+- [x] All tests green.
+- [x] `cq play` works on fixtures and on your own project.
 - [ ] Movement feels smooth (no stutter; 60 fps on your machine with a mid-size repo).
 - [ ] Mini playtest notes recorded below.
 
@@ -176,7 +176,61 @@ walk me through the manual test script, and fill in the Results section.
 ```
 
 ## Results (fill in after testing)
-- Date:
-- Automated tests:
-- Mini playtest notes (3 good / 3 confusing):
-- Decisions / ADRs:
+- Date: 2026-10-19, Windows, Node.js 24 / pnpm, Chromium headless.
+- Automated tests: `pnpm test` passed **236 tests in 30 files**. `pnpm e2e`
+  passed **22 tests**, including all earlier phase regressions and seven new
+  exploration checks. The new checks cover the Taskly title, region location,
+  keyboard door entry and return to the same door, mouse interaction, a
+  twenty-tile walk increasing fog discovery, click-to-move, synthetic gamepad
+  movement/deadzone, keyboard modal controls, axe, load errors, three screenshot
+  baselines, and the stress world. Unit/integration tests cover malformed worlds,
+  references/themes, rejected paths, lazy Tiled loading/retry, collision movement,
+  pathfinding, session fog, reverse transitions, chunk selection and HTTP/cache
+  behavior including edits without a commit.
+- Performance: the final full browser-suite run with **2,000 distinct buildings**
+  averaged **16.75 ms/frame over 185 samples**, below the rough 40 ms guard. The
+  test also checks a bounded number of rendered chunks. This is a headless
+  measurement, not owner confirmation of smooth movement on physical hardware.
+- Other checks: frozen-lockfile install, `pnpm check` (Biome, strict TypeScript,
+  worldgen RNG rule), `pnpm build`, license enforcement and `git diff --check`
+  passed. Production-bundle checks exclude `window.__CQ__` and dev-only pages.
+  PNG screenshot baselines are tracked through Git LFS, including CI checkout.
+  Remote CI has not been run.
+- CLI and production-browser smoke actually run by the agent:
+  `pnpm cq -- play fixtures/repos/tiny-ts --no-open --port 4184` built the world
+  in **797 ms** (5 regions, 18 buildings, 58 NPCs, 40 monsters). A second process
+  on port 4186 logged **Cache hit in 267 ms**. The HTTP integration test separately
+  verifies status 200 and cache reuse. `pnpm cq -- play . --no-open --port 4185`
+  built this repository's world in **1,981 ms** (9 regions, 318 buildings, 821 NPCs,
+  655 monsters in that working snapshot). Both production pages loaded, entered
+  their starting regions, opened the full map and displayed updating F3 metrics,
+  with zero browser errors and no debug API attached to `window`. The HUD showed
+  `Taskly / src/api` and `Codebase-quest / packages/analyzer`, respectively.
+- Visual inspection: the agent viewed Overworld/Region/Interior baselines and
+  production screenshots of the own-project region and Taskly map. Existing
+  Kenney placeholder tiles, fog, minimap, code breadcrumbs and readable panels
+  render correctly; they are not final biome artwork.
+- Mini playtest notes (agent observations; **not a five-minute human playtest**):
+  - Good: the breadcrumb identifies the current source folder and file; door
+    entry/return preserves location; the map and session fog make exploration
+    progress visible.
+  - Confusing / future polish: placeholder colors give weak biome identity;
+    static entity dots need richer names/legend as later phases add characters;
+    heavy initial fog hides destinations until the player explores the streets.
+  - Owner's 3 good / 3 confusing notes, five-minute movement-feel review and
+    physical gamepad testing are **pending**. No physical controller was tested;
+    the synthetic gamepad checks browser input plumbing only.
+- Owner walkthrough: run `pnpm cq -- play fixtures/repos/tiny-ts`, click
+  **Enter the kingdom**, and press **E** beside the blue starting gate to enter
+  Port of API. Walk with WASD/arrows (Shift to run) or click paths. Approach file
+  signs and enter `routes.ts`; its door is tile **64,34** if you use F3 for
+  orientation. Verify the breadcrumb ends in `routes.ts`, then exit with E.
+  Press **M** to read the map and **Esc** to return; press **F3** for live metrics.
+  Try mouse-only navigation using clicks and the Interact button, then your
+  gamepad if available. Finally run `pnpm cq -- play .`, explore for five minutes,
+  and record three things that feel good and three that are confusing.
+- Decisions / ADRs: [ADR 0007](../../adr/0007-walkable-client-and-local-play.md)
+  records the native accessible HUD, dirty-content cache fingerprint, cache
+  exclusion, title naming, collision controller, chunk lifecycle, memory/network
+  limits, screenshot storage and honest performance/playtest boundaries. Module
+  ownership and controls are in `apps/game/src/explore/README.md`.

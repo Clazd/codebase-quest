@@ -14,6 +14,7 @@
   "dependencies": {
     "@codebase-quest/analyzer": "workspace:*",
     "@codebase-quest/shared": "workspace:*",
-    "@codebase-quest/worldgen": "workspace:*"
+    "@codebase-quest/worldgen": "workspace:*",
+    "vite": "8.3.4"
   }
 }

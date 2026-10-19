@@ -1,0 +1,80 @@
+# Walking through a repository
+
+From the workspace root:
+
+```sh
+pnpm cq -- play fixtures/repos/tiny-ts
+pnpm cq -- play .
+```
+
+The command analyzes source data, generates maps, builds the trusted game client
+if necessary, starts a loopback server and opens the browser. `--no-open` prints
+the URL without opening it; `--port 4184` chooses a port. Ctrl+C stops that server.
+The second launch logs `Cache hit` when the commit and safe source contents match.
+Edits without a commit invalidate it. Cache output stays under `.codequest/cache`
+or the OS temp directory when the repository denies writes.
+
+Click **Enter the kingdom**. Start beside the blue gate; **E** or **Interact**
+enters its region. Region gates return to the overworld, building doors lead
+inside, and the interior entrance returns to the same door. NPCs, monsters,
+bosses and portals are static markers during this phase.
+
+| Input | Action |
+|---|---|
+| Arrows / WASD | Walk, including normalized diagonals |
+| Shift | Run |
+| Click a reachable tile | Follow an A* route |
+| Click again at arrival / Interact button | Enter a nearby door or gate |
+| Gamepad left stick | Walk, with a deadzone |
+| E / Space / Enter | Interact |
+| M / Map button | Open or close the full overworld map |
+| Esc / Pause button | Pause; settings stub and readable font option |
+| Mouse wheel / − / + | Three camera zoom levels |
+| F3 | FPS, coordinates, map ID, chunk count, entity IDs at cursor |
+
+All keyboard bindings are in `navigation.ts`. HUD controls are reachable by Tab;
+modal panels retain focus until closed. Menus and loading stop movement. Input
+releases on window blur. No exploration state survives a reload yet.
+
+The minimap shows explored terrain, known gates and your position. The full map
+labels regions and marks your current region when inside it. Walk within eight
+tiles to reveal fog. A file counts as `seen` only when its building footprint is
+fully revealed; it is not marked understood. Proximity signs show file names;
+hovering a sign displays its path in the status line. Breadcrumbs track the
+kingdom, region, district and current file.
+
+## Implementation boundaries
+
+- `loader.ts`: runtime WorldModel/Tiled validation, local asset paths, lazy map fetch.
+- `navigation.ts`: pure collision movement, A*, bindings and camera chunk selection.
+- `session.ts`: indexed map/location references, fog and comprehension state.
+- `game.ts`: Phaser Preload/Title/map/HUD scenes, camera and rendered chunks.
+- `hud.ts`: persistent native HTML controls, minimap and accessible modal panels.
+- `apps/cli/src/play.ts`: safe discovery fingerprint, cache, loopback server/opener.
+
+Rendering uses the existing Kenney CC0 placeholder theme. Large maps instantiate
+64×64 tilemap chunks around the camera, while their collision arrays remain
+available for navigation. WorldModel JSON is still a complete logical model.
+This phase does not implement final art, dialogue, combat or persistent saves.
+
+## Verification
+
+`pnpm test` includes loader validation, rejected references/assets, path collision,
+diagonal normalization, fog/reverse transitions/chunk selection and HTTP/cache
+integration tests. `pnpm e2e` builds test-only Taskly and 2,000-building worlds and
+checks title/doors, a twenty-tile walk, pointer movement, synthetic gamepad input,
+keyboard/axe, visual regression and average frame time (rough guard: 40 ms).
+
+The fixture query `?world=fixtures/tiny-ts` and `window.__CQ__` are available only
+in dev/test builds. F3 works in the built game. Debug helpers extend the earlier
+API with world summary, location, region/building entry, fog ratio, camera and
+frame/chunk statistics. Production bundles are tested to exclude the debug API.
+
+For an intentional visual update, run:
+
+```sh
+pnpm e2e apps/game/e2e/explore.e2e.ts --update-snapshots
+```
+
+Inspect all three PNGs in `apps/game/e2e/explore.e2e.ts-snapshots/` before committing.
+They use Git LFS. Remote CI and physical gamepad comfort require separate checks.

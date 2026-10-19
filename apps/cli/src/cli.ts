@@ -17,13 +17,11 @@ const COMMANDS = [
   ["stats <graph.json>", "Summarize a validated CodeGraph"],
   ["generate <graph>", "Generate world/maps/previews --out <directory>"],
   ["world preview <json>", "Regenerate a world's SVG previews"],
+  ["play <path>", "Walk your repository [--no-open] [--port N]"],
 ] as const;
 
 /** Commands on the roadmap, shown so people know what's coming (never pretend they work). */
-const PLANNED = [
-  ["play [path]", "Analyze, generate and open the game", "Phase 04"],
-  ["setup / mcp", "Connect your own AI agent through MCP", "Phase 06"],
-] as const;
+const PLANNED = [["setup / mcp", "Connect your own AI agent through MCP", "Phase 06"]] as const;
 
 export function helpText(): string {
   const pad = (s: string) => s.padEnd(20);

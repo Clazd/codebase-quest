@@ -9,6 +9,18 @@ import { type CliResult, run } from "./cli.ts";
 export async function runCommand(argv: readonly string[]): Promise<CliResult> {
   const args = argv[0] === "--" ? argv.slice(1) : argv;
   const command = args[0];
+  if (command === "play") {
+    try {
+      const { playCommand } = await import("./play.ts");
+      return await playCommand(args);
+    } catch (error) {
+      return {
+        code: 1,
+        stdout: "",
+        stderr: `cq: ${error instanceof Error ? error.message : "Could not start game"}\n`,
+      };
+    }
+  }
   if (command === "generate" || command === "world") {
     try {
       if (command === "world") {

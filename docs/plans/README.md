@@ -49,7 +49,7 @@ script, and fill in the Results section. Ask before pushing.
 | 01 | [Prototype: Fun and Look](phases/P01-prototype-fun-and-look.md) | A · Prove the Fun | ~1 week | 🟨 Implemented; human playtest pending |
 | 02 | [Code Analyzer](phases/P02-analyzer.md) | B · The Map | 1.5–2.5 wks | 🟨 Implemented and tested; owner spot-check pending |
 | 03 | [World Generator](phases/P03-world-generator.md) | B · The Map | 1.5–2 wks | 🟨 Implemented and tested; owner SVG review pending |
-| 04 | [Walkable World](phases/P04-walkable-world.md) | B · The Map | 1–1.5 wks | ⬜ Not started |
+| 04 | [Walkable World](phases/P04-walkable-world.md) | B · The Map | 1–1.5 wks | 🟨 Implemented and tested; owner mini playtest pending |
 | 05 | [NPCs, Code Panel and Codex](phases/P05-npcs-code-codex.md) | C · The People | 1–1.5 wks | ⬜ Not started |
 | 06 | [AI Content Engine, MCP Server and Gitling](phases/P06-ai-mcp-gitling.md) | C · The People | 2–2.5 wks | ⬜ Not started |
 | 07 | [Code-Body Combat and Question Library](phases/P07-code-body-combat.md) | D · The Game | 2.5–3 wks | ⬜ Not started |

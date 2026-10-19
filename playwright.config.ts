@@ -6,6 +6,7 @@ const isCI = process.env.CI !== undefined;
 export default defineConfig({
   testDir: "apps/game/e2e",
   testMatch: "**/*.e2e.ts",
+  snapshotPathTemplate: "{testDir}/{testFilePath}-snapshots/{arg}{ext}",
   fullyParallel: true,
   workers: 2,
   forbidOnly: isCI,
