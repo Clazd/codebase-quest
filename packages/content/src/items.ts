@@ -40,8 +40,8 @@ export function makeItem(contentType: ContentType, entityId: string, facts: Item
 }
 /**
  * The world's prebuildable content: dialogue for every character, lore for every
- * region and the kingdom. Quest narration, combat explanations and issue mapping
- * arrive with Phases 08, 07 and 10.
+ * region and the kingdom, plus key-free combat afterwords. Quest narration and
+ * issue mapping arrive with Phases 08 and 10.
  */
 export function worldItems(
   world: WorldModel,
@@ -55,6 +55,8 @@ export function worldItems(
       const code = codeOf(sheet);
       items.push(
         makeItem("npc-dialogue", sheet.symbolId, { kind: "symbol", sheet, code: code ? untrusted(code) : null }),
+        // No encounters, questions, choices or input routes enter the AI path.
+        makeItem("combat-explanation", sheet.symbolId, { kind: "symbol", sheet, code: null }),
       );
     }
   for (const region of world.regions) {
@@ -103,6 +105,14 @@ export function templateOutput(
   context: { index?: SearchIndex; book?: Pick<FactBook, "symbols"> } = {},
 ): ContentOutput<ContentType> {
   const f = item.facts;
+  if (item.contentType === "combat-explanation" && f.kind === "symbol")
+    return {
+      text: clip(
+        `${f.sheet.name} lives in ${f.sheet.path}. Its body map follows the source statements and their nesting. Review the source and its callers before changing it.`,
+        400,
+      ),
+      refs: [{ path: f.sheet.path, startLine: f.sheet.range.startLine, endLine: f.sheet.range.endLine }],
+    };
   if (item.contentType === "npc-dialogue" && f.kind === "symbol")
     return { lines: dialogueFor(f.sheet, seed).map((l) => clip(l.text, 160)) };
   if (item.contentType === "region-lore" && f.kind === "region") {

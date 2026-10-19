@@ -11,6 +11,8 @@ export default defineConfig(({ mode }) => ({
     // The `window.__CQ__` debug API exists in dev and test builds only. In a
     // production build this is the literal `false`, so the bundler drops it.
     __CQ_DEBUG__: JSON.stringify(mode !== "production"),
+    // `__testAnswerKey` exists only in test builds (Playwright), never in dev or production.
+    __CQ_TEST__: JSON.stringify(mode === "test"),
   },
   oxc: {
     jsx: { runtime: "automatic", importSource: "preact" },

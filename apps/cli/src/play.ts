@@ -28,6 +28,7 @@ import {
   OllamaProvider,
   saveSpend,
 } from "@codebase-quest/content/node";
+import { buildEncounters } from "@codebase-quest/puzzles";
 import { type FactBook, FactBookSchema, type FactLinks, WorldModelSchema } from "@codebase-quest/shared";
 import { generate, writeWorld } from "@codebase-quest/worldgen";
 import { discover, secretPath } from "../../../packages/analyzer/src/discover.ts";
@@ -35,7 +36,7 @@ import { BridgeHub, removeSession, writeSession } from "./bridge.ts";
 import { createSourceReader, maskLines, sourceResponse } from "./source.ts";
 import { Workspace } from "./workspace.ts";
 
-const CACHE_VERSION = "gitling-v1";
+const CACHE_VERSION = "combat-v2";
 export const DEFAULT_EDITOR = "vscode://file/{path}:{line}";
 const gameRoot = fileURLToPath(new URL("../../game", import.meta.url));
 function safeParents(path: string) {
@@ -83,7 +84,13 @@ async function prepare(repo: string, cacheRoot: string | undefined, build: boole
     const ready = join(directory, "ready.json"),
       json = join(directory, "world.json"),
       factsJson = join(directory, "facts.json");
-    if (existsSync(ready) && existsSync(json) && existsSync(factsJson) && existsSync(join(directory, "search.json"))) {
+    if (
+      existsSync(ready) &&
+      existsSync(json) &&
+      existsSync(factsJson) &&
+      existsSync(join(directory, "search.json")) &&
+      existsSync(join(directory, "encounters", "index.json"))
+    ) {
       safeParents(ready);
       safeParents(json);
       safeParents(factsJson);
@@ -101,13 +108,14 @@ async function prepare(repo: string, cacheRoot: string | undefined, build: boole
   if (!build) return null;
   let world: ReturnType<typeof generate> | undefined;
   let facts: FactBook | undefined;
+  let graph: Awaited<ReturnType<typeof analyze>> | undefined;
   for (const base of bases) {
     const directory = join(base, commit, digest);
     safeParents(directory);
     try {
       mkdirSync(directory, { recursive: true });
       if (!world || !facts) {
-        const graph = await analyze(root);
+        graph = await analyze(root);
         world = generate(graph);
         facts = buildFactBook(graph, world);
         const manifest = discovery.files.find((f) => f.path === "package.json");
@@ -129,6 +137,20 @@ async function prepare(repo: string, cacheRoot: string | undefined, build: boole
         return lines ? maskLines(lines.slice(sheet.range.startLine - 1, sheet.range.endLine)).lines : null;
       });
       writeFileSync(join(directory, "search.json"), `${JSON.stringify(index)}\n`);
+      // Code-Body Combat: one file per fight, built from the syntax tree (no code is executed).
+      if (graph) {
+        const masked = new Map(discovery.files.map((f) => [f.path, f]));
+        const built = await buildEncounters(world, graph, (path) => {
+          const file = masked.get(path);
+          return file?.language
+            ? { text: maskLines(file.text.split("\n")).lines.join("\n"), language: file.language }
+            : null;
+        });
+        mkdirSync(join(directory, "encounters"), { recursive: true });
+        writeFileSync(join(directory, "encounters", "index.json"), `${JSON.stringify(built.index)}\n`);
+        for (const [id, encounter] of built.encounters)
+          writeFileSync(join(directory, "encounters", `${id}.json`), `${JSON.stringify(encounter)}\n`);
+      }
       writeFileSync(join(directory, "ready.json"), JSON.stringify({ version: CACHE_VERSION }));
       return { world, facts, root, directory, commit, cached: false, ms: performance.now() - started };
     } catch (error) {

@@ -1,0 +1,26 @@
+{
+  "energyPerTurn": 6,
+  "costs": {
+    "read": 1,
+    "trace": 3,
+    "sever": 4,
+    "disable": 3,
+    "armor": 3,
+    "pierce": 5,
+    "compare": 3,
+    "gitling": 2,
+    "flee": 0
+  },
+  "difficulties": {
+    "story": { "focus": 30, "wrongPrediction": 1, "startRevealed": true, "showKindIcons": true },
+    "normal": { "focus": 20, "wrongPrediction": 3, "startRevealed": false, "showKindIcons": true },
+    "expert": { "focus": 14, "wrongPrediction": 4, "startRevealed": false, "showKindIcons": false }
+  },
+  "traceDamage": 1,
+  "counterDamage": 2,
+  "organSummonAfterTurns": 2,
+  "minionDamage": 1,
+  "wrongAnswerFocusPenalty": 0,
+  "fleeMemorySeconds": 60,
+  "tokenStepMs": 350
+}

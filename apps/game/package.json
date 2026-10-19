@@ -18,7 +18,9 @@
     "preact": "11.0.1",
     "shiki": "4.5.0",
     "zod": "4.6.7",
-    "@codebase-quest/content": "workspace:*"
+    "@codebase-quest/content": "workspace:*",
+    "@codebase-quest/combat": "workspace:*",
+    "@codebase-quest/puzzles": "workspace:*"
   },
   "devDependencies": {
     "@codebase-quest/worldgen": "workspace:*",

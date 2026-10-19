@@ -1,7 +1,7 @@
 # Phase 07: Code-Body Combat and Question Library
 
 > **Milestone:** D · The Game · **Depends on:** 01 (prototype decision), 05 (06
-> optional for explanations) · **Effort:** 2.5–3 weeks · **Status:** Not started
+> optional for explanations) · **Effort:** 2.5–3 weeks · **Status:** Implemented and tested; owner playtest pending
 > **Read first:** MASTER-PLAN §7, §8, §10.2, §16.4, ADR 0003 (from Phase 01)
 
 ## Goal
@@ -155,21 +155,21 @@ __testAnswerKey(): number | null;   // test builds only
 ```
 
 ## Tasks
-- [ ] CodeBody builder (+ grouping) with zod schema and goldens.
-- [ ] Safe evaluator + body inputs (test-assertion and evaluator sources).
-- [ ] Question library generators + validators (all types listed above, except Phase 09's).
-- [ ] Mutation engine.
-- [ ] Combat rules engine (from the prototype's balance and ADR 0003).
-- [ ] Monster entities in the world (patrol, aggro, sneak, telegraph, tamed critters).
-- [ ] Combat scene UI (port and harden the Phase 01 prototype UI).
-- [ ] Monster twists for every Bestiary monster.
-- [ ] Minions from organs.
-- [ ] Hints and the Gitling ladder.
-- [ ] Explanations (template + content-engine hook).
-- [ ] Codex body maps; Bestiary + export.
-- [ ] Difficulty modes; accessibility (keyboard, ARIA announcements, shapes + icons).
-- [ ] Balance simulator (simulated players at 40/60/80% accuracy).
-- [ ] Debug API additions.
+- [x] CodeBody builder (+ grouping) with zod schema and goldens.
+- [x] Safe evaluator + body inputs (test-assertion and evaluator sources).
+- [x] Question library generators + validators (all types listed above, except Phase 09's).
+- [x] Mutation engine.
+- [x] Combat rules engine (from the prototype's balance and ADR 0003).
+- [x] Monster entities in the world (patrol, aggro, sneak, telegraph, tamed critters).
+- [x] Combat scene UI (port and harden the Phase 01 prototype UI).
+- [x] Monster twists for every Bestiary monster.
+- [x] Minions from organs.
+- [x] Hints and the Gitling ladder.
+- [x] Explanations (template + content-engine hook).
+- [x] Codex body maps; Bestiary + export.
+- [x] Difficulty modes; accessibility (keyboard, ARIA announcements, shapes + icons).
+- [x] Balance simulator (simulated players at 40/60/80% accuracy).
+- [x] Debug API additions.
 
 ## Automated tests
 - **CodeBody goldens** for every function in `tiny-ts` and `smelly-ts`.
@@ -191,8 +191,8 @@ __testAnswerKey(): number | null;   // test builds only
 5. Export the Bestiary. Does it read like a useful tech-debt report?
 
 ## Definition of done
-- [ ] All tests green, including re-derivation and the no-answer guarantee.
-- [ ] Every monster type fightable on `smelly-ts`.
+- [x] All tests green, including re-derivation and the no-answer guarantee.
+- [x] Every monster type fightable on `smelly-ts`.
 - [ ] "Learned something true" average ≥ 4.
 - [ ] Zero wrong answer keys found in manual play (each one found → regression test + fix).
 
@@ -219,8 +219,58 @@ manual script when done.
 ```
 
 ## Results (fill in after testing)
-- Date:
-- Automated tests / balance numbers:
-- "Learned something true" average:
-- Wrong-key actions found (should be 0):
-- Decisions / ADRs:
+- Date: 2026-10-19, Windows, Node 24 / pnpm 10.33.1.
+- Implementation: continued Claude's interrupted work on
+  `phase/07-code-body-combat`. Generated syntax-tree bodies and safe inputs,
+  pure combat rules based on Phase 01, mutations, all twelve monster twists,
+  patrol/aggro/sneak/taming, minions, evidence hints, consumables, session XP,
+  lazy local encounters, cleared Codex maps and editable/exportable Bestiary
+  records are implemented. Optional prebuilt afterwords use only FactSheets;
+  they never receive questions, choices, answer keys or input routes.
+- Automated tests:
+  - `pnpm install --frozen-lockfile`: passed.
+  - `pnpm test`: **371/371 passed in 43 files**. New coverage includes body
+    goldens/determinism for all 123 function/method/class bodies in `tiny-ts`
+    and `smelly-ts`, source/limb/heart/exact-edge invariants on all six fixtures,
+    grouping cases, prototype parity, evaluator truth tables and unsupported
+    paths, all six mutation operators, consumables, minions and terminal rules.
+    **293 generated scored questions** are independently re-derived from raw
+    syntax, graph edges, assertions, diffs and mutations; every distractor is
+    checked. The oracle does not call the production evaluator and no fixture
+    code is imported or executed. Additional library tests cover Trace, Who
+    Calls and Type Sense even when another action fallback is selected.
+  - Provider spies (agent/sampling/Ollama/API) and a real in-memory MCP transport
+    pass the no-answer boundary checks during a generated fight. The browser's
+    public fight/debug views omit answers and routes. Production bundles omit
+    the debug API and `__testAnswerKey`; ordinary development has no test key.
+  - `CQ_E2E_PORT=4297 pnpm e2e` (PowerShell: set `$env:CQ_E2E_PORT='4297'`
+    first): **46/46 passed** in headless Chromium. Includes a generated victory
+    or honest investigation for all twelve monster types, Bestiary notes and
+    Markdown download, defeat/flee, real callee minions after two ignored turns,
+    a keyboard-only generated fight, ARIA and axe checks, and all earlier
+    prototype/world/NPC/Gitling regressions. Existing screenshots pass without
+    baseline changes. Stress world: 16.84 ms/frame in the final run.
+  - `pnpm check`, `pnpm build`, `pnpm license-check -- --enforce` and
+    `git diff --check`: passed. Combat was visually inspected from a browser
+    screenshot; long grids scroll within the panel and actions stay reachable.
+  - The full suite exposed an older concurrent test-session collision; bridge
+    tests now have a private temporary home. Browser runs exposed contrast and
+    accessible-name defects plus a transition/debug-scene race; all were fixed.
+- Balance: `pnpm balance:combat` analyzed both fixtures without executing them:
+  **54 encounters**, 1,080 Story fights per accuracy setting. At 40/60/80%
+  accuracy, mean durations were **4.589 / 3.071 / 2.331 turns**, defeat rates
+  **0.278% / 0% / 0%**, and no timeouts. The documented level-1 normalization
+  experiment ran 2,040 Normal fights at 60% accuracy: **3.159 mean turns**,
+  **0.294% defeats**, no timeouts. Instant investigations/proofs are excluded
+  from that pacing average; real fixture severities start at level 2.
+- "Learned something true" average: **not measured; owner playtest pending**.
+  Automated victories are not evidence of fun, learning or adoption. Use the
+  [manual walkthrough and observation sheet](../../playtests/phase-07/README.md).
+- Wrong-key actions found (should be 0): **0 in the automated fixture audit**;
+  manual count is **not measured**. A manual wrong key must become a regression
+  test before marking this phase done. Own-project 15-minute play is pending.
+- Decisions / ADRs: [ADR 0010](../../adr/0010-generated-code-body-combat.md)
+  records the conservative fallbacks, prototype clock-cell interpretation,
+  minion sizes, irreducible-body limit, provisional Serpent layout, safe optional
+  afterwords and balance normalization. ADR 0003's human adoption decision
+  remains open. No push, PR, merge, remote CI or GitHub setting change was made.

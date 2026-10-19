@@ -24,6 +24,7 @@ beforeAll(async () => {
     gameDirectory: game,
     cacheRoot: join(temp, "cache"),
     ai: AiConfigSchema.parse({}),
+    home: join(temp, "home"),
   });
   const url = new URL(played.url);
   port = url.port;
@@ -67,8 +68,8 @@ function attempt(
 }
 describe("bridge security", () => {
   it("writes a private session file with the token for the MCP server", () => {
-    const session = readSession(played.root);
-    expect(session?.token).toBe(token);
+    const session = readSession(played.root, join(temp, "home"));
+    expect(session?.token === token).toBe(true);
     expect(session?.port).toBe(Number(port));
     expect(token).toMatch(/^[a-f0-9]{64}$/);
   });

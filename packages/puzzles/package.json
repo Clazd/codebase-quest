@@ -7,5 +7,11 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@codebase-quest/shared": "workspace:*",
+    "zod": "4.6.7",
+    "@codebase-quest/combat": "workspace:*",
+    "web-tree-sitter": "0.27.1"
   }
 }

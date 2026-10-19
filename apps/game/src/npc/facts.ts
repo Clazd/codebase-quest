@@ -1,4 +1,4 @@
-import type { SearchIndex } from "@codebase-quest/content";
+import { OUTPUT_SCHEMAS, type SearchIndex } from "@codebase-quest/content";
 import {
   type FactBook,
   FactBookSchema,
@@ -74,6 +74,13 @@ export class FactIndex {
   }
   sheet(symbolId: string): FactSheet | undefined {
     return this.sheets.get(symbolId);
+  }
+  /** Optional prebuilt afterword, shown only once the fight ends. */
+  combatExplanation(symbolId: string): string | null {
+    const parsed = OUTPUT_SCHEMAS["combat-explanation"].safeParse(
+      this.content[`combat-explanation:${symbolId}`]?.output,
+    );
+    return parsed.success ? parsed.data.text : null;
   }
   npc(symbolId: string): NpcPlacement | undefined {
     return this.npcs.get(symbolId);

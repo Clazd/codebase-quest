@@ -29,7 +29,12 @@ if (world) {
     if (__CQ_DEBUG__) {
       window.__CQ__ = {
         ...createDebugApi(app.game, virtualKeys),
-        getScene: () => app.active?.sys.settings.key ?? "Title",
+        getScene: () => (app.loading ? "Loading" : (app.active?.sys.settings.key ?? "Title")),
+        getPlayer: () => app.active?.getPlayerPosition() ?? { x: 0, y: 0 },
+        teleport: (x: number, y: number) => {
+          if (!app.active) throw new Error("No active map");
+          app.active.teleportPlayer(x, y);
+        },
         getWorldSummary: () => ({
           regions: app.session.world.regions.length,
           buildings: app.session.world.buildings.length,
@@ -73,6 +78,61 @@ if (world) {
         bridgeReceive: (message: unknown) => app.bridge.receive(message as never),
         bridgeSent: () => [...app.bridge.sent],
         askGitling: (question: string) => app.overlay.ask(question),
+        startFight: (id: string) => app.startFight(id),
+        getMonsters: () => app.active?.monsterStates() ?? [],
+        getFight: () => {
+          const v = app.combat.view();
+          if (!v) return null;
+          return {
+            name: v.name,
+            kind: v.kind,
+            body: v.bodies.map((b) => ({
+              cells: b.cells.map((c) => ({ id: c.id, kind: c.kind, row: c.row, col: c.col, lines: c.lines })),
+            })),
+            focus: v.focus,
+            energy: v.energy,
+            monsterHp: v.monsterHp,
+            outcome: v.outcome,
+            turn: v.turn,
+            question: v.question
+              ? { id: v.question.id, type: v.question.type, prompt: v.question.prompt, choices: v.question.choices }
+              : null,
+            prediction: v.prediction ? { choices: v.prediction.choices } : null,
+            cells: Object.fromEntries(
+              Object.entries(v.cells).map(([id, c]) => [
+                id,
+                { destroyed: c.destroyed, revealed: c.revealed, hp: c.hp },
+              ]),
+            ),
+            summoned: v.summoned,
+            twistActions: app.combat.state?.encounter.twist.actions ?? [],
+          };
+        },
+        act: async (action: string, target?: string | null, choice?: number) => {
+          const c = app.combat;
+          if (!c.state) throw new Error("No fight");
+          if (action === "end") {
+            c.endTurn();
+            return {};
+          }
+          if (action === "close") {
+            c.close();
+            return {};
+          }
+          if (action === "predict") {
+            const before = c.state.stats.predictionsRight;
+            const heart = c.view()?.prediction?.choices[choice ?? 0];
+            if (!heart) throw new Error("No prediction pending");
+            c.predict(heart);
+            return { correct: (c.state?.stats.predictionsRight ?? before) > before };
+          }
+          if (!c.state.pending) c.act(action as never, target ?? null);
+          if (choice === undefined) return {};
+          const right = c.state?.stats.answersRight ?? 0;
+          c.answer(choice);
+          return { correct: (c.state?.stats.answersRight ?? right) > right };
+        },
+        ...(__CQ_TEST__ ? { __testAnswerKey: () => app.combat.testKey() } : {}),
         getGuide: () =>
           app.guide ? { symbolId: app.guide.symbolId, waypoint: app.guideWaypoint()?.position ?? null } : null,
         getCamera: () => {

@@ -25,7 +25,7 @@ export interface CqDebugApi {
   getCamera(): { scrollX: number; scrollY: number; zoom: number; width: number; height: number };
   /** Talks to a character as if the player pressed E beside it (opens dialogue + Code Panel). */
   interactWithNpc(symbolId: string): Promise<void>;
-  getOpenPanel(): { kind: "code" | "codex" | "gitling" | null; symbolId?: string };
+  getOpenPanel(): { kind: "code" | "codex" | "gitling" | "combat" | null; symbolId?: string };
   getCodexCount(): number;
   /** Teleports to stand beside a character at home, without talking. */
   gotoNpc(symbolId: string): Promise<void>;
@@ -39,6 +39,34 @@ export interface CqDebugApi {
   bridgeSent(): Record<string, unknown>[];
   /** Asks Gitling a question; returns the chat entry ID. */
   askGitling(question: string): string;
+  /** Code-Body Combat (Phase 07): start a fight by smell ID or encounter ID. */
+  startFight(smellOrEncounterId: string): Promise<void>;
+  /** The fight as the player sees it (no answer keys), or null. */
+  getFight(): FightView | null;
+  /**
+   * Performs an action (`read`, `trace`, `sever`…; `end` ends the turn; `predict`
+   * predicts with `choice` as the heart index) and, with `choice`, answers its question.
+   */
+  act(action: string, target?: string | null, choice?: number): Promise<{ correct?: boolean }>;
+  /** Monsters on the current map. */
+  getMonsters(): { id: string; kind: string; mode: string; x: number; y: number }[];
+  /** Test builds only: the correct choice for the pending question or prediction. */
+  __testAnswerKey?(): number | null;
+}
+export interface FightView {
+  name: string;
+  kind: string;
+  body: { cells: { id: string; kind: string; row: number; col: number; lines: [number, number] }[] }[];
+  focus: number;
+  energy: number;
+  monsterHp: number;
+  outcome: string | null;
+  turn: number;
+  question: { id: string; type: string; prompt: string; choices: string[] } | null;
+  prediction: { choices: string[] } | null;
+  cells: Record<string, { destroyed: boolean; revealed: boolean; hp: number }>;
+  summoned: string[];
+  twistActions: string[];
 }
 
 /** A scene that has a player the debug API can read and move. */
@@ -101,6 +129,14 @@ export function createDebugApi(game: SceneSource, virtualKeys: VirtualKeys): CqD
     askGitling: () => {
       throw new Error("Load a world to ask Gitling");
     },
+    startFight: async () => {
+      throw new Error("Load a world to fight");
+    },
+    getFight: () => null,
+    act: async () => {
+      throw new Error("Load a world to fight");
+    },
+    getMonsters: () => [],
     version: pkg.version,
     getScene() {
       const scenes = activeScenes();

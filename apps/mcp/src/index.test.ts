@@ -148,7 +148,7 @@ describe("MCP contract", () => {
       const c = (done.coverage as Record<string, { done: number; total: number }>)[type];
       expect(c?.done, type).toBe(c?.total);
     }
-    expect(accepted).toBe(58 + 5 + 1);
+    expect(accepted).toBe(58 * 2 + 5 + 1); // dialogue + key-free combat afterword per character
   });
   it("searches code and returns fact sheets with refs; repository text is marked untrusted", async () => {
     const found = body(await agent.call("cq_search_code", { query: "where are tasks saved" }));

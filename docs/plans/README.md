@@ -52,7 +52,7 @@ script, and fill in the Results section. Ask before pushing.
 | 04 | [Walkable World](phases/P04-walkable-world.md) | B · The Map | 1–1.5 wks | 🟨 Implemented and tested; owner mini playtest pending |
 | 05 | [NPCs, Code Panel and Codex](phases/P05-npcs-code-codex.md) | C · The People | 1–1.5 wks | 🟨 Implemented and tested; owner template rating pending |
 | 06 | [AI Content Engine, MCP Server and Gitling](phases/P06-ai-mcp-gitling.md) | C · The People | 2–2.5 wks | 🟨 Implemented and tested; real-agent prebuild pending |
-| 07 | [Code-Body Combat and Question Library](phases/P07-code-body-combat.md) | D · The Game | 2.5–3 wks | ⬜ Not started |
+| 07 | [Code-Body Combat and Question Library](phases/P07-code-body-combat.md) | D · The Game | 2.5–3 wks | 🟨 Implemented and tested; owner combat playtest pending |
 | 08 | [Quests, Progression and Saves](phases/P08-quests-progression.md) | D · The Game | 2–2.5 wks | ⬜ Not started |
 | 09 | [Bosses and Dungeons ★ MVP](phases/P09-bosses-dungeons.md) | D · The Game | 2–3 wks | ⬜ Not started |
 | 10 | [Hero's Trial](phases/P10-heros-trial.md) | E · Real Heroes | 1.5–2 wks | ⬜ Not started |

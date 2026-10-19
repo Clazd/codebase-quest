@@ -1,6 +1,8 @@
 import type { FactLink, FactSheet } from "@codebase-quest/shared";
 import { render } from "preact";
 import { useEffect, useRef, useState } from "preact/hooks";
+import { CombatPanel } from "../combat/CombatPanel.tsx";
+import { FightCodex } from "../combat/FightCodex.tsx";
 import { BADGES, badgesFor } from "../npc/appearance.ts";
 import { completion, exportNotes, searchCodex } from "../npc/codex.ts";
 import type { SourceSlice } from "../npc/facts.ts";
@@ -402,6 +404,7 @@ function Codex({ store }: { store: OverlayStore }) {
           </button>
         </div>
         <h2 id="codex-title">Codex</h2>
+        <FightCodex store={store} symbolId={entry?.symbolId} />
         <p class="completion">
           <strong id="codex-count">{done.overall.read}</strong> of {done.overall.total} characters read (
           {done.overall.percent}%) · {store.seen.size} seen
@@ -636,6 +639,21 @@ function Overlay({ store }: { store: OverlayStore }) {
       <GitlingPanel store={store} />
       <CodePanel store={store} />
       <Codex store={store} />
+      {store.combat && (
+        <CombatPanel
+          controller={store.combat}
+          tileset={store.tileset}
+          afterword={(id) => store.facts.combatExplanation(id)}
+          recall={(id) => (
+            <p>
+              {store.codex.data.bodyMaps[id]
+                ? `${store.codex.data.bodyMaps[id]?.name}: ${store.codex.data.bodyMaps[id]?.cells.map((c) => c[2]).join(" → ")}`
+                : "No body map recorded yet."}{" "}
+              {store.codex.note(id)}
+            </p>
+          )}
+        />
+      )}
     </>
   );
 }

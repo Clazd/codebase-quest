@@ -1,0 +1,67 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`injects flip-comparison deterministically and leaves valid syntax 1`] = `
+{
+  "cellId": "c1",
+  "description": "\`>\` became \`<=\`",
+  "line": 2,
+  "mutated": "if (a <= 1) { const b = a; }",
+  "operator": "flip-comparison",
+  "original": "if (a > 1) { const b = a; }",
+}
+`;
+
+exports[`injects plus-minus deterministically and leaves valid syntax 1`] = `
+{
+  "cellId": "c1",
+  "description": "\`+ 1\` became \`- 1\`",
+  "line": 2,
+  "mutated": "const c = a - 1;",
+  "operator": "plus-minus",
+  "original": "const c = a + 1;",
+}
+`;
+
+exports[`injects remove-not deterministically and leaves valid syntax 1`] = `
+{
+  "cellId": "c1",
+  "description": "the \`!\` was removed",
+  "line": 2,
+  "mutated": "if (a) { const c = a; }",
+  "operator": "remove-not",
+  "original": "if (!a) { const c = a; }",
+}
+`;
+
+exports[`injects return-null deterministically and leaves valid syntax 1`] = `
+{
+  "cellId": "c1",
+  "description": "\`return a\` became \`return null\`",
+  "line": 2,
+  "mutated": "return null;",
+  "operator": "return-null",
+  "original": "return a;",
+}
+`;
+
+exports[`injects swap-args deterministically and leaves valid syntax 1`] = `
+{
+  "cellId": "c1",
+  "description": "the arguments \`a\` and \`b\` were swapped",
+  "line": 2,
+  "mutated": "call(b, a);",
+  "operator": "swap-args",
+  "original": "call(a, b);",
+}
+`;
+
+exports[`injects swap-logic deterministically and leaves valid syntax 1`] = `
+{
+  "cellId": "c1",
+  "description": "\`&&\` became \`||\`",
+  "line": 2,
+  "mutated": "if (a || b) { const c = a; }",
+  "operator": "swap-logic",
+  "original": "if (a && b) { const c = a; }",
+}
+`;

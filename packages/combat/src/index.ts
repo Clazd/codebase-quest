@@ -1,11 +1,9 @@
 /**
- * @codebase-quest/combat: CodeBody builder, combat rules and the safe evaluator.
- *
- * Placeholder until Phase 07. It exists so the workspace is
- * complete from day one; see docs/plans/phases/.
+ * @codebase-quest/combat: Code-Body Combat. This entry is browser-safe: data
+ * contracts, the rules engine and the balance simulator. The syntax-tree body
+ * builder, safe evaluator, body inputs and mutations live in `./node`.
  */
-export const packageInfo = {
-  name: "@codebase-quest/combat",
-  phase: 7,
-  status: "placeholder",
-} as const;
+export * from "./rules.ts";
+export * from "./schema.ts";
+export * from "./simulate.ts";
+export const packageInfo = { name: "@codebase-quest/combat", phase: 7, status: "engine" } as const;

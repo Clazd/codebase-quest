@@ -1,5 +1,7 @@
 import type { WorldPosition } from "@codebase-quest/shared";
 import Phaser from "phaser";
+import { CombatController, type EncounterIndex, EncounterIndexSchema } from "../combat/controller.ts";
+import { MonsterEntity } from "../combat/monsters.ts";
 import { GameBridge } from "../gitling/bridge.ts";
 import type { VirtualKeys } from "../input/movement.ts";
 import { CodexStore, codexKey } from "../npc/codex.ts";
@@ -51,6 +53,12 @@ export class Explorer {
   animate = true;
   /** The local bridge to `cq play` (focus, player state, Gitling questions); offline without a token. */
   readonly bridge: GameBridge;
+  /** Code-Body Combat (Phase 07): fights, the encounter index and tamed monsters. */
+  readonly combat: CombatController;
+  encounters: EncounterIndex = [];
+  readonly tamed = new Set<string>();
+  private startingFight = false;
+  sneaking = false;
   constructor(loader: WorldLoader, virtualKeys: VirtualKeys, facts: FactIndex) {
     this.loader = loader;
     this.virtualKeys = virtualKeys;
@@ -63,6 +71,11 @@ export class Explorer {
     } catch {}
     const codex = new CodexStore(storage, codexKey(facts.book.repo.name, facts.book.repo.commit));
     this.overlay = new OverlayStore(facts, codex, this.bus, this.session.seenNpcs);
+    this.combat = new CombatController(loader.url);
+    this.overlay.tileset = assetUrl(loader.world.theme.image, loader.url);
+    this.overlay.attachCombat(this.combat);
+    for (const id of Object.keys(codex.data.bestiary)) this.tamed.add(id);
+    this.combat.onEnd = (end) => this.fightEnded(end.encounter, end.state);
     this.hud = new ExploreHud(this.session, {
       start: () => {
         void this.go(this.session.world.kingdom.gate).catch(() => {});
@@ -74,6 +87,7 @@ export class Explorer {
     });
     this.bridge = new GameBridge({
       focus: async (symbolId) => {
+        if (this.combat.active) return { ok: false, error: "Finish the fight before changing focus" };
         if (!this.facts.npc(symbolId)) return { ok: false, error: "No character for that symbol" };
         if (this.hud.title) return { ok: false, error: "The player has not entered the kingdom yet" };
         await this.teleportToNpc(symbolId, true);
@@ -135,6 +149,14 @@ export class Explorer {
         return;
       }
       if (this.hud.blocked) return;
+      if (BINDINGS.sneak.includes(event.key as "z")) {
+        event.preventDefault();
+        if (!event.repeat) {
+          this.sneaking = !this.sneaking;
+          this.message = this.sneaking ? "Sneaking: monsters notice you only up close." : "You stop sneaking.";
+        }
+        return;
+      }
       if (BINDINGS.gitling.includes(event.key as "g")) {
         event.preventDefault();
         if (!event.repeat) this.openGitling();
@@ -242,12 +264,18 @@ export class Explorer {
     return { tiled: this.tiled, position: this.position };
   }
   /** What E does here: a gate/door underfoot first, then the nearest character, then a nearby gate. */
-  target(): { kind: "door"; label: string; to: WorldPosition } | { kind: "npc"; npc: NpcEntity } | null {
+  target():
+    | { kind: "door"; label: string; to: WorldPosition }
+    | { kind: "npc"; npc: NpcEntity }
+    | { kind: "monster"; monster: MonsterEntity }
+    | null {
     const t = this.session.nearbyTransition(),
       p = this.session.position;
     if (t && t.from.x === p.x && t.from.y === p.y) return { kind: "door", label: t.label, to: t.to };
     const npc = this.active?.nearestNpc(TALK_RANGE);
     if (npc) return { kind: "npc", npc };
+    const monster = this.active?.nearestMonster(TALK_RANGE);
+    if (monster && monster.mode !== "tamed") return { kind: "monster", monster };
     return t ? { kind: "door", label: t.label, to: t.to } : null;
   }
   interact() {
@@ -255,7 +283,79 @@ export class Explorer {
     const target = this.target();
     if (target?.kind === "door") void this.go(target.to).catch(() => {});
     else if (target?.kind === "npc") this.talk(target.npc.sheet.symbolId);
-    else this.message = "Walk closer to a character, blue gate or building door.";
+    else if (target?.kind === "monster") void this.startFight(target.monster.entry.id).catch(() => {});
+    else this.message = "Walk closer to a character, monster, blue gate or building door.";
+  }
+  /** Starts a fight by encounter ID (or smell ID). Sealed mini-bosses explain why they wait. */
+  async startFight(idOrSmell: string): Promise<void> {
+    const entry = this.encounters.find((e) => e.id === idOrSmell || e.smellId === idOrSmell);
+    if (!entry) throw new Error("Unknown monster");
+    if (!entry.fightable) {
+      this.message = entry.reason ?? "This monster cannot be fought yet.";
+      return;
+    }
+    if (this.combat.active || this.startingFight) return;
+    this.startingFight = true;
+    this.held.clear();
+    this.active?.stopPath();
+    try {
+      const encounter = await this.combat.load(entry.id);
+      this.combat.start(encounter);
+    } finally {
+      this.startingFight = false;
+    }
+  }
+  /** Victory tames the monster and fills the Codex; defeat returns you to the region's gate. */
+  private fightEnded(
+    encounter: import("@codebase-quest/combat").Encounter,
+    state: import("@codebase-quest/combat").CombatState,
+  ) {
+    const entity = this.active?.monsterById(encounter.id);
+    if (state.outcome === "victory" || state.outcome === "tamed") {
+      this.tamed.add(encounter.id);
+      entity?.tame();
+      const body = encounter.bodies[0];
+      const b = encounter.bestiary;
+      this.overlay.codex.recordFight(
+        encounter.id,
+        {
+          name: encounter.name,
+          species: encounter.species,
+          smellKind: b.smellKind,
+          title: b.title,
+          path: b.path,
+          lines: b.lines,
+          message: b.message,
+          measured: b.measured,
+          threshold: b.threshold,
+          fix: b.fix,
+          outcome: state.outcome,
+          note: state.opinions.investigate ? `Reported: ${state.opinions.investigate}` : "",
+          at: new Date().toISOString(),
+        },
+        body && state.outcome === "victory"
+          ? {
+              symbolId: body.symbolId,
+              value: {
+                name: body.name,
+                path: body.path,
+                cells: body.cells.map((c) => [c.row, c.col, c.kind]),
+                at: new Date().toISOString(),
+              },
+            }
+          : null,
+        state.understood,
+      );
+      for (const s of state.understood) this.overlay.codex.markRead(s);
+      this.message = `${encounter.name} is tamed. Its body map is in your Codex (C).`;
+    } else if (state.outcome === "defeat") {
+      const region = this.session.region;
+      if (region) void this.go(region.spawn).catch(() => {});
+      this.message = "Defeated: you are back at the region's gate. Nothing is lost.";
+    } else if (state.outcome === "fled") {
+      entity?.stun(this.active?.time.now ?? 0);
+      this.message = "You fled. It keeps its wounds for 60 seconds.";
+    }
   }
   /** Opens the Gitling chat and refreshes which answer levels are available. */
   openGitling() {
@@ -369,6 +469,7 @@ export class MapScene extends Phaser.Scene {
   }
   private player!: Phaser.GameObjects.Sprite;
   private npcs: NpcEntity[] = [];
+  private monsters: MonsterEntity[] = [];
   private gitling!: Phaser.GameObjects.Sprite;
   private arrow!: Phaser.GameObjects.Graphics;
   private pendingTalk: string | null = null;
@@ -407,6 +508,9 @@ export class MapScene extends Phaser.Scene {
       .setAlpha(0.95)
       .setInteractive({ useHandCursor: true });
     this.pendingTalk = null;
+    this.monsters = this.app.encounters
+      .filter((e) => e.position.mapId === map.id)
+      .map((e) => new MonsterEntity(this, e, this.app.tamed.has(e.id)));
     this.npcs = this.app.session.npcLayout(map.id).flatMap((spot) => {
       const sheet = this.app.facts.sheet(spot.symbolId);
       return sheet ? [new NpcEntity(this, map, spot, sheet)] : [];
@@ -424,6 +528,11 @@ export class MapScene extends Phaser.Scene {
       if (this.app.hud.blocked || this.app.loading) return;
       if (over.includes(this.gitling)) {
         this.app.openGitling();
+        return;
+      }
+      const foe = this.monsters.find((m) => over.includes(m.sprite));
+      if (foe && foe.mode !== "tamed" && Math.hypot(foe.x - this.player.x, foe.y - this.player.y) <= TALK_RANGE * 2) {
+        void this.app.startFight(foe.entry.id).catch(() => {});
         return;
       }
       const clicked = this.npcs.find((n) => over.includes(n.sprite));
@@ -454,6 +563,8 @@ export class MapScene extends Phaser.Scene {
       for (const chunk of this.chunks.values()) chunk.map.destroy();
       this.chunks.clear();
       for (const npc of this.npcs) npc.destroy();
+      for (const m of this.monsters) m.destroy();
+      this.monsters = [];
       this.npcs = [];
       this.input.removeAllListeners();
     });
@@ -463,6 +574,25 @@ export class MapScene extends Phaser.Scene {
     this.pendingTalk = null;
   }
   /** The closest visible character within `range` pixels of the player. */
+  nearestMonster(range: number): MonsterEntity | undefined {
+    let best: MonsterEntity | undefined,
+      distance = range;
+    for (const m of this.monsters) {
+      const d = Math.hypot(m.x - this.player.x, m.y - this.player.y);
+      if (d <= distance) {
+        best = m;
+        distance = d;
+      }
+    }
+    return best;
+  }
+  monsterById(id: string): MonsterEntity | undefined {
+    return this.monsters.find((m) => m.entry.id === id);
+  }
+  /** Debug/tests: monsters on this map with their modes. */
+  monsterStates() {
+    return this.monsters.map((m) => ({ id: m.entry.id, kind: m.entry.kind, mode: m.mode, x: m.x, y: m.y }));
+  }
   nearestNpc(range: number): NpcEntity | undefined {
     let best: NpcEntity | undefined,
       distance = range;
@@ -573,7 +703,7 @@ export class MapScene extends Phaser.Scene {
       if (p.mapId === map.id && seen[p.y * map.width + p.x] && view.contains(p.x * 16, p.y * 16))
         this.markers.fillStyle(color).fillCircle((p.x + 0.5) * 16, (p.y + 0.5) * 16, 3);
     };
-    for (const m of s.world.monsters) marker(m.position, 0xf18e9c);
+    if (!this.app.encounters.length) for (const m of s.world.monsters) marker(m.position, 0xf18e9c);
     for (const p of s.world.portals) marker(p.position, 0xbfa2f5);
     for (const d of s.world.dungeons) marker(d.position, 0xe6b368);
     for (const l of s.world.landmarks) marker(l.position, 0xf5d381);
@@ -617,6 +747,22 @@ export class MapScene extends Phaser.Scene {
     for (const d of s.world.districts)
       if (d.regionId === s.region?.id && Math.hypot(d.bounds.x + 2 - s.position.x, d.bounds.y + 2 - s.position.y) < 15)
         text((d.bounds.x + 2) * 16, (d.bounds.y + 2) * 16, d.path, 8);
+  }
+  private updateMonsters(time: number, delta: number) {
+    const map = this.app.session.map,
+      view = this.cameras.main.worldView,
+      seen = this.app.session.fog();
+    const paused = this.app.hud.blocked || this.app.loading || this.app.combat.active;
+    for (const m of this.monsters) {
+      const inView = m.x > view.x - 64 && m.x < view.right + 64 && m.y > view.y - 64 && m.y < view.bottom + 64;
+      const shown = inView && Boolean(seen[m.tileY * map.width + m.tileX]);
+      m.setShown(shown);
+      if (!shown || paused) continue;
+      if (m.update(time, delta, map, this.player, this.app.sneaking, this.app.animate) && m.entry.fightable) {
+        void this.app.startFight(m.entry.id).catch(() => {});
+        break;
+      }
+    }
   }
   private updateNpcs(time: number, delta: number) {
     const map = this.app.session.map,
@@ -695,7 +841,7 @@ export class MapScene extends Phaser.Scene {
       }
       if (x || y) this.path = [];
       const target = this.path[0];
-      let speed = down(BINDINGS.run) ? 150 : 80;
+      let speed = this.app.sneaking ? 45 : down(BINDINGS.run) ? 150 : 80;
       if (target) {
         const dx = (target.x + 0.5) * 16 - this.player.x,
           dy = (target.y + 0.5) * 16 - this.player.y;
@@ -726,6 +872,7 @@ export class MapScene extends Phaser.Scene {
       }
     }
     this.updateNpcs(time, delta);
+    this.updateMonsters(time, delta);
     {
       const side = this.player.flipX ? 14 : -14;
       const bob = this.app.animate ? Math.sin(time / 300) * 2 : 0;
@@ -763,11 +910,15 @@ export class MapScene extends Phaser.Scene {
         ? this.app.facts.sheet(this.app.overlay.state.panel.symbolId)?.displayName
         : undefined;
       const action =
-        t?.kind === "npc"
-          ? `Talk to ${t.npc.sheet.displayName} · press E or Interact`
-          : t
-            ? `${t.label} · press E or Interact`
-            : null;
+        t?.kind === "monster"
+          ? t.monster.mode === "sealed"
+            ? `${t.monster.entry.kind}: ${t.monster.entry.reason ?? "sealed"}`
+            : `Fight ${t.monster.entry.name} · press E`
+          : t?.kind === "npc"
+            ? `Talk to ${t.npc.sheet.displayName} · press E or Interact`
+            : t
+              ? `${t.label} · press E or Interact`
+              : null;
       this.app.hud.update(
         this.app.loading
           ? "Loading map…"
@@ -787,5 +938,11 @@ export class MapScene extends Phaser.Scene {
 export async function startExplorer(url: string, virtualKeys: VirtualKeys): Promise<Explorer> {
   const loader = await WorldLoader.open(url);
   const facts = await FactIndex.load(loader.world, loader.url);
-  return new Explorer(loader, virtualKeys, facts);
+  const explorer = new Explorer(loader, virtualKeys, facts);
+  // Fights are optional data: a world without encounters still plays (monsters stay markers).
+  try {
+    const r = await fetch(new URL("encounters/index.json", loader.url).href);
+    if (r.ok) explorer.encounters = EncounterIndexSchema.parse(await r.json());
+  } catch {}
+  return explorer;
 }

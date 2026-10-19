@@ -1,4 +1,5 @@
 import { type DialogueLine, dialogueFor, searchAnswer } from "@codebase-quest/content";
+import type { CombatController } from "../combat/controller.ts";
 import type { LiveLevel } from "../gitling/bridge.ts";
 import type { CodexFilters, CodexStore } from "../npc/codex.ts";
 import type { FactIndex } from "../npc/facts.ts";
@@ -53,6 +54,9 @@ export class OverlayStore {
     focusNotes: false,
     gitling: { open: false, entries: [], consent: null, ai: null },
   };
+  /** The fight controller (Phase 07); a fight is a modal overlay. */
+  combat: CombatController | null = null;
+  tileset = "";
   /** Sends a question over the bridge; returns false when no bridge is connected. */
   onAsk: (id: string, question: string, consent: boolean) => boolean = () => false;
   private asked = 0;
@@ -69,10 +73,34 @@ export class OverlayStore {
     this.seen = seen;
   }
   get open(): boolean {
-    return Boolean(this.state.panel) || this.state.codex.open || this.state.gitling.open;
+    return (
+      Boolean(this.state.panel) || this.state.codex.open || this.state.gitling.open || Boolean(this.combat?.active)
+    );
   }
-  get kind(): "code" | "codex" | "gitling" | null {
-    return this.state.codex.open ? "codex" : this.state.panel ? "code" : this.state.gitling.open ? "gitling" : null;
+  get kind(): "code" | "codex" | "gitling" | "combat" | null {
+    return this.combat?.active
+      ? "combat"
+      : this.state.codex.open
+        ? "codex"
+        : this.state.panel
+          ? "code"
+          : this.state.gitling.open
+            ? "gitling"
+            : null;
+  }
+  /** Fights start and end outside the store: tell everyone the overlay changed. */
+  attachCombat(controller: CombatController) {
+    this.combat = controller;
+    let wasActive = false;
+    controller.subscribe(() => {
+      if (controller.active === wasActive) return;
+      if (controller.active && document.activeElement instanceof HTMLElement && !this.open)
+        this.returnFocus = document.activeElement;
+      wasActive = controller.active;
+      this.bus.emit("overlay:changed", { open: this.open, kind: this.kind });
+      for (const listener of [...this.listeners]) listener();
+      if (!this.open) document.querySelector<HTMLElement>("#interact")?.focus();
+    });
   }
   subscribe(listener: () => void): () => void {
     this.listeners.add(listener);
@@ -137,6 +165,7 @@ export class OverlayStore {
   }
   /** Level 1 (search) answers at once, offline; the bridge may add a better answer later. */
   ask(question: string, consent = false): string {
+    if (this.combat?.active) return "combat-hints-only";
     const id = `g${++this.asked}`;
     const index = this.facts.search;
     const found = index ? searchAnswer(index, this.facts.book, question) : null;
@@ -226,8 +255,9 @@ export class OverlayStore {
     this.set({ panel: null, choose: null, codex: { ...this.state.codex, open: false, entry: null } });
     this.bus.emit("panel:navigate", { symbolId, mode });
   }
-  /** Esc closes the innermost layer: chooser → consent → Codex entry → Codex → Code Panel → Gitling. */
+  /** Esc closes the innermost layer: chooser → consent → Codex entry → Codex → Code Panel → Gitling. Fights need Flee. */
   escape() {
+    if (this.combat?.active) return;
     if (this.state.choose) this.choose(null);
     else if (this.state.gitling.consent) this.consentAndRetry(false);
     else if (this.state.codex.open && this.state.codex.entry) this.showEntry(null);

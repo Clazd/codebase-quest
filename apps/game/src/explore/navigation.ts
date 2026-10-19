@@ -10,6 +10,7 @@ export const BINDINGS = {
   map: ["m", "M"],
   codex: ["c", "C"],
   gitling: ["g", "G"],
+  sneak: ["z", "Z"],
   debug: ["F3"],
   pause: ["Escape"],
 } as const;

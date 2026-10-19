@@ -2,12 +2,40 @@ import type { FactSheet, Region } from "@codebase-quest/shared";
 import { z } from "zod";
 
 export const CODEX_VERSION = 1;
+const Id = z.string().regex(/^[a-f0-9]{12}$/);
+/** A defeated body as a one-glance map: [row, col, kind] per cell. */
+export const BodyMapSchema = z.object({
+  name: z.string().max(200),
+  path: z.string().max(400),
+  cells: z
+    .array(
+      z.tuple([z.number().int().min(0), z.number().int().min(0), z.enum(["joint", "body", "organ", "armor", "heart"])]),
+    )
+    .max(40),
+  at: z.string().max(40),
+});
+export const BestiaryEntrySchema = z.object({
+  name: z.string().max(200),
+  species: z.string().max(80),
+  smellKind: z.string().max(60),
+  title: z.string().max(400),
+  path: z.string().max(400),
+  lines: z.tuple([z.number().int(), z.number().int()]),
+  message: z.string().max(400),
+  measured: z.number().nullable(),
+  threshold: z.number().nullable(),
+  fix: z.string().max(1000),
+  outcome: z.enum(["victory", "tamed"]),
+  note: z.string().max(2000),
+  at: z.string().max(40),
+});
 const CodexDataSchema = z.object({
   version: z.literal(CODEX_VERSION),
-  entries: z.record(
-    z.string().regex(/^[a-f0-9]{12}$/),
-    z.object({ readAt: z.string().max(40), note: z.string().max(20_000) }),
-  ),
+  entries: z.record(Id, z.object({ readAt: z.string().max(40), note: z.string().max(20_000) })),
+  /** Phase 07 (additive): body maps by symbol, Bestiary by encounter, `understood` symbols. */
+  bodyMaps: z.record(Id, BodyMapSchema).default({}),
+  bestiary: z.record(z.string().max(80), BestiaryEntrySchema).default({}),
+  understood: z.array(Id).default([]),
 });
 export type CodexData = z.infer<typeof CodexDataSchema>;
 type KeyValueStore = Pick<Storage, "getItem" | "setItem">;
@@ -21,7 +49,7 @@ export function codexKey(repoId: string, commit: string | null): string {
  * and personal notes. Unreadable or future-version data is ignored, not trusted.
  */
 export class CodexStore {
-  data: CodexData = { version: CODEX_VERSION, entries: {} };
+  data: CodexData = { version: CODEX_VERSION, entries: {}, bodyMaps: {}, bestiary: {}, understood: [] };
   /** False when storage is unavailable or full; the Codex still works for this session. */
   persistent = true;
   readonly key: string;
@@ -58,6 +86,28 @@ export class CodexStore {
     entry.note = note.slice(0, 20_000);
     this.data.entries[symbolId] = entry;
     this.save();
+  }
+  /** After a victory: the body map, the Bestiary record and the symbols now `understood`. */
+  recordFight(
+    encounterId: string,
+    entry: z.infer<typeof BestiaryEntrySchema>,
+    map: { symbolId: string; value: z.infer<typeof BodyMapSchema> } | null,
+    understood: readonly string[],
+  ): void {
+    this.data.bestiary[encounterId] = BestiaryEntrySchema.parse(entry);
+    if (map) this.data.bodyMaps[map.symbolId] = BodyMapSchema.parse(map.value);
+    for (const id of understood)
+      if (/^[a-f0-9]{12}$/.test(id) && !this.data.understood.includes(id)) this.data.understood.push(id);
+    this.save();
+  }
+  setBestiaryNote(encounterId: string, note: string): void {
+    const entry = this.data.bestiary[encounterId];
+    if (!entry) return;
+    entry.note = note.slice(0, 2000);
+    this.save();
+  }
+  isUnderstood(symbolId: string): boolean {
+    return this.data.understood.includes(symbolId);
   }
   private save(): void {
     try {
@@ -112,4 +162,17 @@ export function exportNotes(kingdom: string, store: CodexStore, sheets: readonly
       `## ${s.displayName}\n\n\`${s.path}:${s.range.startLine}-${s.range.endLine}\` · ${s.kind}\n\n${store.note(s.symbolId).trim()}\n`,
   );
   return `# ${kingdom}: Codex notes\n\n${noted.length ? body.join("\n") : "_No notes yet._\n"}`;
+}
+
+/** The Bestiary as a Markdown tech-debt report. */
+export function exportBestiary(kingdom: string, store: CodexStore): string {
+  const entries = Object.entries(store.data.bestiary).sort(([, a], [, b]) =>
+    a.path < b.path ? -1 : a.path > b.path ? 1 : a.lines[0] - b.lines[0],
+  );
+  const body = entries.map(([, e]) => {
+    const measured =
+      e.measured !== null ? ` (measured ${e.measured}${e.threshold !== null ? `, threshold ${e.threshold}` : ""})` : "";
+    return `## ${e.species}: \`${e.path}:${e.lines[0]}-${e.lines[1]}\`\n\n- Smell: ${e.smellKind}${measured}\n- Evidence: ${e.message}\n- How to fix it: ${e.fix}\n${e.note.trim() ? `- Notes: ${e.note.trim()}\n` : ""}`;
+  });
+  return `# ${kingdom}: Bestiary (tech-debt report)\n\n${entries.length ? body.join("\n") : "_No monsters tamed yet._\n"}`;
 }
