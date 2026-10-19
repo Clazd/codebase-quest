@@ -1,7 +1,7 @@
 # Phase 00: Foundations and Open-Source Setup
 
 > **Milestone:** A · Prove the Fun · **Depends on:** nothing · **Effort:** 3–5 days ·
-> **Status:** Not started
+> **Status:** In progress (implemented on `phase/00-foundations`; awaiting the owner's manual test and CI on GitHub)
 > **Read first:** MASTER-PLAN §2, §16.2, §16.3, §17, §21.4, §22
 
 ## Goal
@@ -113,19 +113,19 @@ Playwright report on failure. Node 24, pnpm cache. Also a `license-check` job (a
 stub now; enforced from Phase 01).
 
 ## Tasks
-- [ ] Root config: `pnpm-workspace.yaml`, `package.json`, `.nvmrc` (24), `tsconfig.base.json` (strict), Biome, `.gitattributes`, `.gitignore`, Git LFS.
-- [ ] Scaffold all apps and packages with placeholder exports and tests.
-- [ ] `packages/shared`: zod, `SCHEMA_VERSION = 1`, placeholder schemas.
-- [ ] `apps/game`: Vite + Phaser; Boot → Test scene (30×20 tile test map with Kenney CC0 placeholder tiles, a 4-direction player, wall collisions, camera follow).
-- [ ] `window.__CQ__` (dev/test only).
-- [ ] `apps/cli`: `cq --version`, `cq help`.
-- [ ] `scripts/build-fixtures.ts` + all six fixtures + `fixtures/pinned.json` + `scripts/fetch-pinned.ts`.
-- [ ] Playwright config + the first e2e test.
-- [ ] CI workflow.
-- [ ] Open-source kit (all files in the table above).
-- [ ] `packages/assets/LICENSES.md` with the Kenney entries.
-- [ ] ADR 0001 (tech stack) and ADR 0002 (MIT code + CC-BY-4.0 assets).
-- [ ] Check that the npm package name `codebase-quest` (or your choice) is available; record the result in ADR 0001.
+- [x] Root config: `pnpm-workspace.yaml`, `package.json`, `.nvmrc` (24), `tsconfig.base.json` (strict), Biome, `.gitattributes`, `.gitignore`, Git LFS.
+- [x] Scaffold all apps and packages with placeholder exports and tests.
+- [x] `packages/shared`: zod, `SCHEMA_VERSION = 1`, placeholder schemas.
+- [x] `apps/game`: Vite + Phaser; Boot → Test scene (30×20 tile test map with Kenney CC0 placeholder tiles, a 4-direction player, wall collisions, camera follow).
+- [x] `window.__CQ__` (dev/test only).
+- [x] `apps/cli`: `cq --version`, `cq help`.
+- [x] `scripts/build-fixtures.ts` + all six fixtures + `fixtures/pinned.json` + `scripts/fetch-pinned.ts`.
+- [x] Playwright config + the first e2e test.
+- [x] CI workflow.
+- [x] Open-source kit (all files in the table above).
+- [x] `packages/assets/LICENSES.md` with the Kenney entries.
+- [x] ADR 0001 (tech stack) and ADR 0002 (MIT code + CC-BY-4.0 assets).
+- [x] Check that the npm package name `codebase-quest` (or your choice) is available; record the result in ADR 0001.
 
 ## Automated tests
 - **Unit:** every placeholder test passes; `SCHEMA_VERSION === 1`.
@@ -172,7 +172,67 @@ Ask me before pushing, creating labels, or changing GitHub settings.
 ```
 
 ## Results (fill in after testing)
-- Date:
-- Automated tests:
-- Manual script notes:
+- Date: 2026-10-19 (Windows 11, Node 24.20.0, pnpm 10.33.1). Filled in by Claude;
+  the owner's manual test and CI on GitHub are still to come.
+- Automated tests (all run locally, all passing):
+  - `pnpm test`: 22 files, 79 tests (Vitest 5.0.5). Covers: the placeholder test of
+    every scaffolded package; `SCHEMA_VERSION === 1` and the placeholder schemas;
+    `cq --version` / `cq help`; the debug API, movement and test map; the asset
+    license entry; **fixtures**: all six exist, are git repos with a clean tree,
+    have the expected commits, authors and dates, match `fixtures/fixtures.lock.json`,
+    a second build reports all six `unchanged` (HEAD files untouched), and a
+    build in a fresh temp folder gives identical HEADs; Taskly facts
+    (`computeTaskStatus` byte-identical to MASTER-PLAN §7.1's body, 4 literal
+    assertions with 4 different results, the call chain, the cycle, the
+    `formatDate` pair, exactly one TODO / empty catch / unused function, the
+    hotspot); weird-repo bytes (symlink mode 120000, ≥ 2 MiB file, CRLF, invalid
+    UTF-8, binary, 10-level path, `.env` present); `pinned.json` schema; labels;
+    **production build**: builds both modes and checks `__CQ__` is in the test
+    bundle but not in the production one.
+  - `pnpm e2e`: 5 tests (Playwright 1.64.1, headless Chromium): scene is `"Test"`,
+    player at spawn; `pressKey("ArrowRight", 500)` increases x; walking into the
+    wall stops with the body's edge at the wall (x = 235, wall at 240) and pushing
+    on doesn't move it; WASD + `teleport`; real keyboard input; axe-core finds no
+    violations (it caught a landmark issue in `index.html`, now fixed).
+  - `pnpm check`: Biome (85 files) and `tsc --noEmit` (TypeScript 7.0.2) clean.
+  - `pnpm build`: OK; `grep -c __CQ__` on the production bundle gives 0.
+  - `pnpm fixtures` run twice: identical HEADs; the second run changed nothing.
+  - **Fresh clone** (local `git clone` of the branch into a temp folder):
+    `pnpm install --frozen-lockfile`, `pnpm fixtures`, `pnpm check`, `pnpm test`,
+    `pnpm build`, `pnpm e2e` all pass, with the same fixture HEADs. The first try
+    failed on Windows' 260-character path limit in `weird-repo`; fixed in
+    `917d1d0` (`core.longpaths`).
+  - Extra checks: tiny-ts, smelly-ts and poisoned-ts type-check under strict
+    `tsc` with small shims for `express`/`vitest` (weird-repo's `broken.ts` fails,
+    as intended); every tiny-py file parses with Python's `ast`.
+    `pnpm fixtures:pinned` fetched all four pinned repos once and their source
+    lines were measured (9k–19k, recorded in `pinned.json`).
+  - **Not run:** CI on GitHub (nothing pushed yet); `pnpm labels:sync -- --apply`
+    (dry run only; needs the owner's approval).
+- Manual script notes: not yet run by the owner. Claude checked that `pnpm dev`
+  serves the game and that `__CQ__` answers in the dev build, and saw the scene
+  render (Kenney tiles, walls, hero) in a test-mode build. The in-app browser
+  pane runs no animation frames while hidden, so walking was verified only
+  through Playwright there.
 - Decisions / ADRs:
+  - [ADR 0001](../../adr/0001-tech-stack.md): exact versions (TypeScript 7, Vite 8,
+    Vitest 5, Phaser 4.2, Biome 2.5, zod 4), source-first packages run by Node's
+    type stripping, the `__CQ_DEBUG__` compile-time flag, e2e on a test-mode
+    build, fixtures generated from `fixtures/src/` into ignored `fixtures/repos/`
+    with a lock file, npm name `codebase-quest` available (404 on 2026-10-19).
+  - [ADR 0002](../../adr/0002-licenses.md): MIT (© Clazd) + CC-BY-4.0; Contributor
+    Covenant 3.0 **adopted by reference** with the private contact left as a
+    TODO (small deviation from the plan, recorded there); security reports via
+    GitHub private vulnerability reporting.
+  - Smaller choices: placeholder art is Kenney **Tiny Dungeon** (CC0); the
+    fixture's `computeTaskStatus` has a typed signature
+    `(task: StatusFields): TaskStatus` (the body is exactly §7.1's); smelly-ts has
+    no static "Mutant" (it's injected at play time), so SMELLS.md names
+    `applyCoupon` as the designated mutation target and lists the detection
+    assumptions Phase 02 should confirm; `bug` and `enhancement` labels were
+    added for the issue templates; an axe-core e2e check was added (quality bar).
+- Hand-off notes: Taskly facts and line numbers are listed in
+  `fixtures/README.md`. Phase 02 should calibrate its smell rules against
+  `smelly-ts/SMELLS.md` (and update both together). The owner still needs to:
+  push, enable private vulnerability reporting, fill in the CoC contact, and
+  optionally sync labels, enable Discussions and protect `main`.

@@ -45,7 +45,7 @@ script, and fill in the Results section. Ask before pushing.
 
 | # | Phase | Milestone | Effort | Status |
 |---|---|---|---|---|
-| 00 | [Foundations and Open-Source Setup](phases/P00-foundations-open-source.md) | A · Prove the Fun | 3–5 days | ⬜ Not started |
+| 00 | [Foundations and Open-Source Setup](phases/P00-foundations-open-source.md) | A · Prove the Fun | 3–5 days | 🟨 In progress |
 | 01 | [Prototype: Fun and Look](phases/P01-prototype-fun-and-look.md) | A · Prove the Fun | ~1 week | ⬜ Not started |
 | 02 | [Code Analyzer](phases/P02-analyzer.md) | B · The Map | 1.5–2.5 wks | ⬜ Not started |
 | 03 | [World Generator](phases/P03-world-generator.md) | B · The Map | 1.5–2 wks | ⬜ Not started |
