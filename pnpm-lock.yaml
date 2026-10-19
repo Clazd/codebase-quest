@@ -26,6 +26,9 @@ importers:
       vitest:
         specifier: 5.0.5
         version: 5.0.5(@types/node@24.19.2)(vite@8.3.4(@types/node@24.19.2))
+      web-tree-sitter:
+        specifier: 0.27.1
+        version: 0.27.1
       zod:
         specifier: 4.6.7
         version: 4.6.7
@@ -38,6 +41,9 @@ importers:
       '@codebase-quest/shared':
         specifier: workspace:*
         version: link:../../packages/shared
+      '@codebase-quest/worldgen':
+        specifier: workspace:*
+        version: link:../../packages/worldgen
 
   apps/game:
     dependencies:
@@ -104,7 +110,11 @@ importers:
         specifier: 4.6.7
         version: 4.6.7
 
-  packages/worldgen: {}
+  packages/worldgen:
+    dependencies:
+      '@codebase-quest/shared':
+        specifier: workspace:*
+        version: link:../shared
 
   tools/asset-pipeline:
     dependencies:

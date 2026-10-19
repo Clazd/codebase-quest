@@ -1,7 +1,7 @@
 # Phase 03: World Generator
 
 > **Milestone:** B · The Map · **Depends on:** 02 · **Effort:** 1.5–2 weeks ·
-> **Status:** Not started
+> **Status:** Implemented and tested; owner SVG review pending
 > **Read first:** MASTER-PLAN §5, §16.4, §16.5
 
 ## Goal
@@ -138,18 +138,18 @@ cq play <repo-path>                           # (wired up in Phase 04)
 ```
 
 ## Tasks
-- [ ] WorldModel v1 zod schema in `packages/shared`.
-- [ ] Abstract tile vocabulary + placeholder theme (Kenney CC0 mapping).
-- [ ] Seeded RNG utility + lint rule against `Math.random` in `worldgen`.
-- [ ] Region selection + biome classifier.
-- [ ] Overworld treemap + organic edges + borders + Gate + Foreign Lands.
-- [ ] Overworld roads (spanning tree + extras + A\* + bridges + flickering paths + whirlpools).
-- [ ] Region maps (districts, lots, buildings, streets, landmarks, aggregation, visual traits).
-- [ ] Interior templates + NPC spot assignment.
-- [ ] Placements (NPCs, monsters, boss arenas, dungeon entrances, portals, landmarks).
-- [ ] Tiled JSON exporter.
-- [ ] SVG preview renderer.
-- [ ] CLI commands.
+- [x] WorldModel v1 zod schema in `packages/shared`.
+- [x] Abstract tile vocabulary + placeholder theme (Kenney CC0 mapping).
+- [x] Seeded RNG utility + lint rule against `Math.random` in `worldgen`.
+- [x] Region selection + biome classifier.
+- [x] Overworld treemap + organic edges + borders + Gate + Foreign Lands.
+- [x] Overworld roads (spanning tree + extras + A\* + bridges + flickering paths + whirlpools).
+- [x] Region maps (districts, lots, buildings, streets, landmarks, aggregation, visual traits).
+- [x] Interior templates + NPC spot assignment.
+- [x] Placements (NPCs, monsters, boss arenas, dungeon entrances, portals, landmarks).
+- [x] Tiled JSON exporter.
+- [x] SVG preview renderer.
+- [x] CLI commands.
 
 ## Automated tests
 - **Invariants (every fixture + 50 random seeds on synthetic graphs):**
@@ -177,8 +177,8 @@ cq play <repo-path>                           # (wired up in Phase 04)
 6. Do the same for **your own project**. Does the world feel like *your* code?
 
 ## Definition of done
-- [ ] All invariants hold for fixtures and synthetic graphs.
-- [ ] Golden and determinism tests green.
+- [x] All invariants hold for fixtures and synthetic graphs.
+- [x] Golden and determinism tests green.
 - [ ] SVG previews of `tiny-ts` look sensible (reviewed by you).
 - [ ] Your own project produces a recognizable world.
 
@@ -202,7 +202,43 @@ walk me through the manual test script, and fill in the Results section.
 ```
 
 ## Results (fill in after testing)
-- Date:
-- Automated tests:
-- SVG review notes:
-- Decisions / ADRs:
+- Date: 2026-10-19, Windows, Node.js 24 / pnpm.
+- Automated tests: `pnpm test` passed **226 tests in 28 files**; `pnpm e2e`
+  passed **15 tests**, including the exported Tiled map loading in headless
+  Phaser. `pnpm install --frozen-lockfile`, `pnpm check` (Biome, strict
+  TypeScript and the worldgen AST check against `Math.random`), `pnpm build`,
+  `pnpm license-check -- --enforce`, and `git diff --check` passed.
+- World-specific checks: all six fixture graphs and 50 synthetic seeds passed
+  coverage, collision/reachability through transitions, bounds, non-overlap and
+  arena invariants. The tiny-ts/tiny-py WorldModel and SVG goldens passed;
+  independent exports matched byte-for-byte, including maps, theme, SVGs and
+  assets. Tiled format schema validation and the Phaser smoke passed.
+- Stress: a separate measured run of 5,000 files / 40 folders completed in
+  **623 ms** with row-house aggregation (640 buildings, 12 regions). A second
+  run using 50-LOC files to retain all 5,000 buildings completed in **4,950 ms**
+  (12 regions). The automated under-10-second stress check also passed in the
+  final suite.
+- CLI/manual checks actually run by the agent: analyzed and generated tiny-ts,
+  tiny-py and this repository, then regenerated previews with `cq world preview`.
+  Taskly produced 5 regions, 18 buildings, 58 NPC spots, 40 monsters and 24 maps;
+  tiny-py produced 2 regions, 16 buildings and 19 maps. This repository produced
+  9 regions, 306 buildings and 316 maps. Outputs are in the ignored
+  `out/world-tiny/`, `out/world-python/` and `out/world-self/` directories.
+- SVG review notes: the agent opened Taskly's overworld and API-region SVGs in
+  a browser. The five regions are Port of api, Capital of services, Mines of db,
+  Bazaar of utils and Training Grounds of tests. File labels, connected roads,
+  reserved arenas and the TODO Gremlin marker are present. These previews use
+  abstract placeholder colors; they are not final artwork.
+- Owner walkthrough: run manual steps 1–2 above, open
+  `out/world-tiny/preview/overworld.svg`, then
+  `out/world-tiny/preview/region-920172bf9aaf.svg` to inspect API file labels and
+  the TODO marker. For step 6, run `pnpm cq -- analyze . --out out/self.json`
+  and `pnpm cq -- generate out/self.json --out out/world-self/`, then open its
+  overworld SVG. Check that region names and file groupings match your mental
+  model. Owner visual approval and recognizability review remain pending;
+  optional inspection in the Tiled editor was not run. Remote CI was not run.
+- Decisions / ADRs: [ADR 0006](../../adr/0006-world-layout-and-export-contract.md)
+  documents the snapshot-based date reference, per-building template instances,
+  canonical exact call chains, symbol coverage, connectivity road labeling and
+  empty/root-metadata handling. The implementation contract is also documented
+  in `packages/worldgen/README.md`.

@@ -7,6 +7,15 @@ import { describe, expect, it } from "vitest";
 import { runCommand } from "./commands.ts";
 
 describe("analyzer CLI", () => {
+  it("generates a world and regenerates previews from world.json", async () => {
+    const output = join(mkdtempSync(join(tmpdir(), "cq-world-cli-")), "world");
+    const input = fileURLToPath(new URL("../../../packages/analyzer/goldens/tiny-ts.graph.json", import.meta.url));
+    const result = await runCommand(["generate", input, "--out", output]);
+    expect(result.code).toBe(0);
+    const svg = readFileSync(join(output, "preview/overworld.svg"), "utf8");
+    expect((await runCommand(["world", "preview", join(output, "world.json")])).code).toBe(0);
+    expect(readFileSync(join(output, "preview/overworld.svg"), "utf8")).toBe(svg);
+  });
   it("analyzes Taskly, writes JSON and summarizes it", async () => {
     const output = join(mkdtempSync(join(tmpdir(), "cq-cli-")), "graph.json");
     const root = fileURLToPath(new URL("../../../fixtures/repos/tiny-ts", import.meta.url));

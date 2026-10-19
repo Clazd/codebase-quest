@@ -28,6 +28,7 @@ export default defineConfig(({ mode }) => ({
               main: page("./index.html"),
               combat: page("./prototype/combat/index.html"),
               art: page("./prototype/art/index.html"),
+              tiledSmoke: page("./prototype/worldgen-smoke/index.html"),
             },
     },
   },

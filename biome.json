@@ -13,7 +13,8 @@
       "!**/dist-test",
       "!docs/plans",
       "!packages/assets/kenney",
-      "!packages/analyzer/goldens"
+      "!packages/analyzer/goldens",
+      "!packages/worldgen/goldens"
     ]
   },
   "formatter": {

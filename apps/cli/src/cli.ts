@@ -15,11 +15,12 @@ const COMMANDS = [
   ["--version, -v", "Print the version"],
   ["analyze <path>", "Analyze safely [--out graph.json] [--pretty] [--config file.json]"],
   ["stats <graph.json>", "Summarize a validated CodeGraph"],
+  ["generate <graph>", "Generate world/maps/previews --out <directory>"],
+  ["world preview <json>", "Regenerate a world's SVG previews"],
 ] as const;
 
 /** Commands on the roadmap, shown so people know what's coming (never pretend they work). */
 const PLANNED = [
-  ["generate <graph>", "Turn a CodeGraph into a world", "Phase 03"],
   ["play [path]", "Analyze, generate and open the game", "Phase 04"],
   ["setup / mcp", "Connect your own AI agent through MCP", "Phase 06"],
 ] as const;
