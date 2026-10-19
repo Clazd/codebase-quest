@@ -1,0 +1,5318 @@
+{
+  "schemaVersion": 1,
+  "repo": {
+    "name": "tiny-ts",
+    "commit": "f55edb5a4b65d9e603e5dc558c6dc2611d250921",
+    "languages": [
+      {
+        "language": "typescript",
+        "files": 14,
+        "loc": 386
+      }
+    ]
+  },
+  "modules": [
+    {
+      "id": "4e1665446485",
+      "path": "external/node:fs",
+      "name": "node:fs",
+      "kind": "external",
+      "declared": false
+    },
+    {
+      "id": "673a51b91ae2",
+      "path": "src/utils",
+      "name": "utils",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "6c914d6cd627",
+      "path": "src/services",
+      "name": "services",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "71fd89a5a030",
+      "path": ".",
+      "name": ".",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "7f28fc3e064c",
+      "path": "src/db",
+      "name": "db",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "9c86cdcdb8a6",
+      "path": "tests",
+      "name": "tests",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "b9d099c108d1",
+      "path": "src",
+      "name": "src",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "e7a689b0c94d",
+      "path": "external/express",
+      "name": "express",
+      "kind": "external",
+      "declared": true
+    },
+    {
+      "id": "fdca6e8e1095",
+      "path": "src/api",
+      "name": "api",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "fe0203eb0ff7",
+      "path": "external/vitest",
+      "name": "vitest",
+      "kind": "external",
+      "declared": true
+    }
+  ],
+  "files": [
+    {
+      "id": "0095b378c381",
+      "path": "src/services/shareService.ts",
+      "moduleId": "6c914d6cd627",
+      "language": "typescript",
+      "role": "source",
+      "loc": 28,
+      "symbolCount": 4,
+      "smellCount": 5,
+      "hash": "ef1ec079a8d8cad3d6d9b6448a1283091cb090ff",
+      "git": {
+        "firstCommitAt": "2025-02-03T16:45:00Z",
+        "lastCommitAt": "2025-02-03T16:45:00Z",
+        "commits": 1,
+        "churn": 28,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "04d697e1cd2c",
+      "path": "src/utils/dates.ts",
+      "moduleId": "673a51b91ae2",
+      "language": "typescript",
+      "role": "source",
+      "loc": 15,
+      "symbolCount": 2,
+      "smellCount": 1,
+      "hash": "4d4f574701d7066c8bab5df6e7f8e2997f77303c",
+      "git": {
+        "firstCommitAt": "2025-01-13T14:30:00Z",
+        "lastCommitAt": "2025-01-13T14:30:00Z",
+        "commits": 1,
+        "churn": 15,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "0a27f1880fab",
+      "path": "src/api/routes.ts",
+      "moduleId": "fdca6e8e1095",
+      "language": "typescript",
+      "role": "source",
+      "loc": 16,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "5de3bd874dd752e171a65920831bd95cb1cb3a7a",
+      "git": {
+        "firstCommitAt": "2025-01-13T14:30:00Z",
+        "lastCommitAt": "2025-02-03T16:45:00Z",
+        "commits": 2,
+        "churn": 18,
+        "authors": 2
+      },
+      "docs": null
+    },
+    {
+      "id": "14045faa7bfb",
+      "path": "package.json",
+      "moduleId": "71fd89a5a030",
+      "language": null,
+      "role": "manifest",
+      "loc": 22,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "aa368cce5b8cd24c36d11728201bffd92c007162",
+      "git": {
+        "firstCommitAt": "2025-01-06T09:12:00Z",
+        "lastCommitAt": "2025-01-13T14:30:00Z",
+        "commits": 2,
+        "churn": 24,
+        "authors": 2
+      },
+      "docs": null
+    },
+    {
+      "id": "1c5fd3409021",
+      "path": "src/utils/slugify.ts",
+      "moduleId": "673a51b91ae2",
+      "language": "typescript",
+      "role": "source",
+      "loc": 15,
+      "symbolCount": 2,
+      "smellCount": 1,
+      "hash": "f74a1703c27e4c945b4253344dc3c92704bb317a",
+      "git": {
+        "firstCommitAt": "2025-01-06T09:12:00Z",
+        "lastCommitAt": "2025-01-06T09:12:00Z",
+        "commits": 1,
+        "churn": 15,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "537e1daac09d",
+      "path": "tests/slugify.test.ts",
+      "moduleId": "9c86cdcdb8a6",
+      "language": "typescript",
+      "role": "test",
+      "loc": 17,
+      "symbolCount": 4,
+      "smellCount": 0,
+      "hash": "cf576c29685a38582461b07e380460f5daeba56a",
+      "git": {
+        "firstCommitAt": "2025-01-06T09:12:00Z",
+        "lastCommitAt": "2025-01-06T09:12:00Z",
+        "commits": 1,
+        "churn": 17,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "59a4dabe0f0e",
+      "path": "src/db/client.ts",
+      "moduleId": "7f28fc3e064c",
+      "language": "typescript",
+      "role": "source",
+      "loc": 51,
+      "symbolCount": 8,
+      "smellCount": 7,
+      "hash": "28678955091222ef82f7228f8d4e0d531aeb334c",
+      "git": {
+        "firstCommitAt": "2025-01-06T09:12:00Z",
+        "lastCommitAt": "2025-01-06T09:12:00Z",
+        "commits": 1,
+        "churn": 51,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "7fee92472ca7",
+      "path": "tsconfig.json",
+      "moduleId": "71fd89a5a030",
+      "language": null,
+      "role": "config",
+      "loc": 12,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "ad1a2f7531fb809affc570c0ca12face0144adb0",
+      "git": {
+        "firstCommitAt": "2025-01-06T09:12:00Z",
+        "lastCommitAt": "2025-01-06T09:12:00Z",
+        "commits": 1,
+        "churn": 12,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "81aa2e9de4d6",
+      "path": "src/index.ts",
+      "moduleId": "b9d099c108d1",
+      "language": "typescript",
+      "role": "source",
+      "loc": 17,
+      "symbolCount": 2,
+      "smellCount": 4,
+      "hash": "6d4b074a3cf237cbf34b7b6ac404d181a3d574f0",
+      "git": {
+        "firstCommitAt": "2025-01-13T14:30:00Z",
+        "lastCommitAt": "2025-01-13T14:30:00Z",
+        "commits": 1,
+        "churn": 17,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "8632d4a2fda2",
+      "path": "tests/dates.test.ts",
+      "moduleId": "9c86cdcdb8a6",
+      "language": "typescript",
+      "role": "test",
+      "loc": 13,
+      "symbolCount": 3,
+      "smellCount": 0,
+      "hash": "8a8baa137001b046a790d4d46b261fc93d9c6840",
+      "git": {
+        "firstCommitAt": "2025-01-13T14:30:00Z",
+        "lastCommitAt": "2025-01-13T14:30:00Z",
+        "commits": 1,
+        "churn": 13,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "875191b4963c",
+      "path": "tests/taskService.test.ts",
+      "moduleId": "9c86cdcdb8a6",
+      "language": "typescript",
+      "role": "test",
+      "loc": 20,
+      "symbolCount": 5,
+      "smellCount": 0,
+      "hash": "152600b67a0841b8ab17b2cf931236e2707cc69e",
+      "git": {
+        "firstCommitAt": "2025-01-20T10:05:00Z",
+        "lastCommitAt": "2025-02-17T11:20:00Z",
+        "commits": 2,
+        "churn": 20,
+        "authors": 2
+      },
+      "docs": null
+    },
+    {
+      "id": "8ec364bef2e9",
+      "path": "src/types.ts",
+      "moduleId": "b9d099c108d1",
+      "language": "typescript",
+      "role": "source",
+      "loc": 23,
+      "symbolCount": 5,
+      "smellCount": 0,
+      "hash": "4c9885938f7f7db2183e7f563305c867a7a4589f",
+      "git": {
+        "firstCommitAt": "2025-01-06T09:12:00Z",
+        "lastCommitAt": "2025-01-06T09:12:00Z",
+        "commits": 1,
+        "churn": 23,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "93e6e163851f",
+      "path": "src/db/tasks.ts",
+      "moduleId": "7f28fc3e064c",
+      "language": "typescript",
+      "role": "source",
+      "loc": 41,
+      "symbolCount": 6,
+      "smellCount": 6,
+      "hash": "dd9632f6a9fdc3686974a02f0dd5cfd8543cf0c1",
+      "git": {
+        "firstCommitAt": "2025-01-06T09:12:00Z",
+        "lastCommitAt": "2025-03-03T09:40:00Z",
+        "commits": 2,
+        "churn": 45,
+        "authors": 2
+      },
+      "docs": null
+    },
+    {
+      "id": "b088a7e64ad5",
+      "path": "src/services/taskService.ts",
+      "moduleId": "6c914d6cd627",
+      "language": "typescript",
+      "role": "source",
+      "loc": 48,
+      "symbolCount": 6,
+      "smellCount": 5,
+      "hash": "b18d7180f4a93746b94d05dade6a8758ac340545",
+      "git": {
+        "firstCommitAt": "2025-01-06T09:12:00Z",
+        "lastCommitAt": "2025-02-17T11:20:00Z",
+        "commits": 4,
+        "churn": 54,
+        "authors": 3
+      },
+      "docs": null
+    },
+    {
+      "id": "bbc7a56b0b2e",
+      "path": ".gitignore",
+      "moduleId": "71fd89a5a030",
+      "language": null,
+      "role": "asset",
+      "loc": 2,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "6ee19267b88c803923912f0f1899b78810576de8",
+      "git": {
+        "firstCommitAt": "2025-01-06T09:12:00Z",
+        "lastCommitAt": "2025-01-06T09:12:00Z",
+        "commits": 1,
+        "churn": 2,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "c815f8c11564",
+      "path": "src/api/handlers.ts",
+      "moduleId": "fdca6e8e1095",
+      "language": "typescript",
+      "role": "source",
+      "loc": 71,
+      "symbolCount": 8,
+      "smellCount": 10,
+      "hash": "1c5d385ed0c6ffcb71348ef952d05617ec568dae",
+      "git": {
+        "firstCommitAt": "2025-01-13T14:30:00Z",
+        "lastCommitAt": "2025-03-03T09:40:00Z",
+        "commits": 3,
+        "churn": 77,
+        "authors": 2
+      },
+      "docs": null
+    },
+    {
+      "id": "d612980f69c7",
+      "path": "src/db/teams.ts",
+      "moduleId": "7f28fc3e064c",
+      "language": "typescript",
+      "role": "source",
+      "loc": 11,
+      "symbolCount": 2,
+      "smellCount": 2,
+      "hash": "f03faf2e679befb98973c6829e6ca8115665fba0",
+      "git": {
+        "firstCommitAt": "2025-02-03T16:45:00Z",
+        "lastCommitAt": "2025-02-03T16:45:00Z",
+        "commits": 1,
+        "churn": 11,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "fc202ab48d3e",
+      "path": "README.md",
+      "moduleId": "71fd89a5a030",
+      "language": null,
+      "role": "docs",
+      "loc": 33,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "7f2b0224cb15970d0c3a84d0bfc0eefebe282bc0",
+      "git": {
+        "firstCommitAt": "2025-01-06T09:12:00Z",
+        "lastCommitAt": "2025-03-10T08:00:00Z",
+        "commits": 2,
+        "churn": 35,
+        "authors": 1
+      },
+      "docs": "# Taskly\n\nA small to-do API for teams. Tasks belong to a team, can have a due date, and\ncan be shared with teammates.\n\n## Run\n\n```sh\nnpm install\nnpm run build\nnpm start\nnpm test\n```\n\nSet `TASKLY_SNAPSHOT=path/to/snapshot.json` to start with saved data.\n\n## API\n\n| Method | Path | What it does |\n|---|---|---|\n| GET | `/tasks` | Tasks you own or that were shared with you |\n| POST | `/tasks` | Create a task (`title`, `teamId`, optional `dueDate`) |\n| GET | `/tasks/:id` | One task, with its status |\n| POST | `/tasks/:id/complete` | Mark a task as done |\n| POST | `/tasks/:id/share` | Share a task with a teammate (`userId`) |\n\nSend your user id in the `x-user-id` header.\n\n## Task status\n\nA task is `open`, `done`, `late` (finished after its due date) or `overdue`\n(still open after its due date). See `computeTaskStatus` in\n`src/services/taskService.ts`.\n"
+    }
+  ],
+  "symbols": [
+    {
+      "id": "03dd08ec9b93",
+      "fileId": "0095b378c381",
+      "parentId": null,
+      "kind": "class",
+      "name": "PermissionError",
+      "qualifiedName": "PermissionError",
+      "range": {
+        "startLine": 6,
+        "endLine": 6,
+        "startColumn": 7,
+        "endColumn": 45
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 1,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "0771bfc945b7",
+      "fileId": "59a4dabe0f0e",
+      "parentId": null,
+      "kind": "function",
+      "name": "update",
+      "qualifiedName": "update",
+      "range": {
+        "startLine": 28,
+        "endLine": 32,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "patch",
+          "type": "Partial<T>"
+        }
+      ],
+      "returnType": "T | undefined",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 5,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 3,
+        "fanIn": 2,
+        "fanOut": 1,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "0a1af7c96082",
+      "fileId": "537e1daac09d",
+      "parentId": null,
+      "kind": "function",
+      "name": "describe@4",
+      "qualifiedName": "describe@4",
+      "range": {
+        "startLine": 4,
+        "endLine": 17,
+        "startColumn": 20,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 14,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "0d15d24de47f",
+      "fileId": "537e1daac09d",
+      "parentId": "0a1af7c96082",
+      "kind": "function",
+      "name": "it@13",
+      "qualifiedName": "describe@4.it@13",
+      "range": {
+        "startLine": 13,
+        "endLine": 16,
+        "startColumn": 26,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "0d16c50f3ee4",
+      "fileId": "b088a7e64ad5",
+      "parentId": null,
+      "kind": "function",
+      "name": "completeTask",
+      "qualifiedName": "completeTask",
+      "range": {
+        "startLine": 41,
+        "endLine": 43,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "at",
+          "type": "number"
+        }
+      ],
+      "returnType": "Task | undefined",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "0d5bc4c4070c",
+      "fileId": "875191b4963c",
+      "parentId": "7be8d509a5f4",
+      "kind": "function",
+      "name": "it@13",
+      "qualifiedName": "describe@4.it@13",
+      "range": {
+        "startLine": 13,
+        "endLine": 15,
+        "startColumn": 49,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "0f02ac705a33",
+      "fileId": "93e6e163851f",
+      "parentId": null,
+      "kind": "function",
+      "name": "isArchivable",
+      "qualifiedName": "isArchivable",
+      "range": {
+        "startLine": 20,
+        "endLine": 22,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task",
+          "type": "Task"
+        },
+        {
+          "name": "before",
+          "type": "number"
+        }
+      ],
+      "returnType": "boolean",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 2,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "131be4932e38",
+      "fileId": "8632d4a2fda2",
+      "parentId": "98810d4da821",
+      "kind": "function",
+      "name": "it@5",
+      "qualifiedName": "describe@4.it@5",
+      "range": {
+        "startLine": 5,
+        "endLine": 8,
+        "startColumn": 40,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "20702b58d324",
+      "fileId": "0a27f1880fab",
+      "parentId": null,
+      "kind": "function",
+      "name": "registerRoutes",
+      "qualifiedName": "registerRoutes",
+      "range": {
+        "startLine": 10,
+        "endLine": 16,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "app",
+          "type": "Express"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 7,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 5
+      }
+    },
+    {
+      "id": "22a63996759c",
+      "fileId": "c815f8c11564",
+      "parentId": null,
+      "kind": "function",
+      "name": "present",
+      "qualifiedName": "present",
+      "range": {
+        "startLine": 16,
+        "endLine": 25,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task",
+          "type": "Task"
+        }
+      ],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 10,
+        "cyclomatic": 2,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 4,
+        "fanOut": 2,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "2da9d0741dc9",
+      "fileId": "d612980f69c7",
+      "parentId": null,
+      "kind": "function",
+      "name": "loadTeam",
+      "qualifiedName": "loadTeam",
+      "range": {
+        "startLine": 7,
+        "endLine": 11,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "teamId",
+          "type": "string"
+        }
+      ],
+      "returnType": "Team",
+      "doc": "/** Loads a team by id. Throws if it doesn't exist. */",
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 5,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 2,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "3110d0d14758",
+      "fileId": "b088a7e64ad5",
+      "parentId": null,
+      "kind": "function",
+      "name": "listTasksForUser",
+      "qualifiedName": "listTasksForUser",
+      "range": {
+        "startLine": 46,
+        "endLine": 48,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "userId",
+          "type": "string"
+        }
+      ],
+      "returnType": "Task[]",
+      "doc": "/** Tasks the user owns or that were shared with them, without archived ones. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 3,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 2,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "3819146f4035",
+      "fileId": "c815f8c11564",
+      "parentId": null,
+      "kind": "function",
+      "name": "currentUser",
+      "qualifiedName": "currentUser",
+      "range": {
+        "startLine": 27,
+        "endLine": 29,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "req",
+          "type": "Request"
+        }
+      ],
+      "returnType": "string",
+      "doc": null,
+      "decorators": [],
+      "traits": [],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 3,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "4f931614a4d0",
+      "fileId": "59a4dabe0f0e",
+      "parentId": null,
+      "kind": "function",
+      "name": "loadSnapshot",
+      "qualifiedName": "loadSnapshot",
+      "range": {
+        "startLine": 45,
+        "endLine": 51,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "json",
+          "type": "string"
+        }
+      ],
+      "returnType": "void",
+      "doc": "/** Loads tables from a JSON snapshot. A broken snapshot leaves the store as it was. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 7,
+        "cyclomatic": 3,
+        "maxNesting": 2,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 3
+      }
+    },
+    {
+      "id": "4fe50c7b0530",
+      "fileId": "93e6e163851f",
+      "parentId": null,
+      "kind": "function",
+      "name": "findTask",
+      "qualifiedName": "findTask",
+      "range": {
+        "startLine": 4,
+        "endLine": 6,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "returnType": "Task | undefined",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "527d1dd9aa54",
+      "fileId": "81aa2e9de4d6",
+      "parentId": null,
+      "kind": "function",
+      "name": "createApp",
+      "qualifiedName": "createApp",
+      "range": {
+        "startLine": 6,
+        "endLine": 11,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 6,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 1,
+        "fanOut": 1,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "538bdf96c40e",
+      "fileId": "8ec364bef2e9",
+      "parentId": null,
+      "kind": "type",
+      "name": "Completion",
+      "qualifiedName": "Completion",
+      "range": {
+        "startLine": 4,
+        "endLine": 4,
+        "startColumn": 7,
+        "endColumn": 74
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": "/** Either still open, or done at a known time (milliseconds since the epoch). */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 1,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "5b59b569deed",
+      "fileId": "b088a7e64ad5",
+      "parentId": null,
+      "kind": "function",
+      "name": "getTask",
+      "qualifiedName": "getTask",
+      "range": {
+        "startLine": 37,
+        "endLine": 39,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "returnType": "Task | undefined",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 2,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "5bd816ff5cd4",
+      "fileId": "59a4dabe0f0e",
+      "parentId": null,
+      "kind": "function",
+      "name": "query",
+      "qualifiedName": "query",
+      "range": {
+        "startLine": 16,
+        "endLine": 21,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "where",
+          "type": "Partial<T>"
+        }
+      ],
+      "returnType": "T[]",
+      "doc": "/** Returns every row of `name` whose fields equal all fields of `where`. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 6,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 4,
+        "fanOut": 1,
+        "dynamicCalls": 3
+      }
+    },
+    {
+      "id": "5d650622ab1d",
+      "fileId": "875191b4963c",
+      "parentId": "7be8d509a5f4",
+      "kind": "function",
+      "name": "it@9",
+      "qualifiedName": "describe@4.it@9",
+      "range": {
+        "startLine": 9,
+        "endLine": 11,
+        "startColumn": 38,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "5da1f099aac5",
+      "fileId": "b088a7e64ad5",
+      "parentId": null,
+      "kind": "type",
+      "name": "NewTask",
+      "qualifiedName": "NewTask",
+      "range": {
+        "startLine": 20,
+        "endLine": 20,
+        "startColumn": 7,
+        "endColumn": 91
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 1,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "639c9568a8ee",
+      "fileId": "04d697e1cd2c",
+      "parentId": null,
+      "kind": "function",
+      "name": "formatDate",
+      "qualifiedName": "formatDate",
+      "range": {
+        "startLine": 4,
+        "endLine": 11,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "timestamp",
+          "type": "number"
+        }
+      ],
+      "returnType": "string",
+      "doc": "/** Formats a timestamp as YYYY-MM-DD in UTC, so every server prints the same date. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 5
+      }
+    },
+    {
+      "id": "686e392ed4c3",
+      "fileId": "537e1daac09d",
+      "parentId": "0a1af7c96082",
+      "kind": "function",
+      "name": "it@9",
+      "qualifiedName": "describe@4.it@9",
+      "range": {
+        "startLine": 9,
+        "endLine": 11,
+        "startColumn": 21,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "688e37939780",
+      "fileId": "875191b4963c",
+      "parentId": "7be8d509a5f4",
+      "kind": "function",
+      "name": "it@17",
+      "qualifiedName": "describe@4.it@17",
+      "range": {
+        "startLine": 17,
+        "endLine": 19,
+        "startColumn": 47,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "6d7b75eee827",
+      "fileId": "537e1daac09d",
+      "parentId": "0a1af7c96082",
+      "kind": "function",
+      "name": "it@5",
+      "qualifiedName": "describe@4.it@5",
+      "range": {
+        "startLine": 5,
+        "endLine": 7,
+        "startColumn": 47,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "71eda6d16526",
+      "fileId": "1c5fd3409021",
+      "parentId": null,
+      "kind": "function",
+      "name": "unslugify",
+      "qualifiedName": "unslugify",
+      "range": {
+        "startLine": 10,
+        "endLine": 15,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "slug",
+          "type": "string"
+        }
+      ],
+      "returnType": "string",
+      "doc": null,
+      "decorators": [],
+      "traits": [],
+      "metrics": {
+        "loc": 6,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 6
+      }
+    },
+    {
+      "id": "75bd400ce1ce",
+      "fileId": "59a4dabe0f0e",
+      "parentId": null,
+      "kind": "function",
+      "name": "table",
+      "qualifiedName": "table",
+      "range": {
+        "startLine": 6,
+        "endLine": 13,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returnType": "Row[]",
+      "doc": null,
+      "decorators": [],
+      "traits": [],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 1,
+        "fanIn": 3,
+        "fanOut": 0,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "772b8d375746",
+      "fileId": "875191b4963c",
+      "parentId": "7be8d509a5f4",
+      "kind": "function",
+      "name": "it@5",
+      "qualifiedName": "describe@4.it@5",
+      "range": {
+        "startLine": 5,
+        "endLine": 7,
+        "startColumn": 35,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "783b5e0e6b97",
+      "fileId": "8ec364bef2e9",
+      "parentId": null,
+      "kind": "type",
+      "name": "TaskStatus",
+      "qualifiedName": "TaskStatus",
+      "range": {
+        "startLine": 1,
+        "endLine": 1,
+        "startColumn": 7,
+        "endColumn": 62
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 1,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "7be8d509a5f4",
+      "fileId": "875191b4963c",
+      "parentId": null,
+      "kind": "function",
+      "name": "describe@4",
+      "qualifiedName": "describe@4",
+      "range": {
+        "startLine": 4,
+        "endLine": 20,
+        "startColumn": 30,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 17,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "873b8efbde95",
+      "fileId": "0095b378c381",
+      "parentId": null,
+      "kind": "function",
+      "name": "isSharedWith",
+      "qualifiedName": "isSharedWith",
+      "range": {
+        "startLine": 8,
+        "endLine": 10,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task",
+          "type": "Task"
+        },
+        {
+          "name": "userId",
+          "type": "string"
+        }
+      ],
+      "returnType": "boolean",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "8d335ebb80fc",
+      "fileId": "93e6e163851f",
+      "parentId": null,
+      "kind": "function",
+      "name": "patchTask",
+      "qualifiedName": "patchTask",
+      "range": {
+        "startLine": 16,
+        "endLine": 18,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "patch",
+          "type": "Partial<Task>"
+        }
+      ],
+      "returnType": "Task | undefined",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 2,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "974b3f53876c",
+      "fileId": "8ec364bef2e9",
+      "parentId": null,
+      "kind": "type",
+      "name": "StatusFields",
+      "qualifiedName": "StatusFields",
+      "range": {
+        "startLine": 7,
+        "endLine": 7,
+        "startColumn": 7,
+        "endColumn": 61
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": "/** The fields that decide a task's status. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 1,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "97f1d8ac0f01",
+      "fileId": "b088a7e64ad5",
+      "parentId": null,
+      "kind": "function",
+      "name": "createTask",
+      "qualifiedName": "createTask",
+      "range": {
+        "startLine": 22,
+        "endLine": 35,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "input",
+          "type": "NewTask"
+        }
+      ],
+      "returnType": "Task",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 14,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 2,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "98810d4da821",
+      "fileId": "8632d4a2fda2",
+      "parentId": null,
+      "kind": "function",
+      "name": "describe@4",
+      "qualifiedName": "describe@4",
+      "range": {
+        "startLine": 4,
+        "endLine": 13,
+        "startColumn": 18,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 10,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "98e4ca7659b8",
+      "fileId": "93e6e163851f",
+      "parentId": null,
+      "kind": "function",
+      "name": "allTasks",
+      "qualifiedName": "allTasks",
+      "range": {
+        "startLine": 8,
+        "endLine": 10,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "Task[]",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 1,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "9f08ad2e48b1",
+      "fileId": "59a4dabe0f0e",
+      "parentId": "a9eefee860e4",
+      "kind": "method",
+      "name": "end",
+      "qualifiedName": "beginBatch.end",
+      "range": {
+        "startLine": 38,
+        "endLine": 40,
+        "startColumn": 4,
+        "endColumn": 5
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "a0aa187f7ddc",
+      "fileId": "8ec364bef2e9",
+      "parentId": null,
+      "kind": "type",
+      "name": "Team",
+      "qualifiedName": "Team",
+      "range": {
+        "startLine": 19,
+        "endLine": 23,
+        "startColumn": 7,
+        "endColumn": 2
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 5,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "a8b28e09a2c7",
+      "fileId": "c815f8c11564",
+      "parentId": null,
+      "kind": "function",
+      "name": "createTaskHandler",
+      "qualifiedName": "createTaskHandler",
+      "range": {
+        "startLine": 45,
+        "endLine": 53,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "req",
+          "type": "Request"
+        },
+        {
+          "name": "res",
+          "type": "Response"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 9,
+        "cyclomatic": 3,
+        "maxNesting": 1,
+        "params": 2,
+        "fanIn": 0,
+        "fanOut": 3,
+        "dynamicCalls": 5
+      }
+    },
+    {
+      "id": "a8bed04a28b8",
+      "fileId": "59a4dabe0f0e",
+      "parentId": null,
+      "kind": "function",
+      "name": "insert",
+      "qualifiedName": "insert",
+      "range": {
+        "startLine": 23,
+        "endLine": 26,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "row",
+          "type": "T"
+        }
+      ],
+      "returnType": "T",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "a9eefee860e4",
+      "fileId": "59a4dabe0f0e",
+      "parentId": null,
+      "kind": "function",
+      "name": "beginBatch",
+      "qualifiedName": "beginBatch",
+      "range": {
+        "startLine": 35,
+        "endLine": 42,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "{ end(): void }",
+      "doc": "/** Groups writes for the logs. Writes still apply immediately. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "b1773202662f",
+      "fileId": "c815f8c11564",
+      "parentId": null,
+      "kind": "function",
+      "name": "getTaskHandler",
+      "qualifiedName": "getTaskHandler",
+      "range": {
+        "startLine": 36,
+        "endLine": 43,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "req",
+          "type": "Request"
+        },
+        {
+          "name": "res",
+          "type": "Response"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 2,
+        "fanIn": 0,
+        "fanOut": 2,
+        "dynamicCalls": 3
+      }
+    },
+    {
+      "id": "b4581e63abfe",
+      "fileId": "93e6e163851f",
+      "parentId": null,
+      "kind": "function",
+      "name": "saveTask",
+      "qualifiedName": "saveTask",
+      "range": {
+        "startLine": 12,
+        "endLine": 14,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task",
+          "type": "Task"
+        }
+      ],
+      "returnType": "Task",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "bc7547d6fb0b",
+      "fileId": "8ec364bef2e9",
+      "parentId": null,
+      "kind": "type",
+      "name": "Task",
+      "qualifiedName": "Task",
+      "range": {
+        "startLine": 9,
+        "endLine": 17,
+        "startColumn": 7,
+        "endColumn": 17
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 9,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "bd1a5e5bd673",
+      "fileId": "c815f8c11564",
+      "parentId": null,
+      "kind": "function",
+      "name": "shareTaskHandler",
+      "qualifiedName": "shareTaskHandler",
+      "range": {
+        "startLine": 64,
+        "endLine": 71,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "req",
+          "type": "Request"
+        },
+        {
+          "name": "res",
+          "type": "Response"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 2,
+        "fanIn": 0,
+        "fanOut": 3,
+        "dynamicCalls": 3
+      }
+    },
+    {
+      "id": "c9e7b70ee154",
+      "fileId": "59a4dabe0f0e",
+      "parentId": null,
+      "kind": "type",
+      "name": "Row",
+      "qualifiedName": "Row",
+      "range": {
+        "startLine": 1,
+        "endLine": 1,
+        "startColumn": 7,
+        "endColumn": 33
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 1,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "d473462fbfc6",
+      "fileId": "c815f8c11564",
+      "parentId": null,
+      "kind": "function",
+      "name": "listTasksHandler",
+      "qualifiedName": "listTasksHandler",
+      "range": {
+        "startLine": 31,
+        "endLine": 34,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "req",
+          "type": "Request"
+        },
+        {
+          "name": "res",
+          "type": "Response"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 0,
+        "fanOut": 2,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "d50406a1ceb8",
+      "fileId": "8632d4a2fda2",
+      "parentId": "98810d4da821",
+      "kind": "function",
+      "name": "it@10",
+      "qualifiedName": "describe@4.it@10",
+      "range": {
+        "startLine": 10,
+        "endLine": 12,
+        "startColumn": 26,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "dad6c4c4107e",
+      "fileId": "b088a7e64ad5",
+      "parentId": null,
+      "kind": "function",
+      "name": "computeTaskStatus",
+      "qualifiedName": "computeTaskStatus",
+      "range": {
+        "startLine": 6,
+        "endLine": 16,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task",
+          "type": "StatusFields"
+        }
+      ],
+      "returnType": "TaskStatus",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 11,
+        "cyclomatic": 5,
+        "maxNesting": 2,
+        "params": 1,
+        "fanIn": 6,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "db84e3bf41ff",
+      "fileId": "93e6e163851f",
+      "parentId": null,
+      "kind": "function",
+      "name": "archiveCompleted",
+      "qualifiedName": "archiveCompleted",
+      "range": {
+        "startLine": 25,
+        "endLine": 41,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "teams",
+          "type": "Team[]"
+        },
+        {
+          "name": "before",
+          "type": "number"
+        }
+      ],
+      "returnType": "number",
+      "doc": "/** Archives every task of `teams` that was finished before `before`. Returns how many. */",
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 17,
+        "cyclomatic": 4,
+        "maxNesting": 4,
+        "params": 2,
+        "fanIn": 0,
+        "fanOut": 4,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "e1aa58a89588",
+      "fileId": "d612980f69c7",
+      "parentId": null,
+      "kind": "class",
+      "name": "TeamNotFoundError",
+      "qualifiedName": "TeamNotFoundError",
+      "range": {
+        "startLine": 4,
+        "endLine": 4,
+        "startColumn": 7,
+        "endColumn": 47
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 1,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "e2baed704c25",
+      "fileId": "1c5fd3409021",
+      "parentId": null,
+      "kind": "function",
+      "name": "slugify",
+      "qualifiedName": "slugify",
+      "range": {
+        "startLine": 2,
+        "endLine": 8,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "text",
+          "type": "string"
+        }
+      ],
+      "returnType": "string",
+      "doc": "/** Turns a title into a URL-friendly slug: \"Hello World\" becomes \"hello-world\". */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 7,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 4,
+        "fanOut": 0,
+        "dynamicCalls": 4
+      }
+    },
+    {
+      "id": "e81922d7fcdc",
+      "fileId": "81aa2e9de4d6",
+      "parentId": null,
+      "kind": "function",
+      "name": "start",
+      "qualifiedName": "start",
+      "range": {
+        "startLine": 13,
+        "endLine": 17,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "port",
+          "type": null
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 5,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 2,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "ed53d8601b58",
+      "fileId": "c815f8c11564",
+      "parentId": null,
+      "kind": "function",
+      "name": "completeTaskHandler",
+      "qualifiedName": "completeTaskHandler",
+      "range": {
+        "startLine": 55,
+        "endLine": 62,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "req",
+          "type": "Request"
+        },
+        {
+          "name": "res",
+          "type": "Response"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 2,
+        "fanIn": 0,
+        "fanOut": 2,
+        "dynamicCalls": 4
+      }
+    },
+    {
+      "id": "f3939c050186",
+      "fileId": "0095b378c381",
+      "parentId": null,
+      "kind": "function",
+      "name": "shareTask",
+      "qualifiedName": "shareTask",
+      "range": {
+        "startLine": 21,
+        "endLine": 28,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "taskId",
+          "type": "string"
+        },
+        {
+          "name": "userId",
+          "type": "string"
+        },
+        {
+          "name": "withUserId",
+          "type": "string"
+        }
+      ],
+      "returnType": "Task",
+      "doc": "/** Shares a task with another user. Only team members can share, and finished tasks can't be shared. */",
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 3,
+        "maxNesting": 1,
+        "params": 3,
+        "fanIn": 1,
+        "fanOut": 4,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "f4046ea787de",
+      "fileId": "0095b378c381",
+      "parentId": null,
+      "kind": "function",
+      "name": "checkPermissions",
+      "qualifiedName": "checkPermissions",
+      "range": {
+        "startLine": 13,
+        "endLine": 18,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task",
+          "type": "Task"
+        },
+        {
+          "name": "userId",
+          "type": "string"
+        }
+      ],
+      "returnType": "void",
+      "doc": "/** Throws unless `userId` belongs to the task's team. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 6,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 2,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "f8296f3439a7",
+      "fileId": "04d697e1cd2c",
+      "parentId": null,
+      "kind": "function",
+      "name": "daysBetween",
+      "qualifiedName": "daysBetween",
+      "range": {
+        "startLine": 13,
+        "endLine": 15,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "from",
+          "type": "number"
+        },
+        {
+          "name": "to",
+          "type": "number"
+        }
+      ],
+      "returnType": "number",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "fe848568b293",
+      "fileId": "c815f8c11564",
+      "parentId": null,
+      "kind": "function",
+      "name": "formatDate",
+      "qualifiedName": "formatDate",
+      "range": {
+        "startLine": 7,
+        "endLine": 14,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "timestamp",
+          "type": "number"
+        }
+      ],
+      "returnType": "string",
+      "doc": "// Copied from utils/dates.ts to keep the API layer self-contained.",
+      "decorators": [],
+      "traits": [],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 5
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "01be0e8f2672",
+      "from": "bd1a5e5bd673",
+      "to": "22a63996759c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 67,
+      "label": "present"
+    },
+    {
+      "id": "0434e7831120",
+      "from": "bd1a5e5bd673",
+      "to": "f3939c050186",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 66,
+      "label": "shareTask"
+    },
+    {
+      "id": "07c6adb63b16",
+      "from": "686e392ed4c3",
+      "to": "e2baed704c25",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 10,
+      "label": "slugify"
+    },
+    {
+      "id": "09a4792d76a5",
+      "from": "b4581e63abfe",
+      "to": "a8bed04a28b8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 13,
+      "label": "insert"
+    },
+    {
+      "id": "0dc1ea53439b",
+      "from": "db84e3bf41ff",
+      "to": "a9eefee860e4",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 27,
+      "label": "beginBatch"
+    },
+    {
+      "id": "0e521c0db2e0",
+      "from": "3110d0d14758",
+      "to": "873b8efbde95",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 47,
+      "label": "isSharedWith"
+    },
+    {
+      "id": "0ef95bed05db",
+      "from": "bd1a5e5bd673",
+      "to": "3819146f4035",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 66,
+      "label": "currentUser"
+    },
+    {
+      "id": "0fad7f279699",
+      "from": "875191b4963c",
+      "to": "fe0203eb0ff7",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "vitest"
+    },
+    {
+      "id": "0fdff32b24b9",
+      "from": "b1773202662f",
+      "to": "5b59b569deed",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 37,
+      "label": "getTask"
+    },
+    {
+      "id": "116b08306317",
+      "from": "93e6e163851f",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "../types"
+    },
+    {
+      "id": "124c45e6a397",
+      "from": "131be4932e38",
+      "to": "639c9568a8ee",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 7,
+      "label": "formatDate"
+    },
+    {
+      "id": "17bf4f59d19d",
+      "from": "b088a7e64ad5",
+      "to": "93e6e163851f",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "../db/tasks"
+    },
+    {
+      "id": "19e83d62a063",
+      "from": "93e6e163851f",
+      "to": "59a4dabe0f0e",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "./client"
+    },
+    {
+      "id": "1a1ea63749e8",
+      "from": "d612980f69c7",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "../types"
+    },
+    {
+      "id": "1a9682a87479",
+      "from": "537e1daac09d",
+      "to": "fe0203eb0ff7",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "vitest"
+    },
+    {
+      "id": "1aa6006d95ad",
+      "from": "db84e3bf41ff",
+      "to": "0f02ac705a33",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 31,
+      "label": "isArchivable"
+    },
+    {
+      "id": "1c589cf5503d",
+      "from": "c815f8c11564",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 4,
+      "label": "../types"
+    },
+    {
+      "id": "2364b7ad1cb2",
+      "from": "22a63996759c",
+      "to": "fe848568b293",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 22,
+      "label": "formatDate"
+    },
+    {
+      "id": "24abdd87de31",
+      "from": "8d335ebb80fc",
+      "to": "0771bfc945b7",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 17,
+      "label": "update"
+    },
+    {
+      "id": "2683e3cf9bc0",
+      "from": "ed53d8601b58",
+      "to": "0d16c50f3ee4",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 56,
+      "label": "completeTask"
+    },
+    {
+      "id": "3203a732295c",
+      "from": "81aa2e9de4d6",
+      "to": "0a27f1880fab",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 3,
+      "label": "./api/routes"
+    },
+    {
+      "id": "33685970e1b0",
+      "from": "a8b28e09a2c7",
+      "to": "3819146f4035",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 51,
+      "label": "currentUser"
+    },
+    {
+      "id": "36482607415c",
+      "from": "0095b378c381",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 3,
+      "label": "../types"
+    },
+    {
+      "id": "396ccb613df1",
+      "from": "d50406a1ceb8",
+      "to": "f8296f3439a7",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 11,
+      "label": "daysBetween"
+    },
+    {
+      "id": "3b9d64bd7bb6",
+      "from": "688e37939780",
+      "to": "dad6c4c4107e",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 18,
+      "label": "computeTaskStatus"
+    },
+    {
+      "id": "3bb4166a8c6b",
+      "from": "ed53d8601b58",
+      "to": "22a63996759c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 61,
+      "label": "present"
+    },
+    {
+      "id": "3ce45ba378f1",
+      "from": "a8b28e09a2c7",
+      "to": "97f1d8ac0f01",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 51,
+      "label": "createTask"
+    },
+    {
+      "id": "3eb2ee2ebc2c",
+      "from": "81aa2e9de4d6",
+      "to": "e7a689b0c94d",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "express"
+    },
+    {
+      "id": "3ed109b7efad",
+      "from": "0d15d24de47f",
+      "to": "e2baed704c25",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 14,
+      "label": "slugify"
+    },
+    {
+      "id": "430adde5e60b",
+      "from": "f4046ea787de",
+      "to": "03dd08ec9b93",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 16,
+      "label": "PermissionError"
+    },
+    {
+      "id": "4d5c2ef50e93",
+      "from": "d473462fbfc6",
+      "to": "3110d0d14758",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 33,
+      "label": "listTasksForUser"
+    },
+    {
+      "id": "4e708beb28a7",
+      "from": "e81922d7fcdc",
+      "to": "527d1dd9aa54",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 16,
+      "label": "createApp"
+    },
+    {
+      "id": "50389b0f5d08",
+      "from": "d612980f69c7",
+      "to": "59a4dabe0f0e",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "./client"
+    },
+    {
+      "id": "508e458cb879",
+      "from": "0d5bc4c4070c",
+      "to": "dad6c4c4107e",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 14,
+      "label": "computeTaskStatus"
+    },
+    {
+      "id": "50ca08975f31",
+      "from": "0d15d24de47f",
+      "to": "e2baed704c25",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 15,
+      "label": "slugify"
+    },
+    {
+      "id": "54965ea7c3e9",
+      "from": "0d16c50f3ee4",
+      "to": "8d335ebb80fc",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 42,
+      "label": "patchTask"
+    },
+    {
+      "id": "5624d8d3049c",
+      "from": "db84e3bf41ff",
+      "to": "5bd816ff5cd4",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 30,
+      "label": "query"
+    },
+    {
+      "id": "59b1d8405e26",
+      "from": "22a63996759c",
+      "to": "dad6c4c4107e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 21,
+      "label": "computeTaskStatus"
+    },
+    {
+      "id": "5d0f99e4e9dc",
+      "from": "d50406a1ceb8",
+      "to": "f8296f3439a7",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 11,
+      "label": "daysBetween"
+    },
+    {
+      "id": "5d80de9502fc",
+      "from": "686e392ed4c3",
+      "to": "e2baed704c25",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 10,
+      "label": "slugify"
+    },
+    {
+      "id": "67c5ee4ba86a",
+      "from": "772b8d375746",
+      "to": "dad6c4c4107e",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 6,
+      "label": "computeTaskStatus"
+    },
+    {
+      "id": "6899d92112bd",
+      "from": "875191b4963c",
+      "to": "b088a7e64ad5",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "../src/services/taskService"
+    },
+    {
+      "id": "6994df766cc3",
+      "from": "b088a7e64ad5",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "../types"
+    },
+    {
+      "id": "6a09d7ac3702",
+      "from": "0771bfc945b7",
+      "to": "75bd400ce1ce",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 29,
+      "label": "table"
+    },
+    {
+      "id": "6a12b7db91c2",
+      "from": "b088a7e64ad5",
+      "to": "0095b378c381",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 4,
+      "label": "./shareService"
+    },
+    {
+      "id": "6da2c77014ce",
+      "from": "8632d4a2fda2",
+      "to": "04d697e1cd2c",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "../src/utils/dates"
+    },
+    {
+      "id": "70f9140d2f25",
+      "from": "772b8d375746",
+      "to": "dad6c4c4107e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 6,
+      "label": "computeTaskStatus"
+    },
+    {
+      "id": "720d53e652be",
+      "from": "c815f8c11564",
+      "to": "0095b378c381",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "../services/shareService"
+    },
+    {
+      "id": "771256f8efe0",
+      "from": "81aa2e9de4d6",
+      "to": "4e1665446485",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "node:fs"
+    },
+    {
+      "id": "77effb055afd",
+      "from": "5b59b569deed",
+      "to": "4fe50c7b0530",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 38,
+      "label": "findTask"
+    },
+    {
+      "id": "77f13537d896",
+      "from": "6d7b75eee827",
+      "to": "e2baed704c25",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 6,
+      "label": "slugify"
+    },
+    {
+      "id": "7a6e9659e4f3",
+      "from": "5bd816ff5cd4",
+      "to": "75bd400ce1ce",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 18,
+      "label": "table"
+    },
+    {
+      "id": "7ab498201fac",
+      "from": "131be4932e38",
+      "to": "639c9568a8ee",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 6,
+      "label": "formatDate"
+    },
+    {
+      "id": "7ef58a14a8f1",
+      "from": "81aa2e9de4d6",
+      "to": "59a4dabe0f0e",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 4,
+      "label": "./db/client"
+    },
+    {
+      "id": "7f12ab67a02f",
+      "from": "c815f8c11564",
+      "to": "e7a689b0c94d",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "express"
+    },
+    {
+      "id": "7f9ef31981d0",
+      "from": "0d15d24de47f",
+      "to": "e2baed704c25",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 14,
+      "label": "slugify"
+    },
+    {
+      "id": "81839adc77de",
+      "from": "0095b378c381",
+      "to": "b088a7e64ad5",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 4,
+      "label": "./taskService"
+    },
+    {
+      "id": "86903452dd68",
+      "from": "e81922d7fcdc",
+      "to": "4f931614a4d0",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 15,
+      "label": "loadSnapshot"
+    },
+    {
+      "id": "8e3519136434",
+      "from": "f3939c050186",
+      "to": "8d335ebb80fc",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 26,
+      "label": "patchTask"
+    },
+    {
+      "id": "909f1b16d500",
+      "from": "2da9d0741dc9",
+      "to": "e1aa58a89588",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 9,
+      "label": "TeamNotFoundError"
+    },
+    {
+      "id": "91c2cfd5dcae",
+      "from": "131be4932e38",
+      "to": "639c9568a8ee",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 6,
+      "label": "formatDate"
+    },
+    {
+      "id": "91cf4d7276c6",
+      "from": "2da9d0741dc9",
+      "to": "5bd816ff5cd4",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 8,
+      "label": "query"
+    },
+    {
+      "id": "9cf3ee092dc9",
+      "from": "537e1daac09d",
+      "to": "1c5fd3409021",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "../src/utils/slugify"
+    },
+    {
+      "id": "9f49e1d53b09",
+      "from": "b088a7e64ad5",
+      "to": "1c5fd3409021",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 3,
+      "label": "../utils/slugify"
+    },
+    {
+      "id": "9fe8bb91a033",
+      "from": "f3939c050186",
+      "to": "5b59b569deed",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 22,
+      "label": "getTask"
+    },
+    {
+      "id": "a0a3d87513b8",
+      "from": "4fe50c7b0530",
+      "to": "5bd816ff5cd4",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 5,
+      "label": "query"
+    },
+    {
+      "id": "a4f4dc5c3590",
+      "from": "a8bed04a28b8",
+      "to": "75bd400ce1ce",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 24,
+      "label": "table"
+    },
+    {
+      "id": "a691aadc94d9",
+      "from": "8632d4a2fda2",
+      "to": "f8296f3439a7",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 2,
+      "label": "daysBetween"
+    },
+    {
+      "id": "abff902872df",
+      "from": "131be4932e38",
+      "to": "639c9568a8ee",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 7,
+      "label": "formatDate"
+    },
+    {
+      "id": "b349f4ea921f",
+      "from": "d473462fbfc6",
+      "to": "3819146f4035",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 33,
+      "label": "currentUser"
+    },
+    {
+      "id": "b47a596cc333",
+      "from": "0095b378c381",
+      "to": "93e6e163851f",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "../db/tasks"
+    },
+    {
+      "id": "b6c202ba9ec2",
+      "from": "537e1daac09d",
+      "to": "e2baed704c25",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 2,
+      "label": "slugify"
+    },
+    {
+      "id": "c41ae82c310b",
+      "from": "c815f8c11564",
+      "to": "b088a7e64ad5",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 3,
+      "label": "../services/taskService"
+    },
+    {
+      "id": "c4c0d0400d07",
+      "from": "97f1d8ac0f01",
+      "to": "e2baed704c25",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 26,
+      "label": "slugify"
+    },
+    {
+      "id": "c5424a92e458",
+      "from": "6d7b75eee827",
+      "to": "e2baed704c25",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 6,
+      "label": "slugify"
+    },
+    {
+      "id": "c6d0aa470cf4",
+      "from": "5d650622ab1d",
+      "to": "dad6c4c4107e",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 10,
+      "label": "computeTaskStatus"
+    },
+    {
+      "id": "c75526bd5c8c",
+      "from": "8632d4a2fda2",
+      "to": "639c9568a8ee",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 2,
+      "label": "formatDate"
+    },
+    {
+      "id": "ccd8c28c0110",
+      "from": "0d15d24de47f",
+      "to": "e2baed704c25",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 15,
+      "label": "slugify"
+    },
+    {
+      "id": "d026e0bfbe1c",
+      "from": "3110d0d14758",
+      "to": "98e4ca7659b8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 47,
+      "label": "allTasks"
+    },
+    {
+      "id": "d0cb856b96a7",
+      "from": "db84e3bf41ff",
+      "to": "0771bfc945b7",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 32,
+      "label": "update"
+    },
+    {
+      "id": "d5bdf921a88f",
+      "from": "8632d4a2fda2",
+      "to": "fe0203eb0ff7",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "vitest"
+    },
+    {
+      "id": "d7c0898f0058",
+      "from": "b1773202662f",
+      "to": "22a63996759c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 42,
+      "label": "present"
+    },
+    {
+      "id": "deacff3b0ce8",
+      "from": "5d650622ab1d",
+      "to": "dad6c4c4107e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 10,
+      "label": "computeTaskStatus"
+    },
+    {
+      "id": "e0c8b85cccaf",
+      "from": "f3939c050186",
+      "to": "f4046ea787de",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 24,
+      "label": "checkPermissions"
+    },
+    {
+      "id": "e1d400b50edd",
+      "from": "527d1dd9aa54",
+      "to": "20702b58d324",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 9,
+      "label": "registerRoutes"
+    },
+    {
+      "id": "e24cf2fc0c0e",
+      "from": "875191b4963c",
+      "to": "dad6c4c4107e",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 2,
+      "label": "computeTaskStatus"
+    },
+    {
+      "id": "ecffed62c2a6",
+      "from": "a8b28e09a2c7",
+      "to": "22a63996759c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 52,
+      "label": "present"
+    },
+    {
+      "id": "ef546a1d14f8",
+      "from": "98e4ca7659b8",
+      "to": "5bd816ff5cd4",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 9,
+      "label": "query"
+    },
+    {
+      "id": "f001435800b3",
+      "from": "688e37939780",
+      "to": "dad6c4c4107e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 18,
+      "label": "computeTaskStatus"
+    },
+    {
+      "id": "f1f8a356c218",
+      "from": "97f1d8ac0f01",
+      "to": "b4581e63abfe",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 34,
+      "label": "saveTask"
+    },
+    {
+      "id": "f2b0335c1b01",
+      "from": "0095b378c381",
+      "to": "d612980f69c7",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "../db/teams"
+    },
+    {
+      "id": "f402c4a5b1c3",
+      "from": "0a27f1880fab",
+      "to": "e7a689b0c94d",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "express"
+    },
+    {
+      "id": "f8c6e1961184",
+      "from": "0d5bc4c4070c",
+      "to": "dad6c4c4107e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 14,
+      "label": "computeTaskStatus"
+    },
+    {
+      "id": "f996db5daefa",
+      "from": "0a27f1880fab",
+      "to": "c815f8c11564",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "./handlers"
+    },
+    {
+      "id": "fbc814acec07",
+      "from": "f3939c050186",
+      "to": "dad6c4c4107e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 25,
+      "label": "computeTaskStatus"
+    },
+    {
+      "id": "fe9633b06d6e",
+      "from": "f4046ea787de",
+      "to": "2da9d0741dc9",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 14,
+      "label": "loadTeam"
+    }
+  ],
+  "smells": [
+    {
+      "id": "03cd1d047f4f",
+      "kind": "untested-code",
+      "fileIds": [
+        "59a4dabe0f0e"
+      ],
+      "symbolIds": [
+        "4f931614a4d0"
+      ],
+      "range": {
+        "startLine": 45,
+        "endLine": 51,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "064986f89dee",
+      "kind": "circular-dependency",
+      "fileIds": [
+        "0095b378c381",
+        "b088a7e64ad5"
+      ],
+      "symbolIds": [],
+      "range": {
+        "startLine": 1,
+        "endLine": 1,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 2,
+      "evidence": {
+        "message": "Strongly connected file-import component.",
+        "measured": 2,
+        "threshold": 1
+      }
+    },
+    {
+      "id": "0e4580daa446",
+      "kind": "todo-comment",
+      "fileIds": [
+        "c815f8c11564"
+      ],
+      "symbolIds": [
+        "d473462fbfc6"
+      ],
+      "range": {
+        "startLine": 32,
+        "endLine": 32,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "TODO/FIXME/HACK comment marker.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "1315539a9dab",
+      "kind": "untested-code",
+      "fileIds": [
+        "d612980f69c7"
+      ],
+      "symbolIds": [
+        "e1aa58a89588"
+      ],
+      "range": {
+        "startLine": 4,
+        "endLine": 4,
+        "startColumn": 7,
+        "endColumn": 47
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "14aa7d0238dd",
+      "kind": "magic-number",
+      "fileIds": [
+        "c815f8c11564"
+      ],
+      "symbolIds": [
+        "ed53d8601b58"
+      ],
+      "range": {
+        "startLine": 58,
+        "endLine": 58,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Unnamed numeric literal outside a named constant.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "1fae550833d2",
+      "kind": "untested-code",
+      "fileIds": [
+        "59a4dabe0f0e"
+      ],
+      "symbolIds": [
+        "0771bfc945b7"
+      ],
+      "range": {
+        "startLine": 28,
+        "endLine": 32,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "1fe40cf7a709",
+      "kind": "untested-code",
+      "fileIds": [
+        "93e6e163851f"
+      ],
+      "symbolIds": [
+        "4fe50c7b0530"
+      ],
+      "range": {
+        "startLine": 4,
+        "endLine": 6,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "366d72c34af5",
+      "kind": "dead-code",
+      "fileIds": [
+        "1c5fd3409021"
+      ],
+      "symbolIds": [
+        "71eda6d16526"
+      ],
+      "range": {
+        "startLine": 10,
+        "endLine": 15,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No known caller or export/entry point.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "3c1792cd1fb1",
+      "kind": "untested-code",
+      "fileIds": [
+        "b088a7e64ad5"
+      ],
+      "symbolIds": [
+        "0d16c50f3ee4"
+      ],
+      "range": {
+        "startLine": 41,
+        "endLine": 43,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "44c499113519",
+      "kind": "untested-code",
+      "fileIds": [
+        "93e6e163851f"
+      ],
+      "symbolIds": [
+        "8d335ebb80fc"
+      ],
+      "range": {
+        "startLine": 16,
+        "endLine": 18,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "53014e45f84b",
+      "kind": "untested-code",
+      "fileIds": [
+        "59a4dabe0f0e"
+      ],
+      "symbolIds": [
+        "75bd400ce1ce"
+      ],
+      "range": {
+        "startLine": 6,
+        "endLine": 13,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "53ded6a56709",
+      "kind": "untested-code",
+      "fileIds": [
+        "81aa2e9de4d6"
+      ],
+      "symbolIds": [
+        "e81922d7fcdc"
+      ],
+      "range": {
+        "startLine": 13,
+        "endLine": 17,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "544e9576e92d",
+      "kind": "missing-types",
+      "fileIds": [
+        "81aa2e9de4d6"
+      ],
+      "symbolIds": [
+        "e81922d7fcdc"
+      ],
+      "range": {
+        "startLine": 13,
+        "endLine": 13,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "One or more parameters are unannotated or explicitly any.",
+        "measured": 1,
+        "threshold": 0
+      }
+    },
+    {
+      "id": "5965a3e41f58",
+      "kind": "untested-code",
+      "fileIds": [
+        "b088a7e64ad5"
+      ],
+      "symbolIds": [
+        "3110d0d14758"
+      ],
+      "range": {
+        "startLine": 46,
+        "endLine": 48,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "63f4ee012930",
+      "kind": "magic-number",
+      "fileIds": [
+        "c815f8c11564"
+      ],
+      "symbolIds": [
+        "a8b28e09a2c7"
+      ],
+      "range": {
+        "startLine": 48,
+        "endLine": 48,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Unnamed numeric literal outside a named constant.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "64d0ef64b2b3",
+      "kind": "untested-code",
+      "fileIds": [
+        "d612980f69c7"
+      ],
+      "symbolIds": [
+        "2da9d0741dc9"
+      ],
+      "range": {
+        "startLine": 7,
+        "endLine": 11,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "6f7ffd678a21",
+      "kind": "untested-code",
+      "fileIds": [
+        "59a4dabe0f0e"
+      ],
+      "symbolIds": [
+        "a8bed04a28b8"
+      ],
+      "range": {
+        "startLine": 23,
+        "endLine": 26,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "71446e87f43e",
+      "kind": "magic-number",
+      "fileIds": [
+        "81aa2e9de4d6"
+      ],
+      "symbolIds": [
+        "e81922d7fcdc"
+      ],
+      "range": {
+        "startLine": 13,
+        "endLine": 13,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Unnamed numeric literal outside a named constant.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "7144d6b7e1d7",
+      "kind": "untested-code",
+      "fileIds": [
+        "b088a7e64ad5"
+      ],
+      "symbolIds": [
+        "5b59b569deed"
+      ],
+      "range": {
+        "startLine": 37,
+        "endLine": 39,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "76e0ac7471b8",
+      "kind": "untested-code",
+      "fileIds": [
+        "0095b378c381"
+      ],
+      "symbolIds": [
+        "873b8efbde95"
+      ],
+      "range": {
+        "startLine": 8,
+        "endLine": 10,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "8793bc441808",
+      "kind": "untested-code",
+      "fileIds": [
+        "b088a7e64ad5"
+      ],
+      "symbolIds": [
+        "97f1d8ac0f01"
+      ],
+      "range": {
+        "startLine": 22,
+        "endLine": 35,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "87d495303609",
+      "kind": "untested-code",
+      "fileIds": [
+        "59a4dabe0f0e"
+      ],
+      "symbolIds": [
+        "a9eefee860e4"
+      ],
+      "range": {
+        "startLine": 35,
+        "endLine": 42,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "962ce3664649",
+      "kind": "untested-code",
+      "fileIds": [
+        "0a27f1880fab"
+      ],
+      "symbolIds": [
+        "20702b58d324"
+      ],
+      "range": {
+        "startLine": 10,
+        "endLine": 16,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "9651b7e07646",
+      "kind": "untested-code",
+      "fileIds": [
+        "93e6e163851f"
+      ],
+      "symbolIds": [
+        "98e4ca7659b8"
+      ],
+      "range": {
+        "startLine": 8,
+        "endLine": 10,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "adcd0c561cf8",
+      "kind": "magic-number",
+      "fileIds": [
+        "c815f8c11564"
+      ],
+      "symbolIds": [
+        "bd1a5e5bd673"
+      ],
+      "range": {
+        "startLine": 69,
+        "endLine": 69,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Unnamed numeric literal outside a named constant.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "b67636e9acbf",
+      "kind": "magic-number",
+      "fileIds": [
+        "c815f8c11564"
+      ],
+      "symbolIds": [
+        "a8b28e09a2c7"
+      ],
+      "range": {
+        "startLine": 52,
+        "endLine": 52,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Unnamed numeric literal outside a named constant.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "b74f396b5891",
+      "kind": "untested-code",
+      "fileIds": [
+        "81aa2e9de4d6"
+      ],
+      "symbolIds": [
+        "527d1dd9aa54"
+      ],
+      "range": {
+        "startLine": 6,
+        "endLine": 11,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "b868f5a26526",
+      "kind": "untested-code",
+      "fileIds": [
+        "0095b378c381"
+      ],
+      "symbolIds": [
+        "f3939c050186"
+      ],
+      "range": {
+        "startLine": 21,
+        "endLine": 28,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "ba19aad57db5",
+      "kind": "untested-code",
+      "fileIds": [
+        "93e6e163851f"
+      ],
+      "symbolIds": [
+        "db84e3bf41ff"
+      ],
+      "range": {
+        "startLine": 25,
+        "endLine": 41,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "ba8f3f5c0b9f",
+      "kind": "untested-code",
+      "fileIds": [
+        "0095b378c381"
+      ],
+      "symbolIds": [
+        "f4046ea787de"
+      ],
+      "range": {
+        "startLine": 13,
+        "endLine": 18,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "c65e0aa02c66",
+      "kind": "untested-code",
+      "fileIds": [
+        "93e6e163851f"
+      ],
+      "symbolIds": [
+        "0f02ac705a33"
+      ],
+      "range": {
+        "startLine": 20,
+        "endLine": 22,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "ceb7c84a499a",
+      "kind": "magic-number",
+      "fileIds": [
+        "c815f8c11564"
+      ],
+      "symbolIds": [
+        "b1773202662f"
+      ],
+      "range": {
+        "startLine": 39,
+        "endLine": 39,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Unnamed numeric literal outside a named constant.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "cfb38e94ec49",
+      "kind": "untested-code",
+      "fileIds": [
+        "c815f8c11564"
+      ],
+      "symbolIds": [
+        "fe848568b293"
+      ],
+      "range": {
+        "startLine": 7,
+        "endLine": 14,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "d0626a90b0b7",
+      "kind": "swallowed-error",
+      "fileIds": [
+        "59a4dabe0f0e"
+      ],
+      "symbolIds": [
+        "4f931614a4d0"
+      ],
+      "range": {
+        "startLine": 49,
+        "endLine": 49,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Empty catch/except body swallows errors.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "d26e28fad709",
+      "kind": "untested-code",
+      "fileIds": [
+        "0095b378c381"
+      ],
+      "symbolIds": [
+        "03dd08ec9b93"
+      ],
+      "range": {
+        "startLine": 6,
+        "endLine": 6,
+        "startColumn": 7,
+        "endColumn": 45
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "d680132ad6e0",
+      "kind": "untested-code",
+      "fileIds": [
+        "c815f8c11564"
+      ],
+      "symbolIds": [
+        "22a63996759c"
+      ],
+      "range": {
+        "startLine": 16,
+        "endLine": 25,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "dc919e2e64ff",
+      "kind": "untested-code",
+      "fileIds": [
+        "59a4dabe0f0e"
+      ],
+      "symbolIds": [
+        "5bd816ff5cd4"
+      ],
+      "range": {
+        "startLine": 16,
+        "endLine": 21,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "e219a9d3f9f3",
+      "kind": "untested-code",
+      "fileIds": [
+        "93e6e163851f"
+      ],
+      "symbolIds": [
+        "b4581e63abfe"
+      ],
+      "range": {
+        "startLine": 12,
+        "endLine": 14,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "f6e82b539300",
+      "kind": "untested-code",
+      "fileIds": [
+        "c815f8c11564"
+      ],
+      "symbolIds": [
+        "3819146f4035"
+      ],
+      "range": {
+        "startLine": 27,
+        "endLine": 29,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "ff3aa72e0038",
+      "kind": "duplicate-code",
+      "fileIds": [
+        "04d697e1cd2c",
+        "c815f8c11564"
+      ],
+      "symbolIds": [
+        "639c9568a8ee",
+        "fe848568b293"
+      ],
+      "range": {
+        "startLine": 4,
+        "endLine": 11,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 2,
+      "evidence": {
+        "message": "Equal normalized syntax subtrees (identifier spelling ignored).",
+        "measured": 2,
+        "threshold": 1
+      }
+    }
+  ],
+  "entryPoints": [
+    {
+      "id": "6f55f9d89bf5",
+      "fileId": "0a27f1880fab",
+      "symbolId": "d473462fbfc6",
+      "kind": "http",
+      "label": "GET /tasks",
+      "range": {
+        "startLine": 11,
+        "endLine": 11,
+        "startColumn": 2,
+        "endColumn": 37
+      }
+    },
+    {
+      "id": "86b0d1e1d0f4",
+      "fileId": "0a27f1880fab",
+      "symbolId": "a8b28e09a2c7",
+      "kind": "http",
+      "label": "POST /tasks",
+      "range": {
+        "startLine": 12,
+        "endLine": 12,
+        "startColumn": 2,
+        "endColumn": 39
+      }
+    },
+    {
+      "id": "b320f7bc2800",
+      "fileId": "0a27f1880fab",
+      "symbolId": "b1773202662f",
+      "kind": "http",
+      "label": "GET /tasks/:id",
+      "range": {
+        "startLine": 13,
+        "endLine": 13,
+        "startColumn": 2,
+        "endColumn": 39
+      }
+    },
+    {
+      "id": "e135d4628e99",
+      "fileId": "0a27f1880fab",
+      "symbolId": "bd1a5e5bd673",
+      "kind": "http",
+      "label": "POST /tasks/:id/share",
+      "range": {
+        "startLine": 15,
+        "endLine": 15,
+        "startColumn": 2,
+        "endColumn": 48
+      }
+    },
+    {
+      "id": "f2b400d02112",
+      "fileId": "0a27f1880fab",
+      "symbolId": "ed53d8601b58",
+      "kind": "http",
+      "label": "POST /tasks/:id/complete",
+      "range": {
+        "startLine": 14,
+        "endLine": 14,
+        "startColumn": 2,
+        "endColumn": 54
+      }
+    }
+  ],
+  "testFacts": [
+    {
+      "id": "08d41fb7e475",
+      "testFileId": "537e1daac09d",
+      "line": 6,
+      "calleeSymbolId": "e2baed704c25",
+      "args": [
+        "Hello World"
+      ],
+      "expected": "hello-world",
+      "matcher": "equal"
+    },
+    {
+      "id": "0a3977251e56",
+      "testFileId": "537e1daac09d",
+      "line": 14,
+      "calleeSymbolId": "e2baed704c25",
+      "args": [
+        "Ship it!!"
+      ],
+      "expected": "ship-it",
+      "matcher": "equal"
+    },
+    {
+      "id": "2a9b2c85ca18",
+      "testFileId": "537e1daac09d",
+      "line": 10,
+      "calleeSymbolId": "e2baed704c25",
+      "args": [
+        "  Taskly  "
+      ],
+      "expected": "taskly",
+      "matcher": "equal"
+    },
+    {
+      "id": "371f698f49e2",
+      "testFileId": "875191b4963c",
+      "line": 10,
+      "calleeSymbolId": "dad6c4c4107e",
+      "args": [
+        {
+          "dueDate": 10,
+          "done": true,
+          "doneAt": 5
+        }
+      ],
+      "expected": "done",
+      "matcher": "equal"
+    },
+    {
+      "id": "3fc92636ef48",
+      "testFileId": "537e1daac09d",
+      "line": 15,
+      "calleeSymbolId": "e2baed704c25",
+      "args": [
+        "C++ & Rust"
+      ],
+      "expected": "c-rust",
+      "matcher": "equal"
+    },
+    {
+      "id": "7bfd877d8b90",
+      "testFileId": "875191b4963c",
+      "line": 18,
+      "calleeSymbolId": "dad6c4c4107e",
+      "args": [
+        {
+          "dueDate": 1,
+          "done": false
+        }
+      ],
+      "expected": "overdue",
+      "matcher": "equal"
+    },
+    {
+      "id": "931755164287",
+      "testFileId": "875191b4963c",
+      "line": 14,
+      "calleeSymbolId": "dad6c4c4107e",
+      "args": [
+        {
+          "dueDate": 10,
+          "done": true,
+          "doneAt": 20
+        }
+      ],
+      "expected": "late",
+      "matcher": "equal"
+    },
+    {
+      "id": "aba9270ce569",
+      "testFileId": "8632d4a2fda2",
+      "line": 6,
+      "calleeSymbolId": "639c9568a8ee",
+      "args": [
+        0
+      ],
+      "expected": "1970-01-01",
+      "matcher": "equal"
+    },
+    {
+      "id": "c172fd7fe8b4",
+      "testFileId": "8632d4a2fda2",
+      "line": 11,
+      "calleeSymbolId": "f8296f3439a7",
+      "args": [
+        0,
+        172800000
+      ],
+      "expected": 2,
+      "matcher": "equal"
+    },
+    {
+      "id": "c51d746ba976",
+      "testFileId": "875191b4963c",
+      "line": 6,
+      "calleeSymbolId": "dad6c4c4107e",
+      "args": [
+        {
+          "done": false
+        }
+      ],
+      "expected": "open",
+      "matcher": "equal"
+    },
+    {
+      "id": "f83f9eceb8dd",
+      "testFileId": "8632d4a2fda2",
+      "line": 7,
+      "calleeSymbolId": "639c9568a8ee",
+      "args": [
+        1736121600000
+      ],
+      "expected": "2025-01-06",
+      "matcher": "equal"
+    }
+  ],
+  "diagnostics": [
+    {
+      "id": "019d67a88bb9",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: String"
+    },
+    {
+      "id": "027107371c41",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 67,
+      "message": "No static callee: res.json"
+    },
+    {
+      "id": "02922747da23",
+      "path": "src/db/client.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: tables.set"
+    },
+    {
+      "id": "081942c363d7",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 47,
+      "message": "No static callee: title.trim"
+    },
+    {
+      "id": "08d468de7b1d",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 58,
+      "message": "No static callee: res.status"
+    },
+    {
+      "id": "0ba71c60e997",
+      "path": "src/utils/dates.ts",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: String(date.getUTCMonth() + 1).padStart"
+    },
+    {
+      "id": "0e2f21828b94",
+      "path": "tests/dates.test.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "140375e61aa9",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 14,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "14170952eefa",
+      "path": "tests/slugify.test.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "156a7f6ac982",
+      "path": "src/utils/dates.ts",
+      "code": "unresolved-call",
+      "line": 8,
+      "message": "No static callee: date.getUTCDate"
+    },
+    {
+      "id": "18f7059800d3",
+      "path": "tests/dates.test.ts",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "1cbea43f0053",
+      "path": "src/services/shareService.ts",
+      "code": "unresolved-call",
+      "line": 9,
+      "message": "No static callee: task.sharedWith.includes"
+    },
+    {
+      "id": "1d03b2c26534",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 18,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "1e9152b1f467",
+      "path": "src/services/taskService.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: Date.now"
+    },
+    {
+      "id": "1ed2afb10193",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 52,
+      "message": "No static callee: res.status(201).json"
+    },
+    {
+      "id": "202e34322ecd",
+      "path": "src/utils/slugify.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: slug\n    .split(\"-\")\n    .map"
+    },
+    {
+      "id": "23b1570dc9cb",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 33,
+      "message": "No static callee: listTasksForUser(currentUser(req)).map"
+    },
+    {
+      "id": "24e07944c56c",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: String"
+    },
+    {
+      "id": "2914840748f8",
+      "path": "tests/slugify.test.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "2948fb1905e7",
+      "path": "tests/dates.test.ts",
+      "code": "unresolved-call",
+      "line": 5,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "30ebe070b870",
+      "path": "src/db/teams.ts",
+      "code": "unresolved-heritage",
+      "line": 4,
+      "message": "Unresolved base type: Error"
+    },
+    {
+      "id": "31f51062f232",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: String(date.getUTCMonth() + 1).padStart"
+    },
+    {
+      "id": "36977b9bc975",
+      "path": "src/utils/slugify.ts",
+      "code": "unresolved-call",
+      "line": 3,
+      "message": "No static callee: text\n    .trim()\n    .toLowerCase()\n    .replace(/[^a-z0-9]+/g, \"-\")\n    .replace"
+    },
+    {
+      "id": "38170f659330",
+      "path": "tests/slugify.test.ts",
+      "code": "unresolved-call",
+      "line": 9,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "38330a5560e0",
+      "path": "src/services/shareService.ts",
+      "code": "unresolved-heritage",
+      "line": 6,
+      "message": "Unresolved base type: Error"
+    },
+    {
+      "id": "3887d4f1b7ef",
+      "path": "tests/slugify.test.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: expect(slugify(\"  Taskly  \")).toBe"
+    },
+    {
+      "id": "394f5a9a06c7",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 39,
+      "message": "No static callee: res.status"
+    },
+    {
+      "id": "406fe35c6539",
+      "path": "src/utils/slugify.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: word.charAt(0).toUpperCase"
+    },
+    {
+      "id": "4508661cc0b0",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 58,
+      "message": "No static callee: res.status(404).json"
+    },
+    {
+      "id": "4652e3b52823",
+      "path": "tests/slugify.test.ts",
+      "code": "unresolved-call",
+      "line": 15,
+      "message": "No static callee: expect(slugify(\"C++ & Rust\")).toBe"
+    },
+    {
+      "id": "46ef7f40e713",
+      "path": "tests/dates.test.ts",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: expect(formatDate(1736121600000)).toBe"
+    },
+    {
+      "id": "4a74f211057f",
+      "path": "tests/slugify.test.ts",
+      "code": "unresolved-call",
+      "line": 6,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "4b7ce93b351c",
+      "path": "src/api/routes.ts",
+      "code": "unresolved-call",
+      "line": 14,
+      "message": "No static callee: app.post"
+    },
+    {
+      "id": "4e61cd43aa25",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 69,
+      "message": "No static callee: res.status"
+    },
+    {
+      "id": "4f17daeb7f8e",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 9,
+      "message": "No static callee: date.getUTCFullYear"
+    },
+    {
+      "id": "561d2eafab00",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 17,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "562a074fee63",
+      "path": "src/utils/dates.ts",
+      "code": "unresolved-call",
+      "line": 8,
+      "message": "No static callee: String(date.getUTCDate()).padStart"
+    },
+    {
+      "id": "56e643300224",
+      "path": "src/index.ts",
+      "code": "unresolved-call",
+      "line": 15,
+      "message": "No static callee: readFileSync"
+    },
+    {
+      "id": "56e66a9449d3",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 5,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "5796921f61d2",
+      "path": "tests/dates.test.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: expect(daysBetween(0, 172800000)).toBe"
+    },
+    {
+      "id": "5880b5583d75",
+      "path": "src/db/tasks.ts",
+      "code": "unresolved-call",
+      "line": 38,
+      "message": "No static callee: batch.end"
+    },
+    {
+      "id": "5c624ad79107",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 69,
+      "message": "No static callee: res.status(403).json"
+    },
+    {
+      "id": "5eb817155f30",
+      "path": "src/api/routes.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: app.get"
+    },
+    {
+      "id": "5f1de9884b05",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: date.getUTCMonth"
+    },
+    {
+      "id": "61719770e32f",
+      "path": "src/index.ts",
+      "code": "unresolved-call",
+      "line": 8,
+      "message": "No static callee: express.json"
+    },
+    {
+      "id": "621bdbba61b5",
+      "path": "tests/slugify.test.ts",
+      "code": "unresolved-call",
+      "line": 15,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "6271a614217f",
+      "path": "src/api/routes.ts",
+      "code": "unresolved-call",
+      "line": 15,
+      "message": "No static callee: app.post"
+    },
+    {
+      "id": "67a4dbd3d4bf",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "6b779ee60baf",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 33,
+      "message": "No static callee: res.json"
+    },
+    {
+      "id": "7073c7c1b0c1",
+      "path": "src/utils/dates.ts",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: String"
+    },
+    {
+      "id": "72b6d4387d0a",
+      "path": "src/services/shareService.ts",
+      "code": "unresolved-call",
+      "line": 23,
+      "message": "No static callee: Error"
+    },
+    {
+      "id": "735e153ee405",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 18,
+      "message": "No static callee: expect(computeTaskStatus({ dueDate: 1, done: false })).toBe"
+    },
+    {
+      "id": "74a551f70475",
+      "path": "src/index.ts",
+      "code": "unresolved-call",
+      "line": 16,
+      "message": "No static callee: createApp().listen"
+    },
+    {
+      "id": "769818127b20",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 6,
+      "message": "No static callee: expect(computeTaskStatus({ done: false })).toBe"
+    },
+    {
+      "id": "79e79eb4cc2d",
+      "path": "src/utils/slugify.ts",
+      "code": "unresolved-call",
+      "line": 3,
+      "message": "No static callee: text\n    .trim()\n    .toLowerCase()\n    .replace"
+    },
+    {
+      "id": "7b329c7b0f25",
+      "path": "tests/slugify.test.ts",
+      "code": "unresolved-call",
+      "line": 5,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "7d6bc18260be",
+      "path": "src/services/taskService.ts",
+      "code": "unresolved-call",
+      "line": 47,
+      "message": "No static callee: allTasks().filter"
+    },
+    {
+      "id": "7de600b94808",
+      "path": "src/utils/dates.ts",
+      "code": "unresolved-call",
+      "line": 8,
+      "message": "No static callee: String"
+    },
+    {
+      "id": "811ba1546060",
+      "path": "tests/slugify.test.ts",
+      "code": "unresolved-call",
+      "line": 4,
+      "message": "No static callee: describe"
+    },
+    {
+      "id": "8255fd531d1d",
+      "path": "src/utils/dates.ts",
+      "code": "unresolved-call",
+      "line": 6,
+      "message": "No static callee: date.getUTCFullYear"
+    },
+    {
+      "id": "852dfa51f014",
+      "path": "src/utils/dates.ts",
+      "code": "unresolved-call",
+      "line": 5,
+      "message": "No static callee: Date"
+    },
+    {
+      "id": "85dc04b9e990",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 6,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "868e79f73377",
+      "path": "src/utils/slugify.ts",
+      "code": "unresolved-call",
+      "line": 3,
+      "message": "No static callee: text\n    .trim()\n    .toLowerCase"
+    },
+    {
+      "id": "86f4836d9961",
+      "path": "src/utils/slugify.ts",
+      "code": "unresolved-call",
+      "line": 3,
+      "message": "No static callee: text\n    .trim"
+    },
+    {
+      "id": "8807dbeb2fb0",
+      "path": "src/api/routes.ts",
+      "code": "unresolved-call",
+      "line": 12,
+      "message": "No static callee: app.post"
+    },
+    {
+      "id": "8ad05d385b24",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 52,
+      "message": "No static callee: res.status"
+    },
+    {
+      "id": "8b73edbd4dd1",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 28,
+      "message": "No static callee: req.header"
+    },
+    {
+      "id": "8b9c6cd43cd0",
+      "path": "tests/slugify.test.ts",
+      "code": "unresolved-call",
+      "line": 14,
+      "message": "No static callee: expect(slugify(\"Ship it!!\")).toBe"
+    },
+    {
+      "id": "8d51df38ad25",
+      "path": "src/utils/slugify.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: slug\n    .split(\"-\")\n    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))\n    .join"
+    },
+    {
+      "id": "8e86a14f4dce",
+      "path": "src/utils/dates.ts",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: date.getUTCMonth"
+    },
+    {
+      "id": "963c37d7df74",
+      "path": "src/utils/slugify.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: word.charAt"
+    },
+    {
+      "id": "98291559f45e",
+      "path": "src/index.ts",
+      "code": "unresolved-call",
+      "line": 8,
+      "message": "No static callee: app.use"
+    },
+    {
+      "id": "9943343e0ae3",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 42,
+      "message": "No static callee: res.json"
+    },
+    {
+      "id": "9e46acd46ce9",
+      "path": "src/db/client.ts",
+      "code": "unresolved-call",
+      "line": 47,
+      "message": "No static callee: JSON.parse"
+    },
+    {
+      "id": "a034f18e83ef",
+      "path": "src/utils/slugify.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: slug\n    .split"
+    },
+    {
+      "id": "a0b6fc27fe13",
+      "path": "src/db/client.ts",
+      "code": "unresolved-call",
+      "line": 29,
+      "message": "No static callee: table(name).find"
+    },
+    {
+      "id": "a1c6ad72b352",
+      "path": "tests/dates.test.ts",
+      "code": "unresolved-call",
+      "line": 6,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "a460d3b9f7ec",
+      "path": "src/db/client.ts",
+      "code": "unresolved-call",
+      "line": 24,
+      "message": "No static callee: table(name).push"
+    },
+    {
+      "id": "a7ab1a7ff1f3",
+      "path": "src/api/routes.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: app.get"
+    },
+    {
+      "id": "abdc93f23c53",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 8,
+      "message": "No static callee: Date"
+    },
+    {
+      "id": "ad6f88568400",
+      "path": "tests/dates.test.ts",
+      "code": "unresolved-call",
+      "line": 6,
+      "message": "No static callee: expect(formatDate(0)).toBe"
+    },
+    {
+      "id": "b29fe96bf39b",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 39,
+      "message": "No static callee: res.status(404).json"
+    },
+    {
+      "id": "b46318dd610c",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: String(date.getDate()).padStart"
+    },
+    {
+      "id": "b65f3cfea834",
+      "path": "src/index.ts",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: express"
+    },
+    {
+      "id": "b6d6042ed47c",
+      "path": "tests/dates.test.ts",
+      "code": "unresolved-call",
+      "line": 4,
+      "message": "No static callee: describe"
+    },
+    {
+      "id": "b8dbd077b92c",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 4,
+      "message": "No static callee: describe"
+    },
+    {
+      "id": "b9aaed19cf43",
+      "path": "src/db/client.ts",
+      "code": "unresolved-call",
+      "line": 48,
+      "message": "No static callee: tables.set"
+    },
+    {
+      "id": "be5dcfee5ad8",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "c1ac5c21c4e6",
+      "path": "src/db/client.ts",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: tables.get"
+    },
+    {
+      "id": "c289ec56a536",
+      "path": "tests/slugify.test.ts",
+      "code": "unresolved-call",
+      "line": 6,
+      "message": "No static callee: expect(slugify(\"Hello World\")).toBe"
+    },
+    {
+      "id": "c4a2217101f7",
+      "path": "src/services/shareService.ts",
+      "code": "unresolved-call",
+      "line": 15,
+      "message": "No static callee: team.memberIds.includes"
+    },
+    {
+      "id": "c4a746fe00a4",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 56,
+      "message": "No static callee: Date.now"
+    },
+    {
+      "id": "c5bb7c4701a4",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 48,
+      "message": "No static callee: res.status"
+    },
+    {
+      "id": "cd361ff2f01f",
+      "path": "src/db/client.ts",
+      "code": "unresolved-call",
+      "line": 30,
+      "message": "No static callee: Object.assign"
+    },
+    {
+      "id": "cf5c365a8ccc",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 48,
+      "message": "No static callee: res.status(400).json"
+    },
+    {
+      "id": "d2eef306f34b",
+      "path": "tests/dates.test.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "d7d64ab02711",
+      "path": "src/utils/dates.ts",
+      "code": "unresolved-call",
+      "line": 14,
+      "message": "No static callee: Math.round"
+    },
+    {
+      "id": "d7d66410b746",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 14,
+      "message": "No static callee: expect(computeTaskStatus({ dueDate: 10, done: true, doneAt: 20 })).toBe"
+    },
+    {
+      "id": "dbfd82ca65c9",
+      "path": "src/utils/slugify.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: word.slice"
+    },
+    {
+      "id": "dfd7a2a88d11",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: date.getDate"
+    },
+    {
+      "id": "e1b336fe6d4b",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: expect(computeTaskStatus({ dueDate: 10, done: true, doneAt: 5 })).toBe"
+    },
+    {
+      "id": "e5022c7dd55e",
+      "path": "src/services/shareService.ts",
+      "code": "unresolved-call",
+      "line": 25,
+      "message": "No static callee: Error"
+    },
+    {
+      "id": "e98f865a0383",
+      "path": "src/api/handlers.ts",
+      "code": "unresolved-call",
+      "line": 61,
+      "message": "No static callee: res.json"
+    },
+    {
+      "id": "ee6d8422352a",
+      "path": "src/index.ts",
+      "code": "unresolved-call",
+      "line": 16,
+      "message": "No static callee: console.log"
+    },
+    {
+      "id": "eefaad5cde8f",
+      "path": "tests/taskService.test.ts",
+      "code": "unresolved-call",
+      "line": 9,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "ef2455189f0b",
+      "path": "src/db/client.ts",
+      "code": "unresolved-call",
+      "line": 48,
+      "message": "No static callee: Object.entries"
+    },
+    {
+      "id": "f064f8151e98",
+      "path": "src/db/client.ts",
+      "code": "unresolved-call",
+      "line": 19,
+      "message": "No static callee: entries.every"
+    },
+    {
+      "id": "f14a37d2f3b7",
+      "path": "src/db/client.ts",
+      "code": "unresolved-call",
+      "line": 17,
+      "message": "No static callee: Object.entries"
+    },
+    {
+      "id": "f353f2a3fe25",
+      "path": "src/db/client.ts",
+      "code": "unresolved-call",
+      "line": 18,
+      "message": "No static callee: (table(name) as T[]).filter"
+    },
+    {
+      "id": "f3c9aa737298",
+      "path": "src/db/client.ts",
+      "code": "unresolved-call",
+      "line": 3,
+      "message": "No static callee: Map"
+    },
+    {
+      "id": "f828344722ad",
+      "path": "tests/slugify.test.ts",
+      "code": "unresolved-call",
+      "line": 14,
+      "message": "No static callee: expect"
+    }
+  ]
+}

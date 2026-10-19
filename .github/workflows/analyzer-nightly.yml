@@ -1,0 +1,27 @@
+name: Analyzer nightly smoke
+on:
+  schedule:
+    - cron: '19 2 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  analyzer:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          lfs: true
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm fixtures:pinned
+      - run: pnpm analyzer:smoke
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: analyzer-smoke-report
+          path: out/analyzer-smoke/report.json

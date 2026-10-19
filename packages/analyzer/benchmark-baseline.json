@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-19",
+  "platform": "win32",
+  "node": "v24.20.0",
+  "name": "jotai",
+  "commit": "6abd0ae3365e02ab432fba4b6e8e6f00aafbf508",
+  "files": 327,
+  "symbols": 1262,
+  "internalImportResolution": 0.9916897506925207,
+  "parseErrorFraction": 0,
+  "knownGrammarRecoveryFiles": 0,
+  "newParseErrorFraction": 0,
+  "elapsedMs": 936,
+  "peakRssMiB": 518
+}

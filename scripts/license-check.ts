@@ -44,10 +44,19 @@ export function unlicensedArtSources(): string[] {
     .filter((file) => !licenses.includes(`\`${file}\``));
 }
 
+export function unlicensedGrammars(): string[] {
+  const root = fileURLToPath(new URL("../packages/analyzer/grammars/", import.meta.url));
+  const licenses = readFileSync(join(ASSETS, "LICENSES.md"), "utf8");
+  return readdirSync(root)
+    .filter((f) => f.endsWith(".wasm"))
+    .map((f) => `packages/analyzer/grammars/${f}`)
+    .filter((f) => !licenses.includes(`\`${f}\``));
+}
+
 function main(): void {
   const enforce = process.argv.includes("--enforce");
   const files = listAssetFiles();
-  const missing = [...unlicensedAssets(), ...unlicensedArtSources()];
+  const missing = [...unlicensedAssets(), ...unlicensedArtSources(), ...unlicensedGrammars()];
   console.log(`Checked ${files.length} asset file(s) against packages/assets/LICENSES.md.`);
   for (const file of missing) console.log(`  missing license entry: ${file}`);
   if (missing.length > 0 && enforce) process.exit(1);

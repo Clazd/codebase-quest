@@ -1,0 +1,2867 @@
+{
+  "schemaVersion": 1,
+  "repo": {
+    "name": "tiny-py",
+    "commit": "50e641772eccf56d435970d66dbd9ce90a134c65",
+    "languages": [
+      {
+        "language": "python",
+        "files": 13,
+        "loc": 210
+      }
+    ]
+  },
+  "modules": [
+    {
+      "id": "01ab52ab085a",
+      "path": "taskly",
+      "name": "taskly",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "13bd11706a82",
+      "path": "taskly/db",
+      "name": "db",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "228a632d9d59",
+      "path": "external/flask",
+      "name": "flask",
+      "kind": "external",
+      "declared": true
+    },
+    {
+      "id": "36fdb74f25bc",
+      "path": "taskly/services",
+      "name": "services",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "68fcb519b734",
+      "path": "external/time",
+      "name": "time",
+      "kind": "external",
+      "declared": false
+    },
+    {
+      "id": "71fd89a5a030",
+      "path": ".",
+      "name": ".",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "9c86cdcdb8a6",
+      "path": "tests",
+      "name": "tests",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "cf017d779f84",
+      "path": "taskly/utils",
+      "name": "utils",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "ef5161c03d25",
+      "path": "external/re",
+      "name": "re",
+      "kind": "external",
+      "declared": false
+    }
+  ],
+  "files": [
+    {
+      "id": "02c6f75430fc",
+      "path": "taskly/__init__.py",
+      "moduleId": "01ab52ab085a",
+      "language": "python",
+      "role": "source",
+      "loc": 1,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "4f89ded98434f0ef5c8390f2a21871519f9c95eb",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-01-08T10:00:00Z",
+        "commits": 1,
+        "churn": 1,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "18a87cfafe58",
+      "path": "taskly/db/client.py",
+      "moduleId": "13bd11706a82",
+      "language": "python",
+      "role": "source",
+      "loc": 25,
+      "symbolCount": 4,
+      "smellCount": 6,
+      "hash": "3f1ac200e972a83d1e475c7d896447a16691fbe7",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-01-08T10:00:00Z",
+        "commits": 1,
+        "churn": 25,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "5070b95f37f0",
+      "path": "taskly/app.py",
+      "moduleId": "01ab52ab085a",
+      "language": "python",
+      "role": "source",
+      "loc": 54,
+      "symbolCount": 6,
+      "smellCount": 6,
+      "hash": "d124050539808e552e8b45465d84a148ed547def",
+      "git": {
+        "firstCommitAt": "2025-01-22T15:30:00Z",
+        "lastCommitAt": "2025-01-22T15:30:00Z",
+        "commits": 1,
+        "churn": 54,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "6927f5b8949f",
+      "path": "taskly/services/task_service.py",
+      "moduleId": "36fdb74f25bc",
+      "language": "python",
+      "role": "source",
+      "loc": 47,
+      "symbolCount": 4,
+      "smellCount": 3,
+      "hash": "5885cd1bf2156ea173f101687779283a125de041",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-02-05T09:45:00Z",
+        "commits": 2,
+        "churn": 47,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "86067a0517c1",
+      "path": "pyproject.toml",
+      "moduleId": "71fd89a5a030",
+      "language": null,
+      "role": "manifest",
+      "loc": 10,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "3906592957b681e98344cb1d27cb52d98fe82d6f",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-01-22T15:30:00Z",
+        "commits": 2,
+        "churn": 14,
+        "authors": 2
+      },
+      "docs": null
+    },
+    {
+      "id": "941dada64f89",
+      "path": "taskly/services/__init__.py",
+      "moduleId": "36fdb74f25bc",
+      "language": "python",
+      "role": "source",
+      "loc": 1,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "0670aa1cf4e6ac763db3bcafc9af047433374a65",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-01-08T10:00:00Z",
+        "commits": 1,
+        "churn": 1,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "9f77b316b552",
+      "path": "tests/test_slugify.py",
+      "moduleId": "9c86cdcdb8a6",
+      "language": "python",
+      "role": "test",
+      "loc": 14,
+      "symbolCount": 3,
+      "smellCount": 0,
+      "hash": "b335eebefc65986b5c28005468029fcd9f721b7d",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-01-08T10:00:00Z",
+        "commits": 1,
+        "churn": 14,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "a863fc1e1ddd",
+      "path": "taskly/services/share_service.py",
+      "moduleId": "36fdb74f25bc",
+      "language": "python",
+      "role": "source",
+      "loc": 28,
+      "symbolCount": 3,
+      "smellCount": 3,
+      "hash": "01878007a699ed0eb17d6cc9bf428616a0d63462",
+      "git": {
+        "firstCommitAt": "2025-01-22T15:30:00Z",
+        "lastCommitAt": "2025-01-22T15:30:00Z",
+        "commits": 1,
+        "churn": 28,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "ae3f54964169",
+      "path": "tests/__init__.py",
+      "moduleId": "9c86cdcdb8a6",
+      "language": "python",
+      "role": "test",
+      "loc": 1,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "4a64f14841d8c3f8b758e4f688d7ec6384ef62b7",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-01-08T10:00:00Z",
+        "commits": 1,
+        "churn": 1,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "b96936505575",
+      "path": "taskly/utils/slugify.py",
+      "moduleId": "cf017d779f84",
+      "language": "python",
+      "role": "source",
+      "loc": 7,
+      "symbolCount": 1,
+      "smellCount": 0,
+      "hash": "c1a4d5be0d015eb0169bcc8607e07ebcb628de5c",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-01-08T10:00:00Z",
+        "commits": 1,
+        "churn": 7,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "bbc7a56b0b2e",
+      "path": ".gitignore",
+      "moduleId": "71fd89a5a030",
+      "language": null,
+      "role": "asset",
+      "loc": 3,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "ee4d2fc90bb4d634adb6e01f5be406dcfdaab155",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-01-08T10:00:00Z",
+        "commits": 1,
+        "churn": 3,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "bcf286e478ac",
+      "path": "tests/test_task_service.py",
+      "moduleId": "9c86cdcdb8a6",
+      "language": "python",
+      "role": "test",
+      "loc": 17,
+      "symbolCount": 4,
+      "smellCount": 0,
+      "hash": "73006ca432ca4fabfc4067411fe689a080288661",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-02-05T09:45:00Z",
+        "commits": 2,
+        "churn": 17,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "d08617b7f239",
+      "path": "taskly/db/__init__.py",
+      "moduleId": "13bd11706a82",
+      "language": "python",
+      "role": "source",
+      "loc": 1,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "c38d6233c14e4da3f3161e24ceb74024aa2e0c84",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-01-08T10:00:00Z",
+        "commits": 1,
+        "churn": 1,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "e29eb7b45329",
+      "path": "taskly/utils/__init__.py",
+      "moduleId": "cf017d779f84",
+      "language": "python",
+      "role": "source",
+      "loc": 1,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "b19a72595f085fdf2ec01bff7d421030b7019292",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-01-08T10:00:00Z",
+        "commits": 1,
+        "churn": 1,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "e99b9466650d",
+      "path": "taskly/db/teams.py",
+      "moduleId": "13bd11706a82",
+      "language": "python",
+      "role": "source",
+      "loc": 13,
+      "symbolCount": 2,
+      "smellCount": 2,
+      "hash": "af112419abf86a50f9360185f753934a541e3d27",
+      "git": {
+        "firstCommitAt": "2025-01-22T15:30:00Z",
+        "lastCommitAt": "2025-01-22T15:30:00Z",
+        "commits": 1,
+        "churn": 13,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "fc202ab48d3e",
+      "path": "README.md",
+      "moduleId": "71fd89a5a030",
+      "language": null,
+      "role": "docs",
+      "loc": 8,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "4c9a1ee0bef71101691e7b147673572c79b25d42",
+      "git": {
+        "firstCommitAt": "2025-01-08T10:00:00Z",
+        "lastCommitAt": "2025-01-08T10:00:00Z",
+        "commits": 1,
+        "churn": 8,
+        "authors": 1
+      },
+      "docs": "# Taskly (Python)\n\nA small to-do API for teams.\n\n```sh\npip install -e \".[dev]\"\npytest\n```\n"
+    }
+  ],
+  "symbols": [
+    {
+      "id": "04164983cce5",
+      "fileId": "a863fc1e1ddd",
+      "parentId": null,
+      "kind": "class",
+      "name": "SharePermissionError",
+      "qualifiedName": "SharePermissionError",
+      "range": {
+        "startLine": 8,
+        "endLine": 9,
+        "startColumn": 0,
+        "endColumn": 8
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 2,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "05ced143fa8e",
+      "fileId": "18a87cfafe58",
+      "parentId": null,
+      "kind": "function",
+      "name": "update",
+      "qualifiedName": "update",
+      "range": {
+        "startLine": 20,
+        "endLine": 25,
+        "startColumn": 0,
+        "endColumn": 15
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "str"
+        },
+        {
+          "name": "row_id",
+          "type": "str"
+        },
+        {
+          "name": "changes",
+          "type": null
+        }
+      ],
+      "returnType": "dict | None",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 6,
+        "cyclomatic": 3,
+        "maxNesting": 2,
+        "params": 3,
+        "fanIn": 2,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "0ce03d7aaf67",
+      "fileId": "18a87cfafe58",
+      "parentId": null,
+      "kind": "function",
+      "name": "insert",
+      "qualifiedName": "insert",
+      "range": {
+        "startLine": 15,
+        "endLine": 17,
+        "startColumn": 0,
+        "endColumn": 14
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "str"
+        },
+        {
+          "name": "row",
+          "type": "dict"
+        }
+      ],
+      "returnType": "dict",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "102fd51ee89a",
+      "fileId": "e99b9466650d",
+      "parentId": null,
+      "kind": "function",
+      "name": "load_team",
+      "qualifiedName": "load_team",
+      "range": {
+        "startLine": 8,
+        "endLine": 13,
+        "startColumn": 0,
+        "endColumn": 18
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "team_id",
+          "type": "str"
+        }
+      ],
+      "returnType": "dict",
+      "doc": "Load a team by id. Raises TeamNotFound if it doesn't exist.",
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 6,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 2,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "10361209c049",
+      "fileId": "5070b95f37f0",
+      "parentId": null,
+      "kind": "function",
+      "name": "create_task_route",
+      "qualifiedName": "create_task_route",
+      "range": {
+        "startLine": 22,
+        "endLine": 25,
+        "startColumn": 0,
+        "endColumn": 38
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [
+        "@app.post(\"/tasks\")"
+      ],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 3,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "2b4de905b86e",
+      "fileId": "5070b95f37f0",
+      "parentId": null,
+      "kind": "function",
+      "name": "share_task_route",
+      "qualifiedName": "share_task_route",
+      "range": {
+        "startLine": 45,
+        "endLine": 50,
+        "startColumn": 0,
+        "endColumn": 33
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task_id",
+          "type": "str"
+        }
+      ],
+      "returnType": null,
+      "doc": null,
+      "decorators": [
+        "@app.post(\"/tasks/<task_id>/share\")"
+      ],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 6,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 3,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "3b859aa6cafb",
+      "fileId": "6927f5b8949f",
+      "parentId": null,
+      "kind": "function",
+      "name": "create_task",
+      "qualifiedName": "create_task",
+      "range": {
+        "startLine": 24,
+        "endLine": 38,
+        "startColumn": 0,
+        "endColumn": 32
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "title",
+          "type": "str"
+        },
+        {
+          "name": "team_id",
+          "type": "str"
+        },
+        {
+          "name": "owner_id",
+          "type": "str"
+        },
+        {
+          "name": "due_date",
+          "type": "float | None"
+        }
+      ],
+      "returnType": "dict",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 15,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 4,
+        "fanIn": 1,
+        "fanOut": 2,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "4444b56d7a3e",
+      "fileId": "6927f5b8949f",
+      "parentId": null,
+      "kind": "function",
+      "name": "compute_task_status",
+      "qualifiedName": "compute_task_status",
+      "range": {
+        "startLine": 11,
+        "endLine": 21,
+        "startColumn": 0,
+        "endColumn": 17
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task",
+          "type": "dict"
+        }
+      ],
+      "returnType": "str",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 11,
+        "cyclomatic": 5,
+        "maxNesting": 2,
+        "params": 1,
+        "fanIn": 6,
+        "fanOut": 0,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "5d4361134e8b",
+      "fileId": "bcf286e478ac",
+      "parentId": null,
+      "kind": "function",
+      "name": "test_late_after_due_date",
+      "qualifiedName": "test_late_after_due_date",
+      "range": {
+        "startLine": 12,
+        "endLine": 13,
+        "startColumn": 0,
+        "endColumn": 87
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 2,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "5da9cfa0cfca",
+      "fileId": "5070b95f37f0",
+      "parentId": null,
+      "kind": "function",
+      "name": "complete_task_route",
+      "qualifiedName": "complete_task_route",
+      "range": {
+        "startLine": 37,
+        "endLine": 41,
+        "startColumn": 0,
+        "endColumn": 33
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task_id",
+          "type": "str"
+        }
+      ],
+      "returnType": null,
+      "doc": null,
+      "decorators": [
+        "@app.post(\"/tasks/<task_id>/complete\")"
+      ],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 5,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 2,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "6f6f0da1c5cc",
+      "fileId": "bcf286e478ac",
+      "parentId": null,
+      "kind": "function",
+      "name": "test_overdue_when_open_past_due_date",
+      "qualifiedName": "test_overdue_when_open_past_due_date",
+      "range": {
+        "startLine": 16,
+        "endLine": 17,
+        "startColumn": 0,
+        "endColumn": 75
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 2,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "74a0598f3bf9",
+      "fileId": "a863fc1e1ddd",
+      "parentId": null,
+      "kind": "function",
+      "name": "share_task",
+      "qualifiedName": "share_task",
+      "range": {
+        "startLine": 19,
+        "endLine": 28,
+        "startColumn": 0,
+        "endColumn": 15
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task_id",
+          "type": "str"
+        },
+        {
+          "name": "user_id",
+          "type": "str"
+        },
+        {
+          "name": "with_user_id",
+          "type": "str"
+        }
+      ],
+      "returnType": "dict",
+      "doc": "Share a task with a teammate. Finished tasks can't be shared.",
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 10,
+        "cyclomatic": 3,
+        "maxNesting": 1,
+        "params": 3,
+        "fanIn": 1,
+        "fanOut": 4,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "765a08df812d",
+      "fileId": "6927f5b8949f",
+      "parentId": null,
+      "kind": "function",
+      "name": "get_task",
+      "qualifiedName": "get_task",
+      "range": {
+        "startLine": 41,
+        "endLine": 43,
+        "startColumn": 0,
+        "endColumn": 36
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task_id",
+          "type": "str"
+        }
+      ],
+      "returnType": "dict | None",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 2,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 2,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "84f548c0b49e",
+      "fileId": "9f77b316b552",
+      "parentId": null,
+      "kind": "function",
+      "name": "test_trims_spaces",
+      "qualifiedName": "test_trims_spaces",
+      "range": {
+        "startLine": 8,
+        "endLine": 9,
+        "startColumn": 0,
+        "endColumn": 44
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 2,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "850f5da517a2",
+      "fileId": "9f77b316b552",
+      "parentId": null,
+      "kind": "function",
+      "name": "test_drops_punctuation",
+      "qualifiedName": "test_drops_punctuation",
+      "range": {
+        "startLine": 12,
+        "endLine": 14,
+        "startColumn": 0,
+        "endColumn": 44
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "9580eb0a3678",
+      "fileId": "e99b9466650d",
+      "parentId": null,
+      "kind": "class",
+      "name": "TeamNotFound",
+      "qualifiedName": "TeamNotFound",
+      "range": {
+        "startLine": 4,
+        "endLine": 5,
+        "startColumn": 0,
+        "endColumn": 8
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 2,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "a2f2ade93f1f",
+      "fileId": "6927f5b8949f",
+      "parentId": null,
+      "kind": "function",
+      "name": "complete_task",
+      "qualifiedName": "complete_task",
+      "range": {
+        "startLine": 46,
+        "endLine": 47,
+        "startColumn": 0,
+        "endColumn": 58
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task_id",
+          "type": "str"
+        },
+        {
+          "name": "at",
+          "type": "float"
+        }
+      ],
+      "returnType": "dict | None",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 2,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "a54d3d746280",
+      "fileId": "5070b95f37f0",
+      "parentId": null,
+      "kind": "function",
+      "name": "current_user",
+      "qualifiedName": "current_user",
+      "range": {
+        "startLine": 17,
+        "endLine": 18,
+        "startColumn": 0,
+        "endColumn": 56
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "str",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 2,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 2,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "ada039c90ea4",
+      "fileId": "5070b95f37f0",
+      "parentId": null,
+      "kind": "function",
+      "name": "get_task_route",
+      "qualifiedName": "get_task_route",
+      "range": {
+        "startLine": 29,
+        "endLine": 33,
+        "startColumn": 0,
+        "endColumn": 33
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task_id",
+          "type": "str"
+        }
+      ],
+      "returnType": null,
+      "doc": null,
+      "decorators": [
+        "@app.get(\"/tasks/<task_id>\")"
+      ],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 5,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 2,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "b3296fbd88ad",
+      "fileId": "bcf286e478ac",
+      "parentId": null,
+      "kind": "function",
+      "name": "test_open_without_due_date",
+      "qualifiedName": "test_open_without_due_date",
+      "range": {
+        "startLine": 4,
+        "endLine": 5,
+        "startColumn": 0,
+        "endColumn": 57
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 2,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "bc765a54e2ed",
+      "fileId": "a863fc1e1ddd",
+      "parentId": null,
+      "kind": "function",
+      "name": "check_permissions",
+      "qualifiedName": "check_permissions",
+      "range": {
+        "startLine": 12,
+        "endLine": 16,
+        "startColumn": 0,
+        "endColumn": 87
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task",
+          "type": "dict"
+        },
+        {
+          "name": "user_id",
+          "type": "str"
+        }
+      ],
+      "returnType": "None",
+      "doc": "Raise SharePermissionError unless ``user_id`` belongs to the task's team.",
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 5,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 2,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "beaa1bfbc6f8",
+      "fileId": "bcf286e478ac",
+      "parentId": null,
+      "kind": "function",
+      "name": "test_done_on_time",
+      "qualifiedName": "test_done_on_time",
+      "range": {
+        "startLine": 8,
+        "endLine": 9,
+        "startColumn": 0,
+        "endColumn": 86
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 2,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "c384f76d2716",
+      "fileId": "18a87cfafe58",
+      "parentId": null,
+      "kind": "function",
+      "name": "query",
+      "qualifiedName": "query",
+      "range": {
+        "startLine": 10,
+        "endLine": 12,
+        "startColumn": 0,
+        "endColumn": 90
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "str"
+        },
+        {
+          "name": "where",
+          "type": null
+        }
+      ],
+      "returnType": "list[dict]",
+      "doc": "Return every row of ``name`` whose fields equal all of ``where``.",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 2,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 2,
+        "fanOut": 1,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "c946b7c68bbf",
+      "fileId": "5070b95f37f0",
+      "parentId": null,
+      "kind": "function",
+      "name": "present",
+      "qualifiedName": "present",
+      "range": {
+        "startLine": 13,
+        "endLine": 14,
+        "startColumn": 0,
+        "endColumn": 56
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "task",
+          "type": "dict"
+        }
+      ],
+      "returnType": "dict",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 2,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 4,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "e98fcf60b208",
+      "fileId": "b96936505575",
+      "parentId": null,
+      "kind": "function",
+      "name": "slugify",
+      "qualifiedName": "slugify",
+      "range": {
+        "startLine": 4,
+        "endLine": 7,
+        "startColumn": 0,
+        "endColumn": 26
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "text",
+          "type": "str"
+        }
+      ],
+      "returnType": "str",
+      "doc": "Turn a title into a URL-friendly slug: \"Hello World\" becomes \"hello-world\".",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 4,
+        "fanOut": 0,
+        "dynamicCalls": 4
+      }
+    },
+    {
+      "id": "fa2e09e616a4",
+      "fileId": "18a87cfafe58",
+      "parentId": null,
+      "kind": "function",
+      "name": "_table",
+      "qualifiedName": "_table",
+      "range": {
+        "startLine": 6,
+        "endLine": 7,
+        "startColumn": 0,
+        "endColumn": 39
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "str"
+        }
+      ],
+      "returnType": "list[dict]",
+      "doc": null,
+      "decorators": [],
+      "traits": [],
+      "metrics": {
+        "loc": 2,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 3,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "fb9385c485d6",
+      "fileId": "9f77b316b552",
+      "parentId": null,
+      "kind": "function",
+      "name": "test_lowercases_and_joins_words",
+      "qualifiedName": "test_lowercases_and_joins_words",
+      "range": {
+        "startLine": 4,
+        "endLine": 5,
+        "startColumn": 0,
+        "endColumn": 50
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 2,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "0215c33cc37e",
+      "from": "0ce03d7aaf67",
+      "to": "fa2e09e616a4",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 16,
+      "label": "_table"
+    },
+    {
+      "id": "064958563c42",
+      "from": "e99b9466650d",
+      "to": "18a87cfafe58",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "taskly.db.client"
+    },
+    {
+      "id": "0f216af2eb00",
+      "from": "5070b95f37f0",
+      "to": "6927f5b8949f",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 8,
+      "label": "taskly.services.task_service"
+    },
+    {
+      "id": "11b3be193056",
+      "from": "ada039c90ea4",
+      "to": "765a08df812d",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 30,
+      "label": "get_task"
+    },
+    {
+      "id": "1be40354f5c2",
+      "from": "74a0598f3bf9",
+      "to": "bc765a54e2ed",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 24,
+      "label": "check_permissions"
+    },
+    {
+      "id": "200a3fce6e5c",
+      "from": "5070b95f37f0",
+      "to": "a863fc1e1ddd",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 7,
+      "label": "taskly.services.share_service"
+    },
+    {
+      "id": "254c2d9e07fd",
+      "from": "05ced143fa8e",
+      "to": "fa2e09e616a4",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 21,
+      "label": "_table"
+    },
+    {
+      "id": "256147ae30f9",
+      "from": "6927f5b8949f",
+      "to": "b96936505575",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 6,
+      "label": "taskly.utils.slugify"
+    },
+    {
+      "id": "26b4c4f8f0d2",
+      "from": "6f6f0da1c5cc",
+      "to": "4444b56d7a3e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 17,
+      "label": "compute_task_status"
+    },
+    {
+      "id": "2883e6f36bbc",
+      "from": "850f5da517a2",
+      "to": "e98fcf60b208",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 14,
+      "label": "slugify"
+    },
+    {
+      "id": "297f184b47ba",
+      "from": "3b859aa6cafb",
+      "to": "e98fcf60b208",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 29,
+      "label": "slugify"
+    },
+    {
+      "id": "2dc19ee03622",
+      "from": "a863fc1e1ddd",
+      "to": "6927f5b8949f",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 5,
+      "label": "taskly.services.task_service"
+    },
+    {
+      "id": "3228b921ba57",
+      "from": "b96936505575",
+      "to": "ef5161c03d25",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "re"
+    },
+    {
+      "id": "32a96b628dfe",
+      "from": "6927f5b8949f",
+      "to": "68fcb519b734",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 3,
+      "label": "time"
+    },
+    {
+      "id": "32dc3e3033c6",
+      "from": "5da9cfa0cfca",
+      "to": "c946b7c68bbf",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 41,
+      "label": "present"
+    },
+    {
+      "id": "3729341c8a91",
+      "from": "b3296fbd88ad",
+      "to": "4444b56d7a3e",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 5,
+      "label": "compute_task_status"
+    },
+    {
+      "id": "39a36c151c54",
+      "from": "74a0598f3bf9",
+      "to": "765a08df812d",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 21,
+      "label": "get_task"
+    },
+    {
+      "id": "3f051008db07",
+      "from": "102fd51ee89a",
+      "to": "c384f76d2716",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 10,
+      "label": "query"
+    },
+    {
+      "id": "41d5f29e31fb",
+      "from": "beaa1bfbc6f8",
+      "to": "4444b56d7a3e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 9,
+      "label": "compute_task_status"
+    },
+    {
+      "id": "438a59370071",
+      "from": "a863fc1e1ddd",
+      "to": "e99b9466650d",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 4,
+      "label": "taskly.db.teams"
+    },
+    {
+      "id": "441fe5d2aed5",
+      "from": "2b4de905b86e",
+      "to": "a54d3d746280",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 47,
+      "label": "current_user"
+    },
+    {
+      "id": "4caab7f8578a",
+      "from": "9f77b316b552",
+      "to": "b96936505575",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "taskly.utils.slugify"
+    },
+    {
+      "id": "50b60be9300d",
+      "from": "b3296fbd88ad",
+      "to": "4444b56d7a3e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 5,
+      "label": "compute_task_status"
+    },
+    {
+      "id": "524cb16af767",
+      "from": "a863fc1e1ddd",
+      "to": "18a87cfafe58",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 3,
+      "label": "taskly.db.client"
+    },
+    {
+      "id": "594147859644",
+      "from": "a2f2ade93f1f",
+      "to": "05ced143fa8e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 47,
+      "label": "update"
+    },
+    {
+      "id": "6124592dd9d6",
+      "from": "102fd51ee89a",
+      "to": "9580eb0a3678",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 12,
+      "label": "TeamNotFound"
+    },
+    {
+      "id": "673d03407600",
+      "from": "bcf286e478ac",
+      "to": "4444b56d7a3e",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 1,
+      "label": "compute_task_status"
+    },
+    {
+      "id": "6b3a024e4102",
+      "from": "beaa1bfbc6f8",
+      "to": "4444b56d7a3e",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 9,
+      "label": "compute_task_status"
+    },
+    {
+      "id": "78cd44c9d0b0",
+      "from": "850f5da517a2",
+      "to": "e98fcf60b208",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 14,
+      "label": "slugify"
+    },
+    {
+      "id": "7a49ea4ed2e4",
+      "from": "6f6f0da1c5cc",
+      "to": "4444b56d7a3e",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 17,
+      "label": "compute_task_status"
+    },
+    {
+      "id": "7b449ad23fe5",
+      "from": "c946b7c68bbf",
+      "to": "4444b56d7a3e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 14,
+      "label": "compute_task_status"
+    },
+    {
+      "id": "8036996323cc",
+      "from": "765a08df812d",
+      "to": "c384f76d2716",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 42,
+      "label": "query"
+    },
+    {
+      "id": "81803f6bff9b",
+      "from": "6927f5b8949f",
+      "to": "18a87cfafe58",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 5,
+      "label": "taskly.db.client"
+    },
+    {
+      "id": "84ae3b6a794c",
+      "from": "5d4361134e8b",
+      "to": "4444b56d7a3e",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 13,
+      "label": "compute_task_status"
+    },
+    {
+      "id": "865cdfa97fc5",
+      "from": "5d4361134e8b",
+      "to": "4444b56d7a3e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 13,
+      "label": "compute_task_status"
+    },
+    {
+      "id": "8d3e75cbc553",
+      "from": "5070b95f37f0",
+      "to": "228a632d9d59",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 5,
+      "label": "flask"
+    },
+    {
+      "id": "93747082e79a",
+      "from": "bc765a54e2ed",
+      "to": "102fd51ee89a",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 14,
+      "label": "load_team"
+    },
+    {
+      "id": "997441874c36",
+      "from": "2b4de905b86e",
+      "to": "c946b7c68bbf",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 50,
+      "label": "present"
+    },
+    {
+      "id": "99a6c0edf87b",
+      "from": "10361209c049",
+      "to": "3b859aa6cafb",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 24,
+      "label": "create_task"
+    },
+    {
+      "id": "9b4d9c2e74ca",
+      "from": "850f5da517a2",
+      "to": "e98fcf60b208",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 13,
+      "label": "slugify"
+    },
+    {
+      "id": "9dc27eea3610",
+      "from": "9f77b316b552",
+      "to": "e98fcf60b208",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 1,
+      "label": "slugify"
+    },
+    {
+      "id": "a2c249ba33c2",
+      "from": "5070b95f37f0",
+      "to": "68fcb519b734",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 3,
+      "label": "time"
+    },
+    {
+      "id": "a7be03a85e69",
+      "from": "fb9385c485d6",
+      "to": "e98fcf60b208",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 5,
+      "label": "slugify"
+    },
+    {
+      "id": "ace52b0f1657",
+      "from": "2b4de905b86e",
+      "to": "74a0598f3bf9",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 47,
+      "label": "share_task"
+    },
+    {
+      "id": "ae7aee4074e1",
+      "from": "ada039c90ea4",
+      "to": "c946b7c68bbf",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 33,
+      "label": "present"
+    },
+    {
+      "id": "c48fe91bd712",
+      "from": "3b859aa6cafb",
+      "to": "0ce03d7aaf67",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 38,
+      "label": "insert"
+    },
+    {
+      "id": "c9025f5dac7c",
+      "from": "10361209c049",
+      "to": "a54d3d746280",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 24,
+      "label": "current_user"
+    },
+    {
+      "id": "cd0a2efb263e",
+      "from": "84f548c0b49e",
+      "to": "e98fcf60b208",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 9,
+      "label": "slugify"
+    },
+    {
+      "id": "cf00312cc8bf",
+      "from": "850f5da517a2",
+      "to": "e98fcf60b208",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 13,
+      "label": "slugify"
+    },
+    {
+      "id": "d0b28748a230",
+      "from": "74a0598f3bf9",
+      "to": "4444b56d7a3e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 25,
+      "label": "compute_task_status"
+    },
+    {
+      "id": "d232e1731132",
+      "from": "10361209c049",
+      "to": "c946b7c68bbf",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 25,
+      "label": "present"
+    },
+    {
+      "id": "d26fb9f74236",
+      "from": "84f548c0b49e",
+      "to": "e98fcf60b208",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 9,
+      "label": "slugify"
+    },
+    {
+      "id": "d9877386f872",
+      "from": "bc765a54e2ed",
+      "to": "04164983cce5",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 16,
+      "label": "SharePermissionError"
+    },
+    {
+      "id": "de33afa9bb46",
+      "from": "c384f76d2716",
+      "to": "fa2e09e616a4",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 12,
+      "label": "_table"
+    },
+    {
+      "id": "e80dbbdc2487",
+      "from": "74a0598f3bf9",
+      "to": "05ced143fa8e",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 27,
+      "label": "update"
+    },
+    {
+      "id": "f25fde01315b",
+      "from": "5da9cfa0cfca",
+      "to": "a2f2ade93f1f",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 38,
+      "label": "complete_task"
+    },
+    {
+      "id": "f2cf23edb4df",
+      "from": "fb9385c485d6",
+      "to": "e98fcf60b208",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 5,
+      "label": "slugify"
+    },
+    {
+      "id": "fb04392e73dd",
+      "from": "bcf286e478ac",
+      "to": "6927f5b8949f",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "taskly.services.task_service"
+    }
+  ],
+  "smells": [
+    {
+      "id": "15f778063011",
+      "kind": "untested-code",
+      "fileIds": [
+        "6927f5b8949f"
+      ],
+      "symbolIds": [
+        "3b859aa6cafb"
+      ],
+      "range": {
+        "startLine": 24,
+        "endLine": 38,
+        "startColumn": 0,
+        "endColumn": 32
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "242f96841b5b",
+      "kind": "magic-number",
+      "fileIds": [
+        "5070b95f37f0"
+      ],
+      "symbolIds": [
+        "ada039c90ea4"
+      ],
+      "range": {
+        "startLine": 32,
+        "endLine": 32,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Unnamed numeric literal outside a named constant.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "27b4580226e6",
+      "kind": "untested-code",
+      "fileIds": [
+        "6927f5b8949f"
+      ],
+      "symbolIds": [
+        "a2f2ade93f1f"
+      ],
+      "range": {
+        "startLine": 46,
+        "endLine": 47,
+        "startColumn": 0,
+        "endColumn": 58
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "2873bacdd497",
+      "kind": "magic-number",
+      "fileIds": [
+        "5070b95f37f0"
+      ],
+      "symbolIds": [
+        "5da9cfa0cfca"
+      ],
+      "range": {
+        "startLine": 40,
+        "endLine": 40,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Unnamed numeric literal outside a named constant.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "2acbb9f2534d",
+      "kind": "untested-code",
+      "fileIds": [
+        "e99b9466650d"
+      ],
+      "symbolIds": [
+        "9580eb0a3678"
+      ],
+      "range": {
+        "startLine": 4,
+        "endLine": 5,
+        "startColumn": 0,
+        "endColumn": 8
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "31f98ed2c4c5",
+      "kind": "magic-number",
+      "fileIds": [
+        "5070b95f37f0"
+      ],
+      "symbolIds": [
+        "2b4de905b86e"
+      ],
+      "range": {
+        "startLine": 49,
+        "endLine": 49,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Unnamed numeric literal outside a named constant.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "4aa32ec4787a",
+      "kind": "untested-code",
+      "fileIds": [
+        "a863fc1e1ddd"
+      ],
+      "symbolIds": [
+        "74a0598f3bf9"
+      ],
+      "range": {
+        "startLine": 19,
+        "endLine": 28,
+        "startColumn": 0,
+        "endColumn": 15
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "88730a768d2d",
+      "kind": "untested-code",
+      "fileIds": [
+        "a863fc1e1ddd"
+      ],
+      "symbolIds": [
+        "04164983cce5"
+      ],
+      "range": {
+        "startLine": 8,
+        "endLine": 9,
+        "startColumn": 0,
+        "endColumn": 8
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "88b5e7519f92",
+      "kind": "untested-code",
+      "fileIds": [
+        "5070b95f37f0"
+      ],
+      "symbolIds": [
+        "c946b7c68bbf"
+      ],
+      "range": {
+        "startLine": 13,
+        "endLine": 14,
+        "startColumn": 0,
+        "endColumn": 56
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "9043f5a0b934",
+      "kind": "untested-code",
+      "fileIds": [
+        "a863fc1e1ddd"
+      ],
+      "symbolIds": [
+        "bc765a54e2ed"
+      ],
+      "range": {
+        "startLine": 12,
+        "endLine": 16,
+        "startColumn": 0,
+        "endColumn": 87
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "94d5a0c1ba41",
+      "kind": "untested-code",
+      "fileIds": [
+        "6927f5b8949f"
+      ],
+      "symbolIds": [
+        "765a08df812d"
+      ],
+      "range": {
+        "startLine": 41,
+        "endLine": 43,
+        "startColumn": 0,
+        "endColumn": 36
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "a8260707a3b4",
+      "kind": "untested-code",
+      "fileIds": [
+        "18a87cfafe58"
+      ],
+      "symbolIds": [
+        "0ce03d7aaf67"
+      ],
+      "range": {
+        "startLine": 15,
+        "endLine": 17,
+        "startColumn": 0,
+        "endColumn": 14
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "a86fd14a4200",
+      "kind": "untested-code",
+      "fileIds": [
+        "5070b95f37f0"
+      ],
+      "symbolIds": [
+        "a54d3d746280"
+      ],
+      "range": {
+        "startLine": 17,
+        "endLine": 18,
+        "startColumn": 0,
+        "endColumn": 56
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "bd297258638c",
+      "kind": "untested-code",
+      "fileIds": [
+        "18a87cfafe58"
+      ],
+      "symbolIds": [
+        "05ced143fa8e"
+      ],
+      "range": {
+        "startLine": 20,
+        "endLine": 25,
+        "startColumn": 0,
+        "endColumn": 15
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "bec4b0ac5727",
+      "kind": "untested-code",
+      "fileIds": [
+        "18a87cfafe58"
+      ],
+      "symbolIds": [
+        "fa2e09e616a4"
+      ],
+      "range": {
+        "startLine": 6,
+        "endLine": 7,
+        "startColumn": 0,
+        "endColumn": 39
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "c3ce9b65704d",
+      "kind": "untested-code",
+      "fileIds": [
+        "e99b9466650d"
+      ],
+      "symbolIds": [
+        "102fd51ee89a"
+      ],
+      "range": {
+        "startLine": 8,
+        "endLine": 13,
+        "startColumn": 0,
+        "endColumn": 18
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "d1e674f06695",
+      "kind": "untested-code",
+      "fileIds": [
+        "18a87cfafe58"
+      ],
+      "symbolIds": [
+        "c384f76d2716"
+      ],
+      "range": {
+        "startLine": 10,
+        "endLine": 12,
+        "startColumn": 0,
+        "endColumn": 90
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "d3dd4d51a9cd",
+      "kind": "missing-types",
+      "fileIds": [
+        "18a87cfafe58"
+      ],
+      "symbolIds": [
+        "c384f76d2716"
+      ],
+      "range": {
+        "startLine": 10,
+        "endLine": 10,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "One or more parameters are unannotated or explicitly any.",
+        "measured": 1,
+        "threshold": 0
+      }
+    },
+    {
+      "id": "d5481114e0dc",
+      "kind": "magic-number",
+      "fileIds": [
+        "5070b95f37f0"
+      ],
+      "symbolIds": [
+        "10361209c049"
+      ],
+      "range": {
+        "startLine": 25,
+        "endLine": 25,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Unnamed numeric literal outside a named constant.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "ff5fcb6f9592",
+      "kind": "missing-types",
+      "fileIds": [
+        "18a87cfafe58"
+      ],
+      "symbolIds": [
+        "05ced143fa8e"
+      ],
+      "range": {
+        "startLine": 20,
+        "endLine": 20,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "One or more parameters are unannotated or explicitly any.",
+        "measured": 1,
+        "threshold": 0
+      }
+    }
+  ],
+  "entryPoints": [
+    {
+      "id": "0994331093a1",
+      "fileId": "5070b95f37f0",
+      "symbolId": "ada039c90ea4",
+      "kind": "http",
+      "label": "GET /tasks/<task_id>",
+      "range": {
+        "startLine": 29,
+        "endLine": 33,
+        "startColumn": 0,
+        "endColumn": 33
+      }
+    },
+    {
+      "id": "104a60c076dc",
+      "fileId": "5070b95f37f0",
+      "symbolId": null,
+      "kind": "main",
+      "label": "__main__",
+      "range": {
+        "startLine": 53,
+        "endLine": 54,
+        "startColumn": 0,
+        "endColumn": 13
+      }
+    },
+    {
+      "id": "1d3f08953b5a",
+      "fileId": "5070b95f37f0",
+      "symbolId": "2b4de905b86e",
+      "kind": "http",
+      "label": "POST /tasks/<task_id>/share",
+      "range": {
+        "startLine": 45,
+        "endLine": 50,
+        "startColumn": 0,
+        "endColumn": 33
+      }
+    },
+    {
+      "id": "87f08858d470",
+      "fileId": "5070b95f37f0",
+      "symbolId": null,
+      "kind": "http",
+      "label": "POST /tasks/<task_id>/complete",
+      "range": {
+        "startLine": 36,
+        "endLine": 36,
+        "startColumn": 1,
+        "endColumn": 38
+      }
+    },
+    {
+      "id": "9bb160b4ce9c",
+      "fileId": "5070b95f37f0",
+      "symbolId": null,
+      "kind": "http",
+      "label": "POST /tasks/<task_id>/share",
+      "range": {
+        "startLine": 44,
+        "endLine": 44,
+        "startColumn": 1,
+        "endColumn": 35
+      }
+    },
+    {
+      "id": "ac1c10f706a6",
+      "fileId": "5070b95f37f0",
+      "symbolId": null,
+      "kind": "http",
+      "label": "POST /tasks",
+      "range": {
+        "startLine": 21,
+        "endLine": 21,
+        "startColumn": 1,
+        "endColumn": 19
+      }
+    },
+    {
+      "id": "ad5ccfd5c001",
+      "fileId": "5070b95f37f0",
+      "symbolId": "10361209c049",
+      "kind": "http",
+      "label": "POST /tasks",
+      "range": {
+        "startLine": 22,
+        "endLine": 25,
+        "startColumn": 0,
+        "endColumn": 38
+      }
+    },
+    {
+      "id": "f85c6a09d3a5",
+      "fileId": "5070b95f37f0",
+      "symbolId": null,
+      "kind": "http",
+      "label": "GET /tasks/<task_id>",
+      "range": {
+        "startLine": 28,
+        "endLine": 28,
+        "startColumn": 1,
+        "endColumn": 28
+      }
+    },
+    {
+      "id": "f88d6caf5c29",
+      "fileId": "5070b95f37f0",
+      "symbolId": "5da9cfa0cfca",
+      "kind": "http",
+      "label": "POST /tasks/<task_id>/complete",
+      "range": {
+        "startLine": 37,
+        "endLine": 41,
+        "startColumn": 0,
+        "endColumn": 33
+      }
+    }
+  ],
+  "testFacts": [
+    {
+      "id": "270d963b26af",
+      "testFileId": "9f77b316b552",
+      "line": 14,
+      "calleeSymbolId": "e98fcf60b208",
+      "args": [
+        "C++ & Rust"
+      ],
+      "expected": "c-rust",
+      "matcher": "equal"
+    },
+    {
+      "id": "3518ba3664c1",
+      "testFileId": "9f77b316b552",
+      "line": 13,
+      "calleeSymbolId": "e98fcf60b208",
+      "args": [
+        "Ship it!!"
+      ],
+      "expected": "ship-it",
+      "matcher": "equal"
+    },
+    {
+      "id": "5ab8dc090272",
+      "testFileId": "bcf286e478ac",
+      "line": 5,
+      "calleeSymbolId": "4444b56d7a3e",
+      "args": [
+        {
+          "done": false
+        }
+      ],
+      "expected": "open",
+      "matcher": "equal"
+    },
+    {
+      "id": "60ffdb6d4001",
+      "testFileId": "9f77b316b552",
+      "line": 5,
+      "calleeSymbolId": "e98fcf60b208",
+      "args": [
+        "Hello World"
+      ],
+      "expected": "hello-world",
+      "matcher": "equal"
+    },
+    {
+      "id": "7e329008e33d",
+      "testFileId": "bcf286e478ac",
+      "line": 9,
+      "calleeSymbolId": "4444b56d7a3e",
+      "args": [
+        {
+          "due_date": 10,
+          "done": true,
+          "done_at": 5
+        }
+      ],
+      "expected": "done",
+      "matcher": "equal"
+    },
+    {
+      "id": "81084eaa1d6c",
+      "testFileId": "bcf286e478ac",
+      "line": 17,
+      "calleeSymbolId": "4444b56d7a3e",
+      "args": [
+        {
+          "due_date": 1,
+          "done": false
+        }
+      ],
+      "expected": "overdue",
+      "matcher": "equal"
+    },
+    {
+      "id": "a82e34834861",
+      "testFileId": "bcf286e478ac",
+      "line": 13,
+      "calleeSymbolId": "4444b56d7a3e",
+      "args": [
+        {
+          "due_date": 10,
+          "done": true,
+          "done_at": 20
+        }
+      ],
+      "expected": "late",
+      "matcher": "equal"
+    },
+    {
+      "id": "c5fc4e921220",
+      "testFileId": "9f77b316b552",
+      "line": 9,
+      "calleeSymbolId": "e98fcf60b208",
+      "args": [
+        "  Taskly  "
+      ],
+      "expected": "taskly",
+      "matcher": "equal"
+    }
+  ],
+  "diagnostics": [
+    {
+      "id": "254cacb2f92d",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: Flask"
+    },
+    {
+      "id": "2686ee71b03b",
+      "path": "taskly/db/client.py",
+      "code": "unresolved-call",
+      "line": 12,
+      "message": "No static callee: where.items"
+    },
+    {
+      "id": "291567d36689",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 24,
+      "message": "No static callee: body.get"
+    },
+    {
+      "id": "2f3f0c7a6184",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 49,
+      "message": "No static callee: str"
+    },
+    {
+      "id": "335bf8945206",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 50,
+      "message": "No static callee: jsonify"
+    },
+    {
+      "id": "35da7096542e",
+      "path": "taskly/utils/slugify.py",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: slug.strip"
+    },
+    {
+      "id": "431a14972c8a",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 49,
+      "message": "No static callee: jsonify"
+    },
+    {
+      "id": "4a46aa8e5b1b",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 21,
+      "message": "No static callee: app.post"
+    },
+    {
+      "id": "62d581d7c11c",
+      "path": "taskly/db/client.py",
+      "code": "unresolved-call",
+      "line": 12,
+      "message": "No static callee: row.get"
+    },
+    {
+      "id": "690356c9fb74",
+      "path": "taskly/utils/slugify.py",
+      "code": "unresolved-call",
+      "line": 6,
+      "message": "No static callee: text.strip().lower"
+    },
+    {
+      "id": "6973ca589ebb",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 23,
+      "message": "No static callee: request.get_json"
+    },
+    {
+      "id": "785dab2a4ec3",
+      "path": "taskly/db/client.py",
+      "code": "unresolved-call",
+      "line": 16,
+      "message": "No static callee: _table(name).append"
+    },
+    {
+      "id": "7b574c70100f",
+      "path": "taskly/db/client.py",
+      "code": "unresolved-call",
+      "line": 12,
+      "message": "No static callee: all"
+    },
+    {
+      "id": "7dac39f44e63",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 25,
+      "message": "No static callee: jsonify"
+    },
+    {
+      "id": "8a4965cef5f1",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 28,
+      "message": "No static callee: app.get"
+    },
+    {
+      "id": "8a9f572d1d79",
+      "path": "taskly/db/client.py",
+      "code": "unresolved-call",
+      "line": 23,
+      "message": "No static callee: row.update"
+    },
+    {
+      "id": "8c34e8d0560e",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 36,
+      "message": "No static callee: app.post"
+    },
+    {
+      "id": "9747e3d3a27d",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 47,
+      "message": "No static callee: request.get_json"
+    },
+    {
+      "id": "ac53771d4fd0",
+      "path": "taskly/utils/slugify.py",
+      "code": "unresolved-call",
+      "line": 6,
+      "message": "No static callee: re.sub"
+    },
+    {
+      "id": "b1c60fb922f7",
+      "path": "taskly/services/share_service.py",
+      "code": "unresolved-heritage",
+      "line": 8,
+      "message": "Unresolved base type: Exception"
+    },
+    {
+      "id": "b316e5ca5d6a",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 33,
+      "message": "No static callee: jsonify"
+    },
+    {
+      "id": "beb87d263dc5",
+      "path": "taskly/utils/slugify.py",
+      "code": "unresolved-call",
+      "line": 6,
+      "message": "No static callee: text.strip"
+    },
+    {
+      "id": "c3906bc51e4d",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 40,
+      "message": "No static callee: jsonify"
+    },
+    {
+      "id": "cb230e445b75",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 44,
+      "message": "No static callee: app.post"
+    },
+    {
+      "id": "ce33e004107f",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 38,
+      "message": "No static callee: time.time"
+    },
+    {
+      "id": "cec460394065",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 18,
+      "message": "No static callee: request.headers.get"
+    },
+    {
+      "id": "d86acf19e71a",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 54,
+      "message": "No static callee: app.run"
+    },
+    {
+      "id": "dc10dab16c64",
+      "path": "taskly/services/share_service.py",
+      "code": "unresolved-call",
+      "line": 23,
+      "message": "No static callee: ValueError"
+    },
+    {
+      "id": "dc98f9aa4044",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 41,
+      "message": "No static callee: jsonify"
+    },
+    {
+      "id": "dd9c48220e63",
+      "path": "taskly/db/teams.py",
+      "code": "unresolved-heritage",
+      "line": 4,
+      "message": "Unresolved base type: Exception"
+    },
+    {
+      "id": "e5faeefae948",
+      "path": "taskly/db/client.py",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: _tables.setdefault"
+    },
+    {
+      "id": "f764cd9250b5",
+      "path": "taskly/services/task_service.py",
+      "code": "unresolved-call",
+      "line": 12,
+      "message": "No static callee: task.get"
+    },
+    {
+      "id": "f91856f4deb6",
+      "path": "taskly/app.py",
+      "code": "unresolved-call",
+      "line": 32,
+      "message": "No static callee: jsonify"
+    },
+    {
+      "id": "fe577a4e5572",
+      "path": "taskly/services/task_service.py",
+      "code": "unresolved-call",
+      "line": 18,
+      "message": "No static callee: time.time"
+    },
+    {
+      "id": "fe8709217a01",
+      "path": "taskly/services/share_service.py",
+      "code": "unresolved-call",
+      "line": 26,
+      "message": "No static callee: ValueError"
+    }
+  ]
+}

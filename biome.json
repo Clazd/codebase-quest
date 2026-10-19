@@ -6,7 +6,15 @@
     "useIgnoreFile": true
   },
   "files": {
-    "includes": ["**", "!fixtures/src", "!**/dist", "!**/dist-test", "!docs/plans", "!packages/assets/kenney"]
+    "includes": [
+      "**",
+      "!fixtures/src",
+      "!**/dist",
+      "!**/dist-test",
+      "!docs/plans",
+      "!packages/assets/kenney",
+      "!packages/analyzer/goldens"
+    ]
   },
   "formatter": {
     "enabled": true,

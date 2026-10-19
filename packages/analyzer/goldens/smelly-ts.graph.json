@@ -1,0 +1,6648 @@
+{
+  "schemaVersion": 1,
+  "repo": {
+    "name": "smelly-ts",
+    "commit": "ddb84c83039b72000ff88b02460a8a290898c65b",
+    "languages": [
+      {
+        "language": "typescript",
+        "files": 22,
+        "loc": 1454
+      }
+    ]
+  },
+  "modules": [
+    {
+      "id": "4c8965f8ce8b",
+      "path": "src/inventory",
+      "name": "inventory",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "4e1665446485",
+      "path": "external/node:fs",
+      "name": "node:fs",
+      "kind": "external",
+      "declared": false
+    },
+    {
+      "id": "51d6fcfc614b",
+      "path": "src/core",
+      "name": "core",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "71fd89a5a030",
+      "path": ".",
+      "name": ".",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "7afc270069ac",
+      "path": "src/reports",
+      "name": "reports",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "7d8dd6b94870",
+      "path": "src/storage",
+      "name": "storage",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "9c86cdcdb8a6",
+      "path": "tests",
+      "name": "tests",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "a88bca9f0b78",
+      "path": "src/cart",
+      "name": "cart",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "b4c5d3f53fed",
+      "path": "src/plugins",
+      "name": "plugins",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "b9d099c108d1",
+      "path": "src",
+      "name": "src",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "c2333e427de0",
+      "path": "src/orders",
+      "name": "orders",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "c6c2dacf0ed5",
+      "path": "src/pricing",
+      "name": "pricing",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "cb28fe2d7cca",
+      "path": "src/shipping",
+      "name": "shipping",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "e968be61183f",
+      "path": "src/format",
+      "name": "format",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "f3f24aa20323",
+      "path": "src/i18n",
+      "name": "i18n",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "fdca6e8e1095",
+      "path": "src/api",
+      "name": "api",
+      "kind": "directory",
+      "declared": true
+    },
+    {
+      "id": "fe0203eb0ff7",
+      "path": "external/vitest",
+      "name": "vitest",
+      "kind": "external",
+      "declared": true
+    }
+  ],
+  "files": [
+    {
+      "id": "102cd8f26561",
+      "path": "src/orders/createOrder.ts",
+      "moduleId": "c2333e427de0",
+      "language": "typescript",
+      "role": "source",
+      "loc": 30,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "ec5e1f83ee0471f244c1948e424f87c6e77a4a69",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 30,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "14045faa7bfb",
+      "path": "package.json",
+      "moduleId": "71fd89a5a030",
+      "language": null,
+      "role": "manifest",
+      "loc": 16,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "06b4562534c54fd0efe8c20ce78a7ab5d147470f",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 16,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "28f00bf80c29",
+      "path": "src/i18n/messages.ts",
+      "moduleId": "f3f24aa20323",
+      "language": "typescript",
+      "role": "source",
+      "loc": 875,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "5a2c4577191c499f7431e5a040e56442a7483d0d",
+      "git": {
+        "firstCommitAt": "2025-02-24T13:15:00Z",
+        "lastCommitAt": "2025-02-24T13:15:00Z",
+        "commits": 1,
+        "churn": 875,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "391476147cd9",
+      "path": "src/inventory/stock.ts",
+      "moduleId": "4c8965f8ce8b",
+      "language": "typescript",
+      "role": "source",
+      "loc": 6,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "5e777285307a8fc4573d1e787ab94d78b75001a7",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 6,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "49f4a1b3d6b0",
+      "path": "src/inventory/warehouse.ts",
+      "moduleId": "4c8965f8ce8b",
+      "language": "typescript",
+      "role": "source",
+      "loc": 23,
+      "symbolCount": 4,
+      "smellCount": 1,
+      "hash": "17b405156bc648bbef6800bd2f07cab42acf70a6",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 23,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "4c14c1daa7b4",
+      "path": "SMELLS.md",
+      "moduleId": "71fd89a5a030",
+      "language": null,
+      "role": "docs",
+      "loc": 44,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "dfc9fdb713eeea8e46571a00a13099cf602f0e62",
+      "git": {
+        "firstCommitAt": "2025-02-24T13:15:00Z",
+        "lastCommitAt": "2025-02-24T13:15:00Z",
+        "commits": 1,
+        "churn": 44,
+        "authors": 1
+      },
+      "docs": "# SMELLS.md: the answer key\n\nThis repository is a test fixture for Codebase Quest. Every code smell in it is\ndeliberate, and each one is listed here: at least one instance of every monster\nin the Bestiary (MASTER-PLAN §8). Analyzer tests (Phase 02) check that each row\nis detected with the right kind and location, and that nothing else of those\nkinds is reported.\n\nLines are 1-based and inclusive. Paths are relative to the repository root.\n\n| # | Monster | Smell kind | File | Symbol | Lines | Evidence |\n|---|---|---|---|---|---|---|\n| 1 | Gremlin | todo-comment | `src/cart/cartTotal.ts` | `cartTotal` | 5–5 | `FIXME` comment |\n| 2 | Spaghetti Serpent | complex-function | `src/pricing/discount.ts` | `discountRate` | 20–57 | cyclomatic complexity 15 (threshold 10) |\n| 3 | Mimic | duplicate-code | `src/format/money.ts` + `src/format/price.ts` | `formatMoney` + `formatPrice` | 9–16 + 9–16 | same 6 statements; they differ only at line 12 (`Math.floor` vs `Math.round`) |\n| 4 | Mutant | injected-mutation | `src/cart/coupon.ts` | `applyCoupon` | 4–7 | not a static smell: the designated target for Mutant Hunt (mutations are injected at play time, Phase 07) |\n| 5 | Ghost | dead-code | `src/orders/orders.ts` | `legacyOrderCode` | 8–10 | no callers, not exported, not an entry point |\n| 6 | Wisp | possibly-dead-code | `src/plugins/hooks.ts` | `onLegacyCheckout` | 21–23 | no callers and not exported, but its name appears as a string (line 9) and the file makes dynamic calls (`hook(order)`) |\n| 7 | Labyrinth Minotaur | deep-nesting | `src/shipping/label.ts` | `shippingLabel` | 8–24 | nesting depth 5 at line 14 (threshold 4) |\n| 8 | Imp | magic-number | `src/orders/tax.ts` | `addTax` | 3–3 | unnamed literals `1.0825` and `30` |\n| 9 | Wraith | swallowed-error | `src/storage/save.ts` | `saveOrder` | 8–8 | empty `catch` block |\n| 10 | Shapeshifter | missing-types | `src/api/parse.ts` | `parseOrder` | 4–4 | parameter `raw: any` |\n| 11 | Echo | long-parameter-list | `src/orders/createOrder.ts` | `createOrder` | 7–30 | 8 parameters (threshold 5) |\n| 12 | Shadow | untested-code | `src/reports/monthly.ts` | `monthlyRevenue` | 4–12 | no test imports or calls it |\n| 13 | Golem | huge-file | `src/i18n/messages.ts` | (file) | 1–875 | 875 lines (threshold 800) |\n| 14 | Titan | god-class | `src/core/ShopManager.ts` | `ShopManager` | 2–100 | 22 methods (threshold 20) over 5 unrelated fields (users, stock, outbox, ledger, audit log) |\n| 15 | Ouroboros | circular-dependency | `src/inventory/stock.ts` → `src/inventory/warehouse.ts` → `src/inventory/restock.ts` → `src/inventory/stock.ts` | (module cycle) | import lines 1 | a 3-module import cycle |\n\n## Assumptions this key makes\n\nThe detection rules are finalized in Phase 02. This key assumes:\n\n- **Test files** (`tests/`) are excluded from Imp, Ghost, Wisp, Shadow and Echo.\n- **0 and 1** (and `-1` as an index) are not magic numbers. Literals assigned to\n  a named `const` are not magic.\n- **Dead code is not also untested code:** Ghost and Wisp symbols are not\n  reported as Shadow.\n- A class counts as tested if a test imports it; its methods don't need\n  separate test references.\n- Kind names in the \"Smell kind\" column are proposals; Phase 02 may rename them\n  (update this file in the same change).\n\nIf Phase 02 calibrates a rule differently, update this table and\n`fixtures/fixtures.lock.json` together, and say why in the pull request.\n"
+    },
+    {
+      "id": "71e856913c91",
+      "path": "src/core/ShopManager.ts",
+      "moduleId": "51d6fcfc614b",
+      "language": "typescript",
+      "role": "source",
+      "loc": 100,
+      "symbolCount": 23,
+      "smellCount": 1,
+      "hash": "8d83a27607dafcc44ae44a8fd331a8c7e7e99f73",
+      "git": {
+        "firstCommitAt": "2025-02-24T13:15:00Z",
+        "lastCommitAt": "2025-02-24T13:15:00Z",
+        "commits": 1,
+        "churn": 100,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "744d38ead6e4",
+      "path": "src/api/parse.ts",
+      "moduleId": "fdca6e8e1095",
+      "language": "typescript",
+      "role": "source",
+      "loc": 16,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "571fcea7917b9b8915374a32cc6f30fc61a18697",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 16,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "7fee92472ca7",
+      "path": "tsconfig.json",
+      "moduleId": "71fd89a5a030",
+      "language": null,
+      "role": "config",
+      "loc": 11,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "5c0b38cea18162cf862ccd140a06354d26dec20b",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 11,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "836485632011",
+      "path": "src/cart/cartTotal.ts",
+      "moduleId": "a88bca9f0b78",
+      "language": "typescript",
+      "role": "source",
+      "loc": 11,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "27b20cf79bfc8e81aed15d7ac6f95ea0e0d1d3e8",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 11,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "86111d71b16e",
+      "path": "tests/inventory.test.ts",
+      "moduleId": "9c86cdcdb8a6",
+      "language": "typescript",
+      "role": "test",
+      "loc": 14,
+      "symbolCount": 2,
+      "smellCount": 0,
+      "hash": "dbeccac438e20238ffb7712083d67cabf8601343",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 14,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "8ec364bef2e9",
+      "path": "src/types.ts",
+      "moduleId": "b9d099c108d1",
+      "language": "typescript",
+      "role": "source",
+      "loc": 39,
+      "symbolCount": 6,
+      "smellCount": 0,
+      "hash": "13b53abfbc418cdc02bc2857a387dab05765f085",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 39,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "9cec5ce328f0",
+      "path": "src/storage/save.ts",
+      "moduleId": "7d8dd6b94870",
+      "language": "typescript",
+      "role": "source",
+      "loc": 9,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "7ff314baddceee9b9c1a5560c73d572c961fd1e7",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 9,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "a9c7ed734185",
+      "path": "tests/shop.test.ts",
+      "moduleId": "9c86cdcdb8a6",
+      "language": "typescript",
+      "role": "test",
+      "loc": 99,
+      "symbolCount": 19,
+      "smellCount": 0,
+      "hash": "160d985169b0d9c9c8be53145ccb567858e747e2",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 99,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "ad005b2781d5",
+      "path": "src/reports/monthly.ts",
+      "moduleId": "7afc270069ac",
+      "language": "typescript",
+      "role": "source",
+      "loc": 12,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "25c53f62c29cd7a650a45b628e28a8739ae3c28b",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 12,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "b11b8acf9086",
+      "path": "src/orders/tax.ts",
+      "moduleId": "c2333e427de0",
+      "language": "typescript",
+      "role": "source",
+      "loc": 4,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "5d7f923a55a339b31bd2cfa338163deea9983d07",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 4,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "b2ac8fb5119e",
+      "path": "src/cart/coupon.ts",
+      "moduleId": "a88bca9f0b78",
+      "language": "typescript",
+      "role": "source",
+      "loc": 7,
+      "symbolCount": 1,
+      "smellCount": 0,
+      "hash": "8e5a162fe9e4357f353eefffa80a7034cb95793c",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 7,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "b37d6f7e81c0",
+      "path": "src/format/money.ts",
+      "moduleId": "e968be61183f",
+      "language": "typescript",
+      "role": "source",
+      "loc": 16,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "918bc2d8d80bc5bef57e863742c70aed342834e8",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 16,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "b5b21b633780",
+      "path": "src/shipping/label.ts",
+      "moduleId": "cb28fe2d7cca",
+      "language": "typescript",
+      "role": "source",
+      "loc": 24,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "7aad7866d20f0f109b0a1567e73e09157c118f3b",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 24,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "b7f31cbd9817",
+      "path": "tests/shopManager.test.ts",
+      "moduleId": "9c86cdcdb8a6",
+      "language": "typescript",
+      "role": "test",
+      "loc": 58,
+      "symbolCount": 7,
+      "smellCount": 0,
+      "hash": "6575d4f04b5ae8b0aad0e070d49a205eafc307cd",
+      "git": {
+        "firstCommitAt": "2025-02-24T13:15:00Z",
+        "lastCommitAt": "2025-02-24T13:15:00Z",
+        "commits": 1,
+        "churn": 58,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "b92d7c0e5cf8",
+      "path": "src/plugins/hooks.ts",
+      "moduleId": "b4c5d3f53fed",
+      "language": "typescript",
+      "role": "source",
+      "loc": 23,
+      "symbolCount": 4,
+      "smellCount": 1,
+      "hash": "e3d162698168d566daf01d7da88c9804ce03f279",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 23,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "be3536df16ae",
+      "path": "src/format/price.ts",
+      "moduleId": "e968be61183f",
+      "language": "typescript",
+      "role": "source",
+      "loc": 16,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "773f00f3224ac36f316ab2994f343359ff4ade3a",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 16,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "cbafc3ba714c",
+      "path": "src/inventory/restock.ts",
+      "moduleId": "4c8965f8ce8b",
+      "language": "typescript",
+      "role": "source",
+      "loc": 5,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "2c592ed75d425fef622f65aaed79aadb4c7365dc",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 5,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "d3baf686a13e",
+      "path": "src/orders/orders.ts",
+      "moduleId": "c2333e427de0",
+      "language": "typescript",
+      "role": "source",
+      "loc": 10,
+      "symbolCount": 2,
+      "smellCount": 1,
+      "hash": "6e5c1d2532b3cbbf677383bd65843fcba9ccd1bc",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 10,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "df673d7c3b19",
+      "path": "src/pricing/discount.ts",
+      "moduleId": "c6c2dacf0ed5",
+      "language": "typescript",
+      "role": "source",
+      "loc": 57,
+      "symbolCount": 1,
+      "smellCount": 1,
+      "hash": "6f9c530132ff1a0ee0649baf3e9e11ac2acce06c",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 57,
+        "authors": 1
+      },
+      "docs": null
+    },
+    {
+      "id": "fc202ab48d3e",
+      "path": "README.md",
+      "moduleId": "71fd89a5a030",
+      "language": null,
+      "role": "docs",
+      "loc": 8,
+      "symbolCount": 0,
+      "smellCount": 0,
+      "hash": "5fa511968efcfb8340f86fdf482ea85ac1bccdf1",
+      "git": {
+        "firstCommitAt": "2025-02-10T09:00:00Z",
+        "lastCommitAt": "2025-02-10T09:00:00Z",
+        "commits": 1,
+        "churn": 8,
+        "authors": 1
+      },
+      "docs": "# Smelly Shop\n\nA small store backend: carts, discounts, orders, shipping labels and stock.\n\n```sh\nnpm install\nnpm test\n```\n"
+    }
+  ],
+  "symbols": [
+    {
+      "id": "0512b16cb4c9",
+      "fileId": "86111d71b16e",
+      "parentId": null,
+      "kind": "function",
+      "name": "describe@6",
+      "qualifiedName": "describe@6",
+      "range": {
+        "startLine": 6,
+        "endLine": 14,
+        "startColumn": 22,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 9,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "062488198670",
+      "fileId": "b7f31cbd9817",
+      "parentId": "42cfbff3b81f",
+      "kind": "function",
+      "name": "it@32",
+      "qualifiedName": "describe@4.it@32",
+      "range": {
+        "startLine": 32,
+        "endLine": 38,
+        "startColumn": 25,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 7,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 6
+      }
+    },
+    {
+      "id": "0b174eb23e4a",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "clearLog",
+      "qualifiedName": "ShopManager.clearLog",
+      "range": {
+        "startLine": 89,
+        "endLine": 91,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "0f7e6b4d471e",
+      "fileId": "a9c7ed734185",
+      "parentId": null,
+      "kind": "function",
+      "name": "describe@30",
+      "qualifiedName": "describe@30",
+      "range": {
+        "startLine": 30,
+        "endLine": 39,
+        "startColumn": 17,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 10,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "13f9eed01d8d",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "clearOutbox",
+      "qualifiedName": "ShopManager.clearOutbox",
+      "range": {
+        "startLine": 57,
+        "endLine": 59,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "18770ea0fed3",
+      "fileId": "b2ac8fb5119e",
+      "parentId": null,
+      "kind": "function",
+      "name": "applyCoupon",
+      "qualifiedName": "applyCoupon",
+      "range": {
+        "startLine": 4,
+        "endLine": 7,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "total",
+          "type": "number"
+        },
+        {
+          "name": "percentOff",
+          "type": "number"
+        }
+      ],
+      "returnType": "number",
+      "doc": "/** Takes `percentOff` percent off `total` (in cents), rounding the discount down. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "19378847328c",
+      "fileId": "df673d7c3b19",
+      "parentId": null,
+      "kind": "function",
+      "name": "discountRate",
+      "qualifiedName": "discountRate",
+      "range": {
+        "startLine": 20,
+        "endLine": 57,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "order",
+          "type": "Order"
+        },
+        {
+          "name": "customer",
+          "type": "Customer"
+        },
+        {
+          "name": "today",
+          "type": "string"
+        }
+      ],
+      "returnType": "number",
+      "doc": "/** Works out the discount rate (0 to 0.5) for an order. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 38,
+        "cyclomatic": 15,
+        "maxNesting": 2,
+        "params": 3,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "1bfca828cf6a",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "log",
+      "qualifiedName": "ShopManager.log",
+      "range": {
+        "startLine": 77,
+        "endLine": 79,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "entry",
+          "type": "string"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "1e383dfda612",
+      "fileId": "391476147cd9",
+      "parentId": null,
+      "kind": "function",
+      "name": "available",
+      "qualifiedName": "available",
+      "range": {
+        "startLine": 4,
+        "endLine": 6,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "sku",
+          "type": "string"
+        }
+      ],
+      "returnType": "number",
+      "doc": "/** How many units of `sku` are available right now. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 2,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "1ee87b1a9dd3",
+      "fileId": "b92d7c0e5cf8",
+      "parentId": null,
+      "kind": "function",
+      "name": "registerHook",
+      "qualifiedName": "registerHook",
+      "range": {
+        "startLine": 11,
+        "endLine": 13,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "hook",
+          "type": "Hook"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "22fa09c49df8",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "removeStock",
+      "qualifiedName": "ShopManager.removeStock",
+      "range": {
+        "startLine": 37,
+        "endLine": 39,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "sku",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "number"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "2e571fa4a41e",
+      "fileId": "ad005b2781d5",
+      "parentId": null,
+      "kind": "function",
+      "name": "monthlyRevenue",
+      "qualifiedName": "monthlyRevenue",
+      "range": {
+        "startLine": 4,
+        "endLine": 12,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "orders",
+          "type": "Order[]"
+        },
+        {
+          "name": "month",
+          "type": "string"
+        }
+      ],
+      "returnType": "number",
+      "doc": "/** Total revenue of the orders placed in `month` (e.g. \"2025-02\"). */",
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 9,
+        "cyclomatic": 3,
+        "maxNesting": 2,
+        "params": 2,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "42cfbff3b81f",
+      "fileId": "b7f31cbd9817",
+      "parentId": null,
+      "kind": "function",
+      "name": "describe@4",
+      "qualifiedName": "describe@4",
+      "range": {
+        "startLine": 4,
+        "endLine": 58,
+        "startColumn": 24,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 55,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "4f44538b9bc5",
+      "fileId": "a9c7ed734185",
+      "parentId": "a6da4b6fc60e",
+      "kind": "function",
+      "name": "it@69",
+      "qualifiedName": "describe@60.it@69",
+      "range": {
+        "startLine": 69,
+        "endLine": 74,
+        "startColumn": 23,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 6,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "5016ab5a6514",
+      "fileId": "a9c7ed734185",
+      "parentId": "a6da4b6fc60e",
+      "kind": "function",
+      "name": "it@76",
+      "qualifiedName": "describe@60.it@76",
+      "range": {
+        "startLine": 76,
+        "endLine": 78,
+        "startColumn": 30,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 2,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "523f4b61b4dd",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "refundPayment",
+      "qualifiedName": "ShopManager.refundPayment",
+      "range": {
+        "startLine": 65,
+        "endLine": 67,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "cents",
+          "type": "number"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "535b253c7de2",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "reset",
+      "qualifiedName": "ShopManager.reset",
+      "range": {
+        "startLine": 93,
+        "endLine": 99,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 7,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 2,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "546c0d551d8e",
+      "fileId": "d3baf686a13e",
+      "parentId": null,
+      "kind": "function",
+      "name": "legacyOrderCode",
+      "qualifiedName": "legacyOrderCode",
+      "range": {
+        "startLine": 8,
+        "endLine": 10,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "order",
+          "type": "Order"
+        }
+      ],
+      "returnType": "string",
+      "doc": null,
+      "decorators": [],
+      "traits": [],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "54bacf963097",
+      "fileId": "836485632011",
+      "parentId": null,
+      "kind": "function",
+      "name": "cartTotal",
+      "qualifiedName": "cartTotal",
+      "range": {
+        "startLine": 4,
+        "endLine": 11,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "items",
+          "type": "CartItem[]"
+        }
+      ],
+      "returnType": "number",
+      "doc": "/** Sums the price of every line in the cart. */",
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 1,
+        "fanIn": 2,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "556640304d92",
+      "fileId": "a9c7ed734185",
+      "parentId": null,
+      "kind": "function",
+      "name": "describe@41",
+      "qualifiedName": "describe@41",
+      "range": {
+        "startLine": 41,
+        "endLine": 47,
+        "startColumn": 20,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 7,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "637084ee32cb",
+      "fileId": "b7f31cbd9817",
+      "parentId": "42cfbff3b81f",
+      "kind": "function",
+      "name": "it@24",
+      "qualifiedName": "describe@4.it@24",
+      "range": {
+        "startLine": 24,
+        "endLine": 30,
+        "startColumn": 22,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 7,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 6
+      }
+    },
+    {
+      "id": "64800c061569",
+      "fileId": "49f4a1b3d6b0",
+      "parentId": null,
+      "kind": "function",
+      "name": "lowStockSkus",
+      "qualifiedName": "lowStockSkus",
+      "range": {
+        "startLine": 21,
+        "endLine": 23,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "threshold",
+          "type": "number"
+        }
+      ],
+      "returnType": "string[]",
+      "doc": "/** SKUs whose stock is below `threshold`. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 1,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "64aca39a8e13",
+      "fileId": "8ec364bef2e9",
+      "parentId": null,
+      "kind": "type",
+      "name": "Tier",
+      "qualifiedName": "Tier",
+      "range": {
+        "startLine": 1,
+        "endLine": 1,
+        "startColumn": 7,
+        "endColumn": 46
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 1,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "65a0b665b01b",
+      "fileId": "b11b8acf9086",
+      "parentId": null,
+      "kind": "function",
+      "name": "addTax",
+      "qualifiedName": "addTax",
+      "range": {
+        "startLine": 2,
+        "endLine": 4,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "amount",
+          "type": "number"
+        }
+      ],
+      "returnType": "number",
+      "doc": "/** Adds sales tax and the card fee to an amount in cents. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "689893dae282",
+      "fileId": "28f00bf80c29",
+      "parentId": null,
+      "kind": "type",
+      "name": "MessageArea",
+      "qualifiedName": "MessageArea",
+      "range": {
+        "startLine": 875,
+        "endLine": 875,
+        "startColumn": 7,
+        "endColumn": 48
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 1,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "6a0d13788b39",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "isInStock",
+      "qualifiedName": "ShopManager.isInStock",
+      "range": {
+        "startLine": 45,
+        "endLine": 47,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "sku",
+          "type": "string"
+        }
+      ],
+      "returnType": "boolean",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "6cfa0977c21a",
+      "fileId": "9cec5ce328f0",
+      "parentId": null,
+      "kind": "function",
+      "name": "saveOrder",
+      "qualifiedName": "saveOrder",
+      "range": {
+        "startLine": 5,
+        "endLine": 9,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "order",
+          "type": "Order"
+        },
+        {
+          "name": "path",
+          "type": "string"
+        }
+      ],
+      "returnType": "void",
+      "doc": "/** Saves an order as JSON. */",
+      "decorators": [],
+      "traits": [
+        "does-io",
+        "exported"
+      ],
+      "metrics": {
+        "loc": 5,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "6d03178f74c5",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "queueEmail",
+      "qualifiedName": "ShopManager.queueEmail",
+      "range": {
+        "startLine": 49,
+        "endLine": 51,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "to",
+          "type": "string"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "6f2e4de9d635",
+      "fileId": "b7f31cbd9817",
+      "parentId": "42cfbff3b81f",
+      "kind": "function",
+      "name": "it@40",
+      "qualifiedName": "describe@4.it@40",
+      "range": {
+        "startLine": 40,
+        "endLine": 48,
+        "startColumn": 27,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 9,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 9
+      }
+    },
+    {
+      "id": "77ec29e7cb3a",
+      "fileId": "a9c7ed734185",
+      "parentId": null,
+      "kind": "function",
+      "name": "describe@49",
+      "qualifiedName": "describe@49",
+      "range": {
+        "startLine": 49,
+        "endLine": 58,
+        "startColumn": 23,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 10,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "795af8bb57d0",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "removeUser",
+      "qualifiedName": "ShopManager.removeUser",
+      "range": {
+        "startLine": 13,
+        "endLine": 15,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "returnType": "boolean",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "7ac889ae64f9",
+      "fileId": "b92d7c0e5cf8",
+      "parentId": null,
+      "kind": "function",
+      "name": "onLegacyCheckout",
+      "qualifiedName": "onLegacyCheckout",
+      "range": {
+        "startLine": 21,
+        "endLine": 23,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "order",
+          "type": "Order"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "event-handler"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "7c3217474063",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "outboxSize",
+      "qualifiedName": "ShopManager.outboxSize",
+      "range": {
+        "startLine": 53,
+        "endLine": 55,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "number",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "7cdbf383b4ab",
+      "fileId": "a9c7ed734185",
+      "parentId": null,
+      "kind": "function",
+      "name": "describe@94",
+      "qualifiedName": "describe@94",
+      "range": {
+        "startLine": 94,
+        "endLine": 99,
+        "startColumn": 21,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 6,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "806f8df4190b",
+      "fileId": "8ec364bef2e9",
+      "parentId": null,
+      "kind": "interface",
+      "name": "Order",
+      "qualifiedName": "Order",
+      "range": {
+        "startLine": 29,
+        "endLine": 39,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 11,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "85314b45a7fa",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "addStock",
+      "qualifiedName": "ShopManager.addStock",
+      "range": {
+        "startLine": 33,
+        "endLine": 35,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "sku",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "number"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "93b5c08c2841",
+      "fileId": "a9c7ed734185",
+      "parentId": "a6da4b6fc60e",
+      "kind": "function",
+      "name": "it@61",
+      "qualifiedName": "describe@60.it@61",
+      "range": {
+        "startLine": 61,
+        "endLine": 63,
+        "startColumn": 28,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 2,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "9b08d73a7f18",
+      "fileId": "a9c7ed734185",
+      "parentId": "ea5547b82028",
+      "kind": "function",
+      "name": "it@86",
+      "qualifiedName": "describe@85.it@86",
+      "range": {
+        "startLine": 86,
+        "endLine": 91,
+        "startColumn": 31,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 6,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 3,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "a1fb92c2683c",
+      "fileId": "71e856913c91",
+      "parentId": null,
+      "kind": "class",
+      "name": "ShopManager",
+      "qualifiedName": "ShopManager",
+      "range": {
+        "startLine": 2,
+        "endLine": 100,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": "/** Everything the admin panel needs, in one place. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 99,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 6,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "a51a67aaecc5",
+      "fileId": "8ec364bef2e9",
+      "parentId": null,
+      "kind": "interface",
+      "name": "Customer",
+      "qualifiedName": "Customer",
+      "range": {
+        "startLine": 10,
+        "endLine": 14,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 5,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "a6b6d43c60ed",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "paymentCount",
+      "qualifiedName": "ShopManager.paymentCount",
+      "range": {
+        "startLine": 73,
+        "endLine": 75,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "number",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "a6c109940cca",
+      "fileId": "a9c7ed734185",
+      "parentId": "556640304d92",
+      "kind": "function",
+      "name": "it@42",
+      "qualifiedName": "describe@41.it@42",
+      "range": {
+        "startLine": 42,
+        "endLine": 46,
+        "startColumn": 42,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 5,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 2,
+        "dynamicCalls": 3
+      }
+    },
+    {
+      "id": "a6c79995939c",
+      "fileId": "cbafc3ba714c",
+      "parentId": null,
+      "kind": "function",
+      "name": "needsRestock",
+      "qualifiedName": "needsRestock",
+      "range": {
+        "startLine": 3,
+        "endLine": 5,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "sku",
+          "type": "string"
+        },
+        {
+          "name": "threshold",
+          "type": "number"
+        }
+      ],
+      "returnType": "boolean",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 2,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "a6da4b6fc60e",
+      "fileId": "a9c7ed734185",
+      "parentId": null,
+      "kind": "function",
+      "name": "describe@60",
+      "qualifiedName": "describe@60",
+      "range": {
+        "startLine": 60,
+        "endLine": 83,
+        "startColumn": 19,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 24,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "a7c0d01e4643",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "renameUser",
+      "qualifiedName": "ShopManager.renameUser",
+      "range": {
+        "startLine": 25,
+        "endLine": 27,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 2,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "a7df77d8b0b6",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "stockLevel",
+      "qualifiedName": "ShopManager.stockLevel",
+      "range": {
+        "startLine": 41,
+        "endLine": 43,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "sku",
+          "type": "string"
+        }
+      ],
+      "returnType": "number",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 3,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "a97807c29e18",
+      "fileId": "b92d7c0e5cf8",
+      "parentId": null,
+      "kind": "function",
+      "name": "runHook",
+      "qualifiedName": "runHook",
+      "range": {
+        "startLine": 16,
+        "endLine": 19,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "order",
+          "type": "Order"
+        }
+      ],
+      "returnType": "void",
+      "doc": "/** Runs the hook registered under `name`, if any. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "ac6827b5064c",
+      "fileId": "b37d6f7e81c0",
+      "parentId": null,
+      "kind": "function",
+      "name": "formatMoney",
+      "qualifiedName": "formatMoney",
+      "range": {
+        "startLine": 9,
+        "endLine": 16,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "cents",
+          "type": "number"
+        },
+        {
+          "name": "currency",
+          "type": "string"
+        }
+      ],
+      "returnType": "string",
+      "doc": "/** Formats cents as money, e.g. 123456 and \"$\" give \"$1,234.56\". */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 2,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 4
+      }
+    },
+    {
+      "id": "ad4a30e556fe",
+      "fileId": "49f4a1b3d6b0",
+      "parentId": null,
+      "kind": "function",
+      "name": "receive",
+      "qualifiedName": "receive",
+      "range": {
+        "startLine": 15,
+        "endLine": 18,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "sku",
+          "type": "string"
+        },
+        {
+          "name": "quantity",
+          "type": "number"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 1,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "ae8a2da0843a",
+      "fileId": "8ec364bef2e9",
+      "parentId": null,
+      "kind": "interface",
+      "name": "Address",
+      "qualifiedName": "Address",
+      "range": {
+        "startLine": 22,
+        "endLine": 27,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 6,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "ae966bcdbc4b",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "findUser",
+      "qualifiedName": "ShopManager.findUser",
+      "range": {
+        "startLine": 17,
+        "endLine": 19,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string"
+        }
+      ],
+      "returnType": "string | undefined",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "b2f83c3b0217",
+      "fileId": "a9c7ed734185",
+      "parentId": "a6da4b6fc60e",
+      "kind": "function",
+      "name": "it@80",
+      "qualifiedName": "describe@60.it@80",
+      "range": {
+        "startLine": 80,
+        "endLine": 82,
+        "startColumn": 38,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 2,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "b4cb5f8c26d7",
+      "fileId": "b7f31cbd9817",
+      "parentId": "42cfbff3b81f",
+      "kind": "function",
+      "name": "it@50",
+      "qualifiedName": "describe@4.it@50",
+      "range": {
+        "startLine": 50,
+        "endLine": 57,
+        "startColumn": 26,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 7
+      }
+    },
+    {
+      "id": "b69312c98eeb",
+      "fileId": "a9c7ed734185",
+      "parentId": "0f7e6b4d471e",
+      "kind": "function",
+      "name": "it@31",
+      "qualifiedName": "describe@30.it@31",
+      "range": {
+        "startLine": 31,
+        "endLine": 33,
+        "startColumn": 23,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "b8022b3bc960",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "logSize",
+      "qualifiedName": "ShopManager.logSize",
+      "range": {
+        "startLine": 85,
+        "endLine": 87,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "number",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "b81f2bf18884",
+      "fileId": "a9c7ed734185",
+      "parentId": "77ec29e7cb3a",
+      "kind": "function",
+      "name": "it@55",
+      "qualifiedName": "describe@49.it@55",
+      "range": {
+        "startLine": 55,
+        "endLine": 57,
+        "startColumn": 23,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "b85db3e9bd14",
+      "fileId": "8ec364bef2e9",
+      "parentId": null,
+      "kind": "interface",
+      "name": "Coupon",
+      "qualifiedName": "Coupon",
+      "range": {
+        "startLine": 16,
+        "endLine": 20,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 5,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "ba8fc94a3ce8",
+      "fileId": "a9c7ed734185",
+      "parentId": null,
+      "kind": "function",
+      "name": "order",
+      "qualifiedName": "order",
+      "range": {
+        "startLine": 16,
+        "endLine": 28,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "Order",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 13,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 6,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "bae4249edd11",
+      "fileId": "b5b21b633780",
+      "parentId": null,
+      "kind": "function",
+      "name": "shippingLabel",
+      "qualifiedName": "shippingLabel",
+      "range": {
+        "startLine": 8,
+        "endLine": 24,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "order",
+          "type": "Order"
+        },
+        {
+          "name": "address",
+          "type": "Address"
+        }
+      ],
+      "returnType": "string",
+      "doc": "/** Builds the text printed on a shipping label. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 17,
+        "cyclomatic": 6,
+        "maxNesting": 5,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "bb625e6f02e8",
+      "fileId": "49f4a1b3d6b0",
+      "parentId": null,
+      "kind": "function",
+      "name": "warehouseFor",
+      "qualifiedName": "warehouseFor",
+      "range": {
+        "startLine": 10,
+        "endLine": 13,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "sku",
+          "type": "string"
+        }
+      ],
+      "returnType": "Warehouse",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 2,
+        "maxNesting": 1,
+        "params": 1,
+        "fanIn": 3,
+        "fanOut": 0,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "c224d0487236",
+      "fileId": "102cd8f26561",
+      "parentId": null,
+      "kind": "function",
+      "name": "createOrder",
+      "qualifiedName": "createOrder",
+      "range": {
+        "startLine": 7,
+        "endLine": 30,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "customerId",
+          "type": "string"
+        },
+        {
+          "name": "items",
+          "type": "CartItem[]"
+        },
+        {
+          "name": "address",
+          "type": "Address"
+        },
+        {
+          "name": "coupon",
+          "type": "Coupon | null"
+        },
+        {
+          "name": "giftWrap",
+          "type": "boolean"
+        },
+        {
+          "name": "notes",
+          "type": "string[]"
+        },
+        {
+          "name": "express",
+          "type": "boolean"
+        },
+        {
+          "name": "month",
+          "type": "string"
+        }
+      ],
+      "returnType": "Order",
+      "doc": "/** Creates an order from a cart. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 24,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 8,
+        "fanIn": 1,
+        "fanOut": 1,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "c818dabe32bb",
+      "fileId": "744d38ead6e4",
+      "parentId": null,
+      "kind": "function",
+      "name": "parseOrder",
+      "qualifiedName": "parseOrder",
+      "range": {
+        "startLine": 4,
+        "endLine": 16,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "raw",
+          "type": "any"
+        }
+      ],
+      "returnType": "Order",
+      "doc": "/** Turns a request body into an order. */",
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 13,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "c88f0965778f",
+      "fileId": "86111d71b16e",
+      "parentId": "0512b16cb4c9",
+      "kind": "function",
+      "name": "it@7",
+      "qualifiedName": "describe@6.it@7",
+      "range": {
+        "startLine": 7,
+        "endLine": 13,
+        "startColumn": 36,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 7,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 5,
+        "dynamicCalls": 4
+      }
+    },
+    {
+      "id": "ca90f6d00699",
+      "fileId": "b7f31cbd9817",
+      "parentId": "42cfbff3b81f",
+      "kind": "function",
+      "name": "it@5",
+      "qualifiedName": "describe@4.it@5",
+      "range": {
+        "startLine": 5,
+        "endLine": 14,
+        "startColumn": 22,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 10,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 11
+      }
+    },
+    {
+      "id": "ccfe53f76de9",
+      "fileId": "d3baf686a13e",
+      "parentId": null,
+      "kind": "function",
+      "name": "orderSummary",
+      "qualifiedName": "orderSummary",
+      "range": {
+        "startLine": 4,
+        "endLine": 6,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "order",
+          "type": "Order"
+        }
+      ],
+      "returnType": "string",
+      "doc": "/** One line describing an order, for logs and emails. */",
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "d368ffe412a6",
+      "fileId": "b92d7c0e5cf8",
+      "parentId": null,
+      "kind": "type",
+      "name": "Hook",
+      "qualifiedName": "Hook",
+      "range": {
+        "startLine": 3,
+        "endLine": 3,
+        "startColumn": 0,
+        "endColumn": 35
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [],
+      "metrics": {
+        "loc": 1,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "d5b568a0afbe",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "recordPayment",
+      "qualifiedName": "ShopManager.recordPayment",
+      "range": {
+        "startLine": 61,
+        "endLine": 63,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "cents",
+          "type": "number"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 1,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "d5ed23416f5d",
+      "fileId": "b7f31cbd9817",
+      "parentId": "42cfbff3b81f",
+      "kind": "function",
+      "name": "it@16",
+      "qualifiedName": "describe@4.it@16",
+      "range": {
+        "startLine": 16,
+        "endLine": 22,
+        "startColumn": 22,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 7,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 6
+      }
+    },
+    {
+      "id": "d61211517723",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "lastLogEntry",
+      "qualifiedName": "ShopManager.lastLogEntry",
+      "range": {
+        "startLine": 81,
+        "endLine": 83,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "string | undefined",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "d6ab4fc024e8",
+      "fileId": "a9c7ed734185",
+      "parentId": "0f7e6b4d471e",
+      "kind": "function",
+      "name": "it@35",
+      "qualifiedName": "describe@30.it@35",
+      "range": {
+        "startLine": 35,
+        "endLine": 38,
+        "startColumn": 24,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "daab9fe79b1b",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "countUsers",
+      "qualifiedName": "ShopManager.countUsers",
+      "range": {
+        "startLine": 21,
+        "endLine": 23,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "number",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported",
+        "pure-candidate"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "daf50d177fca",
+      "fileId": "a9c7ed734185",
+      "parentId": "7cdbf383b4ab",
+      "kind": "function",
+      "name": "it@95",
+      "qualifiedName": "describe@94.it@95",
+      "range": {
+        "startLine": 95,
+        "endLine": 98,
+        "startColumn": 43,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 2,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "dc0702d2fb39",
+      "fileId": "be3536df16ae",
+      "parentId": null,
+      "kind": "function",
+      "name": "formatPrice",
+      "qualifiedName": "formatPrice",
+      "range": {
+        "startLine": 9,
+        "endLine": 16,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "cents",
+          "type": "number"
+        },
+        {
+          "name": "currency",
+          "type": "string"
+        }
+      ],
+      "returnType": "string",
+      "doc": "/** Formats a price in cents for product pages. */",
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 2,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 1,
+        "fanOut": 0,
+        "dynamicCalls": 4
+      }
+    },
+    {
+      "id": "dc937a53fc63",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "balance",
+      "qualifiedName": "ShopManager.balance",
+      "range": {
+        "startLine": 69,
+        "endLine": 71,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "number",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "def464c82428",
+      "fileId": "a9c7ed734185",
+      "parentId": "a6da4b6fc60e",
+      "kind": "function",
+      "name": "it@65",
+      "qualifiedName": "describe@60.it@65",
+      "range": {
+        "startLine": 65,
+        "endLine": 67,
+        "startColumn": 17,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 1
+      }
+    },
+    {
+      "id": "e1c9f5cac15d",
+      "fileId": "49f4a1b3d6b0",
+      "parentId": null,
+      "kind": "interface",
+      "name": "Warehouse",
+      "qualifiedName": "Warehouse",
+      "range": {
+        "startLine": 3,
+        "endLine": 6,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "e5909dd1bc93",
+      "fileId": "a9c7ed734185",
+      "parentId": "77ec29e7cb3a",
+      "kind": "function",
+      "name": "it@50",
+      "qualifiedName": "describe@49.it@50",
+      "range": {
+        "startLine": 50,
+        "endLine": 53,
+        "startColumn": 22,
+        "endColumn": 3
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "test"
+      ],
+      "metrics": {
+        "loc": 4,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 1,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "e665f3dbac45",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "exportUsers",
+      "qualifiedName": "ShopManager.exportUsers",
+      "range": {
+        "startLine": 29,
+        "endLine": 31,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": "string[]",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 2
+      }
+    },
+    {
+      "id": "ea5547b82028",
+      "fileId": "a9c7ed734185",
+      "parentId": null,
+      "kind": "function",
+      "name": "describe@85",
+      "qualifiedName": "describe@85",
+      "range": {
+        "startLine": 85,
+        "endLine": 92,
+        "startColumn": 18,
+        "endColumn": 1
+      },
+      "exported": false,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "pure-candidate",
+        "test"
+      ],
+      "metrics": {
+        "loc": 8,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "edf22d666454",
+      "fileId": "8ec364bef2e9",
+      "parentId": null,
+      "kind": "interface",
+      "name": "CartItem",
+      "qualifiedName": "CartItem",
+      "range": {
+        "startLine": 3,
+        "endLine": 8,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [],
+      "returnType": null,
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 6,
+        "cyclomatic": 0,
+        "maxNesting": 0,
+        "params": 0,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 0
+      }
+    },
+    {
+      "id": "fe6b4e6b8a4e",
+      "fileId": "71e856913c91",
+      "parentId": "a1fb92c2683c",
+      "kind": "method",
+      "name": "addUser",
+      "qualifiedName": "ShopManager.addUser",
+      "range": {
+        "startLine": 9,
+        "endLine": 11,
+        "startColumn": 2,
+        "endColumn": 3
+      },
+      "exported": true,
+      "async": false,
+      "generator": false,
+      "parameters": [
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "returnType": "void",
+      "doc": null,
+      "decorators": [],
+      "traits": [
+        "exported"
+      ],
+      "metrics": {
+        "loc": 3,
+        "cyclomatic": 1,
+        "maxNesting": 0,
+        "params": 2,
+        "fanIn": 0,
+        "fanOut": 0,
+        "dynamicCalls": 1
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "015487bf8c8f",
+      "from": "ca90f6d00699",
+      "to": "a1fb92c2683c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 6,
+      "label": "ShopManager"
+    },
+    {
+      "id": "025b90a4cfb8",
+      "from": "9b08d73a7f18",
+      "to": "ba8fc94a3ce8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 87,
+      "label": "order"
+    },
+    {
+      "id": "03e0a5ba8ee2",
+      "from": "a9c7ed734185",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 14,
+      "label": "../src/types"
+    },
+    {
+      "id": "06df56191d48",
+      "from": "ad4a30e556fe",
+      "to": "bb625e6f02e8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 16,
+      "label": "warehouseFor"
+    },
+    {
+      "id": "0d6765df3527",
+      "from": "1e383dfda612",
+      "to": "bb625e6f02e8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 5,
+      "label": "warehouseFor"
+    },
+    {
+      "id": "11c767a562b0",
+      "from": "22fa09c49df8",
+      "to": "a7df77d8b0b6",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 38,
+      "label": "this.stockLevel"
+    },
+    {
+      "id": "13a42b50a20b",
+      "from": "daf50d177fca",
+      "to": "ba8fc94a3ce8",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 97,
+      "label": "order"
+    },
+    {
+      "id": "18662f73860f",
+      "from": "93b5c08c2841",
+      "to": "ccfe53f76de9",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 62,
+      "label": "orderSummary"
+    },
+    {
+      "id": "1b9ee3d4d17a",
+      "from": "a9c7ed734185",
+      "to": "102cd8f26561",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 7,
+      "label": "../src/orders/createOrder"
+    },
+    {
+      "id": "1c48ace11d7d",
+      "from": "a9c7ed734185",
+      "to": "b92d7c0e5cf8",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 10,
+      "label": "../src/plugins/hooks"
+    },
+    {
+      "id": "1d1e9571175f",
+      "from": "a9c7ed734185",
+      "to": "b2ac8fb5119e",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 4,
+      "label": "../src/cart/coupon"
+    },
+    {
+      "id": "24ae299f561f",
+      "from": "a6c109940cca",
+      "to": "ba8fc94a3ce8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 45,
+      "label": "order"
+    },
+    {
+      "id": "27c131a84b9e",
+      "from": "d3baf686a13e",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "../types"
+    },
+    {
+      "id": "29e05c5db235",
+      "from": "df673d7c3b19",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "../types"
+    },
+    {
+      "id": "2a9041463451",
+      "from": "cbafc3ba714c",
+      "to": "391476147cd9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "./stock"
+    },
+    {
+      "id": "2b8448f34e3b",
+      "from": "b5b21b633780",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "../types"
+    },
+    {
+      "id": "2bf9db473cbf",
+      "from": "062488198670",
+      "to": "a1fb92c2683c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 33,
+      "label": "ShopManager"
+    },
+    {
+      "id": "2d136d219bb9",
+      "from": "daf50d177fca",
+      "to": "bae4249edd11",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 97,
+      "label": "shippingLabel"
+    },
+    {
+      "id": "2d721a52aca3",
+      "from": "86111d71b16e",
+      "to": "ad4a30e556fe",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 4,
+      "label": "receive"
+    },
+    {
+      "id": "2db633352a79",
+      "from": "a6c109940cca",
+      "to": "19378847328c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 43,
+      "label": "discountRate"
+    },
+    {
+      "id": "2e0b8ce40096",
+      "from": "102cd8f26561",
+      "to": "836485632011",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "../cart/cartTotal"
+    },
+    {
+      "id": "2fe134303dad",
+      "from": "b81f2bf18884",
+      "to": "dc0702d2fb39",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 56,
+      "label": "formatPrice"
+    },
+    {
+      "id": "30468930e148",
+      "from": "a9c7ed734185",
+      "to": "54bacf963097",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 3,
+      "label": "cartTotal"
+    },
+    {
+      "id": "3520ffdf45dc",
+      "from": "a9c7ed734185",
+      "to": "ac6827b5064c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 5,
+      "label": "formatMoney"
+    },
+    {
+      "id": "367f4081cbdc",
+      "from": "5016ab5a6514",
+      "to": "ba8fc94a3ce8",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 77,
+      "label": "order"
+    },
+    {
+      "id": "36d708540b30",
+      "from": "a6c109940cca",
+      "to": "19378847328c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 43,
+      "label": "discountRate"
+    },
+    {
+      "id": "3941960640d6",
+      "from": "a6c109940cca",
+      "to": "19378847328c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 44,
+      "label": "discountRate"
+    },
+    {
+      "id": "3d40324896af",
+      "from": "c88f0965778f",
+      "to": "bb625e6f02e8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 10,
+      "label": "warehouseFor"
+    },
+    {
+      "id": "3fe75fa1ffaf",
+      "from": "a9c7ed734185",
+      "to": "fe0203eb0ff7",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "vitest"
+    },
+    {
+      "id": "3feba1053060",
+      "from": "a9c7ed734185",
+      "to": "744d38ead6e4",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "../src/api/parse"
+    },
+    {
+      "id": "40d0eeb80179",
+      "from": "9cec5ce328f0",
+      "to": "4e1665446485",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "node:fs"
+    },
+    {
+      "id": "447b65093d17",
+      "from": "a9c7ed734185",
+      "to": "1ee87b1a9dd3",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 10,
+      "label": "registerHook"
+    },
+    {
+      "id": "49a94966fbb6",
+      "from": "c88f0965778f",
+      "to": "1e383dfda612",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 9,
+      "label": "available"
+    },
+    {
+      "id": "4e15dee3cbdc",
+      "from": "a9c7ed734185",
+      "to": "18770ea0fed3",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 4,
+      "label": "applyCoupon"
+    },
+    {
+      "id": "50123c0be594",
+      "from": "ca90f6d00699",
+      "to": "a1fb92c2683c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 6,
+      "label": "ShopManager"
+    },
+    {
+      "id": "5225a0e76639",
+      "from": "86111d71b16e",
+      "to": "a6c79995939c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 2,
+      "label": "needsRestock"
+    },
+    {
+      "id": "571c756f3212",
+      "from": "c88f0965778f",
+      "to": "1e383dfda612",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 9,
+      "label": "available"
+    },
+    {
+      "id": "5e6c0c8e623e",
+      "from": "b7f31cbd9817",
+      "to": "fe0203eb0ff7",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "vitest"
+    },
+    {
+      "id": "620c27abb64f",
+      "from": "b4cb5f8c26d7",
+      "to": "a1fb92c2683c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 51,
+      "label": "ShopManager"
+    },
+    {
+      "id": "64dfbaa93533",
+      "from": "391476147cd9",
+      "to": "49f4a1b3d6b0",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "./warehouse"
+    },
+    {
+      "id": "67bf50eaf2ea",
+      "from": "535b253c7de2",
+      "to": "13f9eed01d8d",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 96,
+      "label": "this.clearOutbox"
+    },
+    {
+      "id": "68a74d4669ef",
+      "from": "4f44538b9bc5",
+      "to": "c224d0487236",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 71,
+      "label": "createOrder"
+    },
+    {
+      "id": "6bb15b181051",
+      "from": "b81f2bf18884",
+      "to": "dc0702d2fb39",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 56,
+      "label": "formatPrice"
+    },
+    {
+      "id": "6c45fc10ea69",
+      "from": "a9c7ed734185",
+      "to": "d3baf686a13e",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 8,
+      "label": "../src/orders/orders"
+    },
+    {
+      "id": "6ef6de78163d",
+      "from": "daf50d177fca",
+      "to": "bae4249edd11",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 97,
+      "label": "shippingLabel"
+    },
+    {
+      "id": "6fc773d49f59",
+      "from": "a9c7ed734185",
+      "to": "806f8df4190b",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 14,
+      "label": "Order"
+    },
+    {
+      "id": "72670077f772",
+      "from": "a9c7ed734185",
+      "to": "65a0b665b01b",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 9,
+      "label": "addTax"
+    },
+    {
+      "id": "74b604f70a74",
+      "from": "86111d71b16e",
+      "to": "64800c061569",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 4,
+      "label": "lowStockSkus"
+    },
+    {
+      "id": "74da7e26db87",
+      "from": "c88f0965778f",
+      "to": "a6c79995939c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 11,
+      "label": "needsRestock"
+    },
+    {
+      "id": "76fafd2b7ee3",
+      "from": "c88f0965778f",
+      "to": "64800c061569",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 12,
+      "label": "lowStockSkus"
+    },
+    {
+      "id": "78a97f26ef87",
+      "from": "ad005b2781d5",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "../types"
+    },
+    {
+      "id": "78c15400f4d1",
+      "from": "9b08d73a7f18",
+      "to": "ba8fc94a3ce8",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 87,
+      "label": "order"
+    },
+    {
+      "id": "7d646f8288d7",
+      "from": "9b08d73a7f18",
+      "to": "1ee87b1a9dd3",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 88,
+      "label": "registerHook"
+    },
+    {
+      "id": "7e85d0c3e813",
+      "from": "744d38ead6e4",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "../types"
+    },
+    {
+      "id": "80daf7c4eefe",
+      "from": "c88f0965778f",
+      "to": "64800c061569",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 12,
+      "label": "lowStockSkus"
+    },
+    {
+      "id": "81abc15115d4",
+      "from": "e5909dd1bc93",
+      "to": "ac6827b5064c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 51,
+      "label": "formatMoney"
+    },
+    {
+      "id": "85a2223e7dc1",
+      "from": "5016ab5a6514",
+      "to": "ba8fc94a3ce8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 77,
+      "label": "order"
+    },
+    {
+      "id": "8662defd0ed0",
+      "from": "a9c7ed734185",
+      "to": "ccfe53f76de9",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 8,
+      "label": "orderSummary"
+    },
+    {
+      "id": "8807852e1ae5",
+      "from": "b2f83c3b0217",
+      "to": "ba8fc94a3ce8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 81,
+      "label": "order"
+    },
+    {
+      "id": "8984bfcc2c7f",
+      "from": "b69312c98eeb",
+      "to": "54bacf963097",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 32,
+      "label": "cartTotal"
+    },
+    {
+      "id": "8a72be207bcd",
+      "from": "86111d71b16e",
+      "to": "bb625e6f02e8",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 4,
+      "label": "warehouseFor"
+    },
+    {
+      "id": "8ccaffe6d4b6",
+      "from": "93b5c08c2841",
+      "to": "ba8fc94a3ce8",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 62,
+      "label": "order"
+    },
+    {
+      "id": "8debaefa88a0",
+      "from": "93b5c08c2841",
+      "to": "ba8fc94a3ce8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 62,
+      "label": "order"
+    },
+    {
+      "id": "8ffed58a746f",
+      "from": "49f4a1b3d6b0",
+      "to": "cbafc3ba714c",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "./restock"
+    },
+    {
+      "id": "9112c20417ac",
+      "from": "637084ee32cb",
+      "to": "a1fb92c2683c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 25,
+      "label": "ShopManager"
+    },
+    {
+      "id": "91678b5a9252",
+      "from": "a6c79995939c",
+      "to": "1e383dfda612",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 4,
+      "label": "available"
+    },
+    {
+      "id": "928ea97b2386",
+      "from": "64800c061569",
+      "to": "a6c79995939c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 22,
+      "label": "needsRestock"
+    },
+    {
+      "id": "96b72e91c2a4",
+      "from": "6f2e4de9d635",
+      "to": "a1fb92c2683c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 41,
+      "label": "ShopManager"
+    },
+    {
+      "id": "9719f2e66c9c",
+      "from": "b69312c98eeb",
+      "to": "54bacf963097",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 32,
+      "label": "cartTotal"
+    },
+    {
+      "id": "990f011b431d",
+      "from": "b92d7c0e5cf8",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "../types"
+    },
+    {
+      "id": "99abf521e0d7",
+      "from": "b2f83c3b0217",
+      "to": "6cfa0977c21a",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 81,
+      "label": "saveOrder"
+    },
+    {
+      "id": "9a0224012830",
+      "from": "b2f83c3b0217",
+      "to": "ba8fc94a3ce8",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 81,
+      "label": "order"
+    },
+    {
+      "id": "9a60577ef68e",
+      "from": "86111d71b16e",
+      "to": "fe0203eb0ff7",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "vitest"
+    },
+    {
+      "id": "9c6080406146",
+      "from": "a6c109940cca",
+      "to": "ba8fc94a3ce8",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 45,
+      "label": "order"
+    },
+    {
+      "id": "9d0cb787a4f0",
+      "from": "9b08d73a7f18",
+      "to": "a97807c29e18",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 89,
+      "label": "runHook"
+    },
+    {
+      "id": "9e9308964742",
+      "from": "9cec5ce328f0",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "../types"
+    },
+    {
+      "id": "9ee5f89dc2f2",
+      "from": "85314b45a7fa",
+      "to": "a7df77d8b0b6",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 34,
+      "label": "this.stockLevel"
+    },
+    {
+      "id": "a563796def87",
+      "from": "86111d71b16e",
+      "to": "1e383dfda612",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 3,
+      "label": "available"
+    },
+    {
+      "id": "a5859b7768d4",
+      "from": "b4cb5f8c26d7",
+      "to": "a1fb92c2683c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 51,
+      "label": "ShopManager"
+    },
+    {
+      "id": "a69b22c73036",
+      "from": "a9c7ed734185",
+      "to": "dc0702d2fb39",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 6,
+      "label": "formatPrice"
+    },
+    {
+      "id": "aa06080367cb",
+      "from": "6a0d13788b39",
+      "to": "a7df77d8b0b6",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 46,
+      "label": "this.stockLevel"
+    },
+    {
+      "id": "aa6df8c8d4ff",
+      "from": "c88f0965778f",
+      "to": "a6c79995939c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 11,
+      "label": "needsRestock"
+    },
+    {
+      "id": "ab0e76d0d008",
+      "from": "d5ed23416f5d",
+      "to": "a1fb92c2683c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 17,
+      "label": "ShopManager"
+    },
+    {
+      "id": "ac016049016c",
+      "from": "a9c7ed734185",
+      "to": "836485632011",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 3,
+      "label": "../src/cart/cartTotal"
+    },
+    {
+      "id": "ada20309bad0",
+      "from": "86111d71b16e",
+      "to": "391476147cd9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 3,
+      "label": "../src/inventory/stock"
+    },
+    {
+      "id": "b5908bc7c31f",
+      "from": "5016ab5a6514",
+      "to": "c818dabe32bb",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 77,
+      "label": "parseOrder"
+    },
+    {
+      "id": "b83b06214b4f",
+      "from": "e5909dd1bc93",
+      "to": "ac6827b5064c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 52,
+      "label": "formatMoney"
+    },
+    {
+      "id": "b85f90b1cdf1",
+      "from": "e5909dd1bc93",
+      "to": "ac6827b5064c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 51,
+      "label": "formatMoney"
+    },
+    {
+      "id": "bac75f066505",
+      "from": "a9c7ed734185",
+      "to": "c818dabe32bb",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 2,
+      "label": "parseOrder"
+    },
+    {
+      "id": "c125536f47bf",
+      "from": "def464c82428",
+      "to": "65a0b665b01b",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 66,
+      "label": "addTax"
+    },
+    {
+      "id": "c23442385d08",
+      "from": "a6c109940cca",
+      "to": "ba8fc94a3ce8",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 43,
+      "label": "order"
+    },
+    {
+      "id": "c481567b1f91",
+      "from": "4f44538b9bc5",
+      "to": "c224d0487236",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 71,
+      "label": "createOrder"
+    },
+    {
+      "id": "c611061909b1",
+      "from": "a9c7ed734185",
+      "to": "b5b21b633780",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 12,
+      "label": "../src/shipping/label"
+    },
+    {
+      "id": "c626e991b2c8",
+      "from": "a9c7ed734185",
+      "to": "19378847328c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 11,
+      "label": "discountRate"
+    },
+    {
+      "id": "c7a4d2135e54",
+      "from": "a6c109940cca",
+      "to": "19378847328c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 45,
+      "label": "discountRate"
+    },
+    {
+      "id": "ca294578741d",
+      "from": "a9c7ed734185",
+      "to": "6cfa0977c21a",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 13,
+      "label": "saveOrder"
+    },
+    {
+      "id": "ca587618fd40",
+      "from": "d5ed23416f5d",
+      "to": "a1fb92c2683c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 17,
+      "label": "ShopManager"
+    },
+    {
+      "id": "cae97af534f5",
+      "from": "5016ab5a6514",
+      "to": "c818dabe32bb",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 77,
+      "label": "parseOrder"
+    },
+    {
+      "id": "caf9651a60e4",
+      "from": "d6ab4fc024e8",
+      "to": "18770ea0fed3",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 36,
+      "label": "applyCoupon"
+    },
+    {
+      "id": "cba10d3a65e2",
+      "from": "c88f0965778f",
+      "to": "ad4a30e556fe",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 8,
+      "label": "receive"
+    },
+    {
+      "id": "cc2245875b73",
+      "from": "e5909dd1bc93",
+      "to": "ac6827b5064c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 52,
+      "label": "formatMoney"
+    },
+    {
+      "id": "ceb86aa7e8c2",
+      "from": "062488198670",
+      "to": "a1fb92c2683c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 33,
+      "label": "ShopManager"
+    },
+    {
+      "id": "cf97f14450be",
+      "from": "86111d71b16e",
+      "to": "49f4a1b3d6b0",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 4,
+      "label": "../src/inventory/warehouse"
+    },
+    {
+      "id": "d12f0b5b2307",
+      "from": "86111d71b16e",
+      "to": "cbafc3ba714c",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "../src/inventory/restock"
+    },
+    {
+      "id": "d4862b4eba86",
+      "from": "a6c109940cca",
+      "to": "19378847328c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 45,
+      "label": "discountRate"
+    },
+    {
+      "id": "d61d83c4441e",
+      "from": "9b08d73a7f18",
+      "to": "a97807c29e18",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 89,
+      "label": "runHook"
+    },
+    {
+      "id": "d65386c13f77",
+      "from": "c88f0965778f",
+      "to": "ad4a30e556fe",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 8,
+      "label": "receive"
+    },
+    {
+      "id": "d9a543664e58",
+      "from": "b7f31cbd9817",
+      "to": "71e856913c91",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "../src/core/ShopManager"
+    },
+    {
+      "id": "d9c5edfe4e0b",
+      "from": "a9c7ed734185",
+      "to": "9cec5ce328f0",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 13,
+      "label": "../src/storage/save"
+    },
+    {
+      "id": "db3f90235cf3",
+      "from": "b2f83c3b0217",
+      "to": "6cfa0977c21a",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 81,
+      "label": "saveOrder"
+    },
+    {
+      "id": "dc655c5fce7f",
+      "from": "d6ab4fc024e8",
+      "to": "18770ea0fed3",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 36,
+      "label": "applyCoupon"
+    },
+    {
+      "id": "dcccffb57454",
+      "from": "a9c7ed734185",
+      "to": "b11b8acf9086",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 9,
+      "label": "../src/orders/tax"
+    },
+    {
+      "id": "df81eef48f25",
+      "from": "a9c7ed734185",
+      "to": "df673d7c3b19",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 11,
+      "label": "../src/pricing/discount"
+    },
+    {
+      "id": "e186c1a6598a",
+      "from": "102cd8f26561",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 2,
+      "label": "../types"
+    },
+    {
+      "id": "e447ec90d2c9",
+      "from": "daf50d177fca",
+      "to": "ba8fc94a3ce8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 97,
+      "label": "order"
+    },
+    {
+      "id": "e52cb9a47360",
+      "from": "d6ab4fc024e8",
+      "to": "18770ea0fed3",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 37,
+      "label": "applyCoupon"
+    },
+    {
+      "id": "e67cc1673082",
+      "from": "def464c82428",
+      "to": "65a0b665b01b",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 66,
+      "label": "addTax"
+    },
+    {
+      "id": "e75bcf91ac5d",
+      "from": "d6ab4fc024e8",
+      "to": "18770ea0fed3",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 37,
+      "label": "applyCoupon"
+    },
+    {
+      "id": "e7a24ccf8a0b",
+      "from": "c88f0965778f",
+      "to": "bb625e6f02e8",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 10,
+      "label": "warehouseFor"
+    },
+    {
+      "id": "e7b161585843",
+      "from": "b7f31cbd9817",
+      "to": "a1fb92c2683c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 2,
+      "label": "ShopManager"
+    },
+    {
+      "id": "e936adde4237",
+      "from": "a6c109940cca",
+      "to": "ba8fc94a3ce8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 43,
+      "label": "order"
+    },
+    {
+      "id": "ea95ce983544",
+      "from": "a6c109940cca",
+      "to": "19378847328c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 44,
+      "label": "discountRate"
+    },
+    {
+      "id": "ede22fc70365",
+      "from": "836485632011",
+      "to": "8ec364bef2e9",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 1,
+      "label": "../types"
+    },
+    {
+      "id": "f0c419341d0b",
+      "from": "a9c7ed734185",
+      "to": "a97807c29e18",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 10,
+      "label": "runHook"
+    },
+    {
+      "id": "f0f2fd05aecc",
+      "from": "637084ee32cb",
+      "to": "a1fb92c2683c",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 25,
+      "label": "ShopManager"
+    },
+    {
+      "id": "f153a17f0d1a",
+      "from": "93b5c08c2841",
+      "to": "ccfe53f76de9",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 62,
+      "label": "orderSummary"
+    },
+    {
+      "id": "f3141eab00ae",
+      "from": "c224d0487236",
+      "to": "54bacf963097",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 22,
+      "label": "cartTotal"
+    },
+    {
+      "id": "f52c91c01f82",
+      "from": "a6c109940cca",
+      "to": "ba8fc94a3ce8",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 44,
+      "label": "order"
+    },
+    {
+      "id": "f533b5904aa7",
+      "from": "a9c7ed734185",
+      "to": "bae4249edd11",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 12,
+      "label": "shippingLabel"
+    },
+    {
+      "id": "f597a9994982",
+      "from": "a9c7ed734185",
+      "to": "b37d6f7e81c0",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 5,
+      "label": "../src/format/money"
+    },
+    {
+      "id": "f7e4a022f425",
+      "from": "a9c7ed734185",
+      "to": "be3536df16ae",
+      "kind": "imports",
+      "confidence": "exact",
+      "line": 6,
+      "label": "../src/format/price"
+    },
+    {
+      "id": "f870cb965852",
+      "from": "535b253c7de2",
+      "to": "0b174eb23e4a",
+      "kind": "calls",
+      "confidence": "exact",
+      "line": 98,
+      "label": "this.clearLog"
+    },
+    {
+      "id": "f926cfc7f2aa",
+      "from": "a6c109940cca",
+      "to": "ba8fc94a3ce8",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 44,
+      "label": "order"
+    },
+    {
+      "id": "f981119f5731",
+      "from": "a9c7ed734185",
+      "to": "c224d0487236",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 7,
+      "label": "createOrder"
+    },
+    {
+      "id": "f988460abd3b",
+      "from": "6f2e4de9d635",
+      "to": "a1fb92c2683c",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 41,
+      "label": "ShopManager"
+    },
+    {
+      "id": "ff7190445286",
+      "from": "9b08d73a7f18",
+      "to": "1ee87b1a9dd3",
+      "kind": "tests",
+      "confidence": "exact",
+      "line": 88,
+      "label": "registerHook"
+    }
+  ],
+  "smells": [
+    {
+      "id": "0bbe10a08431",
+      "kind": "deep-nesting",
+      "fileIds": [
+        "b5b21b633780"
+      ],
+      "symbolIds": [
+        "bae4249edd11"
+      ],
+      "range": {
+        "startLine": 8,
+        "endLine": 24,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1.25,
+      "evidence": {
+        "message": "Nesting threshold exceeded.",
+        "measured": 5,
+        "threshold": 4
+      }
+    },
+    {
+      "id": "10d2422ed814",
+      "kind": "magic-number",
+      "fileIds": [
+        "b11b8acf9086"
+      ],
+      "symbolIds": [
+        "65a0b665b01b"
+      ],
+      "range": {
+        "startLine": 3,
+        "endLine": 3,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Unnamed numeric literal outside a named constant.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "22f3b0891551",
+      "kind": "huge-file",
+      "fileIds": [
+        "28f00bf80c29"
+      ],
+      "symbolIds": [],
+      "range": {
+        "startLine": 1,
+        "endLine": 875,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1.09375,
+      "evidence": {
+        "message": "File line-count threshold exceeded.",
+        "measured": 875,
+        "threshold": 800
+      }
+    },
+    {
+      "id": "2a2b0c72c6cc",
+      "kind": "complex-function",
+      "fileIds": [
+        "df673d7c3b19"
+      ],
+      "symbolIds": [
+        "19378847328c"
+      ],
+      "range": {
+        "startLine": 20,
+        "endLine": 57,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1.5,
+      "evidence": {
+        "message": "Cyclomatic branch threshold exceeded.",
+        "measured": 15,
+        "threshold": 10
+      }
+    },
+    {
+      "id": "349af8c150d4",
+      "kind": "dead-code",
+      "fileIds": [
+        "d3baf686a13e"
+      ],
+      "symbolIds": [
+        "546c0d551d8e"
+      ],
+      "range": {
+        "startLine": 8,
+        "endLine": 10,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No known caller or export/entry point.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "48ced647c681",
+      "kind": "untested-code",
+      "fileIds": [
+        "ad005b2781d5"
+      ],
+      "symbolIds": [
+        "2e571fa4a41e"
+      ],
+      "range": {
+        "startLine": 4,
+        "endLine": 12,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No exact test import or call references this symbol.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "6290f4795ba5",
+      "kind": "god-class",
+      "fileIds": [
+        "71e856913c91"
+      ],
+      "symbolIds": [
+        "a1fb92c2683c"
+      ],
+      "range": {
+        "startLine": 2,
+        "endLine": 100,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1.1,
+      "evidence": {
+        "message": "Class method threshold exceeded.",
+        "measured": 22,
+        "threshold": 20
+      }
+    },
+    {
+      "id": "8024476b7234",
+      "kind": "duplicate-code",
+      "fileIds": [
+        "b37d6f7e81c0",
+        "be3536df16ae"
+      ],
+      "symbolIds": [
+        "ac6827b5064c",
+        "dc0702d2fb39"
+      ],
+      "range": {
+        "startLine": 9,
+        "endLine": 16,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 2,
+      "evidence": {
+        "message": "Equal normalized syntax subtrees (identifier spelling ignored).",
+        "measured": 2,
+        "threshold": 1
+      }
+    },
+    {
+      "id": "adfdc319eea4",
+      "kind": "todo-comment",
+      "fileIds": [
+        "836485632011"
+      ],
+      "symbolIds": [
+        "54bacf963097"
+      ],
+      "range": {
+        "startLine": 5,
+        "endLine": 5,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "TODO/FIXME/HACK comment marker.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "b2dcfe786c5d",
+      "kind": "circular-dependency",
+      "fileIds": [
+        "391476147cd9",
+        "49f4a1b3d6b0",
+        "cbafc3ba714c"
+      ],
+      "symbolIds": [],
+      "range": {
+        "startLine": 1,
+        "endLine": 1,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 3,
+      "evidence": {
+        "message": "Strongly connected file-import component.",
+        "measured": 3,
+        "threshold": 1
+      }
+    },
+    {
+      "id": "e55aa6255a81",
+      "kind": "long-parameter-list",
+      "fileIds": [
+        "102cd8f26561"
+      ],
+      "symbolIds": [
+        "c224d0487236"
+      ],
+      "range": {
+        "startLine": 7,
+        "endLine": 30,
+        "startColumn": 7,
+        "endColumn": 1
+      },
+      "severity": 1.6,
+      "evidence": {
+        "message": "Parameter threshold exceeded.",
+        "measured": 8,
+        "threshold": 5
+      }
+    },
+    {
+      "id": "ef0b814a599f",
+      "kind": "swallowed-error",
+      "fileIds": [
+        "9cec5ce328f0"
+      ],
+      "symbolIds": [
+        "6cfa0977c21a"
+      ],
+      "range": {
+        "startLine": 8,
+        "endLine": 8,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "Empty catch/except body swallows errors.",
+        "measured": null,
+        "threshold": null
+      }
+    },
+    {
+      "id": "f6c917d4f716",
+      "kind": "missing-types",
+      "fileIds": [
+        "744d38ead6e4"
+      ],
+      "symbolIds": [
+        "c818dabe32bb"
+      ],
+      "range": {
+        "startLine": 4,
+        "endLine": 4,
+        "startColumn": 0,
+        "endColumn": 0
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "One or more parameters are unannotated or explicitly any.",
+        "measured": 1,
+        "threshold": 0
+      }
+    },
+    {
+      "id": "fe8758270a41",
+      "kind": "possibly-dead-code",
+      "fileIds": [
+        "b92d7c0e5cf8"
+      ],
+      "symbolIds": [
+        "7ac889ae64f9"
+      ],
+      "range": {
+        "startLine": 21,
+        "endLine": 23,
+        "startColumn": 0,
+        "endColumn": 1
+      },
+      "severity": 1,
+      "evidence": {
+        "message": "No known caller; dynamic calls or string references may reach this function.",
+        "measured": null,
+        "threshold": null
+      }
+    }
+  ],
+  "entryPoints": [],
+  "testFacts": [
+    {
+      "id": "159046cd1581",
+      "testFileId": "86111d71b16e",
+      "line": 12,
+      "calleeSymbolId": "64800c061569",
+      "args": [
+        5
+      ],
+      "expected": [
+        "sku-1"
+      ],
+      "matcher": "deep-equal"
+    },
+    {
+      "id": "17731007abd2",
+      "testFileId": "a9c7ed734185",
+      "line": 51,
+      "calleeSymbolId": "ac6827b5064c",
+      "args": [
+        123456,
+        "$"
+      ],
+      "expected": "$1,234.56",
+      "matcher": "equal"
+    },
+    {
+      "id": "3c8141ad17e5",
+      "testFileId": "a9c7ed734185",
+      "line": 32,
+      "calleeSymbolId": "54bacf963097",
+      "args": [
+        [
+          {
+            "sku": "a",
+            "unitPrice": 250,
+            "quantity": 2,
+            "clearance": false
+          }
+        ]
+      ],
+      "expected": 500,
+      "matcher": "equal"
+    },
+    {
+      "id": "6cbb2019ec75",
+      "testFileId": "a9c7ed734185",
+      "line": 52,
+      "calleeSymbolId": "ac6827b5064c",
+      "args": [
+        -5,
+        "€"
+      ],
+      "expected": "-€0.05",
+      "matcher": "equal"
+    },
+    {
+      "id": "6f1964de2a2a",
+      "testFileId": "86111d71b16e",
+      "line": 11,
+      "calleeSymbolId": "a6c79995939c",
+      "args": [
+        "sku-1",
+        5
+      ],
+      "expected": true,
+      "matcher": "equal"
+    },
+    {
+      "id": "867eb9120d56",
+      "testFileId": "a9c7ed734185",
+      "line": 56,
+      "calleeSymbolId": "dc0702d2fb39",
+      "args": [
+        1020,
+        "$"
+      ],
+      "expected": "$10.20",
+      "matcher": "equal"
+    },
+    {
+      "id": "958ae16ec9d1",
+      "testFileId": "a9c7ed734185",
+      "line": 66,
+      "calleeSymbolId": "65a0b665b01b",
+      "args": [
+        2000
+      ],
+      "expected": 2195,
+      "matcher": "equal"
+    },
+    {
+      "id": "dbe7832fecc1",
+      "testFileId": "86111d71b16e",
+      "line": 9,
+      "calleeSymbolId": "1e383dfda612",
+      "args": [
+        "sku-1"
+      ],
+      "expected": 3,
+      "matcher": "equal"
+    },
+    {
+      "id": "e8daf51d85ac",
+      "testFileId": "a9c7ed734185",
+      "line": 36,
+      "calleeSymbolId": "18770ea0fed3",
+      "args": [
+        1000,
+        15
+      ],
+      "expected": 850,
+      "matcher": "equal"
+    },
+    {
+      "id": "fb6a80bbc5cf",
+      "testFileId": "a9c7ed734185",
+      "line": 37,
+      "calleeSymbolId": "18770ea0fed3",
+      "args": [
+        999,
+        10
+      ],
+      "expected": 900,
+      "matcher": "equal"
+    }
+  ],
+  "diagnostics": [
+    {
+      "id": "00aeaf1489f2",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 62,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "01c9fe028436",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 29,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "04b0416b24a4",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 85,
+      "message": "No static callee: describe"
+    },
+    {
+      "id": "05b9927d16b6",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 35,
+      "message": "No static callee: shop.refundPayment"
+    },
+    {
+      "id": "070e52330a25",
+      "path": "src/pricing/discount.ts",
+      "code": "unresolved-call",
+      "line": 48,
+      "message": "No static callee: Math.max"
+    },
+    {
+      "id": "0869cf9db35e",
+      "path": "src/shipping/label.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: line.trim"
+    },
+    {
+      "id": "091bcc7d4833",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 73,
+      "message": "No static callee: expect(created.notes).toEqual"
+    },
+    {
+      "id": "098cf975478f",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 27,
+      "message": "No static callee: shop.outboxSize"
+    },
+    {
+      "id": "09d7c20d1e1f",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 66,
+      "message": "No static callee: expect(addTax(2000)).toBe"
+    },
+    {
+      "id": "0a23ae97e569",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 55,
+      "message": "No static callee: shop.countUsers"
+    },
+    {
+      "id": "0ac71cfe31aa",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: expect(shop.exportUsers()).toEqual"
+    },
+    {
+      "id": "0c3026973a67",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 43,
+      "message": "No static callee: shop.log"
+    },
+    {
+      "id": "0d0159bf2aef",
+      "path": "tests/inventory.test.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "0d0a57fabffc",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 19,
+      "message": "No static callee: shop.removeStock"
+    },
+    {
+      "id": "125c8876c96a",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 34,
+      "message": "No static callee: this.stock.set"
+    },
+    {
+      "id": "132ec9ee3dcb",
+      "path": "tests/inventory.test.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: expect(warehouseFor(\"sku-1\").name).toBe"
+    },
+    {
+      "id": "1345c8cc6e2a",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 5,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "148c2d6b9e8d",
+      "path": "src/format/price.ts",
+      "code": "unresolved-call",
+      "line": 14,
+      "message": "No static callee: whole.toLocaleString"
+    },
+    {
+      "id": "14969813431c",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 94,
+      "message": "No static callee: describe"
+    },
+    {
+      "id": "15f06f75afc9",
+      "path": "src/format/money.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: Math.abs"
+    },
+    {
+      "id": "1685eb407c84",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 82,
+      "message": "No static callee: this.auditLog.at"
+    },
+    {
+      "id": "1966543e07c1",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 95,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "1bb578df3320",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 56,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "1c23a35f19a2",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 66,
+      "message": "No static callee: this.ledger.push"
+    },
+    {
+      "id": "1c4c8b1b330f",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 54,
+      "message": "No static callee: shop.reset"
+    },
+    {
+      "id": "1f4bda7f1684",
+      "path": "tests/inventory.test.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: expect(needsRestock(\"sku-1\", 5)).toBe"
+    },
+    {
+      "id": "200837a3be71",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 27,
+      "message": "No static callee: expect(shop.outboxSize()).toBe"
+    },
+    {
+      "id": "20efac0a0de0",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 37,
+      "message": "No static callee: expect(applyCoupon(999, 10)).toBe"
+    },
+    {
+      "id": "211be11dcab8",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 24,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "2317e08ae4cf",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 97,
+      "message": "No static callee: expect(shippingLabel(order(), address)).toBe"
+    },
+    {
+      "id": "235398ebe451",
+      "path": "tests/shop.test.ts",
+      "code": "assertion-skipped",
+      "line": 97,
+      "message": "Assertion uses non-literal or sensitive values."
+    },
+    {
+      "id": "2650a9659a4b",
+      "path": "tests/shop.test.ts",
+      "code": "assertion-skipped",
+      "line": 45,
+      "message": "Assertion uses non-literal or sensitive values."
+    },
+    {
+      "id": "280ebc11f8e2",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 90,
+      "message": "No static callee: expect(target.notes).toEqual"
+    },
+    {
+      "id": "29584844e02b",
+      "path": "src/format/money.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: String"
+    },
+    {
+      "id": "29aa2216ad50",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 88,
+      "message": "No static callee: o.notes.push"
+    },
+    {
+      "id": "2c82064a0126",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 72,
+      "message": "No static callee: expect(created.subtotal).toBe"
+    },
+    {
+      "id": "2f9741672415",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 42,
+      "message": "No static callee: this.stock.get"
+    },
+    {
+      "id": "30d5d285b86f",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 37,
+      "message": "No static callee: expect(shop.paymentCount()).toBe"
+    },
+    {
+      "id": "326876e9324d",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 21,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "3398bcf45919",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 27,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "346ce9c298a6",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 30,
+      "message": "No static callee: describe"
+    },
+    {
+      "id": "34b9f147a725",
+      "path": "src/inventory/warehouse.ts",
+      "code": "unresolved-call",
+      "line": 17,
+      "message": "No static callee: warehouse.levels.get"
+    },
+    {
+      "id": "34c51eaec0f5",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 29,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "365cf2385743",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 20,
+      "message": "No static callee: shop.stockLevel"
+    },
+    {
+      "id": "378fa5aebf9a",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 50,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "384ecba9d9dd",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 56,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "3870f91eabea",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 81,
+      "message": "No static callee: expect(() => saveOrder(order(), \"/no/such/folder/order.json\")).not.toThrow"
+    },
+    {
+      "id": "3ad559b5a0af",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 34,
+      "message": "No static callee: shop.recordPayment"
+    },
+    {
+      "id": "3bdb323d18a0",
+      "path": "src/orders/tax.ts",
+      "code": "unresolved-call",
+      "line": 3,
+      "message": "No static callee: Math.round"
+    },
+    {
+      "id": "3c6c39f5ce04",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 12,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "3d6d73f87482",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 43,
+      "message": "No static callee: expect(discountRate(order(), { id: \"c1\", tier: \"vip\", birthday: \"01-01\" }, \"02-02\")).toBe"
+    },
+    {
+      "id": "3e7f5e532a26",
+      "path": "src/pricing/discount.ts",
+      "code": "unresolved-call",
+      "line": 53,
+      "message": "No static callee: Math.max"
+    },
+    {
+      "id": "408927d2df3b",
+      "path": "src/format/price.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: String"
+    },
+    {
+      "id": "42c19f68bcd2",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 45,
+      "message": "No static callee: expect(discountRate(order(), { id: \"c1\", tier: \"guest\", birthday: \"01-01\" }, \"02-02\")).toBe"
+    },
+    {
+      "id": "458a7f14737f",
+      "path": "src/inventory/warehouse.ts",
+      "code": "unresolved-call",
+      "line": 22,
+      "message": "No static callee: [...main.levels.keys()].filter"
+    },
+    {
+      "id": "46db4e7ed0f3",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 35,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "4784273598fb",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 40,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "48937e1772e4",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "49b66301ed2d",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 4,
+      "message": "No static callee: Map"
+    },
+    {
+      "id": "4a00cf302063",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 16,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "4ae6db435d43",
+      "path": "src/storage/save.ts",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: writeFileSync"
+    },
+    {
+      "id": "4bbc4dee472b",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: shop.findUser"
+    },
+    {
+      "id": "4f30a0a4736c",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 30,
+      "message": "No static callee: [...this.users.values()].sort"
+    },
+    {
+      "id": "4f5eb9ed5e5e",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 45,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "559154ace245",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 12,
+      "message": "No static callee: shop.removeUser"
+    },
+    {
+      "id": "563703911c30",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 44,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "568e3b755617",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 20,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "5873e5d0df08",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 12,
+      "message": "No static callee: expect(shop.removeUser(\"u1\")).toBe"
+    },
+    {
+      "id": "58d96a79631e",
+      "path": "src/inventory/warehouse.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: main.levels.set"
+    },
+    {
+      "id": "592a8b9dcb21",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 61,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "59b8f1587d35",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 55,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "5a0297432984",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 62,
+      "message": "No static callee: expect(orderSummary(order())).toBe"
+    },
+    {
+      "id": "5c898f6fc1b4",
+      "path": "tests/inventory.test.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "5d2bacdfddee",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 62,
+      "message": "No static callee: this.ledger.push"
+    },
+    {
+      "id": "5d3b711f6a64",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 95,
+      "message": "No static callee: this.stock.clear"
+    },
+    {
+      "id": "5e64f126ddf9",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 36,
+      "message": "No static callee: expect(applyCoupon(1000, 15)).toBe"
+    },
+    {
+      "id": "5f5078537512",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 26,
+      "message": "No static callee: shop.queueEmail"
+    },
+    {
+      "id": "62f3b0ffa096",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 65,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "646ab3dff214",
+      "path": "tests/inventory.test.ts",
+      "code": "unresolved-call",
+      "line": 12,
+      "message": "No static callee: expect(lowStockSkus(5)).toEqual"
+    },
+    {
+      "id": "6476a5bdfce1",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 52,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "651a98e93de5",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 47,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "65f9bf64352f",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 72,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "6944f9228a59",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 44,
+      "message": "No static callee: shop.lastLogEntry"
+    },
+    {
+      "id": "6968fc9db799",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 66,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "6a6608d350bf",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 32,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "6aa27cc7fd2b",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 69,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "6c1fafb722c5",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 29,
+      "message": "No static callee: shop.outboxSize"
+    },
+    {
+      "id": "6d863c39f19f",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: this.users.set"
+    },
+    {
+      "id": "6da9ed2d94d2",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: shop.addUser"
+    },
+    {
+      "id": "6ef90f06d6fd",
+      "path": "tests/inventory.test.ts",
+      "code": "unresolved-call",
+      "line": 9,
+      "message": "No static callee: expect(available(\"sku-1\")).toBe"
+    },
+    {
+      "id": "70418e04843c",
+      "path": "tests/shop.test.ts",
+      "code": "assertion-skipped",
+      "line": 62,
+      "message": "Assertion uses non-literal or sensitive values."
+    },
+    {
+      "id": "708d288bf6bd",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 56,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "708fa55e23a2",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 21,
+      "message": "No static callee: expect(shop.isInStock(\"sku-1\")).toBe"
+    },
+    {
+      "id": "711ab4ac1c2b",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 97,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "717fca098eb8",
+      "path": "src/inventory/warehouse.ts",
+      "code": "unresolved-call",
+      "line": 8,
+      "message": "No static callee: Map"
+    },
+    {
+      "id": "74022dea80d0",
+      "path": "tests/shop.test.ts",
+      "code": "assertion-skipped",
+      "line": 43,
+      "message": "Assertion uses non-literal or sensitive values."
+    },
+    {
+      "id": "749f065fe264",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 18,
+      "message": "No static callee: this.users.get"
+    },
+    {
+      "id": "76884a7ed228",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 47,
+      "message": "No static callee: expect(shop.logSize()).toBe"
+    },
+    {
+      "id": "7b5561f09d1d",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 55,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "7ba136cf4b7a",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 29,
+      "message": "No static callee: expect(shop.outboxSize()).toBe"
+    },
+    {
+      "id": "7d2bae11412a",
+      "path": "src/format/money.ts",
+      "code": "unresolved-call",
+      "line": 14,
+      "message": "No static callee: whole.toLocaleString"
+    },
+    {
+      "id": "7e8b9aa07563",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 70,
+      "message": "No static callee: this.ledger.reduce"
+    },
+    {
+      "id": "7eab87b41df7",
+      "path": "src/storage/save.ts",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: JSON.stringify"
+    },
+    {
+      "id": "820b7ef7ad0f",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 86,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "837bebaf2a00",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 55,
+      "message": "No static callee: expect(shop.countUsers()).toBe"
+    },
+    {
+      "id": "854716911247",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 37,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "8877849084a6",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 3,
+      "message": "No static callee: Map"
+    },
+    {
+      "id": "88a9192f3669",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 32,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "88c12b2b02da",
+      "path": "tests/shop.test.ts",
+      "code": "assertion-skipped",
+      "line": 77,
+      "message": "Assertion uses non-literal or sensitive values."
+    },
+    {
+      "id": "894f40118795",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 56,
+      "message": "No static callee: shop.balance"
+    },
+    {
+      "id": "8a68857f0f17",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 36,
+      "message": "No static callee: shop.balance"
+    },
+    {
+      "id": "8bd3759acef9",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 77,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "8bf77670b0dc",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 8,
+      "message": "No static callee: shop.addUser"
+    },
+    {
+      "id": "8c32223d391f",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 45,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "8c6962762f8f",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 51,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "8cbbe079f8ec",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 20,
+      "message": "No static callee: expect(shop.stockLevel(\"sku-1\")).toBe"
+    },
+    {
+      "id": "8d56d86d9ac3",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 37,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "8e2aaa83ab4e",
+      "path": "src/format/money.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: String(absolute % CENTS_PER_UNIT).padStart"
+    },
+    {
+      "id": "8ebba4bffb43",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 36,
+      "message": "No static callee: expect(shop.balance()).toBe"
+    },
+    {
+      "id": "8f86d354d8c4",
+      "path": "src/cart/coupon.ts",
+      "code": "unresolved-call",
+      "line": 5,
+      "message": "No static callee: Math.floor"
+    },
+    {
+      "id": "908a23e28f64",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 43,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "932af4630963",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 37,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "9473fa7ede2c",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 45,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "958864446136",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 56,
+      "message": "No static callee: expect(shop.balance()).toBe"
+    },
+    {
+      "id": "9b1b3b0c57f4",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 28,
+      "message": "No static callee: shop.clearOutbox"
+    },
+    {
+      "id": "9bf00af09996",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 90,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "9ca656b5f5bf",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 26,
+      "message": "No static callee: this.users.has"
+    },
+    {
+      "id": "9d4d2e56b522",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 18,
+      "message": "No static callee: shop.addStock"
+    },
+    {
+      "id": "9d7b9e2cd7c3",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 50,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "9e80eee61f34",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 11,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "9e8975417f80",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 60,
+      "message": "No static callee: describe"
+    },
+    {
+      "id": "9f3fd36f8b68",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 55,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "9fa33f5b872c",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 12,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "a0088b9e5877",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 38,
+      "message": "No static callee: Math.max"
+    },
+    {
+      "id": "a43e39c05227",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 45,
+      "message": "No static callee: expect(shop.logSize()).toBe"
+    },
+    {
+      "id": "a510e663957f",
+      "path": "src/format/price.ts",
+      "code": "unresolved-call",
+      "line": 12,
+      "message": "No static callee: Math.round"
+    },
+    {
+      "id": "a60f743dc053",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 36,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "a6b92a608262",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 14,
+      "message": "No static callee: this.users.delete"
+    },
+    {
+      "id": "a75886bc2da9",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 27,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "a78ec5c55183",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 30,
+      "message": "No static callee: this.users.values"
+    },
+    {
+      "id": "ae4d873e4827",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 44,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "af08a60f10e8",
+      "path": "src/inventory/warehouse.ts",
+      "code": "unresolved-call",
+      "line": 17,
+      "message": "No static callee: warehouse.levels.set"
+    },
+    {
+      "id": "afd93b520e66",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 47,
+      "message": "No static callee: shop.logSize"
+    },
+    {
+      "id": "b0dfb465c74d",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 44,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "b13e8c1ee391",
+      "path": "tests/shop.test.ts",
+      "code": "assertion-skipped",
+      "line": 44,
+      "message": "Assertion uses non-literal or sensitive values."
+    },
+    {
+      "id": "b2147a3db23c",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 45,
+      "message": "No static callee: shop.logSize"
+    },
+    {
+      "id": "b34aac1a5280",
+      "path": "src/inventory/warehouse.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: main.levels.has"
+    },
+    {
+      "id": "b3b900a7a8fe",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "b514f479f109",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 78,
+      "message": "No static callee: this.auditLog.push"
+    },
+    {
+      "id": "b5c27512db63",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 47,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "b61a4c03232b",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 21,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "b6fc78654a75",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 9,
+      "message": "No static callee: shop.renameUser"
+    },
+    {
+      "id": "b91b6d476233",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 36,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "ba12f0ec07f0",
+      "path": "src/format/price.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: Math.abs"
+    },
+    {
+      "id": "bc9de1618558",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 10,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "c53b8f6d7e78",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 49,
+      "message": "No static callee: describe"
+    },
+    {
+      "id": "c6b4a2eac25d",
+      "path": "tests/inventory.test.ts",
+      "code": "unresolved-call",
+      "line": 6,
+      "message": "No static callee: describe"
+    },
+    {
+      "id": "c70ab114a6fe",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 4,
+      "message": "No static callee: describe"
+    },
+    {
+      "id": "c8b6f644438d",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 42,
+      "message": "No static callee: shop.log"
+    },
+    {
+      "id": "c93d0f42e1b5",
+      "path": "tests/shopManager.test.ts",
+      "code": "assertion-unresolved",
+      "line": 13,
+      "message": "Literal assertion has no exact callee binding."
+    },
+    {
+      "id": "c9a2131057af",
+      "path": "tests/inventory.test.ts",
+      "code": "unresolved-call",
+      "line": 12,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "c9b5271644a9",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 50,
+      "message": "No static callee: this.outbox.push"
+    },
+    {
+      "id": "caacfe5b3f8c",
+      "path": "tests/inventory.test.ts",
+      "code": "unresolved-call",
+      "line": 7,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "cadd486b5ded",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 56,
+      "message": "No static callee: expect(formatPrice(1020, \"$\")).toBe"
+    },
+    {
+      "id": "cbb175a1c420",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: expect(shop.countUsers()).toBe"
+    },
+    {
+      "id": "cc5b83cc9725",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 76,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "cdf60e04ad0d",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 44,
+      "message": "No static callee: expect(discountRate(order(), { id: \"c1\", tier: \"member\", birthday: \"01-01\" }, \"02-02\")).toBe"
+    },
+    {
+      "id": "d151a3371900",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 26,
+      "message": "No static callee: this.users.set"
+    },
+    {
+      "id": "d24963862c19",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "d43de2de7513",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 51,
+      "message": "No static callee: expect(formatMoney(123456, \"$\")).toBe"
+    },
+    {
+      "id": "d4ffd2f1b12b",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 52,
+      "message": "No static callee: shop.addUser"
+    },
+    {
+      "id": "d71b9d086e9c",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: shop.countUsers"
+    },
+    {
+      "id": "d7bd1d6c3b06",
+      "path": "src/plugins/hooks.ts",
+      "code": "dynamic-call",
+      "line": 18,
+      "message": "No static callee: hook"
+    },
+    {
+      "id": "d955a7f61a03",
+      "path": "tests/inventory.test.ts",
+      "code": "unresolved-call",
+      "line": 9,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "dd8e3cdba0fd",
+      "path": "src/format/money.ts",
+      "code": "unresolved-call",
+      "line": 12,
+      "message": "No static callee: Math.floor"
+    },
+    {
+      "id": "de15ac09b962",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 52,
+      "message": "No static callee: expect(formatMoney(-5, \"€\")).toBe"
+    },
+    {
+      "id": "dfd4d9836b91",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 44,
+      "message": "No static callee: expect(shop.lastLogEntry()).toBe"
+    },
+    {
+      "id": "e2609aeb1801",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 31,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "e54c9854945c",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 77,
+      "message": "No static callee: expect(parseOrder(order())).toEqual"
+    },
+    {
+      "id": "e57060be8711",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 53,
+      "message": "No static callee: shop.recordPayment"
+    },
+    {
+      "id": "e70befed0a68",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 38,
+      "message": "No static callee: this.stock.set"
+    },
+    {
+      "id": "e89a437fb898",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 32,
+      "message": "No static callee: expect(cartTotal([{ sku: \"a\", unitPrice: 250, quantity: 2, clearance: false }])).toBe"
+    },
+    {
+      "id": "ea0ed19aaba6",
+      "path": "src/core/ShopManager.ts",
+      "code": "unresolved-call",
+      "line": 94,
+      "message": "No static callee: this.users.clear"
+    },
+    {
+      "id": "ecfbba0bede8",
+      "path": "src/inventory/stock.ts",
+      "code": "unresolved-call",
+      "line": 5,
+      "message": "No static callee: warehouseFor(sku).levels.get"
+    },
+    {
+      "id": "ed1233d022e1",
+      "path": "src/inventory/warehouse.ts",
+      "code": "unresolved-call",
+      "line": 22,
+      "message": "No static callee: main.levels.keys"
+    },
+    {
+      "id": "ed86f9ff7a31",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 20,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "ef48475270e5",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 41,
+      "message": "No static callee: describe"
+    },
+    {
+      "id": "ef76955d0bff",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 36,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "f1515861061e",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 42,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "f2870710c7e8",
+      "path": "src/format/price.ts",
+      "code": "unresolved-call",
+      "line": 13,
+      "message": "No static callee: String(absolute % CENTS_PER_UNIT).padStart"
+    },
+    {
+      "id": "f4f5e80ef465",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 80,
+      "message": "No static callee: it"
+    },
+    {
+      "id": "f5811b9b6446",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 73,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "f5e73c9fa90d",
+      "path": "src/orders/orders.ts",
+      "code": "unresolved-call",
+      "line": 9,
+      "message": "No static callee: order.id.toUpperCase"
+    },
+    {
+      "id": "fc59a1997a03",
+      "path": "tests/shop.test.ts",
+      "code": "unresolved-call",
+      "line": 81,
+      "message": "No static callee: expect"
+    },
+    {
+      "id": "fd1974f1cf4b",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 37,
+      "message": "No static callee: shop.paymentCount"
+    },
+    {
+      "id": "fde4aa35cd4a",
+      "path": "src/plugins/hooks.ts",
+      "code": "unresolved-call",
+      "line": 22,
+      "message": "No static callee: order.notes.push"
+    },
+    {
+      "id": "fe1396ed76ec",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 46,
+      "message": "No static callee: shop.clearLog"
+    },
+    {
+      "id": "fe64fc185aab",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 21,
+      "message": "No static callee: shop.isInStock"
+    },
+    {
+      "id": "fe85cfaab9f2",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 10,
+      "message": "No static callee: expect(shop.findUser(\"u2\")).toBe"
+    },
+    {
+      "id": "ff2d937e34d1",
+      "path": "tests/shopManager.test.ts",
+      "code": "unresolved-call",
+      "line": 11,
+      "message": "No static callee: shop.exportUsers"
+    }
+  ]
+}

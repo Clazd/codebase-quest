@@ -12,6 +12,7 @@
     ".": "./src/cli.ts"
   },
   "dependencies": {
+    "@codebase-quest/analyzer": "workspace:*",
     "@codebase-quest/shared": "workspace:*"
   }
 }

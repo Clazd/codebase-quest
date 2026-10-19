@@ -1,0 +1,13 @@
+{
+  "zustand": {
+    "commit": "2115efb9e270e73ad1d3472dfe0e0c7b8c6abcd4",
+    "reason": "tree-sitter-typescript 0.23.2 recovers on semicolonless generic call signatures and a trailing comma after a typeof import generic argument. Diagnostics remain in the graph; affected calls are not exact.",
+    "paths": [
+      "src/middleware/subscribeWithSelector.ts",
+      "src/react.ts",
+      "src/traditional.ts",
+      "src/vanilla.ts",
+      "tests/ssr.test.tsx"
+    ]
+  }
+}

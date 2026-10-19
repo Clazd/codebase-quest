@@ -10,6 +10,7 @@ order, never renumbered. Superseded records stay, with a link to the new one.
 | [0002](0002-licenses.md) | MIT for code, CC-BY-4.0 for original assets | Accepted |
 | [0003](0003-combat-model.md) | Combat prototype; adjust pending playtest | Prototype accepted |
 | [0004](0004-art-style.md) | Blender pixel style study; adoption pending playtest | Prototype accepted |
+| [0005](0005-analyzer-contract-and-confidence.md) | Analyzer contract, confidence and known grammar recoveries | Accepted |
 
 Template:
 

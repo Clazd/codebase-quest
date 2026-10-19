@@ -13,11 +13,12 @@ export interface CliResult {
 const COMMANDS = [
   ["help", "Show this help"],
   ["--version, -v", "Print the version"],
+  ["analyze <path>", "Analyze safely [--out graph.json] [--pretty] [--config file.json]"],
+  ["stats <graph.json>", "Summarize a validated CodeGraph"],
 ] as const;
 
 /** Commands on the roadmap, shown so people know what's coming (never pretend they work). */
 const PLANNED = [
-  ["analyze <path>", "Turn a repository into a CodeGraph", "Phase 02"],
   ["generate <graph>", "Turn a CodeGraph into a world", "Phase 03"],
   ["play [path]", "Analyze, generate and open the game", "Phase 04"],
   ["setup / mcp", "Connect your own AI agent through MCP", "Phase 06"],

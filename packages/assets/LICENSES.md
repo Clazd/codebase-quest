@@ -54,3 +54,8 @@ from Phase 01).
 | `art/blender/prototype/gremlin-3-2.png` | Original Blender model/render via local MCP | Codebase Quest contributors | CC-BY-4.0 | Yes | AI-authored procedural geometry, hard face bands; code-reworked output. |
 | `art/blender/prototype/gremlin-3-3.png` | Original Blender model/render via local MCP | Codebase Quest contributors | CC-BY-4.0 | Yes | AI-authored procedural geometry, hard face bands; code-reworked output. |
 | `art/blender/prototype/gremlin.blend` | Original Blender model/render via local MCP | Codebase Quest contributors | CC-BY-4.0 | Yes | AI-authored procedural geometry, hard face bands; code-reworked output. |
+
+| `packages/analyzer/grammars/tree-sitter-typescript.wasm` | @vscode/tree-sitter-wasm 0.3.1; upstream tree-sitter-typescript | Tree-sitter contributors / Microsoft | MIT | No | Vendored WASM grammar, Git LFS. |
+| `packages/analyzer/grammars/tree-sitter-tsx.wasm` | @vscode/tree-sitter-wasm 0.3.1; upstream tree-sitter-typescript | Tree-sitter contributors / Microsoft | MIT | No | Vendored WASM grammar, Git LFS. |
+| `packages/analyzer/grammars/tree-sitter-javascript.wasm` | @vscode/tree-sitter-wasm 0.3.1; upstream tree-sitter-javascript | Tree-sitter contributors / Microsoft | MIT | No | Vendored WASM grammar, Git LFS. |
+| `packages/analyzer/grammars/tree-sitter-python.wasm` | @vscode/tree-sitter-wasm 0.3.1; upstream tree-sitter-python | Tree-sitter contributors / Microsoft | MIT | No | Vendored WASM grammar, Git LFS. |

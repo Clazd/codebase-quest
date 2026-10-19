@@ -1,7 +1,7 @@
 # Phase 02: Code Analyzer
 
 > **Milestone:** B · The Map · **Depends on:** 00 · **Effort:** 1.5–2.5 weeks ·
-> **Status:** Not started
+> **Status:** Implemented and tested on `phase/02-analyzer`; owner's manual project review pending
 > **Read first:** MASTER-PLAN §2 (pillars 2, 3, 7), §8, §16.4, §16.5, §16.8, §17
 
 ## Goal
@@ -182,21 +182,21 @@ cq stats <graph.json>     # summary: files, symbols, edges by confidence, smells
 ```
 
 ## Tasks
-- [ ] Define the CodeGraph v1 zod schema in `packages/shared` (all types above).
-- [ ] File discovery + secret skip list + role classification (table-driven).
-- [ ] Tree-sitter setup (WASM grammars bundled in `packages/analyzer/grammars`) + worker pool.
-- [ ] Symbol extractors: TS/JS, then Python (shared interface `LanguageExtractor`).
-- [ ] Traits detection.
-- [ ] Import resolution (TS/JS, Python, tsconfig paths).
-- [ ] Call extraction with the confidence rules.
-- [ ] Metrics (cyclomatic, nesting, LOC, fan-in/out).
-- [ ] Git stats via the git CLI.
-- [ ] Test linkage + test facts extraction.
-- [ ] Entry points.
-- [ ] Smells v1 (all Bestiary kinds) + config thresholds.
-- [ ] IDs, sorting, validation, writer.
-- [ ] CLI commands `analyze` and `stats`.
-- [ ] Docs: `packages/analyzer/README.md` explaining every rule and its confidence.
+- [x] Define the CodeGraph v1 zod schema in `packages/shared` (all types above).
+- [x] File discovery + secret skip list + role classification (table-driven).
+- [x] Tree-sitter setup (WASM grammars bundled in `packages/analyzer/grammars`) + worker pool.
+- [x] Symbol extractors: TS/JS, then Python (shared interface `LanguageExtractor`).
+- [x] Traits detection.
+- [x] Import resolution (TS/JS, Python, tsconfig paths).
+- [x] Call extraction with the confidence rules.
+- [x] Metrics (cyclomatic, nesting, LOC, fan-in/out).
+- [x] Git stats via the git CLI.
+- [x] Test linkage + test facts extraction.
+- [x] Entry points.
+- [x] Smells v1 (all static Bestiary kinds; Mutant reserved for injected mutations) + config thresholds.
+- [x] IDs, sorting, validation, writer.
+- [x] CLI commands `analyze` and `stats`.
+- [x] Docs: `packages/analyzer/README.md` explaining every rule and its confidence.
 
 ## Automated tests
 - **Extractor unit tests:** small code snippets per language, e.g. an arrow
@@ -230,9 +230,9 @@ cq stats <graph.json>     # summary: files, symbols, edges by confidence, smells
 5. Run it on `weird-repo`. Read the diagnostics; each oddity is reported clearly.
 
 ## Definition of done
-- [ ] All automated tests green, including determinism and the secret-skip test.
-- [ ] `tiny-ts` and `tiny-py` known facts all pass.
-- [ ] Analyzer README documents every rule.
+- [x] All automated tests green, including determinism and the secret-skip test (known grammar recovery deviation below).
+- [x] `tiny-ts` and `tiny-py` known facts all pass.
+- [x] Analyzer README documents every rule.
 - [ ] Your own real project analyzes successfully, and your spot-check of 3 functions is correct (or the gaps are recorded as diagnostics).
 
 ## Risks
@@ -256,7 +256,59 @@ walk me through the manual test script, and fill in the Results section.
 ```
 
 ## Results (fill in after testing)
-- Date:
-- Automated tests:
+- Date: 2026-10-19; Windows, Node 24.20.0, pnpm 10.33.1.
+- Automated tests actually run:
+  - `pnpm test`: **162/162 passed in 27 files**. Includes syntax extraction for
+    TS/TSX/JS/JSX/Python, literal-only facts, call confidence, shadowing, aliases,
+    namespace/reexport/package resolution, this/self methods, grammar hashes,
+    credential paths never read (instrumented), ignored/non-git folders, hostile
+    code never executed, CLI commands, all six fixture invariants/determinism,
+    and three committed graph goldens. Existing Phase 00/01 tests remain green.
+  - Smelly fixture audit: **14 static findings**, exactly matching the answer
+    key's kinds, files, symbols and ranges; no unexpected findings. The 15th row,
+    Mutant, explicitly describes a future injected mutation and is not emitted.
+  - Taskly: exact shareTask → checkPermissions → loadTeam → query chain;
+    computeTaskStatus cyclomatic 5 (highest), archiveCompleted nesting 4;
+    one formatDate Mimic pair and one import cycle; 11 literal facts in tiny-ts
+    including four slugify and four status assertions; eight facts in tiny-py.
+  - Weird repo: binary, symlink, oversized file, invalid UTF-8, empty file,
+    CRLF, deep path, syntax recovery and secret-skipped diagnostics. Secret
+    values absent from serialized output. Empty repo produces a valid empty graph.
+  - `pnpm e2e` with `CQ_E2E_PORT=4181`: **14/14 passed** (regression suite).
+  - `pnpm check`, `pnpm build`, `pnpm license-check -- --enforce`,
+    `git diff --check`: passed. Biome excludes canonical golden JSON to preserve
+    the analyzer's exact serializer bytes. Grammar binaries have MIT entries,
+    upstream license copies, SHA-256 hashes and Git LFS attributes.
+  - `pnpm analyzer:smoke --update-baseline` and `pnpm analyzer:smoke`: ran on
+    all four already-fetched pinned commits without executing their code.
+    Internal import resolution: Zustand 92.68%, Jotai 99.17%, Flask 100%,
+    Requests 100%. Three repos have zero parser-error files. Zustand has five
+    known grammar recovery files (10% raw rate), retained in diagnostics and
+    explicitly allowlisted by commit/path; affected call edges are downgraded,
+    and those files cannot produce scored facts. No new parser-error files.
+  - Largest pinned repo benchmark: **Jotai, 19,249 recorded source lines**;
+    baseline **936 ms, 518 MiB peak process RSS**. Independent regression run
+    **1,015 ms, 506 MiB**, within the enforced 2× time/RSS bounds. Worker memory
+    is included in process RSS. Nightly smoke/performance workflow added locally.
+  - **Not run:** remote GitHub CI/nightly. Nothing pushed; no PR or settings change.
 - Real project tried + spot-check notes:
+  - `pnpm cq -- analyze . --pretty --out out/codebase-quest.graph.json` and
+    `pnpm cq -- stats out/codebase-quest.graph.json` completed on this project.
+  - Agent checked three existing combat functions against their source:
+    `checkAction` resolves info/cs/isActive/isExposed/questionFor and its local
+    no helper; `act` resolves checkAction/draft/info/cs/twinsOfRow/questionFor;
+    `endTurn` resolves draft/cs/allInputs/finishMonsterTurn. These edges are exact.
+    Unknown receiver methods are diagnostic gaps, not fabricated exact targets.
+  - The owner still needs to choose/confirm their own three familiar functions;
+    this is not recorded as an owner-run manual test.
+- Manual walkthrough: follow steps 1–5 above. Open `out/tiny.json`, locate
+  computeTaskStatus and verify complexity 5 and the chain. Repeat analyze/stats
+  on your own selected project; compare three familiar functions with source.
+  Finally analyze weird-repo and read each diagnostic. Full rule/command details:
+  [`packages/analyzer/README.md`](../../../packages/analyzer/README.md).
 - Decisions / ADRs:
+  - [ADR 0005](../../adr/0005-analyzer-contract-and-confidence.md): full v1
+    contract, memory cap of eight workers, static Mutant exclusion, normalized
+    near-copy detection, and honest known-grammar recovery/threshold deviation.
+  - Phase 03 was explicitly queued by the owner while this work was running;
+    its implementation begins only after this analyzer implementation and tests.
