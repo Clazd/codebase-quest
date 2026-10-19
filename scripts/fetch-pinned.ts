@@ -37,6 +37,7 @@ for (const repo of repos) {
   rmSync(dir, { recursive: true, force: true });
   mkdirSync(dir, { recursive: true });
   git(dir, ["init", "--quiet", "--initial-branch=main"], { env });
+  git(dir, ["config", "core.longpaths", "true"], { env });
   git(dir, ["remote", "add", "origin", repo.url], { env });
   git(dir, ["fetch", "--quiet", "--depth=1", "origin", repo.commit], { env });
   git(dir, ["-c", "advice.detachedHead=false", "checkout", "--quiet", "FETCH_HEAD"], { env });

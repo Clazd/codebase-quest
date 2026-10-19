@@ -26,6 +26,8 @@ export function createFixtureRepo(fixture: FixtureDefinition, dir: string): stri
   // Repo-local settings that keep content byte-exact and history unsigned on every OS.
   git(dir, ["config", "core.autocrlf", "false"]);
   git(dir, ["config", "commit.gpgsign", "false"]);
+  // weird-repo's 10 nested folders can pass Windows' 260-character path limit.
+  git(dir, ["config", "core.longpaths", "true"]);
 
   const symlinks: { path: string; target: string }[] = [];
 
