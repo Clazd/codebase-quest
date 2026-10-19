@@ -1,0 +1,48 @@
+name: Art or audio request
+description: Request (or offer to make) a sprite, tile, sound or piece of music.
+labels: ["art"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of asset
+      options:
+        - Character or NPC sprite
+        - Monster or boss sprite
+        - Tiles or buildings
+        - UI / HUD
+        - Sound effect
+        - Music
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What's needed
+      description: Size (16×16 tiles, 16×24 characters), directions, animation frames, mood, palette…
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Links or images for inspiration. Please don't link assets you don't have the rights to.
+  - type: dropdown
+    id: license
+    attributes:
+      label: License (if you're offering an asset)
+      options:
+        - I'm not offering an asset, just requesting
+        - My original work, under CC-BY-4.0
+        - Third-party CC0
+        - Third-party CC-BY (I'll give the attribution)
+  - type: checkboxes
+    id: rules
+    attributes:
+      label: Asset rules
+      options:
+        - label: No NC or ND licenses and no ripped assets.
+          required: true
+        - label: If any part was AI-assisted, I'll disclose it and rework it before it ships.
+          required: true

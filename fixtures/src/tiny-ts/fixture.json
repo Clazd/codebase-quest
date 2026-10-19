@@ -1,0 +1,52 @@
+{
+  "description": "Taskly, a small to-do API for teams (TypeScript). The main fixture: hotspot computeTaskStatus, a 4-deep call chain, a circular import, a duplicated formatDate, a TODO, an unused function, an empty catch and a deeply nested function.",
+  "people": {
+    "ada": { "name": "Ada Ito", "email": "ada@example.com" },
+    "ben": { "name": "Ben Okafor", "email": "ben@example.com" },
+    "chloe": { "name": "Chloé Martin", "email": "chloe@example.com" }
+  },
+  "commits": [
+    {
+      "dir": "01-initial",
+      "message": "feat: task model, in-memory store and slugify",
+      "author": "ada",
+      "date": "2025-01-06T09:12:00+00:00"
+    },
+    {
+      "dir": "02-api",
+      "message": "feat(api): routes and handlers",
+      "author": "ben",
+      "date": "2025-01-13T14:30:00+00:00"
+    },
+    {
+      "dir": "03-due-dates",
+      "message": "feat(status): due dates and late tasks",
+      "author": "ada",
+      "date": "2025-01-20T10:05:00+00:00"
+    },
+    {
+      "dir": "04-sharing",
+      "message": "feat(share): share tasks with teammates",
+      "author": "chloe",
+      "date": "2025-02-03T16:45:00+00:00"
+    },
+    {
+      "dir": "05-overdue",
+      "message": "fix(status): open tasks past their due date are overdue",
+      "author": "ben",
+      "date": "2025-02-17T11:20:00+00:00"
+    },
+    {
+      "dir": "06-archive",
+      "message": "feat(db): archive completed tasks",
+      "author": "chloe",
+      "date": "2025-03-03T09:40:00+00:00"
+    },
+    {
+      "dir": "07-docs",
+      "message": "docs: describe the API",
+      "author": "ada",
+      "date": "2025-03-10T08:00:00+00:00"
+    }
+  ]
+}

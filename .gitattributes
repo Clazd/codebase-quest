@@ -1,0 +1,22 @@
+# Normalize every text file to LF, on every OS (the project is developed on Windows).
+* text=auto eol=lf
+
+# Binary files we commit directly (small, licensed in packages/assets/LICENSES.md).
+*.png binary
+*.jpg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.ogg binary
+*.mp3 binary
+*.woff2 binary
+
+# Large art and audio sources live in Git LFS (run `git lfs install` once).
+art/blender/**/*.blend filter=lfs diff=lfs merge=lfs -text
+art/**/*.psd filter=lfs diff=lfs merge=lfs -text
+art/**/*.aseprite filter=lfs diff=lfs merge=lfs -text
+art/concepts/**/*.png filter=lfs diff=lfs merge=lfs -text
+art/blender/**/*.png filter=lfs diff=lfs merge=lfs -text
+art/**/*.wav filter=lfs diff=lfs merge=lfs -text
+art/**/*.flac filter=lfs diff=lfs merge=lfs -text
+art/**/*.aiff filter=lfs diff=lfs merge=lfs -text

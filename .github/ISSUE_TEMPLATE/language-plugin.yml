@@ -1,0 +1,34 @@
+name: Language support
+description: Ask for (or offer to build) support for another programming language.
+labels: ["language-plugin"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        TypeScript, JavaScript and Python come first. Other languages arrive as plugins in Phase 16. A small fixture repository in your language is a great way to help now.
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      placeholder: e.g. Go
+    validations:
+      required: true
+  - type: input
+    id: grammar
+    attributes:
+      label: Tree-sitter grammar
+      description: Link to a tree-sitter grammar for the language, if one exists.
+  - type: textarea
+    id: specifics
+    attributes:
+      label: What's special about it
+      description: Module system, how tests are written, entry points, common frameworks…
+  - type: dropdown
+    id: help
+    attributes:
+      label: How would you like to help?
+      options:
+        - Just requesting
+        - I can write a fixture repository
+        - I can build the plugin
+        - I can review and test

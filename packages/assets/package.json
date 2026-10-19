@@ -1,0 +1,12 @@
+{
+  "name": "@codebase-quest/assets",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Built sprites, tilesets and audio. Every file is licensed in LICENSES.md.",
+  "license": "SEE LICENSES.md",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./kenney/*": "./kenney/*"
+  }
+}

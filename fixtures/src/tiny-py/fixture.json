@@ -1,0 +1,27 @@
+{
+  "description": "Taskly in Python (Flask-style routes, a service layer, pytest tests). Same ideas as tiny-ts: compute_task_status, the share_task -> check_permissions -> load_team -> query chain, literal test assertions.",
+  "people": {
+    "ravi": { "name": "Ravi Shah", "email": "ravi@example.com" },
+    "mei": { "name": "Mei Lin", "email": "mei@example.com" }
+  },
+  "commits": [
+    {
+      "dir": "01-initial",
+      "message": "feat: task store, status and slugify",
+      "author": "ravi",
+      "date": "2025-01-08T10:00:00+00:00"
+    },
+    {
+      "dir": "02-api-sharing",
+      "message": "feat(api): flask routes and task sharing",
+      "author": "mei",
+      "date": "2025-01-22T15:30:00+00:00"
+    },
+    {
+      "dir": "03-overdue",
+      "message": "fix(status): open tasks past their due date are overdue",
+      "author": "ravi",
+      "date": "2025-02-05T09:45:00+00:00"
+    }
+  ]
+}

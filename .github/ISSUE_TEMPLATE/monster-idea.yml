@@ -1,0 +1,42 @@
+name: Monster idea
+description: Suggest a new monster (a code smell) for the Bestiary.
+labels: ["monster-idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Monsters are code smells, and their bodies are made of the real code. See the Bestiary in docs/plans/MASTER-PLAN.md §8.
+  - type: input
+    id: name
+    attributes:
+      label: Monster name
+      placeholder: e.g. Hoarder
+    validations:
+      required: true
+  - type: textarea
+    id: smell
+    attributes:
+      label: The code smell
+      description: What does it look like in real code? A short example helps.
+      render: ts
+    validations:
+      required: true
+  - type: textarea
+    id: detection
+    attributes:
+      label: How to detect it deterministically
+      description: Which facts (syntax tree, call graph, git, tests…) and which threshold? No AI judgment.
+    validations:
+      required: true
+  - type: textarea
+    id: twist
+    attributes:
+      label: Its twist on the combat grid
+      description: How does fighting it feel different?
+  - type: textarea
+    id: teaches
+    attributes:
+      label: What it teaches
+      description: What does a player understand about code after defeating it?
+    validations:
+      required: true

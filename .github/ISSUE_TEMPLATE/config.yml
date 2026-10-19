@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/Clazd/codebase-quest/security/advisories/new
+    about: Please report security problems privately, not in public issues.
+  - name: Roadmap and design
+    url: https://github.com/Clazd/codebase-quest/blob/main/docs/plans/README.md
+    about: Read the plans before proposing big changes.

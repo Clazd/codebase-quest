@@ -1,0 +1,10 @@
+[project]
+name = "taskly"
+version = "0.2.0"
+description = "A small to-do API for teams."
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["flask>=3.1"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]

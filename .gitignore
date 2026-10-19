@@ -1,0 +1,27 @@
+node_modules/
+dist/
+dist-test/
+coverage/
+*.tsbuildinfo
+.vite/
+.DS_Store
+Thumbs.db
+
+# Playwright
+playwright-report/
+test-results/
+blob-report/
+
+# Generated fixture repositories (built by `pnpm fixtures`, never committed)
+fixtures/repos/
+# Pinned open-source repos (fetched on demand by `pnpm fixtures:pinned`)
+fixtures/pinned/
+
+# Local outputs
+out/
+*.log
+
+# Secrets never belong in this repo
+.env
+.env.*
+!.env.example

@@ -1,0 +1,11 @@
+{
+  "name": "@codebase-quest/worldgen",
+  "version": "0.0.0",
+  "private": true,
+  "description": "CodeGraph to WorldModel, tile maps and SVG previews.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

@@ -1,0 +1,137 @@
+[
+  {
+    "name": "good first issue",
+    "color": "7057ff",
+    "description": "A good place to start contributing"
+  },
+  {
+    "name": "help wanted",
+    "color": "008672",
+    "description": "Extra attention or a volunteer is welcome"
+  },
+  {
+    "name": "bug",
+    "color": "d73a4a",
+    "description": "Something isn't working"
+  },
+  {
+    "name": "enhancement",
+    "color": "a2eeef",
+    "description": "A new feature or a change"
+  },
+  {
+    "name": "art",
+    "color": "f9a825",
+    "description": "Sprites, tiles, UI graphics"
+  },
+  {
+    "name": "audio",
+    "color": "fbca04",
+    "description": "Music and sound effects"
+  },
+  {
+    "name": "docs",
+    "color": "0075ca",
+    "description": "Documentation"
+  },
+  {
+    "name": "language-plugin",
+    "color": "1d76db",
+    "description": "Support for another programming language"
+  },
+  {
+    "name": "monster-idea",
+    "color": "b60205",
+    "description": "A new code-smell monster for the Bestiary"
+  },
+  {
+    "name": "phase-00",
+    "color": "c5def5",
+    "description": "Phase 00: Foundations and Open-Source Setup"
+  },
+  {
+    "name": "phase-01",
+    "color": "c5def5",
+    "description": "Phase 01: Prototype: Fun and Look"
+  },
+  {
+    "name": "phase-02",
+    "color": "c5def5",
+    "description": "Phase 02: Code Analyzer"
+  },
+  {
+    "name": "phase-03",
+    "color": "c5def5",
+    "description": "Phase 03: World Generator"
+  },
+  {
+    "name": "phase-04",
+    "color": "c5def5",
+    "description": "Phase 04: Walkable World"
+  },
+  {
+    "name": "phase-05",
+    "color": "c5def5",
+    "description": "Phase 05: NPCs, Code Panel and Codex"
+  },
+  {
+    "name": "phase-06",
+    "color": "c5def5",
+    "description": "Phase 06: AI Content Engine, MCP Server and Gitling"
+  },
+  {
+    "name": "phase-07",
+    "color": "c5def5",
+    "description": "Phase 07: Code-Body Combat and Question Library"
+  },
+  {
+    "name": "phase-08",
+    "color": "c5def5",
+    "description": "Phase 08: Quests, Progression and Saves"
+  },
+  {
+    "name": "phase-09",
+    "color": "c5def5",
+    "description": "Phase 09: Bosses and Dungeons ★ MVP"
+  },
+  {
+    "name": "phase-10",
+    "color": "c5def5",
+    "description": "Phase 10: Hero's Trial (Real Issues)"
+  },
+  {
+    "name": "phase-11",
+    "color": "c5def5",
+    "description": "Phase 11: Time Travel and Chronicles"
+  },
+  {
+    "name": "phase-12",
+    "color": "c5def5",
+    "description": "Phase 12: Art, Audio, Polish and Accessibility"
+  },
+  {
+    "name": "phase-13",
+    "color": "c5def5",
+    "description": "Phase 13: Accounts, Cloud and Sharing"
+  },
+  {
+    "name": "phase-14",
+    "color": "c5def5",
+    "description": "Phase 14: Multiplayer (Guide Mode and Raids)"
+  },
+  {
+    "name": "phase-15",
+    "color": "c5def5",
+    "description": "Phase 15: Creator Mode and Team Tools"
+  },
+  {
+    "name": "phase-16",
+    "color": "c5def5",
+    "description": "Phase 16: Scale and More Languages"
+  },
+  {
+    "name": "phase-17",
+    "color": "c5def5",
+    "description": "Phase 17: Launch and Community"
+  }
+]

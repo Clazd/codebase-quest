@@ -1,0 +1,11 @@
+{
+  "name": "@codebase-quest/mcp",
+  "version": "0.0.0",
+  "private": true,
+  "description": "MCP server started by `cq mcp`.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

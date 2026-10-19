@@ -1,0 +1,17 @@
+{
+  "name": "@codebase-quest/cli",
+  "version": "0.0.0",
+  "private": true,
+  "description": "`cq`: analyze, generate, play, setup, mcp, validate.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "cq": "./src/main.ts"
+  },
+  "exports": {
+    ".": "./src/cli.ts"
+  },
+  "dependencies": {
+    "@codebase-quest/shared": "workspace:*"
+  }
+}

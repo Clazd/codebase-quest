@@ -1,0 +1,21 @@
+{
+  "description": "Smelly Shop, a small store backend with at least one instance of every Bestiary monster (MASTER-PLAN §8). SMELLS.md is the answer key.",
+  "people": {
+    "sam": { "name": "Sam Rivera", "email": "sam@example.com" },
+    "kai": { "name": "Kai Tanaka", "email": "kai@example.com" }
+  },
+  "commits": [
+    {
+      "dir": "01-shop",
+      "message": "feat: carts, pricing, orders and shipping",
+      "author": "sam",
+      "date": "2025-02-10T09:00:00+00:00"
+    },
+    {
+      "dir": "02-admin",
+      "message": "feat: shop manager, translations and the answer key",
+      "author": "kai",
+      "date": "2025-02-24T13:15:00+00:00"
+    }
+  ]
+}

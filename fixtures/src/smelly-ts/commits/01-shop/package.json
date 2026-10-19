@@ -1,0 +1,16 @@
+{
+  "name": "smelly-shop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A small store backend.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.2.0"
+  }
+}

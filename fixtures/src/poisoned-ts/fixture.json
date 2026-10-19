@@ -1,0 +1,20 @@
+{
+  "description": "Quotebook, a tiny TypeScript library whose comments, docstrings, strings and README try to instruct an AI. Every attempt is listed in INJECTIONS.md. Used by Phase 06 tests: repository text is data, never instructions.",
+  "people": {
+    "mallory": { "name": "Mallory Vance", "email": "mallory@example.com" }
+  },
+  "commits": [
+    {
+      "dir": "01-quotebook",
+      "message": "feat: quotebook library",
+      "author": "mallory",
+      "date": "2025-03-14T10:00:00+00:00"
+    },
+    {
+      "dir": "02-docs",
+      "message": "docs: contributing guide and injection list",
+      "author": "mallory",
+      "date": "2025-03-15T10:00:00+00:00"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@codebase-quest/server",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Accounts, sharing and cloud saves.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "@codebase-quest/multiplayer",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Multiplayer rooms (Colyseus).",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  }
+}

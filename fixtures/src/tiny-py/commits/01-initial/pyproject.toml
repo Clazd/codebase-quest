@@ -1,0 +1,10 @@
+[project]
+name = "taskly"
+version = "0.1.0"
+description = "A small to-do API for teams."
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]

@@ -1,0 +1,34 @@
+name: Feature idea
+description: Suggest something new or a change to how things work.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Who is it for, and what are they trying to do?
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+    validations:
+      required: true
+  - type: textarea
+    id: teaches
+    attributes:
+      label: What does it teach about the code?
+      description: Pillar 1 is "every mechanic teaches something real". How does this help someone understand a codebase?
+  - type: input
+    id: phase
+    attributes:
+      label: Related phase (if you know)
+      placeholder: e.g. Phase 08
+  - type: checkboxes
+    id: pillars
+    attributes:
+      label: Design pillars
+      options:
+        - label: Scored answers still come only from deterministic facts, never from AI.
+        - label: It works without an API key.
