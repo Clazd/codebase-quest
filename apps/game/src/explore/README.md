@@ -29,6 +29,7 @@ bosses and portals are static markers; characters are covered below.
 | E / Space / Enter | Interact: a door underfoot, else the nearest character, else a nearby door |
 | Click a character | Talk when beside it; otherwise walk beside it, then talk |
 | C / Codex button | Open or close the Codex |
+| G / Gitling button / click Gitling | Ask Gitling about the code (search, or your agent/model when configured) |
 | M / Map button | Open or close the full overworld map |
 | Esc / Pause button | Pause; settings stub and readable font option |
 | Mouse wheel / − / + | Three camera zoom levels |
@@ -69,7 +70,19 @@ Only Codex entries and notes persist (`localStorage["cq:codex:<repo>:<commit>"]`
 Any overlay pauses the world; Esc closes the innermost layer.
 
 Debug API additions (dev/test only): `interactWithNpc`, `getOpenPanel`,
-`getCodexCount`, `gotoNpc`, `getGuide`, `getNpcs`.
+`getCodexCount`, `gotoNpc`, `getGuide`, `getNpcs`, and for Phase 06 the mock
+bridge (`bridgeReceive`, `bridgeSent`) and `askGitling`.
+
+## Gitling and the bridge (Phase 06)
+
+Gitling follows the player. Its chat answers at once from the BM25 index
+(`search.json`) with citations that open the Code Panel, then shows any better
+answer from your agent (sampling or the bridge loop), a local model or the API,
+labeled "answered by". Agent-written NPC dialogue (`content.json`, validated by
+`cq play`) replaces template lines and is tagged "written by your agent". With a
+`#bridge=<token>` fragment from `cq play`, the game connects to
+`ws://127.0.0.1:<port>/bridge` and accepts only `focus`, `playerState` and
+`gitlingQuestion`. See `apps/mcp/README.md` and ADR 0009.
 
 ## Implementation boundaries
 

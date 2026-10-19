@@ -15,13 +15,27 @@ import { tmpdir } from "node:os";
 import { dirname, extname, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { analyze } from "@codebase-quest/analyzer";
+import { buildSearchIndex, CostMeter } from "@codebase-quest/content";
 import { buildFactBook } from "@codebase-quest/content/facts";
+import {
+  type AiConfig,
+  AnthropicProvider,
+  cqHome,
+  grantApiConsent,
+  hasApiConsent,
+  loadAiConfig,
+  loadSpend,
+  OllamaProvider,
+  saveSpend,
+} from "@codebase-quest/content/node";
 import { type FactBook, FactBookSchema, type FactLinks, WorldModelSchema } from "@codebase-quest/shared";
 import { generate, writeWorld } from "@codebase-quest/worldgen";
 import { discover, secretPath } from "../../../packages/analyzer/src/discover.ts";
-import { createSourceReader, sourceResponse } from "./source.ts";
+import { BridgeHub, removeSession, writeSession } from "./bridge.ts";
+import { createSourceReader, maskLines, sourceResponse } from "./source.ts";
+import { Workspace } from "./workspace.ts";
 
-const CACHE_VERSION = "npcs-v1";
+const CACHE_VERSION = "gitling-v1";
 export const DEFAULT_EDITOR = "vscode://file/{path}:{line}";
 const gameRoot = fileURLToPath(new URL("../../game", import.meta.url));
 function safeParents(path: string) {
@@ -30,7 +44,17 @@ function safeParents(path: string) {
     if (dirname(p) === p) break;
   }
 }
+/** Analyzes and generates (or reuses the cache for) a repository's world, facts and search index. */
 export async function prepareWorld(repo: string, cacheRoot?: string) {
+  const prepared = await prepare(repo, cacheRoot, true);
+  if (!prepared) throw new Error("World could not be prepared");
+  return prepared;
+}
+/** The cached world for the repository's current contents, without building one. */
+export function locateWorld(repo: string, cacheRoot?: string) {
+  return prepare(repo, cacheRoot, false);
+}
+async function prepare(repo: string, cacheRoot: string | undefined, build: boolean) {
   const started = performance.now(),
     root = resolve(repo);
   safeParents(root);
@@ -59,7 +83,7 @@ export async function prepareWorld(repo: string, cacheRoot?: string) {
     const ready = join(directory, "ready.json"),
       json = join(directory, "world.json"),
       factsJson = join(directory, "facts.json");
-    if (existsSync(ready) && existsSync(json) && existsSync(factsJson)) {
+    if (existsSync(ready) && existsSync(json) && existsSync(factsJson) && existsSync(join(directory, "search.json"))) {
       safeParents(ready);
       safeParents(json);
       safeParents(factsJson);
@@ -70,10 +94,11 @@ export async function prepareWorld(repo: string, cacheRoot?: string) {
           world.maps.every((m) => existsSync(join(directory, m.path))) &&
           existsSync(join(directory, world.theme.image))
         )
-          return { world, facts, root, directory, cached: true, ms: performance.now() - started };
+          return { world, facts, root, directory, commit, cached: true, ms: performance.now() - started };
       } catch {}
     }
   }
+  if (!build) return null;
   let world: ReturnType<typeof generate> | undefined;
   let facts: FactBook | undefined;
   for (const base of bases) {
@@ -97,8 +122,15 @@ export async function prepareWorld(repo: string, cacheRoot?: string) {
       }
       writeWorld(world, directory);
       writeFileSync(join(directory, "facts.json"), `${JSON.stringify(facts)}\n`);
+      // The BM25 index (names, paths, docs, masked code tokens) ships with the world for Gitling.
+      const texts = new Map(discovery.files.map((f) => [f.path, f.text.split("\n")]));
+      const index = buildSearchIndex(facts, (sheet) => {
+        const lines = texts.get(sheet.path);
+        return lines ? maskLines(lines.slice(sheet.range.startLine - 1, sheet.range.endLine)).lines : null;
+      });
+      writeFileSync(join(directory, "search.json"), `${JSON.stringify(index)}\n`);
       writeFileSync(join(directory, "ready.json"), JSON.stringify({ version: CACHE_VERSION }));
-      return { world, facts, root, directory, cached: false, ms: performance.now() - started };
+      return { world, facts, root, directory, commit, cached: false, ms: performance.now() - started };
     } catch (error) {
       if (cacheRoot || !["EACCES", "EPERM", "EROFS"].includes((error as NodeJS.ErrnoException).code ?? "")) throw error;
     }
@@ -136,13 +168,30 @@ export function localLinks(root: string, editor = DEFAULT_EDITOR): FactLinks {
   } catch {}
   return { root: root.replaceAll("\\", "/"), github, editor };
 }
-type Local = { repoRoot: string; facts: FactBook; links: FactLinks };
+type Local = {
+  repoRoot: string;
+  facts: FactBook;
+  links: FactLinks;
+  /** With a workspace, the server also hosts the bridge, live content and AI status. */
+  workspace?: Workspace;
+  ai?: AiConfig;
+  home?: string;
+};
+/** The configured live provider for Gitling: none when AI is Off or in agent mode. */
+export function liveProvider(ai: AiConfig, home: string) {
+  if (ai.mode === "ollama") return new OllamaProvider(ai.ollama);
+  if (ai.mode === "api") {
+    const meter = new CostMeter(ai.api.budgetUsdPerDay, loadSpend(home), (spent) => saveSpend(spent, home));
+    return new AnthropicProvider(ai.api, meter);
+  }
+  return undefined;
+}
 export async function serveWorld(
   directory: string,
   gameDirectory: string,
   port = 0,
   local?: Local,
-): Promise<{ server: Server; url: string }> {
+): Promise<{ server: Server; url: string; hub?: BridgeHub }> {
   const worldRoot = realpathSync(directory),
     game = realpathSync(gameDirectory);
   const readSource = local ? createSourceReader(local.repoRoot, local.facts.files) : undefined;
@@ -176,6 +225,14 @@ export async function serveWorld(
       const head = req.method === "HEAD";
       if (factsBody && rawPath === "/world/facts.json") {
         json(res, 200, factsBody, head);
+        return;
+      }
+      if (local?.workspace && rawPath === "/world/content.json") {
+        json(res, 200, Buffer.from(JSON.stringify(local.workspace.contentForGame())), head);
+        return;
+      }
+      if (local?.workspace && rawPath === "/world/ai.json") {
+        json(res, 200, Buffer.from(JSON.stringify(aiStatus())), head);
         return;
       }
       if (readSource && rawPath.startsWith("/world/source/")) {
@@ -215,13 +272,52 @@ export async function serveWorld(
       res.writeHead(404).end("Not found");
     }
   });
+  let hub: BridgeHub | undefined;
+  const aiStatus = () => {
+    const ai = local?.ai ?? loadAiConfig(local?.home);
+    const agent = ai.mode === "agent";
+    return {
+      mode: ai.mode,
+      levels: {
+        search: true,
+        agent: agent && Boolean(hub?.agentConnected),
+        sampling: agent && Boolean(hub?.samplingAvailable),
+        ollama: ai.mode === "ollama",
+        api: ai.mode === "api",
+      },
+      consentRequired: ai.mode === "api" && !hasApiConsent(loadAiConfig(local?.home), local?.repoRoot ?? ""),
+      budget:
+        ai.mode === "api"
+          ? { limitUsd: ai.api.budgetUsdPerDay, spentUsd: loadSpend(local?.home), model: ai.api.model }
+          : null,
+      refusalFallback: ai.mode === "api" ? ai.api.refusalFallback : null,
+    };
+  };
   await new Promise<void>((done, reject) => {
     server.once("error", reject);
     server.listen(port, "127.0.0.1", done);
   });
   const address = server.address();
   if (!address || typeof address === "string") throw new Error("No local server address");
-  return { server, url: `http://127.0.0.1:${address.port}/?world=/world/world.json` };
+  const url = `http://127.0.0.1:${address.port}/?world=/world/world.json`;
+  if (!local?.workspace) return { server, url };
+  const home = local.home ?? cqHome();
+  const ai = local.ai ?? loadAiConfig(home);
+  hub = new BridgeHub(server, local.workspace, {
+    forwardToAgents: ai.mode === "agent",
+    provider: liveProvider(ai, home),
+    needsConsent: () => !hasApiConsent(loadAiConfig(home), local.repoRoot),
+    grantConsent: () => grantApiConsent(local.repoRoot, home),
+  });
+  const token = hub.token,
+    root = local.repoRoot;
+  writeSession({ port: address.port, token, pid: process.pid, root, startedAt: new Date().toISOString() }, home);
+  server.once("close", () => {
+    hub?.close();
+    removeSession(root, token, home);
+  });
+  // The token travels in the fragment, so it is never sent in an HTTP request.
+  return { server, url: `${url}#bridge=${token}`, hub };
 }
 function newest(path: string): number {
   if (!existsSync(path)) return 0;
@@ -230,7 +326,15 @@ function newest(path: string): number {
 }
 export async function startPlay(
   repo: string,
-  options: { port?: number; open?: boolean; gameDirectory?: string; cacheRoot?: string; editor?: string } = {},
+  options: {
+    port?: number;
+    open?: boolean;
+    gameDirectory?: string;
+    cacheRoot?: string;
+    editor?: string;
+    home?: string;
+    ai?: AiConfig;
+  } = {},
 ) {
   const links = localLinks(resolve(repo), options.editor);
   const prepared = await prepareWorld(repo, options.cacheRoot);
@@ -248,6 +352,9 @@ export async function startPlay(
     repoRoot: prepared.root,
     facts: prepared.facts,
     links: prepared.facts.repo.commit ? links : { ...links, github: null },
+    workspace: new Workspace(prepared),
+    home: options.home,
+    ai: options.ai,
   });
   if (options.open !== false) {
     const args =

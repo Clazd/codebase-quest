@@ -1,7 +1,7 @@
 # Phase 06: AI Content Engine, MCP Server and Gitling
 
 > **Milestone:** C · The People · **Depends on:** 05 · **Effort:** 2–2.5 weeks ·
-> **Status:** Not started
+> **Status:** Implemented and tested; real-agent prebuild pending
 > **Read first:** MASTER-PLAN §2 (pillars 2, 5), §12, §16.6, §16.7, §16.8
 
 ## Goal
@@ -220,7 +220,57 @@ When finished, run the automated tests and walk me through the manual script.
 ```
 
 ## Results (fill in after testing)
-- Date:
-- Automated tests:
-- Agent prebuild notes (which client, coverage, rejections):
-- Decisions / ADRs:
+- Date: 2026-10-19, Windows, Node.js 24 / pnpm, Chromium headless.
+- Automated tests: `pnpm test` passed **310 tests in 35 files**. New suites:
+  validators (good/bad outputs: schema, limits, links/markup/markdown, injected
+  instructions, answer talk, grounding, citations, answer-leak guard) and engine
+  paths (retry with reasons, invalid JSON, grounding failure, refusal, timeout,
+  template fallback; every world item's template validates); BM25 search;
+  content cache (keys, cross-commit reuse by code hash); Ollama and Anthropic
+  providers with fake transports (structured output, `fallbacks: "default"`,
+  explicit effort, cached system prefix, refusal → template, budget stop, cost
+  meter) plus a scan that a fake `sk-ant-…` key appears in no settings or cache
+  file; hint ladder; eval runner. **MCP contract** (scripted client, in-memory
+  transport): instructions and all 12 tool schemas; invalid input rejected;
+  `cq_submit_content` rejects invented identifiers and a fake citation with
+  readable reasons; the **agent prebuild simulation** loops batch → write →
+  submit until `cq_status.complete` (64 items: 58 dialogue, 5 region lore,
+  1 kingdom lore, 100% coverage, all validated and cached); during a scripted
+  Phase 01 serpent fight no tool output contains its distinctive answer keys,
+  and a canary key is blocked; sampling answers a real bridged question,
+  `cq_focus` and `cq_player_state` reach a game socket; the bridge loop rejects a
+  bad citation, then delivers a valid answer. **Setup** on a temporary home:
+  dry-run writes nothing; approval required; backups hold the original bytes;
+  a second run changes no file (hashes and mtimes); uninstall restores
+  Claude Code, Codex and Cursor configs byte for byte and deletes the created
+  Claude Desktop file; unrelated later edits survive uninstall; malformed configs
+  and configs changed after planning block every write; first backup kept with a
+  recovery copy. **Bridge security:** missing/wrong token, silent clients,
+  foreign Origin/Host, role spoofing and non-allowed events are refused;
+  loopback bind. **Injection** (`poisoned-ts`): a naive agent's obeying lines are
+  all rejected; templates quote no injected text and validate. **Offline:** AI
+  Off has no live provider, answers `unavailable` (search only) and makes no
+  non-loopback connection (socket and fetch spies).
+  `pnpm e2e` passed **31 tests**, including two new ones with the bridge mocked:
+  `cq_focus` moves the game to `saveTask`'s building and opens its panel (and
+  refuses unknown symbols), player state matches; Gitling answers "Where are
+  tasks saved?" by search, axe passes, a mocked live answer is labeled
+  "your agent (bridge)", and the `saveTask()` citation opens its Code Panel with
+  the real line. The three world screenshot baselines were regenerated (Gitling
+  and the HUD button) and inspected. Stress world: 16.75 ms/frame.
+- Other checks: `pnpm check`, `pnpm build` (no debug or mock-bridge code in the
+  production bundle), license check and `git diff --check` passed. A real stdio
+  run of `cq mcp` in `fixtures/repos/tiny-ts` listed 12 tools with instructions,
+  built the world, reported 0/64 coverage and found `saveTask()` (1.5 s).
+  `cq setup --dry-run` on this machine printed the plan for `~/.claude.json`
+  and wrote nothing. `pnpm eval:content` (template baseline) accepted 5/5 first
+  try at $0. Remote CI has not run. No API key or Ollama was used.
+- Agent prebuild notes (which client, coverage, rejections): **pending owner
+  run** with Claude Code (manual steps 1–2). Automated simulation only: scripted
+  MCP client, 64/64 items, 1 deliberate rejection (invented identifiers + fake
+  citation) fixed by resubmission.
+- Decisions / ADRs: [ADR 0009](../../adr/0009-content-engine-mcp-and-gitling.md)
+  (validation path, cache, search placement, MCP tools, bridge protocol and
+  security, modes/consent/budget, Anthropic API usage, setup transaction modeled
+  on REA, answer-guard threshold of 8 characters, isolated `CQ_HOME` in tests).
+  Usage: `apps/mcp/README.md`; game controls: `apps/game/src/explore/README.md`.

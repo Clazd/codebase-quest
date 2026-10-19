@@ -49,8 +49,8 @@ const ref = (l: FactSheet["callers"][number]) => l.symbolId ?? graph.files.find(
 const metrics = (m: Partial<FactSheet["metrics"]>) => ({ ...facts().metrics, ...m });
 
 describe("@codebase-quest/content", () => {
-  it("reports the Phase 05 template engine", () => {
-    expect(packageInfo).toEqual({ name: "@codebase-quest/content", phase: 5, status: "templates" });
+  it("reports the Phase 06 content engine", () => {
+    expect(packageInfo).toEqual({ name: "@codebase-quest/content", phase: 6, status: "engine" });
   });
 });
 describe("template rule selection", () => {

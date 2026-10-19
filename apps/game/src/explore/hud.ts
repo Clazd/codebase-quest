@@ -31,16 +31,22 @@ export class ExploreHud {
   readonly session: ExploreSession;
   constructor(
     session: ExploreSession,
-    handlers: { start: () => void; interact: () => void; zoom: (delta: number) => void; codex: () => void },
+    handlers: {
+      start: () => void;
+      interact: () => void;
+      zoom: (delta: number) => void;
+      codex: () => void;
+      gitling: () => void;
+    },
   ) {
     this.session = session;
     this.root.id = "explore-hud";
     this.root.setAttribute("aria-label", "World navigation");
     this.root.innerHTML = `<header><span class="brand">CODEBASE QUEST</span><nav aria-label="Code location" id="breadcrumb"></nav><span id="light"></span></header>
-      <div class="world-tools"><button type="button" id="interact">Interact · E</button><button type="button" id="map-toggle">Map · M</button><button type="button" id="codex-toggle">Codex · C</button><button type="button" id="zoom-out" aria-label="Zoom out">−</button><button type="button" id="zoom-in" aria-label="Zoom in">+</button><button type="button" id="pause-toggle">Pause · Esc</button></div>
+      <div class="world-tools"><button type="button" id="interact">Interact · E</button><button type="button" id="map-toggle">Map · M</button><button type="button" id="codex-toggle">Codex · C</button><button type="button" id="gitling-toggle">Gitling · G</button><button type="button" id="zoom-out" aria-label="Zoom out">−</button><button type="button" id="zoom-in" aria-label="Zoom in">+</button><button type="button" id="pause-toggle">Pause · Esc</button></div>
       <canvas id="minimap" width="176" height="120" role="img" aria-label="Minimap: explored tiles and current position"></canvas>
       <output id="explore-status" aria-live="polite"></output><pre id="explore-debug" hidden></pre>
-      <div id="world-title"><p class="eyebrow">EVERY CODEBASE IS A WORLD</p><h1></h1><p>Follow imports. Explore folders. Step inside your code.</p><button type="button" id="continue">Enter the kingdom</button><p class="controls">WASD / arrows to walk · Shift to run<br>Click a path to move · E to talk or enter a door · C for the Codex</p></div>
+      <div id="world-title"><p class="eyebrow">EVERY CODEBASE IS A WORLD</p><h1></h1><p>Follow imports. Explore folders. Step inside your code.</p><button type="button" id="continue">Enter the kingdom</button><p class="controls">WASD / arrows to walk · Shift to run<br>Click a path to move · E to talk or enter a door · C for the Codex · G to ask Gitling</p></div>
       <dialog aria-labelledby="map-heading"><h2 id="map-heading">Kingdom map</h2><canvas id="full-map" width="672" height="480" role="img" aria-label="Overworld with region names and your location"></canvas><p id="map-location"></p><p>Dark areas are unexplored. Gold marks your current region.</p><div id="pause-settings" hidden><p>Settings: more options arrive in Phase 12.</p><label><input type="checkbox" id="readable-font"> Use system font for map labels</label></div><button type="button" id="close-panel">Return to world</button></dialog>`;
     required(document.querySelector("main")).append(this.root);
     const get = <T extends HTMLElement>(id: string) => required(this.root.querySelector<T>(`#${id}`));
@@ -62,6 +68,9 @@ export class ExploreHud {
     get("map-toggle").onclick = () => this.toggleMap();
     get("codex-toggle").onclick = () => {
       if (!this.blocked) handlers.codex();
+    };
+    get("gitling-toggle").onclick = () => {
+      if (!this.blocked) handlers.gitling();
     };
     get("pause-toggle").onclick = () => this.togglePause();
     get("zoom-in").onclick = () => handlers.zoom(1);

@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { fileURLToPath } from "node:url";
+import { buildSearchIndex } from "@codebase-quest/content";
 import { buildFactBook } from "@codebase-quest/content/facts";
 import { type CodeGraph, CodeGraphSchema, type WorldModel, WorldModelSchema } from "@codebase-quest/shared";
 import { generate, tiledMap } from "@codebase-quest/worldgen";
@@ -62,10 +63,21 @@ export function fixtureWorlds(includeStress = false): Plugin {
     return files;
   };
   let read: ReturnType<typeof createSourceReader> | undefined;
+  let searchJson: string | undefined;
+  const tinyFacts = () =>
+    buildFactBook(
+      CodeGraphSchema.parse(
+        JSON.parse(readFileSync(here("../../packages/analyzer/goldens/tiny-ts.graph.json"), "utf8")),
+      ),
+      WorldModelSchema.parse(
+        JSON.parse(readFileSync(here("../../packages/worldgen/goldens/tiny-ts.world.json"), "utf8")),
+      ),
+    );
   /** `fixtures/tiny-ts/source/<fileId>?start&end`: the same safe reader as `cq play`. */
   const source = (req: IncomingMessage, res: ServerResponse, next: () => void) => {
     const [path = "", search = ""] = (req.url ?? "").split("?");
-    if (!path.startsWith("/fixtures/tiny-ts/source/")) return next();
+    const isSearch = path === "/fixtures/tiny-ts/search.json";
+    if (!path.startsWith("/fixtures/tiny-ts/source/") && !isSearch) return next();
     try {
       read ??= createSourceReader(
         TINY_TS,
@@ -73,6 +85,19 @@ export function fixtureWorlds(includeStress = false): Plugin {
           JSON.parse(readFileSync(here("../../packages/analyzer/goldens/tiny-ts.graph.json"), "utf8")),
         ).files,
       );
+      if (isSearch) {
+        // The same BM25 index `cq play` ships, built from the real fixture lines (masked).
+        const reader = read;
+        searchJson ??= JSON.stringify(
+          buildSearchIndex(tinyFacts(), (sheet) => {
+            const r = reader(sheet.fileId, sheet.range.startLine, sheet.range.endLine);
+            return r.status === 200 ? r.body.lines : null;
+          }),
+        );
+        res.setHeader("Content-Type", "application/json");
+        res.end(searchJson);
+        return;
+      }
       const result = sourceResponse(read, path.slice("/fixtures/tiny-ts/source/".length), search);
       res.statusCode = result.status;
       res.setHeader("Content-Type", "application/json");

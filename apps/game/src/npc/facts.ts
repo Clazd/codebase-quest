@@ -1,3 +1,4 @@
+import type { SearchIndex } from "@codebase-quest/content";
 import {
   type FactBook,
   FactBookSchema,
@@ -30,6 +31,10 @@ export class FactIndex {
   private readonly sheets: Map<string, FactSheet>;
   private readonly npcs: Map<string, NpcPlacement>;
   private readonly sources = new Map<string, Promise<SourceSlice>>();
+  /** BM25 index shipped with the world (Gitling's search level); null when missing. */
+  search: SearchIndex | null = null;
+  /** Validated agent/AI content by item ID (`npc-dialogue:<symbolId>` …). */
+  content: Record<string, { source: string; output: unknown }> = {};
   private readonly request: typeof fetch;
   constructor(book: FactBook, world: WorldModel, worldUrl: string, request: typeof fetch = fetch) {
     this.book = book;
@@ -44,7 +49,28 @@ export class FactIndex {
     if (!response.ok) throw new Error(`Fact sheets request failed (${response.status})`);
     const parsed = FactBookSchema.safeParse(await response.json());
     if (!parsed.success) throw new Error(`Invalid fact sheets: ${parsed.error.issues[0]?.message}`);
-    return new FactIndex(parsed.data, world, worldUrl, request);
+    const index = new FactIndex(parsed.data, world, worldUrl, request);
+    // Both are optional: an older world or a dev fixture may not have them.
+    const optional = async (name: string) => {
+      try {
+        const r = await request(new URL(name, worldUrl).href);
+        return r.ok ? await r.json() : null;
+      } catch {
+        return null;
+      }
+    };
+    const [search, content] = await Promise.all([optional("search.json"), optional("content.json")]);
+    if (search?.version === 1 && search.postings && Array.isArray(search.docs)) index.search = search as SearchIndex;
+    if (content && typeof content === "object") index.content = content;
+    return index;
+  }
+  /** Agent-written dialogue lines for a character, if validated content exists. */
+  agentLines(symbolId: string): { lines: string[]; source: string } | null {
+    const entry = this.content[`npc-dialogue:${symbolId}`];
+    const lines = (entry?.output as { lines?: unknown } | undefined)?.lines;
+    return entry && Array.isArray(lines) && lines.every((l) => typeof l === "string" && l.length <= 160)
+      ? { lines: lines as string[], source: entry.source }
+      : null;
   }
   sheet(symbolId: string): FactSheet | undefined {
     return this.sheets.get(symbolId);

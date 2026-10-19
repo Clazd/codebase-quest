@@ -25,7 +25,7 @@ export interface CqDebugApi {
   getCamera(): { scrollX: number; scrollY: number; zoom: number; width: number; height: number };
   /** Talks to a character as if the player pressed E beside it (opens dialogue + Code Panel). */
   interactWithNpc(symbolId: string): Promise<void>;
-  getOpenPanel(): { kind: "code" | "codex" | null; symbolId?: string };
+  getOpenPanel(): { kind: "code" | "codex" | "gitling" | null; symbolId?: string };
   getCodexCount(): number;
   /** Teleports to stand beside a character at home, without talking. */
   gotoNpc(symbolId: string): Promise<void>;
@@ -33,6 +33,12 @@ export interface CqDebugApi {
   getGuide(): { symbolId: string; waypoint: { mapId: string; x: number; y: number } | null } | null;
   /** Characters on the current map (pixel positions of their feet). */
   getNpcs(): { symbolId: string; x: number; y: number; visible: boolean }[];
+  /** Mock bridge (tests): deliver a message as if `cq play` sent it. */
+  bridgeReceive(message: unknown): Promise<void>;
+  /** Messages the game tried to send over the bridge. */
+  bridgeSent(): Record<string, unknown>[];
+  /** Asks Gitling a question; returns the chat entry ID. */
+  askGitling(question: string): string;
 }
 
 /** A scene that has a player the debug API can read and move. */
@@ -88,6 +94,13 @@ export function createDebugApi(game: SceneSource, virtualKeys: VirtualKeys): CqD
     },
     getGuide: () => null,
     getNpcs: () => [],
+    bridgeReceive: async () => {
+      throw new Error("Load a world to use the bridge");
+    },
+    bridgeSent: () => [],
+    askGitling: () => {
+      throw new Error("Load a world to ask Gitling");
+    },
     version: pkg.version,
     getScene() {
       const scenes = activeScenes();

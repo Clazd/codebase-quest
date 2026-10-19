@@ -7,9 +7,11 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./facts": "./src/facts.ts"
+    "./facts": "./src/facts.ts",
+    "./node": "./src/node/index.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "0.131.0",
     "@codebase-quest/shared": "workspace:*"
   }
 }

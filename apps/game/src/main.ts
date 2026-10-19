@@ -24,7 +24,7 @@ if (world) {
       .querySelector("#game")
       ?.setAttribute(
         "aria-label",
-        "Explore your repository. WASD or arrows to walk, Shift to run, E to talk or enter, C for the Codex, M for map, Escape to pause.",
+        "Explore your repository. WASD or arrows to walk, Shift to run, E to talk or enter, C for the Codex, G for Gitling, M for map, Escape to pause.",
       );
     if (__CQ_DEBUG__) {
       window.__CQ__ = {
@@ -70,6 +70,9 @@ if (world) {
         getCodexCount: () => app.overlay.codex.count,
         gotoNpc: (symbolId: string) => app.teleportToNpc(symbolId),
         getNpcs: () => app.active?.npcPositions() ?? [],
+        bridgeReceive: (message: unknown) => app.bridge.receive(message as never),
+        bridgeSent: () => [...app.bridge.sent],
+        askGitling: (question: string) => app.overlay.ask(question),
         getGuide: () =>
           app.guide ? { symbolId: app.guide.symbolId, waypoint: app.guideWaypoint()?.position ?? null } : null,
         getCamera: () => {

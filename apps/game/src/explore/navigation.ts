@@ -9,6 +9,7 @@ export const BINDINGS = {
   interact: ["e", "E", " ", "Enter"],
   map: ["m", "M"],
   codex: ["c", "C"],
+  gitling: ["g", "G"],
   debug: ["F3"],
   pause: ["Escape"],
 } as const;

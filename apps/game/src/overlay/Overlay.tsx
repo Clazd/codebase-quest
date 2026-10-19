@@ -5,7 +5,7 @@ import { BADGES, badgesFor } from "../npc/appearance.ts";
 import { completion, exportNotes, searchCodex } from "../npc/codex.ts";
 import type { SourceSlice } from "../npc/facts.ts";
 import { highlight, type Token } from "../npc/highlight.ts";
-import type { OverlayStore } from "./store.ts";
+import type { AiStatus, OverlayStore } from "./store.ts";
 import "./overlay.css";
 
 /** Functions longer than this start collapsed. */
@@ -290,7 +290,12 @@ function CodePanel({ store }: { store: OverlayStore }) {
   return (
     <>
       <section id="dialogue-box" aria-label={`${sheet.displayName} says`}>
-        <p class="speaker">{sheet.displayName}</p>
+        <p class="speaker">
+          {sheet.displayName}
+          {panel.source !== "template" && (
+            <span class="source-tag"> · written by {panel.source === "agent" ? "your agent" : panel.source}</span>
+          )}
+        </p>
         <div aria-live="polite">
           {panel.lines.map((line) => (
             <p key={line.ruleId} data-rule={line.ruleId}>
@@ -509,10 +514,126 @@ function Codex({ store }: { store: OverlayStore }) {
     </div>
   );
 }
+const LEVEL_NAMES: Record<string, string> = {
+  search: "search",
+  sampling: "your agent (MCP sampling)",
+  bridge: "your agent (bridge)",
+  ollama: "local model",
+  api: "Anthropic API",
+};
+function aiSummary(ai: AiStatus | null): string {
+  if (!ai || ai.mode === "off") return "AI is off: answers come from search over this repository.";
+  if (ai.mode === "agent")
+    return ai.levels.agent
+      ? `Agent mode: your agent is connected${ai.levels.sampling ? " (sampling available)" : ""}.`
+      : "Agent mode: no agent connected yet, so answers come from search.";
+  if (ai.mode === "ollama") return "Local model (Ollama) answers after search.";
+  const budget = ai.budget
+    ? ` Today: $${ai.budget.spentUsd.toFixed(4)} of $${ai.budget.limitUsd.toFixed(2)} (${ai.budget.model}).`
+    : "";
+  return `API mode.${budget} Refusal fallback: ${ai.refusalFallback ? "on" : "off"}.`;
+}
+function GitlingPanel({ store }: { store: OverlayStore }) {
+  const { gitling } = store.state;
+  const input = useRef<HTMLInputElement>(null);
+  const log = useRef<HTMLOListElement>(null);
+  const wasOpen = useRef(false);
+  useEffect(() => {
+    if (gitling.open && !wasOpen.current) input.current?.focus();
+    wasOpen.current = gitling.open;
+    log.current?.lastElementChild?.scrollIntoView?.({ block: "nearest" });
+  });
+  if (!gitling.open) return null;
+  const submit = (event: Event) => {
+    event.preventDefault();
+    const text = input.current?.value.trim() ?? "";
+    if (!text) return;
+    store.ask(text.slice(0, 500));
+    if (input.current) input.current.value = "";
+  };
+  return (
+    <div id="gitling-panel" role="dialog" aria-modal="false" aria-labelledby="gitling-title">
+      <div class="panel-tools">
+        <button type="button" onClick={() => store.closeGitling()}>
+          Close · Esc
+        </button>
+      </div>
+      <h2 id="gitling-title">Gitling</h2>
+      <p class="muted ai-status">{aiSummary(gitling.ai)}</p>
+      {gitling.consent && (
+        <section class="consent" aria-labelledby="consent-title">
+          <h3 id="consent-title">Send this to the Anthropic API?</h3>
+          <p>{gitling.consent.sends}</p>
+          <p class="muted">
+            Your choice is remembered for this repository. You can turn API mode off with `cq ai mode off`.
+          </p>
+          <div class="actions">
+            <button type="button" onClick={() => store.consentAndRetry(true)}>
+              Allow for this repository
+            </button>
+            <button type="button" onClick={() => store.consentAndRetry(false)}>
+              Not now
+            </button>
+          </div>
+        </section>
+      )}
+      <ol class="gitling-log" ref={log} aria-live="polite">
+        {gitling.entries.map((entry) => (
+          <li key={entry.id} data-entry={entry.id}>
+            <p class="question">
+              <strong>You:</strong> {entry.question}
+            </p>
+            {entry.answers.map((a, i) => (
+              <div class="answer" key={i} data-level={a.level}>
+                <p>
+                  <strong>Gitling:</strong> {a.text}
+                </p>
+                {a.refs.length > 0 && (
+                  <ul class="citations" onKeyDown={listKeys}>
+                    {a.refs.map((r) => (
+                      <li key={`${r.path}:${r.startLine}`}>
+                        {r.symbolId && store.facts.npc(r.symbolId) ? (
+                          <button
+                            type="button"
+                            class="link-button"
+                            data-nav
+                            data-symbol={r.symbolId}
+                            onClick={() => r.symbolId && store.talk(r.symbolId)}
+                          >
+                            {r.name} · {r.path}:{r.startLine}–{r.endLine}
+                          </button>
+                        ) : (
+                          <span class="path">
+                            {r.path}:{r.startLine}–{r.endLine}
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <p class="answered-by">answered by: {LEVEL_NAMES[a.level] ?? a.level}</p>
+              </div>
+            ))}
+            {entry.pending && <p class="muted">Asking a better helper…</p>}
+            {entry.note && <p class="muted">{entry.note}</p>}
+          </li>
+        ))}
+      </ol>
+      <form class="ask" onSubmit={submit}>
+        <label for="gitling-question">Ask Gitling about the code</label>
+        <div>
+          <input id="gitling-question" ref={input} type="text" maxLength={500} autoComplete="off" />
+          <button type="submit">Ask</button>
+        </div>
+      </form>
+    </div>
+  );
+}
 function Overlay({ store }: { store: OverlayStore }) {
   useStore(store);
   return (
     <>
+      <GitlingPanel store={store} />
       <CodePanel store={store} />
       <Codex store={store} />
     </>

@@ -18,10 +18,14 @@ const COMMANDS = [
   ["generate <graph>", "Generate world/maps/previews --out <directory>"],
   ["world preview <json>", "Regenerate a world's SVG previews"],
   ["play <path>", "Walk and talk to your code [--no-open] [--port N] [--editor URL]"],
+  ["setup", "Register the MCP server + skill [--client X] [--dry-run] [--yes]"],
+  ["uninstall", "Remove only what setup added [--client X] [--dry-run]"],
+  ["mcp", "Run the MCP server (stdio) for your own agent"],
+  ["ai [status|mode …]", "AI settings: off (default), agent, ollama, api"],
 ] as const;
 
 /** Commands on the roadmap, shown so people know what's coming (never pretend they work). */
-const PLANNED = [["setup / mcp", "Connect your own AI agent through MCP", "Phase 06"]] as const;
+const PLANNED = [["validate", "Validate authored .codequest/ content files", "Phase 15"]] as const;
 
 export function helpText(): string {
   const pad = (s: string) => s.padEnd(20);

@@ -21,7 +21,8 @@
     "fixtures:pinned": "node scripts/fetch-pinned.ts",
     "labels:sync": "node scripts/sync-labels.ts",
     "license-check": "node scripts/license-check.ts",
-    "analyzer:smoke": "node scripts/analyzer-smoke.ts"
+    "analyzer:smoke": "node scripts/analyzer-smoke.ts",
+    "eval:content": "node scripts/eval-content.ts"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.14.0",

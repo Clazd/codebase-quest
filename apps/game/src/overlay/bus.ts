@@ -6,7 +6,7 @@ export type OverlayEvents = {
   "panel:navigate": { symbolId: string; mode: "walk" | "teleport" };
   "codex:open": { symbolId?: string };
   /** Any overlay opened or closed; while one is open, game input is paused. */
-  "overlay:changed": { open: boolean; kind: "code" | "codex" | null; symbolId?: string };
+  "overlay:changed": { open: boolean; kind: "code" | "codex" | "gitling" | null; symbolId?: string };
 };
 type Handler<T> = (payload: T) => void;
 

@@ -1,5 +1,6 @@
 import type { FactSheet } from "@codebase-quest/shared";
 import en from "../locales/en.json" with { type: "json" };
+import { suspiciousReasons } from "./validate.ts";
 
 /** Localized dialogue strings: rule ID → variants with `{placeholder}`s. */
 export type DialogueLocale = { dialogue: Record<string, string[]> };
@@ -21,7 +22,13 @@ const list = (names: string[]) =>
 
 /** Ordered by priority; the highest matching rule wins. Facts only, never guesses. */
 export const RULES: readonly DialogueRule[] = [
-  { id: "doc", priority: 100, when: (f) => Boolean(f.docSummary), vars: (f) => ({ doc: f.docSummary ?? "" }) },
+  {
+    id: "doc",
+    priority: 100,
+    // Doc comments are repository data: never quote one that reads like markup or an injected instruction.
+    when: (f) => Boolean(f.docSummary) && suspiciousReasons(f.docSummary ?? "").length === 0,
+    vars: (f) => ({ doc: f.docSummary ?? "" }),
+  },
   {
     id: "trainer",
     priority: 95,

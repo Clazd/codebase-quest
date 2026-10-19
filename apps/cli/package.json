@@ -13,9 +13,16 @@
   },
   "dependencies": {
     "@codebase-quest/analyzer": "workspace:*",
+    "@codebase-quest/content": "workspace:*",
     "@codebase-quest/shared": "workspace:*",
     "@codebase-quest/worldgen": "workspace:*",
+    "jsonc-parser": "3.3.1",
+    "smol-toml": "1.9.0",
     "vite": "8.3.4",
-    "@codebase-quest/content": "workspace:*"
+    "ws": "8.22.0",
+    "@codebase-quest/mcp": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/ws": "8.18.1"
   }
 }

@@ -1,3 +1,5 @@
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
@@ -14,5 +16,7 @@ export default defineConfig({
     // Builds the fixture repositories (idempotent) so every test can use them.
     globalSetup: ["scripts/fixtures/global-setup.ts"],
     testTimeout: 30_000,
+    // Tests never touch the user's real ~/.codequest (settings, sessions, setup state).
+    env: { CQ_HOME: join(tmpdir(), `cq-test-home-${process.pid}`) },
   },
 });

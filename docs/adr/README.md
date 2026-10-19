@@ -14,6 +14,7 @@ order, never renumbered. Superseded records stay, with a link to the new one.
 | [0006](0006-world-layout-and-export-contract.md) | Deterministic world layout and portable exports | Accepted |
 | [0007](0007-walkable-client-and-local-play.md) | Walkable client, accessible HUD and local play cache | Accepted |
 | [0008](0008-npcs-code-panel-and-codex.md) | NPCs, fact sheets, source endpoint, Code Panel and Codex | Accepted |
+| [0009](0009-content-engine-mcp-and-gitling.md) | Content engine, MCP server, setup, bridge and Gitling | Accepted |
 
 Template:
 

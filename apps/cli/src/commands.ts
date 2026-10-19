@@ -6,9 +6,47 @@ import { generate, writeWorld } from "@codebase-quest/worldgen";
 import { secretPath } from "../../../packages/analyzer/src/discover.ts";
 import { type CliResult, run } from "./cli.ts";
 
+/** Interactive yes/no on the terminal (stderr), so stdout stays clean for results. */
+async function confirm(question: string): Promise<boolean> {
+  if (!process.stdin.isTTY || !process.stderr.isTTY) return false;
+  const { createInterface } = await import("node:readline/promises");
+  const rl = createInterface({ input: process.stdin, output: process.stderr });
+  try {
+    return /^y(?:es)?$/i.test((await rl.question(question)).trim());
+  } finally {
+    rl.close();
+  }
+}
 export async function runCommand(argv: readonly string[]): Promise<CliResult> {
   const args = argv[0] === "--" ? argv.slice(1) : argv;
   const command = args[0];
+  if (command === "mcp") {
+    // stdout belongs to the MCP protocol: never print anything else there.
+    const { runStdio } = await import("../../mcp/src/index.ts");
+    await runStdio({ cwd: process.cwd() });
+    return { code: 0, stdout: "", stderr: "" };
+  }
+  if (command === "setup" || command === "uninstall" || command === "ai") {
+    try {
+      if (command === "ai") {
+        const { aiCommand } = await import("./ai.ts");
+        return await aiCommand(args, confirm);
+      }
+      const { setupCommand } = await import("./setup.ts");
+      return await setupCommand(args, {
+        interactive: Boolean(process.stdin.isTTY && process.stderr.isTTY),
+        confirm,
+        log: (text) => process.stderr.write(text),
+      });
+    } catch (error) {
+      return {
+        code: 1,
+        stdout: "",
+        stderr: `cq: ${error instanceof Error ? error.message : String(error)}
+`,
+      };
+    }
+  }
   if (command === "play") {
     try {
       const { playCommand } = await import("./play.ts");

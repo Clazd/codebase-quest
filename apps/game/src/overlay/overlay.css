@@ -396,3 +396,85 @@ textarea {
 #code-panel.compact .doc {
   display: none;
 }
+#gitling-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(380px, 44%);
+  min-width: 260px;
+  overflow: auto;
+  background: #132a2c;
+  border: 1px solid #7fd6c9;
+  border-radius: 8px;
+  padding: 12px 16px 16px;
+  box-sizing: border-box;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+#gitling-title {
+  margin: 4px 0 2px;
+  color: #9ff0dc;
+  font-family: Georgia, serif;
+}
+.gitling-log {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+  flex: 1;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+#gitling-panel .gitling-log p {
+  margin: 2px 0;
+}
+.answered-by,
+.source-tag {
+  font-size: 12px;
+  color: #b9c6c0;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.citations {
+  list-style: none;
+  margin: 2px 0;
+  padding: 0;
+}
+.consent {
+  border: 1px solid #cda65b;
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin: 8px 0;
+  background: #2a2618;
+}
+.ask label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.ask div {
+  display: flex;
+  gap: 6px;
+}
+.ask input {
+  flex: 1;
+  font: inherit;
+  color: #f4edda;
+  background: #0f1c24;
+  border: 1px solid #7b9995;
+  border-radius: 4px;
+  padding: 6px 8px;
+}
+.ask input:focus-visible {
+  outline: 3px solid #ffdc87;
+  outline-offset: 2px;
+}
+@media (max-width: 650px) {
+  #gitling-panel {
+    width: auto;
+    right: 0;
+    min-width: 0;
+  }
+}

@@ -1,5 +1,6 @@
 import type { WorldPosition } from "@codebase-quest/shared";
 import Phaser from "phaser";
+import { GameBridge } from "../gitling/bridge.ts";
 import type { VirtualKeys } from "../input/movement.ts";
 import { CodexStore, codexKey } from "../npc/codex.ts";
 import { createBadgeTextures, NpcEntity } from "../npc/entity.ts";
@@ -48,6 +49,8 @@ export class Explorer {
   guide: { symbolId: string } | null = null;
   /** Idle animation stops for players who prefer reduced motion. */
   animate = true;
+  /** The local bridge to `cq play` (focus, player state, Gitling questions); offline without a token. */
+  readonly bridge: GameBridge;
   constructor(loader: WorldLoader, virtualKeys: VirtualKeys, facts: FactIndex) {
     this.loader = loader;
     this.virtualKeys = virtualKeys;
@@ -67,7 +70,21 @@ export class Explorer {
       interact: () => this.interact(),
       zoom: (d) => this.changeZoom(d),
       codex: () => this.overlay.openCodex(),
+      gitling: () => this.openGitling(),
     });
+    this.bridge = new GameBridge({
+      focus: async (symbolId) => {
+        if (!this.facts.npc(symbolId)) return { ok: false, error: "No character for that symbol" };
+        if (this.hud.title) return { ok: false, error: "The player has not entered the kingdom yet" };
+        await this.teleportToNpc(symbolId, true);
+        return { ok: true };
+      },
+      playerState: () => this.playerState(),
+      answer: (m) => this.overlay.receiveAnswer(m.id, m.status, m.reply, m.sends),
+    });
+    this.overlay.onAsk = (id, question, consent) =>
+      this.bridge.send({ type: "gitlingQuestion", id, question, ...(consent ? { consent: true } : {}) });
+    this.bridge.connect();
     mountOverlay(this.overlay, required(document.querySelector("main")));
     this.bus.on("overlay:changed", ({ open }) => {
       this.hud.overlayOpen = open;
@@ -118,6 +135,11 @@ export class Explorer {
         return;
       }
       if (this.hud.blocked) return;
+      if (BINDINGS.gitling.includes(event.key as "g")) {
+        event.preventDefault();
+        if (!event.repeat) this.openGitling();
+        return;
+      }
       if (BINDINGS.codex.includes(event.key as "c")) {
         event.preventDefault();
         if (!event.repeat) {
@@ -235,6 +257,31 @@ export class Explorer {
     else if (target?.kind === "npc") this.talk(target.npc.sheet.symbolId);
     else this.message = "Walk closer to a character, blue gate or building door.";
   }
+  /** Opens the Gitling chat and refreshes which answer levels are available. */
+  openGitling() {
+    this.held.clear();
+    this.overlay.openGitling();
+    void fetch(new URL("ai.json", this.loader.url).href)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((ai) => this.overlay.setAi(ai))
+      .catch(() => this.overlay.setAi(null));
+  }
+  /** What `cq_player_state` reports. Quests and Kingdom Light arrive in Phase 08. */
+  playerState(): Record<string, unknown> {
+    const s = this.session;
+    return {
+      scene: this.active?.sys.settings.key ?? "Title",
+      breadcrumb: s.breadcrumb,
+      regionId: s.region?.id ?? null,
+      buildingId: s.building?.id ?? null,
+      tile: { mapId: s.position.mapId, x: s.position.x, y: s.position.y },
+      openPanel: this.overlay.kind,
+      panelSymbol: this.overlay.state.panel?.symbolId ?? null,
+      codex: { read: this.overlay.codex.count, characters: this.facts.characters.length },
+      quest: null,
+      kingdomLight: null,
+    };
+  }
   talk(symbolId: string) {
     if (this.guide?.symbolId === symbolId) this.guide = null;
     this.overlay.talk(symbolId);
@@ -322,6 +369,7 @@ export class MapScene extends Phaser.Scene {
   }
   private player!: Phaser.GameObjects.Sprite;
   private npcs: NpcEntity[] = [];
+  private gitling!: Phaser.GameObjects.Sprite;
   private arrow!: Phaser.GameObjects.Graphics;
   private pendingTalk: string | null = null;
   private fog!: Phaser.GameObjects.Graphics;
@@ -350,6 +398,14 @@ export class MapScene extends Phaser.Scene {
     this.fog = this.add.graphics().setDepth(4);
     this.markers = this.add.graphics().setDepth(5);
     this.arrow = this.add.graphics().setDepth(10);
+    // Gitling: a small glowing companion that follows the player; click it (or press G) to ask.
+    this.gitling = this.add
+      .sprite(this.player.x - 14, this.player.y - 6, TEXTURE, 108)
+      .setDepth(9)
+      .setScale(0.75)
+      .setTint(0x9ff0dc)
+      .setAlpha(0.95)
+      .setInteractive({ useHandCursor: true });
     this.pendingTalk = null;
     this.npcs = this.app.session.npcLayout(map.id).flatMap((spot) => {
       const sheet = this.app.facts.sheet(spot.symbolId);
@@ -366,6 +422,10 @@ export class MapScene extends Phaser.Scene {
     this.app.frames.length = 0;
     this.input.on("pointerdown", (pointer: Phaser.Input.Pointer, over: Phaser.GameObjects.GameObject[]) => {
       if (this.app.hud.blocked || this.app.loading) return;
+      if (over.includes(this.gitling)) {
+        this.app.openGitling();
+        return;
+      }
       const clicked = this.npcs.find((n) => over.includes(n.sprite));
       if (clicked) {
         // Click a character: talk when close, otherwise walk beside it first.
@@ -666,6 +726,15 @@ export class MapScene extends Phaser.Scene {
       }
     }
     this.updateNpcs(time, delta);
+    {
+      const side = this.player.flipX ? 14 : -14;
+      const bob = this.app.animate ? Math.sin(time / 300) * 2 : 0;
+      const k = Math.min(1, delta / 120);
+      this.gitling.setPosition(
+        this.gitling.x + (this.player.x + side - this.gitling.x) * k,
+        this.gitling.y + (this.player.y - 8 + bob - this.gitling.y) * k,
+      );
+    }
     this.updateChunks();
     if (time >= this.nextHud) {
       this.nextHud = time + 100;
