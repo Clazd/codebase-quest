@@ -8,6 +8,7 @@ export const BINDINGS = {
   run: ["Shift"],
   interact: ["e", "E", " ", "Enter"],
   map: ["m", "M"],
+  codex: ["c", "C"],
   debug: ["F3"],
   pause: ["Escape"],
 } as const;

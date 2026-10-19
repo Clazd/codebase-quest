@@ -23,6 +23,16 @@ export interface CqDebugApi {
   getFogSeenRatio(): number;
   getFrameStats(): { samples: number; averageMs: number; chunks: number };
   getCamera(): { scrollX: number; scrollY: number; zoom: number; width: number; height: number };
+  /** Talks to a character as if the player pressed E beside it (opens dialogue + Code Panel). */
+  interactWithNpc(symbolId: string): Promise<void>;
+  getOpenPanel(): { kind: "code" | "codex" | null; symbolId?: string };
+  getCodexCount(): number;
+  /** Teleports to stand beside a character at home, without talking. */
+  gotoNpc(symbolId: string): Promise<void>;
+  /** The active "Walk there" guide, if any. */
+  getGuide(): { symbolId: string; waypoint: { mapId: string; x: number; y: number } | null } | null;
+  /** Characters on the current map (pixel positions of their feet). */
+  getNpcs(): { symbolId: string; x: number; y: number; visible: boolean }[];
 }
 
 /** A scene that has a player the debug API can read and move. */
@@ -68,6 +78,16 @@ export function createDebugApi(game: SceneSource, virtualKeys: VirtualKeys): CqD
     getFogSeenRatio: () => 0,
     getFrameStats: () => ({ samples: 0, averageMs: 0, chunks: 0 }),
     getCamera: () => ({ scrollX: 0, scrollY: 0, zoom: 1, width: 320, height: 240 }),
+    interactWithNpc: async () => {
+      throw new Error("Load a world to talk to characters");
+    },
+    getOpenPanel: () => ({ kind: null }),
+    getCodexCount: () => 0,
+    gotoNpc: async () => {
+      throw new Error("Load a world to visit characters");
+    },
+    getGuide: () => null,
+    getNpcs: () => [],
     version: pkg.version,
     getScene() {
       const scenes = activeScenes();

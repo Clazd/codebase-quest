@@ -10,16 +10,19 @@ import {
   statSync,
   writeFileSync,
 } from "node:fs";
-import { createServer, type Server } from "node:http";
+import { createServer, type Server, type ServerResponse } from "node:http";
 import { tmpdir } from "node:os";
 import { dirname, extname, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import { analyze } from "@codebase-quest/analyzer";
-import { WorldModelSchema } from "@codebase-quest/shared";
+import { buildFactBook } from "@codebase-quest/content/facts";
+import { type FactBook, FactBookSchema, type FactLinks, WorldModelSchema } from "@codebase-quest/shared";
 import { generate, writeWorld } from "@codebase-quest/worldgen";
 import { discover, secretPath } from "../../../packages/analyzer/src/discover.ts";
+import { createSourceReader, sourceResponse } from "./source.ts";
 
-const CACHE_VERSION = "walkable-v2";
+const CACHE_VERSION = "npcs-v1";
+export const DEFAULT_EDITOR = "vscode://file/{path}:{line}";
 const gameRoot = fileURLToPath(new URL("../../game", import.meta.url));
 function safeParents(path: string) {
   for (let p = resolve(path); ; p = dirname(p)) {
@@ -54,28 +57,34 @@ export async function prepareWorld(repo: string, cacheRoot?: string) {
     const directory = join(base, commit, digest);
     safeParents(directory);
     const ready = join(directory, "ready.json"),
-      json = join(directory, "world.json");
-    if (existsSync(ready) && existsSync(json)) {
+      json = join(directory, "world.json"),
+      factsJson = join(directory, "facts.json");
+    if (existsSync(ready) && existsSync(json) && existsSync(factsJson)) {
       safeParents(ready);
       safeParents(json);
+      safeParents(factsJson);
       try {
         const world = WorldModelSchema.parse(JSON.parse(readFileSync(json, "utf8")));
+        const facts = FactBookSchema.parse(JSON.parse(readFileSync(factsJson, "utf8")));
         if (
           world.maps.every((m) => existsSync(join(directory, m.path))) &&
           existsSync(join(directory, world.theme.image))
         )
-          return { world, directory, cached: true, ms: performance.now() - started };
+          return { world, facts, root, directory, cached: true, ms: performance.now() - started };
       } catch {}
     }
   }
   let world: ReturnType<typeof generate> | undefined;
+  let facts: FactBook | undefined;
   for (const base of bases) {
     const directory = join(base, commit, digest);
     safeParents(directory);
     try {
       mkdirSync(directory, { recursive: true });
-      if (!world) {
-        world = generate(await analyze(root));
+      if (!world || !facts) {
+        const graph = await analyze(root);
+        world = generate(graph);
+        facts = buildFactBook(graph, world);
         const manifest = discovery.files.find((f) => f.path === "package.json");
         let name = world.kingdom.name;
         if (manifest) {
@@ -87,8 +96,9 @@ export async function prepareWorld(repo: string, cacheRoot?: string) {
         world.kingdom.name = `Kingdom of ${name.charAt(0).toUpperCase()}${name.slice(1)}`;
       }
       writeWorld(world, directory);
+      writeFileSync(join(directory, "facts.json"), `${JSON.stringify(facts)}\n`);
       writeFileSync(join(directory, "ready.json"), JSON.stringify({ version: CACHE_VERSION }));
-      return { world, directory, cached: false, ms: performance.now() - started };
+      return { world, facts, root, directory, cached: false, ms: performance.now() - started };
     } catch (error) {
       if (cacheRoot || !["EACCES", "EPERM", "EROFS"].includes((error as NodeJS.ErrnoException).code ?? "")) throw error;
     }
@@ -103,13 +113,49 @@ const MIME: Record<string, string> = {
   ".png": "image/png",
   ".svg": "image/svg+xml",
 };
+/** `https://github.com/owner/repo` from the origin remote, without credentials; null otherwise. */
+export function githubBase(remote: string): string | null {
+  const match =
+    /^(?:git@github\.com:|ssh:\/\/git@github\.com\/|https:\/\/(?:[^@/]+@)?github\.com\/)([\w.-]+)\/([\w.-]+?)(?:\.git)?\/?$/.exec(
+      remote.trim(),
+    );
+  return match ? `https://github.com/${match[1]}/${match[2]}` : null;
+}
+/** Editor and GitHub links for local play. They are served live, never cached or committed. */
+export function localLinks(root: string, editor = DEFAULT_EDITOR): FactLinks {
+  if (!/^[a-z][a-z0-9+.-]*:/i.test(editor) || /^(?:javascript|data|vbscript|blob|file|https?):/i.test(editor))
+    throw new Error("--editor must be an editor URL such as vscode://file/{path}:{line}");
+  let github: string | null = null;
+  try {
+    github = githubBase(
+      execFileSync("git", ["-C", root, "remote", "get-url", "origin"], {
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "ignore"],
+      }),
+    );
+  } catch {}
+  return { root: root.replaceAll("\\", "/"), github, editor };
+}
+type Local = { repoRoot: string; facts: FactBook; links: FactLinks };
 export async function serveWorld(
   directory: string,
   gameDirectory: string,
   port = 0,
+  local?: Local,
 ): Promise<{ server: Server; url: string }> {
   const worldRoot = realpathSync(directory),
     game = realpathSync(gameDirectory);
+  const readSource = local ? createSourceReader(local.repoRoot, local.facts.files) : undefined;
+  const factsBody = local ? Buffer.from(JSON.stringify({ ...local.facts, links: local.links })) : undefined;
+  const json = (res: ServerResponse, status: number, body: Buffer, head: boolean) => {
+    res.writeHead(status, {
+      "Content-Type": MIME[".json"],
+      "Content-Length": body.length,
+      "X-Content-Type-Options": "nosniff",
+      "Cache-Control": "no-store",
+    });
+    res.end(head ? undefined : body);
+  };
   const server = createServer((req, res) => {
     const address = server.address();
     const bound = typeof address === "object" && address ? address.port : 0;
@@ -126,7 +172,18 @@ export async function serveWorld(
       return;
     }
     try {
-      const path = decodeURIComponent((req.url ?? "/").split("?")[0] ?? "/");
+      const [rawPath = "/", search = ""] = (req.url ?? "/").split("?");
+      const head = req.method === "HEAD";
+      if (factsBody && rawPath === "/world/facts.json") {
+        json(res, 200, factsBody, head);
+        return;
+      }
+      if (readSource && rawPath.startsWith("/world/source/")) {
+        const result = sourceResponse(readSource, rawPath.slice("/world/source/".length), search);
+        json(res, result.status, Buffer.from(JSON.stringify(result.body)), head);
+        return;
+      }
+      const path = decodeURIComponent(rawPath);
       if (path.includes("\\") || path.includes("\0") || path.split("/").some((p) => p === "..") || secretPath(path)) {
         res.writeHead(403).end();
         return;
@@ -153,7 +210,7 @@ export async function serveWorld(
         "X-Content-Type-Options": "nosniff",
         "Cache-Control": "no-store",
       });
-      res.end(req.method === "HEAD" ? undefined : body);
+      res.end(head ? undefined : body);
     } catch {
       res.writeHead(404).end("Not found");
     }
@@ -173,8 +230,9 @@ function newest(path: string): number {
 }
 export async function startPlay(
   repo: string,
-  options: { port?: number; open?: boolean; gameDirectory?: string; cacheRoot?: string } = {},
+  options: { port?: number; open?: boolean; gameDirectory?: string; cacheRoot?: string; editor?: string } = {},
 ) {
+  const links = localLinks(resolve(repo), options.editor);
   const prepared = await prepareWorld(repo, options.cacheRoot);
   const gameDirectory = options.gameDirectory ?? join(gameRoot, "dist");
   if (
@@ -186,7 +244,11 @@ export async function startPlay(
     const { build } = await import("vite");
     await build({ root: gameRoot, configFile: join(gameRoot, "vite.config.ts"), mode: "production", logLevel: "warn" });
   }
-  const served = await serveWorld(prepared.directory, gameDirectory, options.port);
+  const served = await serveWorld(prepared.directory, gameDirectory, options.port, {
+    repoRoot: prepared.root,
+    facts: prepared.facts,
+    links: prepared.facts.repo.commit ? links : { ...links, github: null },
+  });
   if (options.open !== false) {
     const args =
       process.platform === "win32"
@@ -202,18 +264,23 @@ export async function startPlay(
 }
 export async function playCommand(args: readonly string[]) {
   const repo = args[1];
-  if (!repo || repo.startsWith("--")) throw new Error("Usage: cq play <repo> [--no-open] [--port N]");
+  if (!repo || repo.startsWith("--"))
+    throw new Error("Usage: cq play <repo> [--no-open] [--port N] [--editor vscode://file/{path}:{line}]");
   let open = true,
-    port = 0;
+    port = 0,
+    editor: string | undefined;
   for (let i = 2; i < args.length; i++) {
     if (args[i] === "--no-open") open = false;
     else if (args[i] === "--port") {
       const value = args[++i];
       port = Number(value);
       if (!value || !Number.isInteger(port) || port < 0 || port > 65535) throw new Error("Invalid --port");
+    } else if (args[i] === "--editor") {
+      editor = args[++i];
+      if (!editor) throw new Error("Missing value for --editor");
     } else throw new Error(`Unknown play option: ${args[i]}`);
   }
-  const result = await startPlay(repo, { open, port }),
+  const result = await startPlay(repo, { open, port, editor }),
     w = result.world;
   const stop = () => {
     result.server.close();

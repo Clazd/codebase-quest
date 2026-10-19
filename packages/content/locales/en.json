@@ -1,0 +1,73 @@
+{
+  "dialogue": {
+    "doc": ["My notes say: “{doc}”", "It's written right above my door: “{doc}”", "In my own words: “{doc}”"],
+    "trainer": [
+      "I'm a trainer. I check that {targets} keeps its promises.",
+      "Every run, I put {targets} through its paces.",
+      "My job is testing {targets}. No shortcuts."
+    ],
+    "recursive": [
+      "To understand me, you must first understand me.",
+      "I solve my problem by asking… myself. Again and again.",
+      "I call on myself. Don't worry, I know when to stop."
+    ],
+    "deprecated": [
+      "They marked me deprecated. I'm fading, but some still rely on me.",
+      "I'm on my way out. Ask someone newer if you can."
+    ],
+    "busy": [
+      "Everyone visits me. {fanIn} others depend on my work!",
+      "{fanIn} callers knock on my door. Change me carefully.",
+      "I'm popular around here: {fanIn} others call on me."
+    ],
+    "lonely": [
+      "Nobody has called on me in a long time… am I still needed?",
+      "No one in this kingdom calls me. Maybe I'm a leftover?",
+      "I'm not exported and nobody calls me. It's quiet here."
+    ],
+    "complex": [
+      "My job has a lot of twists and turns. {cyclomatic}, to be exact.",
+      "Mind the branches: I make {cyclomatic} decisions on a busy day.",
+      "I'm complicated. Complexity {cyclomatic}, they say."
+    ],
+    "constructor": ["I build new {owner} objects, piece by piece.", "Every {owner} starts its life with me."],
+    "handler": [
+      "I listen for events and spring into action when one arrives.",
+      "When something happens, I'm the one who reacts."
+    ],
+    "async": [
+      "I'm always running errands. Don't wait for me — I'll get back to you!",
+      "I work asynchronously: you get a promise, the result comes later.",
+      "Off I go! I'll return with an answer once the work is done."
+    ],
+    "io": [
+      "I talk to the outside world: {ioKinds}.",
+      "My work reaches outside the code, through {ioKinds}.",
+      "I rely on {ioKinds} to talk to the outside world."
+    ],
+    "ioDirect": [
+      "I talk to the outside world directly.",
+      "I reach outside this program myself: files, networks or databases."
+    ],
+    "pure": [
+      "Same input, same answer. I keep my hands clean.",
+      "I don't touch the outside world. Just inputs in, results out."
+    ],
+    "tested": [
+      "The trainers check my work in {testFile}.",
+      "{testFile} keeps an eye on me. I like the attention.",
+      "I'm tested in {testFile}, so you can change me with some confidence."
+    ],
+    "untested": [
+      "No one has ever tested me. I'm a little nervous.",
+      "I've never been tested. Be gentle if you change me.",
+      "No tests watch over me yet."
+    ],
+    "classHead": ["I lead the {short} guild. My members share our colors.", "Welcome to the {short} household."],
+    "typeShape": [
+      "I'm a shape, not a worker: I describe what {short} data looks like.",
+      "I don't do anything myself. I tell others what a {short} looks like."
+    ],
+    "greeting": ["Hello! I'm {name}. I live in {file}.", "Greetings, traveler. I'm {name}, from {file}."]
+  }
+}

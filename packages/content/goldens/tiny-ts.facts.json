@@ -1,0 +1,3620 @@
+{
+ "schemaVersion": 1,
+ "repo": {
+  "name": "tiny-ts",
+  "commit": "f55edb5a4b65d9e603e5dc558c6dc2611d250921"
+ },
+ "files": [
+  {
+   "id": "0095b378c381",
+   "path": "src/services/shareService.ts",
+   "language": "typescript",
+   "hash": "ef1ec079a8d8cad3d6d9b6448a1283091cb090ff",
+   "loc": 28
+  },
+  {
+   "id": "04d697e1cd2c",
+   "path": "src/utils/dates.ts",
+   "language": "typescript",
+   "hash": "4d4f574701d7066c8bab5df6e7f8e2997f77303c",
+   "loc": 15
+  },
+  {
+   "id": "0a27f1880fab",
+   "path": "src/api/routes.ts",
+   "language": "typescript",
+   "hash": "5de3bd874dd752e171a65920831bd95cb1cb3a7a",
+   "loc": 16
+  },
+  {
+   "id": "14045faa7bfb",
+   "path": "package.json",
+   "language": null,
+   "hash": "aa368cce5b8cd24c36d11728201bffd92c007162",
+   "loc": 22
+  },
+  {
+   "id": "1c5fd3409021",
+   "path": "src/utils/slugify.ts",
+   "language": "typescript",
+   "hash": "f74a1703c27e4c945b4253344dc3c92704bb317a",
+   "loc": 15
+  },
+  {
+   "id": "537e1daac09d",
+   "path": "tests/slugify.test.ts",
+   "language": "typescript",
+   "hash": "cf576c29685a38582461b07e380460f5daeba56a",
+   "loc": 17
+  },
+  {
+   "id": "59a4dabe0f0e",
+   "path": "src/db/client.ts",
+   "language": "typescript",
+   "hash": "28678955091222ef82f7228f8d4e0d531aeb334c",
+   "loc": 51
+  },
+  {
+   "id": "7fee92472ca7",
+   "path": "tsconfig.json",
+   "language": null,
+   "hash": "ad1a2f7531fb809affc570c0ca12face0144adb0",
+   "loc": 12
+  },
+  {
+   "id": "81aa2e9de4d6",
+   "path": "src/index.ts",
+   "language": "typescript",
+   "hash": "6d4b074a3cf237cbf34b7b6ac404d181a3d574f0",
+   "loc": 17
+  },
+  {
+   "id": "8632d4a2fda2",
+   "path": "tests/dates.test.ts",
+   "language": "typescript",
+   "hash": "8a8baa137001b046a790d4d46b261fc93d9c6840",
+   "loc": 13
+  },
+  {
+   "id": "875191b4963c",
+   "path": "tests/taskService.test.ts",
+   "language": "typescript",
+   "hash": "152600b67a0841b8ab17b2cf931236e2707cc69e",
+   "loc": 20
+  },
+  {
+   "id": "8ec364bef2e9",
+   "path": "src/types.ts",
+   "language": "typescript",
+   "hash": "4c9885938f7f7db2183e7f563305c867a7a4589f",
+   "loc": 23
+  },
+  {
+   "id": "93e6e163851f",
+   "path": "src/db/tasks.ts",
+   "language": "typescript",
+   "hash": "dd9632f6a9fdc3686974a02f0dd5cfd8543cf0c1",
+   "loc": 41
+  },
+  {
+   "id": "b088a7e64ad5",
+   "path": "src/services/taskService.ts",
+   "language": "typescript",
+   "hash": "b18d7180f4a93746b94d05dade6a8758ac340545",
+   "loc": 48
+  },
+  {
+   "id": "bbc7a56b0b2e",
+   "path": ".gitignore",
+   "language": null,
+   "hash": "6ee19267b88c803923912f0f1899b78810576de8",
+   "loc": 2
+  },
+  {
+   "id": "c815f8c11564",
+   "path": "src/api/handlers.ts",
+   "language": "typescript",
+   "hash": "1c5d385ed0c6ffcb71348ef952d05617ec568dae",
+   "loc": 71
+  },
+  {
+   "id": "d612980f69c7",
+   "path": "src/db/teams.ts",
+   "language": "typescript",
+   "hash": "f03faf2e679befb98973c6829e6ca8115665fba0",
+   "loc": 11
+  },
+  {
+   "id": "fc202ab48d3e",
+   "path": "README.md",
+   "language": null,
+   "hash": "7f2b0224cb15970d0c3a84d0bfc0eefebe282bc0",
+   "loc": 33
+  }
+ ],
+ "symbols": [
+  {
+   "symbolId": "03dd08ec9b93",
+   "npcId": "9bf4b1741a06",
+   "name": "PermissionError",
+   "qualifiedName": "PermissionError",
+   "displayName": "class PermissionError",
+   "kind": "class",
+   "language": "typescript",
+   "fileId": "0095b378c381",
+   "path": "src/services/shareService.ts",
+   "regionId": "752c434d4b17",
+   "buildingId": "3cd2275a08f6",
+   "group": {
+    "kind": "class",
+    "key": "03dd08ec9b93",
+    "label": "PermissionError"
+   },
+   "range": {
+    "startLine": 6,
+    "endLine": 6
+   },
+   "signature": "class PermissionError",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 1,
+    "cyclomatic": 0,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 1,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "f4046ea787de",
+     "name": "checkPermissions",
+     "path": "src/services/shareService.ts",
+     "line": 16,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "0771bfc945b7",
+   "npcId": "2074cc52d48c",
+   "name": "update",
+   "qualifiedName": "update",
+   "displayName": "update()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "59a4dabe0f0e",
+   "path": "src/db/client.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "f4948b6f177c",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 28,
+    "endLine": 32
+   },
+   "signature": "function update(name: string, id: string, patch: Partial<T>): T | undefined",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 5,
+    "cyclomatic": 2,
+    "maxNesting": 1,
+    "params": 3,
+    "fanIn": 2,
+    "fanOut": 1,
+    "dynamicCalls": 2
+   },
+   "callers": [
+    {
+     "symbolId": "db84e3bf41ff",
+     "name": "archiveCompleted",
+     "path": "src/db/tasks.ts",
+     "line": 32,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "8d335ebb80fc",
+     "name": "patchTask",
+     "path": "src/db/tasks.ts",
+     "line": 17,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "75bd400ce1ce",
+     "name": "table",
+     "path": "src/db/client.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "0a1af7c96082",
+   "npcId": "0c10795ea5fb",
+   "name": "describe@4",
+   "qualifiedName": "describe@4",
+   "displayName": "describe@4()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "537e1daac09d",
+   "path": "tests/slugify.test.ts",
+   "regionId": "18ec850f3635",
+   "buildingId": "f96d3fd442fe",
+   "group": {
+    "kind": "module",
+    "key": "9c86cdcdb8a6",
+    "label": "tests"
+   },
+   "range": {
+    "startLine": 4,
+    "endLine": 17
+   },
+   "signature": "function describe@4()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "pure-candidate",
+    "test"
+   ],
+   "metrics": {
+    "loc": 14,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "0d15d24de47f",
+   "npcId": "ae98ee8038ce",
+   "name": "it@13",
+   "qualifiedName": "describe@4.it@13",
+   "displayName": "it@13()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "537e1daac09d",
+   "path": "tests/slugify.test.ts",
+   "regionId": "18ec850f3635",
+   "buildingId": "f96d3fd442fe",
+   "group": {
+    "kind": "module",
+    "key": "9c86cdcdb8a6",
+    "label": "tests"
+   },
+   "range": {
+    "startLine": 13,
+    "endLine": 16
+   },
+   "signature": "function it@13()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "test"
+   ],
+   "metrics": {
+    "loc": 4,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 1,
+    "dynamicCalls": 2
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "e2baed704c25",
+     "name": "slugify",
+     "path": "src/utils/slugify.ts",
+     "line": 2,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [
+    {
+     "symbolId": "e2baed704c25",
+     "name": "slugify",
+     "path": "src/utils/slugify.ts",
+     "line": 2,
+     "confidence": "exact"
+    }
+   ],
+   "ioVia": []
+  },
+  {
+   "symbolId": "0d16c50f3ee4",
+   "npcId": "16f3d03db3f5",
+   "name": "completeTask",
+   "qualifiedName": "completeTask",
+   "displayName": "completeTask()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "b088a7e64ad5",
+   "path": "src/services/taskService.ts",
+   "regionId": "752c434d4b17",
+   "buildingId": "b7ce7c134a58",
+   "group": {
+    "kind": "module",
+    "key": "6c914d6cd627",
+    "label": "src/services"
+   },
+   "range": {
+    "startLine": 41,
+    "endLine": 43
+   },
+   "signature": "function completeTask(id: string, at: number): Task | undefined",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported",
+    "pure-candidate"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 2,
+    "fanIn": 1,
+    "fanOut": 1,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "ed53d8601b58",
+     "name": "completeTaskHandler",
+     "path": "src/api/handlers.ts",
+     "line": 56,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "8d335ebb80fc",
+     "name": "patchTask",
+     "path": "src/db/tasks.ts",
+     "line": 16,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": [
+    "patchTask"
+   ]
+  },
+  {
+   "symbolId": "0d5bc4c4070c",
+   "npcId": "91606f40a3a5",
+   "name": "it@13",
+   "qualifiedName": "describe@4.it@13",
+   "displayName": "it@13()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "875191b4963c",
+   "path": "tests/taskService.test.ts",
+   "regionId": "18ec850f3635",
+   "buildingId": "18253e35d10d",
+   "group": {
+    "kind": "module",
+    "key": "9c86cdcdb8a6",
+    "label": "tests"
+   },
+   "range": {
+    "startLine": 13,
+    "endLine": 15
+   },
+   "signature": "function it@13()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "test"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 1,
+    "dynamicCalls": 1
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "dad6c4c4107e",
+     "name": "computeTaskStatus",
+     "path": "src/services/taskService.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [
+    {
+     "symbolId": "dad6c4c4107e",
+     "name": "computeTaskStatus",
+     "path": "src/services/taskService.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "ioVia": []
+  },
+  {
+   "symbolId": "0f02ac705a33",
+   "npcId": "8ee7da96fdf4",
+   "name": "isArchivable",
+   "qualifiedName": "isArchivable",
+   "displayName": "isArchivable()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "93e6e163851f",
+   "path": "src/db/tasks.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "6e69c5d0e73f",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 20,
+    "endLine": 22
+   },
+   "signature": "function isArchivable(task: Task, before: number): boolean",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "pure-candidate"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 2,
+    "maxNesting": 0,
+    "params": 2,
+    "fanIn": 1,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "db84e3bf41ff",
+     "name": "archiveCompleted",
+     "path": "src/db/tasks.ts",
+     "line": 31,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "131be4932e38",
+   "npcId": "c36af5907e69",
+   "name": "it@5",
+   "qualifiedName": "describe@4.it@5",
+   "displayName": "it@5()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "8632d4a2fda2",
+   "path": "tests/dates.test.ts",
+   "regionId": "18ec850f3635",
+   "buildingId": "ceefd8ef2b19",
+   "group": {
+    "kind": "module",
+    "key": "9c86cdcdb8a6",
+    "label": "tests"
+   },
+   "range": {
+    "startLine": 5,
+    "endLine": 8
+   },
+   "signature": "function it@5()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "test"
+   ],
+   "metrics": {
+    "loc": 4,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 1,
+    "dynamicCalls": 2
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "639c9568a8ee",
+     "name": "formatDate",
+     "path": "src/utils/dates.ts",
+     "line": 4,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [
+    {
+     "symbolId": "639c9568a8ee",
+     "name": "formatDate",
+     "path": "src/utils/dates.ts",
+     "line": 4,
+     "confidence": "exact"
+    }
+   ],
+   "ioVia": []
+  },
+  {
+   "symbolId": "20702b58d324",
+   "npcId": "26b8deedc90c",
+   "name": "registerRoutes",
+   "qualifiedName": "registerRoutes",
+   "displayName": "registerRoutes()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "0a27f1880fab",
+   "path": "src/api/routes.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "8511629e1609",
+   "group": {
+    "kind": "module",
+    "key": "fdca6e8e1095",
+    "label": "src/api"
+   },
+   "range": {
+    "startLine": 10,
+    "endLine": 16
+   },
+   "signature": "function registerRoutes(app: Express): void",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 7,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 1,
+    "fanIn": 1,
+    "fanOut": 0,
+    "dynamicCalls": 5
+   },
+   "callers": [
+    {
+     "symbolId": "527d1dd9aa54",
+     "name": "createApp",
+     "path": "src/index.ts",
+     "line": 9,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "22a63996759c",
+   "npcId": "7fa72ca775f0",
+   "name": "present",
+   "qualifiedName": "present",
+   "displayName": "present()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "c815f8c11564",
+   "path": "src/api/handlers.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "407ea283820e",
+   "group": {
+    "kind": "module",
+    "key": "fdca6e8e1095",
+    "label": "src/api"
+   },
+   "range": {
+    "startLine": 16,
+    "endLine": 25
+   },
+   "signature": "function present(task: Task)",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "pure-candidate"
+   ],
+   "metrics": {
+    "loc": 10,
+    "cyclomatic": 2,
+    "maxNesting": 0,
+    "params": 1,
+    "fanIn": 4,
+    "fanOut": 2,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "ed53d8601b58",
+     "name": "completeTaskHandler",
+     "path": "src/api/handlers.ts",
+     "line": 61,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "a8b28e09a2c7",
+     "name": "createTaskHandler",
+     "path": "src/api/handlers.ts",
+     "line": 52,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "b1773202662f",
+     "name": "getTaskHandler",
+     "path": "src/api/handlers.ts",
+     "line": 42,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "bd1a5e5bd673",
+     "name": "shareTaskHandler",
+     "path": "src/api/handlers.ts",
+     "line": 67,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "dad6c4c4107e",
+     "name": "computeTaskStatus",
+     "path": "src/services/taskService.ts",
+     "line": 6,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "fe848568b293",
+     "name": "formatDate",
+     "path": "src/api/handlers.ts",
+     "line": 7,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "2da9d0741dc9",
+   "npcId": "6a3501f5b778",
+   "name": "loadTeam",
+   "qualifiedName": "loadTeam",
+   "displayName": "loadTeam()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "d612980f69c7",
+   "path": "src/db/teams.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "fdda20686326",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 7,
+    "endLine": 11
+   },
+   "signature": "function loadTeam(teamId: string): Team",
+   "doc": "Loads a team by id. Throws if it doesn't exist.",
+   "docSummary": "Loads a team by id.",
+   "exported": true,
+   "async": false,
+   "traits": [
+    "does-io",
+    "exported"
+   ],
+   "metrics": {
+    "loc": 5,
+    "cyclomatic": 2,
+    "maxNesting": 1,
+    "params": 1,
+    "fanIn": 1,
+    "fanOut": 2,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "f4046ea787de",
+     "name": "checkPermissions",
+     "path": "src/services/shareService.ts",
+     "line": 14,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "e1aa58a89588",
+     "name": "TeamNotFoundError",
+     "path": "src/db/teams.ts",
+     "line": 4,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "5bd816ff5cd4",
+     "name": "query",
+     "path": "src/db/client.ts",
+     "line": 16,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "3110d0d14758",
+   "npcId": "f6c291a72494",
+   "name": "listTasksForUser",
+   "qualifiedName": "listTasksForUser",
+   "displayName": "listTasksForUser()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "b088a7e64ad5",
+   "path": "src/services/taskService.ts",
+   "regionId": "752c434d4b17",
+   "buildingId": "b7ce7c134a58",
+   "group": {
+    "kind": "module",
+    "key": "6c914d6cd627",
+    "label": "src/services"
+   },
+   "range": {
+    "startLine": 46,
+    "endLine": 48
+   },
+   "signature": "function listTasksForUser(userId: string): Task[]",
+   "doc": "Tasks the user owns or that were shared with them, without archived ones.",
+   "docSummary": "Tasks the user owns or that were shared with them, without archived ones.",
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 3,
+    "maxNesting": 0,
+    "params": 1,
+    "fanIn": 1,
+    "fanOut": 2,
+    "dynamicCalls": 1
+   },
+   "callers": [
+    {
+     "symbolId": "d473462fbfc6",
+     "name": "listTasksHandler",
+     "path": "src/api/handlers.ts",
+     "line": 33,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "98e4ca7659b8",
+     "name": "allTasks",
+     "path": "src/db/tasks.ts",
+     "line": 8,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "873b8efbde95",
+     "name": "isSharedWith",
+     "path": "src/services/shareService.ts",
+     "line": 8,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": [
+    "allTasks"
+   ]
+  },
+  {
+   "symbolId": "3819146f4035",
+   "npcId": "f132da20c48d",
+   "name": "currentUser",
+   "qualifiedName": "currentUser",
+   "displayName": "currentUser()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "c815f8c11564",
+   "path": "src/api/handlers.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "407ea283820e",
+   "group": {
+    "kind": "module",
+    "key": "fdca6e8e1095",
+    "label": "src/api"
+   },
+   "range": {
+    "startLine": 27,
+    "endLine": 29
+   },
+   "signature": "function currentUser(req: Request): string",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 1,
+    "fanIn": 3,
+    "fanOut": 0,
+    "dynamicCalls": 1
+   },
+   "callers": [
+    {
+     "symbolId": "a8b28e09a2c7",
+     "name": "createTaskHandler",
+     "path": "src/api/handlers.ts",
+     "line": 51,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "d473462fbfc6",
+     "name": "listTasksHandler",
+     "path": "src/api/handlers.ts",
+     "line": 33,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "bd1a5e5bd673",
+     "name": "shareTaskHandler",
+     "path": "src/api/handlers.ts",
+     "line": 66,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "4f931614a4d0",
+   "npcId": "f8782242f9df",
+   "name": "loadSnapshot",
+   "qualifiedName": "loadSnapshot",
+   "displayName": "loadSnapshot()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "59a4dabe0f0e",
+   "path": "src/db/client.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "f4948b6f177c",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 45,
+    "endLine": 51
+   },
+   "signature": "function loadSnapshot(json: string): void",
+   "doc": "Loads tables from a JSON snapshot. A broken snapshot leaves the store as it was.",
+   "docSummary": "Loads tables from a JSON snapshot.",
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 7,
+    "cyclomatic": 3,
+    "maxNesting": 2,
+    "params": 1,
+    "fanIn": 1,
+    "fanOut": 0,
+    "dynamicCalls": 3
+   },
+   "callers": [
+    {
+     "symbolId": "e81922d7fcdc",
+     "name": "start",
+     "path": "src/index.ts",
+     "line": 15,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "4fe50c7b0530",
+   "npcId": "b6a3dc6f8f83",
+   "name": "findTask",
+   "qualifiedName": "findTask",
+   "displayName": "findTask()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "93e6e163851f",
+   "path": "src/db/tasks.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "6e69c5d0e73f",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 4,
+    "endLine": 6
+   },
+   "signature": "function findTask(id: string): Task | undefined",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "does-io",
+    "exported"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 1,
+    "fanIn": 1,
+    "fanOut": 1,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "5b59b569deed",
+     "name": "getTask",
+     "path": "src/services/taskService.ts",
+     "line": 38,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "5bd816ff5cd4",
+     "name": "query",
+     "path": "src/db/client.ts",
+     "line": 16,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "527d1dd9aa54",
+   "npcId": "8811fff6ba37",
+   "name": "createApp",
+   "qualifiedName": "createApp",
+   "displayName": "createApp()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "81aa2e9de4d6",
+   "path": "src/index.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "f4cfd8b33036",
+   "group": {
+    "kind": "module",
+    "key": "b9d099c108d1",
+    "label": "src"
+   },
+   "range": {
+    "startLine": 6,
+    "endLine": 11
+   },
+   "signature": "function createApp()",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 6,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 1,
+    "fanOut": 1,
+    "dynamicCalls": 2
+   },
+   "callers": [
+    {
+     "symbolId": "e81922d7fcdc",
+     "name": "start",
+     "path": "src/index.ts",
+     "line": 16,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "20702b58d324",
+     "name": "registerRoutes",
+     "path": "src/api/routes.ts",
+     "line": 10,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "538bdf96c40e",
+   "npcId": "017e51b3b9bc",
+   "name": "Completion",
+   "qualifiedName": "Completion",
+   "displayName": "type Completion",
+   "kind": "type",
+   "language": "typescript",
+   "fileId": "8ec364bef2e9",
+   "path": "src/types.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "81a67e619d83",
+   "group": {
+    "kind": "module",
+    "key": "b9d099c108d1",
+    "label": "src"
+   },
+   "range": {
+    "startLine": 4,
+    "endLine": 4
+   },
+   "signature": "type Completion",
+   "doc": "Either still open, or done at a known time (milliseconds since the epoch).",
+   "docSummary": "Either still open, or done at a known time (milliseconds since the epoch).",
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 1,
+    "cyclomatic": 0,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "5b59b569deed",
+   "npcId": "7904b89aeb04",
+   "name": "getTask",
+   "qualifiedName": "getTask",
+   "displayName": "getTask()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "b088a7e64ad5",
+   "path": "src/services/taskService.ts",
+   "regionId": "752c434d4b17",
+   "buildingId": "b7ce7c134a58",
+   "group": {
+    "kind": "module",
+    "key": "6c914d6cd627",
+    "label": "src/services"
+   },
+   "range": {
+    "startLine": 37,
+    "endLine": 39
+   },
+   "signature": "function getTask(id: string): Task | undefined",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported",
+    "pure-candidate"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 1,
+    "fanIn": 2,
+    "fanOut": 1,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "b1773202662f",
+     "name": "getTaskHandler",
+     "path": "src/api/handlers.ts",
+     "line": 37,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "f3939c050186",
+     "name": "shareTask",
+     "path": "src/services/shareService.ts",
+     "line": 22,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "4fe50c7b0530",
+     "name": "findTask",
+     "path": "src/db/tasks.ts",
+     "line": 4,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": [
+    "findTask"
+   ]
+  },
+  {
+   "symbolId": "5bd816ff5cd4",
+   "npcId": "bb8ef37bb994",
+   "name": "query",
+   "qualifiedName": "query",
+   "displayName": "query()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "59a4dabe0f0e",
+   "path": "src/db/client.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "f4948b6f177c",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 16,
+    "endLine": 21
+   },
+   "signature": "function query(name: string, where: Partial<T>): T[]",
+   "doc": "Returns every row of `name` whose fields equal all fields of `where`.",
+   "docSummary": "Returns every row of `name` whose fields equal all fields of `where`.",
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 6,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 2,
+    "fanIn": 4,
+    "fanOut": 1,
+    "dynamicCalls": 3
+   },
+   "callers": [
+    {
+     "symbolId": "98e4ca7659b8",
+     "name": "allTasks",
+     "path": "src/db/tasks.ts",
+     "line": 9,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "db84e3bf41ff",
+     "name": "archiveCompleted",
+     "path": "src/db/tasks.ts",
+     "line": 30,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "4fe50c7b0530",
+     "name": "findTask",
+     "path": "src/db/tasks.ts",
+     "line": 5,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "2da9d0741dc9",
+     "name": "loadTeam",
+     "path": "src/db/teams.ts",
+     "line": 8,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "75bd400ce1ce",
+     "name": "table",
+     "path": "src/db/client.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "5d650622ab1d",
+   "npcId": "c935f4d6df84",
+   "name": "it@9",
+   "qualifiedName": "describe@4.it@9",
+   "displayName": "it@9()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "875191b4963c",
+   "path": "tests/taskService.test.ts",
+   "regionId": "18ec850f3635",
+   "buildingId": "18253e35d10d",
+   "group": {
+    "kind": "module",
+    "key": "9c86cdcdb8a6",
+    "label": "tests"
+   },
+   "range": {
+    "startLine": 9,
+    "endLine": 11
+   },
+   "signature": "function it@9()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "test"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 1,
+    "dynamicCalls": 1
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "dad6c4c4107e",
+     "name": "computeTaskStatus",
+     "path": "src/services/taskService.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [
+    {
+     "symbolId": "dad6c4c4107e",
+     "name": "computeTaskStatus",
+     "path": "src/services/taskService.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "ioVia": []
+  },
+  {
+   "symbolId": "5da1f099aac5",
+   "npcId": "3bcb332a47ba",
+   "name": "NewTask",
+   "qualifiedName": "NewTask",
+   "displayName": "type NewTask",
+   "kind": "type",
+   "language": "typescript",
+   "fileId": "b088a7e64ad5",
+   "path": "src/services/taskService.ts",
+   "regionId": "752c434d4b17",
+   "buildingId": "b7ce7c134a58",
+   "group": {
+    "kind": "module",
+    "key": "6c914d6cd627",
+    "label": "src/services"
+   },
+   "range": {
+    "startLine": 20,
+    "endLine": 20
+   },
+   "signature": "type NewTask",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 1,
+    "cyclomatic": 0,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "639c9568a8ee",
+   "npcId": "42bb5f341b37",
+   "name": "formatDate",
+   "qualifiedName": "formatDate",
+   "displayName": "formatDate()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "04d697e1cd2c",
+   "path": "src/utils/dates.ts",
+   "regionId": "5723f295c690",
+   "buildingId": "31daaf58de5a",
+   "group": {
+    "kind": "module",
+    "key": "673a51b91ae2",
+    "label": "src/utils"
+   },
+   "range": {
+    "startLine": 4,
+    "endLine": 11
+   },
+   "signature": "function formatDate(timestamp: number): string",
+   "doc": "Formats a timestamp as YYYY-MM-DD in UTC, so every server prints the same date.",
+   "docSummary": "Formats a timestamp as YYYY-MM-DD in UTC, so every server prints the same date.",
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 8,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 1,
+    "fanIn": 1,
+    "fanOut": 0,
+    "dynamicCalls": 5
+   },
+   "callers": [
+    {
+     "symbolId": "131be4932e38",
+     "name": "it@5",
+     "path": "tests/dates.test.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [
+    {
+     "symbolId": "131be4932e38",
+     "name": "it@5",
+     "path": "tests/dates.test.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "686e392ed4c3",
+   "npcId": "140d46b92b2f",
+   "name": "it@9",
+   "qualifiedName": "describe@4.it@9",
+   "displayName": "it@9()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "537e1daac09d",
+   "path": "tests/slugify.test.ts",
+   "regionId": "18ec850f3635",
+   "buildingId": "f96d3fd442fe",
+   "group": {
+    "kind": "module",
+    "key": "9c86cdcdb8a6",
+    "label": "tests"
+   },
+   "range": {
+    "startLine": 9,
+    "endLine": 11
+   },
+   "signature": "function it@9()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "test"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 1,
+    "dynamicCalls": 1
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "e2baed704c25",
+     "name": "slugify",
+     "path": "src/utils/slugify.ts",
+     "line": 2,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [
+    {
+     "symbolId": "e2baed704c25",
+     "name": "slugify",
+     "path": "src/utils/slugify.ts",
+     "line": 2,
+     "confidence": "exact"
+    }
+   ],
+   "ioVia": []
+  },
+  {
+   "symbolId": "688e37939780",
+   "npcId": "bf08a11ac4ce",
+   "name": "it@17",
+   "qualifiedName": "describe@4.it@17",
+   "displayName": "it@17()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "875191b4963c",
+   "path": "tests/taskService.test.ts",
+   "regionId": "18ec850f3635",
+   "buildingId": "18253e35d10d",
+   "group": {
+    "kind": "module",
+    "key": "9c86cdcdb8a6",
+    "label": "tests"
+   },
+   "range": {
+    "startLine": 17,
+    "endLine": 19
+   },
+   "signature": "function it@17()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "test"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 1,
+    "dynamicCalls": 1
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "dad6c4c4107e",
+     "name": "computeTaskStatus",
+     "path": "src/services/taskService.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [
+    {
+     "symbolId": "dad6c4c4107e",
+     "name": "computeTaskStatus",
+     "path": "src/services/taskService.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "ioVia": []
+  },
+  {
+   "symbolId": "6d7b75eee827",
+   "npcId": "452420c8b085",
+   "name": "it@5",
+   "qualifiedName": "describe@4.it@5",
+   "displayName": "it@5()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "537e1daac09d",
+   "path": "tests/slugify.test.ts",
+   "regionId": "18ec850f3635",
+   "buildingId": "f96d3fd442fe",
+   "group": {
+    "kind": "module",
+    "key": "9c86cdcdb8a6",
+    "label": "tests"
+   },
+   "range": {
+    "startLine": 5,
+    "endLine": 7
+   },
+   "signature": "function it@5()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "test"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 1,
+    "dynamicCalls": 1
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "e2baed704c25",
+     "name": "slugify",
+     "path": "src/utils/slugify.ts",
+     "line": 2,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [
+    {
+     "symbolId": "e2baed704c25",
+     "name": "slugify",
+     "path": "src/utils/slugify.ts",
+     "line": 2,
+     "confidence": "exact"
+    }
+   ],
+   "ioVia": []
+  },
+  {
+   "symbolId": "71eda6d16526",
+   "npcId": "823cf9c551c5",
+   "name": "unslugify",
+   "qualifiedName": "unslugify",
+   "displayName": "unslugify()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "1c5fd3409021",
+   "path": "src/utils/slugify.ts",
+   "regionId": "5723f295c690",
+   "buildingId": "7718490bf8ac",
+   "group": {
+    "kind": "module",
+    "key": "673a51b91ae2",
+    "label": "src/utils"
+   },
+   "range": {
+    "startLine": 10,
+    "endLine": 15
+   },
+   "signature": "function unslugify(slug: string): string",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [],
+   "metrics": {
+    "loc": 6,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 1,
+    "fanIn": 0,
+    "fanOut": 0,
+    "dynamicCalls": 6
+   },
+   "callers": [],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "75bd400ce1ce",
+   "npcId": "649ac9dbbb73",
+   "name": "table",
+   "qualifiedName": "table",
+   "displayName": "table()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "59a4dabe0f0e",
+   "path": "src/db/client.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "f4948b6f177c",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 6,
+    "endLine": 13
+   },
+   "signature": "function table(name: string): Row[]",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [],
+   "metrics": {
+    "loc": 8,
+    "cyclomatic": 2,
+    "maxNesting": 1,
+    "params": 1,
+    "fanIn": 3,
+    "fanOut": 0,
+    "dynamicCalls": 2
+   },
+   "callers": [
+    {
+     "symbolId": "a8bed04a28b8",
+     "name": "insert",
+     "path": "src/db/client.ts",
+     "line": 24,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "5bd816ff5cd4",
+     "name": "query",
+     "path": "src/db/client.ts",
+     "line": 18,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "0771bfc945b7",
+     "name": "update",
+     "path": "src/db/client.ts",
+     "line": 29,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "772b8d375746",
+   "npcId": "cd554f2b6337",
+   "name": "it@5",
+   "qualifiedName": "describe@4.it@5",
+   "displayName": "it@5()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "875191b4963c",
+   "path": "tests/taskService.test.ts",
+   "regionId": "18ec850f3635",
+   "buildingId": "18253e35d10d",
+   "group": {
+    "kind": "module",
+    "key": "9c86cdcdb8a6",
+    "label": "tests"
+   },
+   "range": {
+    "startLine": 5,
+    "endLine": 7
+   },
+   "signature": "function it@5()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "test"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 1,
+    "dynamicCalls": 1
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "dad6c4c4107e",
+     "name": "computeTaskStatus",
+     "path": "src/services/taskService.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [
+    {
+     "symbolId": "dad6c4c4107e",
+     "name": "computeTaskStatus",
+     "path": "src/services/taskService.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "ioVia": []
+  },
+  {
+   "symbolId": "783b5e0e6b97",
+   "npcId": "d1a98ac19184",
+   "name": "TaskStatus",
+   "qualifiedName": "TaskStatus",
+   "displayName": "type TaskStatus",
+   "kind": "type",
+   "language": "typescript",
+   "fileId": "8ec364bef2e9",
+   "path": "src/types.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "81a67e619d83",
+   "group": {
+    "kind": "module",
+    "key": "b9d099c108d1",
+    "label": "src"
+   },
+   "range": {
+    "startLine": 1,
+    "endLine": 1
+   },
+   "signature": "type TaskStatus",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 1,
+    "cyclomatic": 0,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "7be8d509a5f4",
+   "npcId": "60538fd95ad6",
+   "name": "describe@4",
+   "qualifiedName": "describe@4",
+   "displayName": "describe@4()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "875191b4963c",
+   "path": "tests/taskService.test.ts",
+   "regionId": "18ec850f3635",
+   "buildingId": "18253e35d10d",
+   "group": {
+    "kind": "module",
+    "key": "9c86cdcdb8a6",
+    "label": "tests"
+   },
+   "range": {
+    "startLine": 4,
+    "endLine": 20
+   },
+   "signature": "function describe@4()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "pure-candidate",
+    "test"
+   ],
+   "metrics": {
+    "loc": 17,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "873b8efbde95",
+   "npcId": "4fde696915cd",
+   "name": "isSharedWith",
+   "qualifiedName": "isSharedWith",
+   "displayName": "isSharedWith()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "0095b378c381",
+   "path": "src/services/shareService.ts",
+   "regionId": "752c434d4b17",
+   "buildingId": "3cd2275a08f6",
+   "group": {
+    "kind": "module",
+    "key": "6c914d6cd627",
+    "label": "src/services"
+   },
+   "range": {
+    "startLine": 8,
+    "endLine": 10
+   },
+   "signature": "function isSharedWith(task: Task, userId: string): boolean",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 2,
+    "fanIn": 1,
+    "fanOut": 0,
+    "dynamicCalls": 1
+   },
+   "callers": [
+    {
+     "symbolId": "3110d0d14758",
+     "name": "listTasksForUser",
+     "path": "src/services/taskService.ts",
+     "line": 47,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "8d335ebb80fc",
+   "npcId": "2c63f54bbf3a",
+   "name": "patchTask",
+   "qualifiedName": "patchTask",
+   "displayName": "patchTask()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "93e6e163851f",
+   "path": "src/db/tasks.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "6e69c5d0e73f",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 16,
+    "endLine": 18
+   },
+   "signature": "function patchTask(id: string, patch: Partial<Task>): Task | undefined",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "does-io",
+    "exported"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 2,
+    "fanIn": 2,
+    "fanOut": 1,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "0d16c50f3ee4",
+     "name": "completeTask",
+     "path": "src/services/taskService.ts",
+     "line": 42,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "f3939c050186",
+     "name": "shareTask",
+     "path": "src/services/shareService.ts",
+     "line": 26,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "0771bfc945b7",
+     "name": "update",
+     "path": "src/db/client.ts",
+     "line": 28,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "974b3f53876c",
+   "npcId": "ffc893575465",
+   "name": "StatusFields",
+   "qualifiedName": "StatusFields",
+   "displayName": "type StatusFields",
+   "kind": "type",
+   "language": "typescript",
+   "fileId": "8ec364bef2e9",
+   "path": "src/types.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "81a67e619d83",
+   "group": {
+    "kind": "module",
+    "key": "b9d099c108d1",
+    "label": "src"
+   },
+   "range": {
+    "startLine": 7,
+    "endLine": 7
+   },
+   "signature": "type StatusFields",
+   "doc": "The fields that decide a task's status.",
+   "docSummary": "The fields that decide a task's status.",
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 1,
+    "cyclomatic": 0,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "97f1d8ac0f01",
+   "npcId": "4b8fc0a21a2c",
+   "name": "createTask",
+   "qualifiedName": "createTask",
+   "displayName": "createTask()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "b088a7e64ad5",
+   "path": "src/services/taskService.ts",
+   "regionId": "752c434d4b17",
+   "buildingId": "b7ce7c134a58",
+   "group": {
+    "kind": "module",
+    "key": "6c914d6cd627",
+    "label": "src/services"
+   },
+   "range": {
+    "startLine": 22,
+    "endLine": 35
+   },
+   "signature": "function createTask(input: NewTask): Task",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 14,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 1,
+    "fanIn": 1,
+    "fanOut": 2,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "a8b28e09a2c7",
+     "name": "createTaskHandler",
+     "path": "src/api/handlers.ts",
+     "line": 51,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "b4581e63abfe",
+     "name": "saveTask",
+     "path": "src/db/tasks.ts",
+     "line": 12,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "e2baed704c25",
+     "name": "slugify",
+     "path": "src/utils/slugify.ts",
+     "line": 2,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": [
+    "saveTask"
+   ]
+  },
+  {
+   "symbolId": "98810d4da821",
+   "npcId": "955d102b55c1",
+   "name": "describe@4",
+   "qualifiedName": "describe@4",
+   "displayName": "describe@4()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "8632d4a2fda2",
+   "path": "tests/dates.test.ts",
+   "regionId": "18ec850f3635",
+   "buildingId": "ceefd8ef2b19",
+   "group": {
+    "kind": "module",
+    "key": "9c86cdcdb8a6",
+    "label": "tests"
+   },
+   "range": {
+    "startLine": 4,
+    "endLine": 13
+   },
+   "signature": "function describe@4()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "pure-candidate",
+    "test"
+   ],
+   "metrics": {
+    "loc": 10,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "98e4ca7659b8",
+   "npcId": "70f4cb22daf2",
+   "name": "allTasks",
+   "qualifiedName": "allTasks",
+   "displayName": "allTasks()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "93e6e163851f",
+   "path": "src/db/tasks.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "6e69c5d0e73f",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 8,
+    "endLine": 10
+   },
+   "signature": "function allTasks(): Task[]",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "does-io",
+    "exported"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 1,
+    "fanOut": 1,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "3110d0d14758",
+     "name": "listTasksForUser",
+     "path": "src/services/taskService.ts",
+     "line": 47,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "5bd816ff5cd4",
+     "name": "query",
+     "path": "src/db/client.ts",
+     "line": 16,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "9f08ad2e48b1",
+   "npcId": "ad1e209676e3",
+   "name": "end",
+   "qualifiedName": "beginBatch.end",
+   "displayName": "end()",
+   "kind": "method",
+   "language": "typescript",
+   "fileId": "59a4dabe0f0e",
+   "path": "src/db/client.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "f4948b6f177c",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 38,
+    "endLine": 40
+   },
+   "signature": "end()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "a0aa187f7ddc",
+   "npcId": "9bb5b93a9abc",
+   "name": "Team",
+   "qualifiedName": "Team",
+   "displayName": "type Team",
+   "kind": "type",
+   "language": "typescript",
+   "fileId": "8ec364bef2e9",
+   "path": "src/types.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "81a67e619d83",
+   "group": {
+    "kind": "module",
+    "key": "b9d099c108d1",
+    "label": "src"
+   },
+   "range": {
+    "startLine": 19,
+    "endLine": 23
+   },
+   "signature": "type Team",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 5,
+    "cyclomatic": 0,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "a8b28e09a2c7",
+   "npcId": "8d9e0e394651",
+   "name": "createTaskHandler",
+   "qualifiedName": "createTaskHandler",
+   "displayName": "createTaskHandler()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "c815f8c11564",
+   "path": "src/api/handlers.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "407ea283820e",
+   "group": {
+    "kind": "module",
+    "key": "fdca6e8e1095",
+    "label": "src/api"
+   },
+   "range": {
+    "startLine": 45,
+    "endLine": 53
+   },
+   "signature": "function createTaskHandler(req: Request, res: Response): void",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 9,
+    "cyclomatic": 3,
+    "maxNesting": 1,
+    "params": 2,
+    "fanIn": 0,
+    "fanOut": 3,
+    "dynamicCalls": 5
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "97f1d8ac0f01",
+     "name": "createTask",
+     "path": "src/services/taskService.ts",
+     "line": 22,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "3819146f4035",
+     "name": "currentUser",
+     "path": "src/api/handlers.ts",
+     "line": 27,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "22a63996759c",
+     "name": "present",
+     "path": "src/api/handlers.ts",
+     "line": 16,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "a8bed04a28b8",
+   "npcId": "c517c0f98e60",
+   "name": "insert",
+   "qualifiedName": "insert",
+   "displayName": "insert()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "59a4dabe0f0e",
+   "path": "src/db/client.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "f4948b6f177c",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 23,
+    "endLine": 26
+   },
+   "signature": "function insert(name: string, row: T): T",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 4,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 2,
+    "fanIn": 1,
+    "fanOut": 1,
+    "dynamicCalls": 1
+   },
+   "callers": [
+    {
+     "symbolId": "b4581e63abfe",
+     "name": "saveTask",
+     "path": "src/db/tasks.ts",
+     "line": 13,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "75bd400ce1ce",
+     "name": "table",
+     "path": "src/db/client.ts",
+     "line": 6,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "a9eefee860e4",
+   "npcId": "6e3951240e71",
+   "name": "beginBatch",
+   "qualifiedName": "beginBatch",
+   "displayName": "beginBatch()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "59a4dabe0f0e",
+   "path": "src/db/client.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "f4948b6f177c",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 35,
+    "endLine": 42
+   },
+   "signature": "function beginBatch(): { end(): void }",
+   "doc": "Groups writes for the logs. Writes still apply immediately.",
+   "docSummary": "Groups writes for the logs.",
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 8,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 1,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "db84e3bf41ff",
+     "name": "archiveCompleted",
+     "path": "src/db/tasks.ts",
+     "line": 27,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "b1773202662f",
+   "npcId": "9ff919f4ab7f",
+   "name": "getTaskHandler",
+   "qualifiedName": "getTaskHandler",
+   "displayName": "getTaskHandler()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "c815f8c11564",
+   "path": "src/api/handlers.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "407ea283820e",
+   "group": {
+    "kind": "module",
+    "key": "fdca6e8e1095",
+    "label": "src/api"
+   },
+   "range": {
+    "startLine": 36,
+    "endLine": 43
+   },
+   "signature": "function getTaskHandler(req: Request, res: Response): void",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 8,
+    "cyclomatic": 2,
+    "maxNesting": 1,
+    "params": 2,
+    "fanIn": 0,
+    "fanOut": 2,
+    "dynamicCalls": 3
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "5b59b569deed",
+     "name": "getTask",
+     "path": "src/services/taskService.ts",
+     "line": 37,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "22a63996759c",
+     "name": "present",
+     "path": "src/api/handlers.ts",
+     "line": 16,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "b4581e63abfe",
+   "npcId": "7049005758e5",
+   "name": "saveTask",
+   "qualifiedName": "saveTask",
+   "displayName": "saveTask()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "93e6e163851f",
+   "path": "src/db/tasks.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "6e69c5d0e73f",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 12,
+    "endLine": 14
+   },
+   "signature": "function saveTask(task: Task): Task",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "does-io",
+    "exported"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 1,
+    "fanIn": 1,
+    "fanOut": 1,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "97f1d8ac0f01",
+     "name": "createTask",
+     "path": "src/services/taskService.ts",
+     "line": 34,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "a8bed04a28b8",
+     "name": "insert",
+     "path": "src/db/client.ts",
+     "line": 23,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "bc7547d6fb0b",
+   "npcId": "83a97c2822d9",
+   "name": "Task",
+   "qualifiedName": "Task",
+   "displayName": "type Task",
+   "kind": "type",
+   "language": "typescript",
+   "fileId": "8ec364bef2e9",
+   "path": "src/types.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "81a67e619d83",
+   "group": {
+    "kind": "module",
+    "key": "b9d099c108d1",
+    "label": "src"
+   },
+   "range": {
+    "startLine": 9,
+    "endLine": 17
+   },
+   "signature": "type Task",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 9,
+    "cyclomatic": 0,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "bd1a5e5bd673",
+   "npcId": "5dc4c5eb9ea6",
+   "name": "shareTaskHandler",
+   "qualifiedName": "shareTaskHandler",
+   "displayName": "shareTaskHandler()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "c815f8c11564",
+   "path": "src/api/handlers.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "407ea283820e",
+   "group": {
+    "kind": "module",
+    "key": "fdca6e8e1095",
+    "label": "src/api"
+   },
+   "range": {
+    "startLine": 64,
+    "endLine": 71
+   },
+   "signature": "function shareTaskHandler(req: Request, res: Response): void",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 8,
+    "cyclomatic": 2,
+    "maxNesting": 1,
+    "params": 2,
+    "fanIn": 0,
+    "fanOut": 3,
+    "dynamicCalls": 3
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "3819146f4035",
+     "name": "currentUser",
+     "path": "src/api/handlers.ts",
+     "line": 27,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "22a63996759c",
+     "name": "present",
+     "path": "src/api/handlers.ts",
+     "line": 16,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "f3939c050186",
+     "name": "shareTask",
+     "path": "src/services/shareService.ts",
+     "line": 21,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "c9e7b70ee154",
+   "npcId": "15fd7c67c27e",
+   "name": "Row",
+   "qualifiedName": "Row",
+   "displayName": "type Row",
+   "kind": "type",
+   "language": "typescript",
+   "fileId": "59a4dabe0f0e",
+   "path": "src/db/client.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "f4948b6f177c",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 1,
+    "endLine": 1
+   },
+   "signature": "type Row",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 1,
+    "cyclomatic": 0,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "d473462fbfc6",
+   "npcId": "108fa2100a7a",
+   "name": "listTasksHandler",
+   "qualifiedName": "listTasksHandler",
+   "displayName": "listTasksHandler()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "c815f8c11564",
+   "path": "src/api/handlers.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "407ea283820e",
+   "group": {
+    "kind": "module",
+    "key": "fdca6e8e1095",
+    "label": "src/api"
+   },
+   "range": {
+    "startLine": 31,
+    "endLine": 34
+   },
+   "signature": "function listTasksHandler(req: Request, res: Response): void",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 4,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 2,
+    "fanIn": 0,
+    "fanOut": 2,
+    "dynamicCalls": 2
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "3819146f4035",
+     "name": "currentUser",
+     "path": "src/api/handlers.ts",
+     "line": 27,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "3110d0d14758",
+     "name": "listTasksForUser",
+     "path": "src/services/taskService.ts",
+     "line": 46,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "d50406a1ceb8",
+   "npcId": "deba32f96464",
+   "name": "it@10",
+   "qualifiedName": "describe@4.it@10",
+   "displayName": "it@10()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "8632d4a2fda2",
+   "path": "tests/dates.test.ts",
+   "regionId": "18ec850f3635",
+   "buildingId": "ceefd8ef2b19",
+   "group": {
+    "kind": "module",
+    "key": "9c86cdcdb8a6",
+    "label": "tests"
+   },
+   "range": {
+    "startLine": 10,
+    "endLine": 12
+   },
+   "signature": "function it@10()",
+   "doc": null,
+   "docSummary": null,
+   "exported": false,
+   "async": false,
+   "traits": [
+    "test"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 0,
+    "fanOut": 1,
+    "dynamicCalls": 1
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "f8296f3439a7",
+     "name": "daysBetween",
+     "path": "src/utils/dates.ts",
+     "line": 13,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [
+    {
+     "symbolId": "f8296f3439a7",
+     "name": "daysBetween",
+     "path": "src/utils/dates.ts",
+     "line": 13,
+     "confidence": "exact"
+    }
+   ],
+   "ioVia": []
+  },
+  {
+   "symbolId": "dad6c4c4107e",
+   "npcId": "c1ee6e04306b",
+   "name": "computeTaskStatus",
+   "qualifiedName": "computeTaskStatus",
+   "displayName": "computeTaskStatus()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "b088a7e64ad5",
+   "path": "src/services/taskService.ts",
+   "regionId": "752c434d4b17",
+   "buildingId": "b7ce7c134a58",
+   "group": {
+    "kind": "module",
+    "key": "6c914d6cd627",
+    "label": "src/services"
+   },
+   "range": {
+    "startLine": 6,
+    "endLine": 16
+   },
+   "signature": "function computeTaskStatus(task: StatusFields): TaskStatus",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 11,
+    "cyclomatic": 5,
+    "maxNesting": 2,
+    "params": 1,
+    "fanIn": 6,
+    "fanOut": 0,
+    "dynamicCalls": 1
+   },
+   "callers": [
+    {
+     "symbolId": "0d5bc4c4070c",
+     "name": "it@13",
+     "path": "tests/taskService.test.ts",
+     "line": 14,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "688e37939780",
+     "name": "it@17",
+     "path": "tests/taskService.test.ts",
+     "line": 18,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "772b8d375746",
+     "name": "it@5",
+     "path": "tests/taskService.test.ts",
+     "line": 6,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "5d650622ab1d",
+     "name": "it@9",
+     "path": "tests/taskService.test.ts",
+     "line": 10,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "22a63996759c",
+     "name": "present",
+     "path": "src/api/handlers.ts",
+     "line": 21,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "f3939c050186",
+     "name": "shareTask",
+     "path": "src/services/shareService.ts",
+     "line": 25,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [
+    {
+     "symbolId": "0d5bc4c4070c",
+     "name": "it@13",
+     "path": "tests/taskService.test.ts",
+     "line": 14,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "688e37939780",
+     "name": "it@17",
+     "path": "tests/taskService.test.ts",
+     "line": 18,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "772b8d375746",
+     "name": "it@5",
+     "path": "tests/taskService.test.ts",
+     "line": 6,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "5d650622ab1d",
+     "name": "it@9",
+     "path": "tests/taskService.test.ts",
+     "line": 10,
+     "confidence": "exact"
+    }
+   ],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "db84e3bf41ff",
+   "npcId": "fcf5f22cbb6d",
+   "name": "archiveCompleted",
+   "qualifiedName": "archiveCompleted",
+   "displayName": "archiveCompleted()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "93e6e163851f",
+   "path": "src/db/tasks.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "6e69c5d0e73f",
+   "group": {
+    "kind": "module",
+    "key": "7f28fc3e064c",
+    "label": "src/db"
+   },
+   "range": {
+    "startLine": 25,
+    "endLine": 41
+   },
+   "signature": "function archiveCompleted(teams: Team[], before: number): number",
+   "doc": "Archives every task of `teams` that was finished before `before`. Returns how many.",
+   "docSummary": "Archives every task of `teams` that was finished before `before`.",
+   "exported": true,
+   "async": false,
+   "traits": [
+    "does-io",
+    "exported"
+   ],
+   "metrics": {
+    "loc": 17,
+    "cyclomatic": 4,
+    "maxNesting": 4,
+    "params": 2,
+    "fanIn": 0,
+    "fanOut": 4,
+    "dynamicCalls": 1
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "a9eefee860e4",
+     "name": "beginBatch",
+     "path": "src/db/client.ts",
+     "line": 35,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "0f02ac705a33",
+     "name": "isArchivable",
+     "path": "src/db/tasks.ts",
+     "line": 20,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "5bd816ff5cd4",
+     "name": "query",
+     "path": "src/db/client.ts",
+     "line": 16,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "0771bfc945b7",
+     "name": "update",
+     "path": "src/db/client.ts",
+     "line": 28,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "e1aa58a89588",
+   "npcId": "24571af0a727",
+   "name": "TeamNotFoundError",
+   "qualifiedName": "TeamNotFoundError",
+   "displayName": "class TeamNotFoundError",
+   "kind": "class",
+   "language": "typescript",
+   "fileId": "d612980f69c7",
+   "path": "src/db/teams.ts",
+   "regionId": "1338bc60a8dd",
+   "buildingId": "fdda20686326",
+   "group": {
+    "kind": "class",
+    "key": "e1aa58a89588",
+    "label": "TeamNotFoundError"
+   },
+   "range": {
+    "startLine": 4,
+    "endLine": 4
+   },
+   "signature": "class TeamNotFoundError",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 1,
+    "cyclomatic": 0,
+    "maxNesting": 0,
+    "params": 0,
+    "fanIn": 1,
+    "fanOut": 0,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "2da9d0741dc9",
+     "name": "loadTeam",
+     "path": "src/db/teams.ts",
+     "line": 9,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "e2baed704c25",
+   "npcId": "8a97ee578b7d",
+   "name": "slugify",
+   "qualifiedName": "slugify",
+   "displayName": "slugify()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "1c5fd3409021",
+   "path": "src/utils/slugify.ts",
+   "regionId": "5723f295c690",
+   "buildingId": "7718490bf8ac",
+   "group": {
+    "kind": "module",
+    "key": "673a51b91ae2",
+    "label": "src/utils"
+   },
+   "range": {
+    "startLine": 2,
+    "endLine": 8
+   },
+   "signature": "function slugify(text: string): string",
+   "doc": "Turns a title into a URL-friendly slug: \"Hello World\" becomes \"hello-world\".",
+   "docSummary": "Turns a title into a URL-friendly slug: \"Hello World\" becomes \"hello-world\".",
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 7,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 1,
+    "fanIn": 4,
+    "fanOut": 0,
+    "dynamicCalls": 4
+   },
+   "callers": [
+    {
+     "symbolId": "97f1d8ac0f01",
+     "name": "createTask",
+     "path": "src/services/taskService.ts",
+     "line": 26,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "0d15d24de47f",
+     "name": "it@13",
+     "path": "tests/slugify.test.ts",
+     "line": 14,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "6d7b75eee827",
+     "name": "it@5",
+     "path": "tests/slugify.test.ts",
+     "line": 6,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "686e392ed4c3",
+     "name": "it@9",
+     "path": "tests/slugify.test.ts",
+     "line": 10,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [
+    {
+     "symbolId": "0d15d24de47f",
+     "name": "it@13",
+     "path": "tests/slugify.test.ts",
+     "line": 14,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "6d7b75eee827",
+     "name": "it@5",
+     "path": "tests/slugify.test.ts",
+     "line": 6,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "686e392ed4c3",
+     "name": "it@9",
+     "path": "tests/slugify.test.ts",
+     "line": 10,
+     "confidence": "exact"
+    }
+   ],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "e81922d7fcdc",
+   "npcId": "c3da64b4e166",
+   "name": "start",
+   "qualifiedName": "start",
+   "displayName": "start()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "81aa2e9de4d6",
+   "path": "src/index.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "f4cfd8b33036",
+   "group": {
+    "kind": "module",
+    "key": "b9d099c108d1",
+    "label": "src"
+   },
+   "range": {
+    "startLine": 13,
+    "endLine": 17
+   },
+   "signature": "function start(port): void",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "does-io",
+    "exported"
+   ],
+   "metrics": {
+    "loc": 5,
+    "cyclomatic": 2,
+    "maxNesting": 1,
+    "params": 1,
+    "fanIn": 0,
+    "fanOut": 2,
+    "dynamicCalls": 2
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "527d1dd9aa54",
+     "name": "createApp",
+     "path": "src/index.ts",
+     "line": 6,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "4f931614a4d0",
+     "name": "loadSnapshot",
+     "path": "src/db/client.ts",
+     "line": 45,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "ed53d8601b58",
+   "npcId": "40849a9f9ae2",
+   "name": "completeTaskHandler",
+   "qualifiedName": "completeTaskHandler",
+   "displayName": "completeTaskHandler()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "c815f8c11564",
+   "path": "src/api/handlers.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "407ea283820e",
+   "group": {
+    "kind": "module",
+    "key": "fdca6e8e1095",
+    "label": "src/api"
+   },
+   "range": {
+    "startLine": 55,
+    "endLine": 62
+   },
+   "signature": "function completeTaskHandler(req: Request, res: Response): void",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 8,
+    "cyclomatic": 2,
+    "maxNesting": 1,
+    "params": 2,
+    "fanIn": 0,
+    "fanOut": 2,
+    "dynamicCalls": 4
+   },
+   "callers": [],
+   "callees": [
+    {
+     "symbolId": "0d16c50f3ee4",
+     "name": "completeTask",
+     "path": "src/services/taskService.ts",
+     "line": 41,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "22a63996759c",
+     "name": "present",
+     "path": "src/api/handlers.ts",
+     "line": 16,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "f3939c050186",
+   "npcId": "16310db074cc",
+   "name": "shareTask",
+   "qualifiedName": "shareTask",
+   "displayName": "shareTask()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "0095b378c381",
+   "path": "src/services/shareService.ts",
+   "regionId": "752c434d4b17",
+   "buildingId": "3cd2275a08f6",
+   "group": {
+    "kind": "module",
+    "key": "6c914d6cd627",
+    "label": "src/services"
+   },
+   "range": {
+    "startLine": 21,
+    "endLine": 28
+   },
+   "signature": "function shareTask(taskId: string, userId: string, withUserId: string): Task",
+   "doc": "Shares a task with another user. Only team members can share, and finished tasks can't be shared.",
+   "docSummary": "Shares a task with another user.",
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported",
+    "pure-candidate"
+   ],
+   "metrics": {
+    "loc": 8,
+    "cyclomatic": 3,
+    "maxNesting": 1,
+    "params": 3,
+    "fanIn": 1,
+    "fanOut": 4,
+    "dynamicCalls": 0
+   },
+   "callers": [
+    {
+     "symbolId": "bd1a5e5bd673",
+     "name": "shareTaskHandler",
+     "path": "src/api/handlers.ts",
+     "line": 66,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "f4046ea787de",
+     "name": "checkPermissions",
+     "path": "src/services/shareService.ts",
+     "line": 13,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "dad6c4c4107e",
+     "name": "computeTaskStatus",
+     "path": "src/services/taskService.ts",
+     "line": 6,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "5b59b569deed",
+     "name": "getTask",
+     "path": "src/services/taskService.ts",
+     "line": 37,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "8d335ebb80fc",
+     "name": "patchTask",
+     "path": "src/db/tasks.ts",
+     "line": 16,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": [
+    "patchTask"
+   ]
+  },
+  {
+   "symbolId": "f4046ea787de",
+   "npcId": "2dc16ef102d6",
+   "name": "checkPermissions",
+   "qualifiedName": "checkPermissions",
+   "displayName": "checkPermissions()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "0095b378c381",
+   "path": "src/services/shareService.ts",
+   "regionId": "752c434d4b17",
+   "buildingId": "3cd2275a08f6",
+   "group": {
+    "kind": "module",
+    "key": "6c914d6cd627",
+    "label": "src/services"
+   },
+   "range": {
+    "startLine": 13,
+    "endLine": 18
+   },
+   "signature": "function checkPermissions(task: Task, userId: string): void",
+   "doc": "Throws unless `userId` belongs to the task's team.",
+   "docSummary": "Throws unless `userId` belongs to the task's team.",
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 6,
+    "cyclomatic": 2,
+    "maxNesting": 1,
+    "params": 2,
+    "fanIn": 1,
+    "fanOut": 2,
+    "dynamicCalls": 1
+   },
+   "callers": [
+    {
+     "symbolId": "f3939c050186",
+     "name": "shareTask",
+     "path": "src/services/shareService.ts",
+     "line": 24,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [
+    {
+     "symbolId": "03dd08ec9b93",
+     "name": "PermissionError",
+     "path": "src/services/shareService.ts",
+     "line": 6,
+     "confidence": "exact"
+    },
+    {
+     "symbolId": "2da9d0741dc9",
+     "name": "loadTeam",
+     "path": "src/db/teams.ts",
+     "line": 7,
+     "confidence": "exact"
+    }
+   ],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": [
+    "loadTeam"
+   ]
+  },
+  {
+   "symbolId": "f8296f3439a7",
+   "npcId": "f006fdf6924e",
+   "name": "daysBetween",
+   "qualifiedName": "daysBetween",
+   "displayName": "daysBetween()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "04d697e1cd2c",
+   "path": "src/utils/dates.ts",
+   "regionId": "5723f295c690",
+   "buildingId": "31daaf58de5a",
+   "group": {
+    "kind": "module",
+    "key": "673a51b91ae2",
+    "label": "src/utils"
+   },
+   "range": {
+    "startLine": 13,
+    "endLine": 15
+   },
+   "signature": "function daysBetween(from: number, to: number): number",
+   "doc": null,
+   "docSummary": null,
+   "exported": true,
+   "async": false,
+   "traits": [
+    "exported"
+   ],
+   "metrics": {
+    "loc": 3,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 2,
+    "fanIn": 1,
+    "fanOut": 0,
+    "dynamicCalls": 1
+   },
+   "callers": [
+    {
+     "symbolId": "d50406a1ceb8",
+     "name": "it@10",
+     "path": "tests/dates.test.ts",
+     "line": 11,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [
+    {
+     "symbolId": "d50406a1ceb8",
+     "name": "it@10",
+     "path": "tests/dates.test.ts",
+     "line": 11,
+     "confidence": "exact"
+    }
+   ],
+   "tests": [],
+   "ioVia": []
+  },
+  {
+   "symbolId": "fe848568b293",
+   "npcId": "3f6222d41136",
+   "name": "formatDate",
+   "qualifiedName": "formatDate",
+   "displayName": "formatDate()",
+   "kind": "function",
+   "language": "typescript",
+   "fileId": "c815f8c11564",
+   "path": "src/api/handlers.ts",
+   "regionId": "920172bf9aaf",
+   "buildingId": "407ea283820e",
+   "group": {
+    "kind": "module",
+    "key": "fdca6e8e1095",
+    "label": "src/api"
+   },
+   "range": {
+    "startLine": 7,
+    "endLine": 14
+   },
+   "signature": "function formatDate(timestamp: number): string",
+   "doc": "Copied from utils/dates.ts to keep the API layer self-contained.",
+   "docSummary": "Copied from utils/dates.ts to keep the API layer self-contained.",
+   "exported": false,
+   "async": false,
+   "traits": [],
+   "metrics": {
+    "loc": 8,
+    "cyclomatic": 1,
+    "maxNesting": 0,
+    "params": 1,
+    "fanIn": 1,
+    "fanOut": 0,
+    "dynamicCalls": 5
+   },
+   "callers": [
+    {
+     "symbolId": "22a63996759c",
+     "name": "present",
+     "path": "src/api/handlers.ts",
+     "line": 22,
+     "confidence": "exact"
+    }
+   ],
+   "callees": [],
+   "testedBy": [],
+   "tests": [],
+   "ioVia": []
+  }
+ ],
+ "links": null
+}

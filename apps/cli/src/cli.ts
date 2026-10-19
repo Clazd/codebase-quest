@@ -17,7 +17,7 @@ const COMMANDS = [
   ["stats <graph.json>", "Summarize a validated CodeGraph"],
   ["generate <graph>", "Generate world/maps/previews --out <directory>"],
   ["world preview <json>", "Regenerate a world's SVG previews"],
-  ["play <path>", "Walk your repository [--no-open] [--port N]"],
+  ["play <path>", "Walk and talk to your code [--no-open] [--port N] [--editor URL]"],
 ] as const;
 
 /** Commands on the roadmap, shown so people know what's coming (never pretend they work). */

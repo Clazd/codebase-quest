@@ -1,3 +1,4 @@
+import type { WorldPosition } from "@codebase-quest/shared";
 import { required } from "./required.ts";
 import type { ExploreSession } from "./session.ts";
 
@@ -24,20 +25,22 @@ export class ExploreHud {
   paused = false;
   mapOpen = false;
   debugOpen = false;
+  /** A Code Panel or the Codex is open: the world pauses. */
+  overlayOpen = false;
   private returnFocus: HTMLElement | null = null;
   readonly session: ExploreSession;
   constructor(
     session: ExploreSession,
-    handlers: { start: () => void; interact: () => void; zoom: (delta: number) => void },
+    handlers: { start: () => void; interact: () => void; zoom: (delta: number) => void; codex: () => void },
   ) {
     this.session = session;
     this.root.id = "explore-hud";
     this.root.setAttribute("aria-label", "World navigation");
     this.root.innerHTML = `<header><span class="brand">CODEBASE QUEST</span><nav aria-label="Code location" id="breadcrumb"></nav><span id="light"></span></header>
-      <div class="world-tools"><button type="button" id="interact">Interact · E</button><button type="button" id="map-toggle">Map · M</button><button type="button" id="zoom-out" aria-label="Zoom out">−</button><button type="button" id="zoom-in" aria-label="Zoom in">+</button><button type="button" id="pause-toggle">Pause · Esc</button></div>
+      <div class="world-tools"><button type="button" id="interact">Interact · E</button><button type="button" id="map-toggle">Map · M</button><button type="button" id="codex-toggle">Codex · C</button><button type="button" id="zoom-out" aria-label="Zoom out">−</button><button type="button" id="zoom-in" aria-label="Zoom in">+</button><button type="button" id="pause-toggle">Pause · Esc</button></div>
       <canvas id="minimap" width="176" height="120" role="img" aria-label="Minimap: explored tiles and current position"></canvas>
       <output id="explore-status" aria-live="polite"></output><pre id="explore-debug" hidden></pre>
-      <div id="world-title"><p class="eyebrow">EVERY CODEBASE IS A WORLD</p><h1></h1><p>Follow imports. Explore folders. Step inside your code.</p><button type="button" id="continue">Enter the kingdom</button><p class="controls">WASD / arrows to walk · Shift to run<br>Click a path to move · E to enter a gate or door</p></div>
+      <div id="world-title"><p class="eyebrow">EVERY CODEBASE IS A WORLD</p><h1></h1><p>Follow imports. Explore folders. Step inside your code.</p><button type="button" id="continue">Enter the kingdom</button><p class="controls">WASD / arrows to walk · Shift to run<br>Click a path to move · E to talk or enter a door · C for the Codex</p></div>
       <dialog aria-labelledby="map-heading"><h2 id="map-heading">Kingdom map</h2><canvas id="full-map" width="672" height="480" role="img" aria-label="Overworld with region names and your location"></canvas><p id="map-location"></p><p>Dark areas are unexplored. Gold marks your current region.</p><div id="pause-settings" hidden><p>Settings: more options arrive in Phase 12.</p><label><input type="checkbox" id="readable-font"> Use system font for map labels</label></div><button type="button" id="close-panel">Return to world</button></dialog>`;
     required(document.querySelector("main")).append(this.root);
     const get = <T extends HTMLElement>(id: string) => required(this.root.querySelector<T>(`#${id}`));
@@ -57,6 +60,9 @@ export class ExploreHud {
     };
     this.action.onclick = handlers.interact;
     get("map-toggle").onclick = () => this.toggleMap();
+    get("codex-toggle").onclick = () => {
+      if (!this.blocked) handlers.codex();
+    };
     get("pause-toggle").onclick = () => this.togglePause();
     get("zoom-in").onclick = () => handlers.zoom(1);
     get("zoom-out").onclick = () => handlers.zoom(-1);
@@ -89,7 +95,7 @@ export class ExploreHud {
     required(this.root.querySelector<HTMLElement>("#world-title")).hidden = false;
   }
   get blocked() {
-    return this.title || this.paused || this.mapOpen;
+    return this.title || this.paused || this.mapOpen || this.overlayOpen;
   }
   private open(map: boolean) {
     this.returnFocus = document.activeElement as HTMLElement;
@@ -109,16 +115,16 @@ export class ExploreHud {
     this.returnFocus?.focus();
   }
   toggleMap() {
-    if (this.title) return;
+    if (this.title || this.overlayOpen) return;
     if (this.dialog.open) this.close();
     else this.open(true);
   }
   togglePause() {
-    if (this.title) return;
+    if (this.title || this.overlayOpen) return;
     if (this.dialog.open) this.close();
     else this.open(false);
   }
-  drawMap(canvas: HTMLCanvasElement, full = false) {
+  drawMap(canvas: HTMLCanvasElement, full = false, guide: WorldPosition | null = null) {
     const s = this.session,
       map = full ? required(s.maps.get(s.world.kingdom.overworldMap)) : s.map,
       fog = s.fog(map.id),
@@ -140,6 +146,13 @@ export class ExploreHud {
           ctx.fillStyle = "#b1e4ff";
           ctx.fillRect(ox + p.x * scale, oy + p.y * scale, Math.max(2, scale), Math.max(2, scale));
         }
+    if (guide && guide.mapId === map.id) {
+      ctx.strokeStyle = "#ffdc87";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(ox + (guide.x + 0.5) * scale, oy + (guide.y + 0.5) * scale, 5, 0, Math.PI * 2);
+      ctx.stroke();
+    }
     const at = full && s.map.kind !== "overworld" ? s.region?.entrance : s.position;
     if (at) {
       ctx.fillStyle = "#ffe3a0";
@@ -160,13 +173,13 @@ export class ExploreHud {
       }
     }
   }
-  update(message: string, debug: string) {
+  update(message: string, canAct: boolean, guide: WorldPosition | null, debug: string) {
     this.breadcrumb.textContent = this.session.breadcrumb;
     required(this.root.querySelector("#light")).textContent = `${this.session.seenFiles.size} files seen`;
     this.status.textContent = message;
-    this.action.disabled = !this.session.nearbyTransition() || this.blocked;
+    this.action.disabled = !canAct || this.blocked;
     this.debug.hidden = !this.debugOpen;
     this.debug.textContent = debug;
-    this.drawMap(this.mini);
+    this.drawMap(this.mini, false, guide);
   }
 }

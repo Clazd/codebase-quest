@@ -1,0 +1,398 @@
+/* Matches the #game box in explore.css, so overlays sit on the canvas, never over the HUD. */
+#overlay-root {
+  position: absolute;
+  top: 76px;
+  left: 20px;
+  right: 20px;
+  height: min(68vh, 640px);
+  pointer-events: none;
+  z-index: 5;
+}
+#overlay-root > * {
+  pointer-events: auto;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.muted {
+  color: #b9c6c0;
+}
+#dialogue-box {
+  position: absolute;
+  left: 12px;
+  right: calc(min(470px, 48%) + 12px);
+  bottom: 12px;
+  max-height: 40%;
+  overflow: auto;
+  background: #10212bf2;
+  border: 2px solid #cda65b;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+#dialogue-box .speaker {
+  margin: 0 0 4px;
+  color: #ffdc87;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+#dialogue-box p {
+  margin: 2px 0;
+}
+#code-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(470px, 48%);
+  min-width: 280px;
+  max-width: 100%;
+  resize: horizontal;
+  overflow: auto;
+  direction: ltr;
+  background: #14252f;
+  border: 1px solid #81978a;
+  border-radius: 8px;
+  padding: 12px 16px 16px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+#code-panel.compact {
+  width: min(330px, 40%);
+}
+.panel-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+}
+.panel-tools button {
+  padding: 5px 9px;
+  font-size: 13px;
+}
+.panel-head h2 {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 19px;
+  margin: 8px 0 2px;
+  color: #ffdc87;
+  word-break: break-word;
+}
+.panel-head h2:focus-visible,
+[tabindex="-1"]:focus-visible {
+  outline: 3px solid #ffdc87;
+  outline-offset: 2px;
+}
+.where {
+  margin: 0;
+  color: #d4dfd3;
+  font-size: 13px;
+}
+.path {
+  font-family: ui-monospace, Consolas, monospace;
+}
+.badges {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 8px 0;
+  padding: 0;
+}
+.badge {
+  font-size: 12px;
+  border: 1px solid #7b9995;
+  border-radius: 10px;
+  padding: 1px 8px;
+  background: #1d3440;
+}
+.signature {
+  display: block;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 13px;
+  background: #0a0c10;
+  color: #f0f3f6;
+  padding: 6px 8px;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.doc {
+  margin: 8px 0;
+  padding: 4px 10px;
+  border-left: 3px solid #cda65b;
+  white-space: pre-wrap;
+  color: #e7eadf;
+}
+.code {
+  background: #0a0c10;
+  color: #f0f3f6;
+  margin: 8px 0 4px;
+  padding: 8px 0;
+  border-radius: 4px;
+  overflow: auto;
+  max-height: 340px;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+.code:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+a.button:focus-visible,
+.link-button:focus-visible {
+  outline: 3px solid #ffdc87;
+  outline-offset: 2px;
+}
+.code pre {
+  margin: 0;
+  font: inherit;
+}
+.code-line {
+  display: block;
+  white-space: pre;
+  padding-right: 10px;
+}
+.code-line.masked {
+  background: #3a2430;
+}
+.code-line code {
+  font: inherit;
+}
+.ln {
+  display: inline-block;
+  width: 3.5em;
+  padding-right: 10px;
+  text-align: right;
+  color: #9ea7b3;
+  user-select: none;
+}
+.code-warning,
+.code-error {
+  color: #ffd8a8;
+  font-size: 13px;
+}
+.code-loading {
+  color: #d4dfd3;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+  margin: 10px 0;
+}
+.metrics div {
+  background: #1d3440;
+  border-radius: 4px;
+  padding: 4px;
+  text-align: center;
+}
+.metrics dt {
+  font-size: 11px;
+  color: #c8d5d0;
+}
+.metrics dd {
+  margin: 0;
+  font-weight: 700;
+}
+#code-panel h3,
+#codex h3 {
+  font-size: 14px;
+  margin: 12px 0 4px;
+}
+.count {
+  color: #c8d5d0;
+  font-weight: 400;
+}
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.links li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 0;
+}
+.link-button {
+  background: none;
+  border: none;
+  color: #a9e2ff;
+  text-decoration: underline;
+  padding: 2px 0;
+  text-align: left;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 13px;
+}
+.link-button:hover {
+  background: none;
+  color: #d4f1ff;
+}
+.choice {
+  display: flex;
+  gap: 6px;
+  flex-basis: 100%;
+  padding-left: 22px;
+}
+.choice button {
+  padding: 4px 9px;
+  font-size: 13px;
+}
+.confidence {
+  display: inline-block;
+  width: 14px;
+  height: 0;
+  border-top: 3px solid #f4edda;
+  vertical-align: middle;
+}
+.confidence.likely {
+  border-top-style: dashed;
+}
+.confidence.guess {
+  border-top-style: dotted;
+}
+.legend {
+  font-size: 12px;
+  color: #c8d5d0;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+a.button {
+  display: inline-block;
+  color: #101923;
+  background: #cda65b;
+  border-radius: 5px;
+  padding: 7px 12px;
+  text-decoration: none;
+  font-weight: 650;
+}
+.codex-backdrop {
+  position: fixed;
+  inset: 0;
+  background: #000b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#codex {
+  background: #14252f;
+  border: 1px solid #81978a;
+  border-radius: 10px;
+  width: min(92vw, 820px);
+  max-height: 88vh;
+  overflow: auto;
+  padding: 14px 20px 20px;
+  box-sizing: border-box;
+}
+#codex h2#codex-title {
+  margin: 0;
+  font-family: Georgia, serif;
+  color: #ffdc87;
+}
+.completion {
+  margin: 4px 0 10px;
+}
+.regions {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px;
+  display: grid;
+  gap: 4px;
+}
+.regions li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 140px 110px;
+  gap: 10px;
+  align-items: center;
+  font-size: 13px;
+}
+.bar {
+  height: 8px;
+  background: #2b3e48;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.bar span {
+  display: block;
+  height: 100%;
+  background: #8fd18f;
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 13px;
+}
+input[type="search"],
+select,
+textarea {
+  font: inherit;
+  color: #f4edda;
+  background: #0f1c24;
+  border: 1px solid #7b9995;
+  border-radius: 4px;
+  padding: 6px 8px;
+}
+textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+  font-family: ui-monospace, Consolas, monospace;
+}
+.codex-entry label {
+  display: block;
+  margin-top: 12px;
+  font-weight: 650;
+}
+.codex-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 4px;
+}
+.codex-list button {
+  width: 100%;
+  text-align: left;
+}
+@media (max-width: 650px) {
+  #overlay-root {
+    top: 98px;
+    left: 10px;
+    right: 10px;
+  }
+  #code-panel {
+    left: 0;
+    width: auto;
+    min-width: 0;
+    bottom: 30%;
+  }
+  #dialogue-box {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-height: 28%;
+  }
+}
+#code-panel.compact .code-view,
+#code-panel.compact .doc {
+  display: none;
+}

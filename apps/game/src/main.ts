@@ -24,7 +24,7 @@ if (world) {
       .querySelector("#game")
       ?.setAttribute(
         "aria-label",
-        "Explore your repository. WASD or arrows to walk, Shift to run, E to interact, M for map, Escape to pause.",
+        "Explore your repository. WASD or arrows to walk, Shift to run, E to talk or enter, C for the Codex, M for map, Escape to pause.",
       );
     if (__CQ_DEBUG__) {
       window.__CQ__ = {
@@ -57,6 +57,21 @@ if (world) {
           samples: app.frames.length,
           averageMs: app.frames.reduce((a, b) => a + b, 0) / Math.max(1, app.frames.length),
         }),
+        interactWithNpc: async (symbolId: string) => {
+          if (!app.facts.sheet(symbolId)) throw new Error("Unknown character");
+          app.talk(symbolId);
+        },
+        getOpenPanel: () => {
+          const kind = app.overlay.kind;
+          const symbolId =
+            kind === "codex" ? (app.overlay.state.codex.entry ?? undefined) : app.overlay.state.panel?.symbolId;
+          return symbolId ? { kind, symbolId } : { kind };
+        },
+        getCodexCount: () => app.overlay.codex.count,
+        gotoNpc: (symbolId: string) => app.teleportToNpc(symbolId),
+        getNpcs: () => app.active?.npcPositions() ?? [],
+        getGuide: () =>
+          app.guide ? { symbolId: app.guide.symbolId, waypoint: app.guideWaypoint()?.position ?? null } : null,
         getCamera: () => {
           const c = app.active?.cameras.main;
           return {

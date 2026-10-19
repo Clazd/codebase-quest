@@ -16,8 +16,8 @@ or the OS temp directory when the repository denies writes.
 
 Click **Enter the kingdom**. Start beside the blue gate; **E** or **Interact**
 enters its region. Region gates return to the overworld, building doors lead
-inside, and the interior entrance returns to the same door. NPCs, monsters,
-bosses and portals are static markers during this phase.
+inside, and the interior entrance returns to the same door. Monsters,
+bosses and portals are static markers; characters are covered below.
 
 | Input | Action |
 |---|---|
@@ -26,7 +26,9 @@ bosses and portals are static markers during this phase.
 | Click a reachable tile | Follow an A* route |
 | Click again at arrival / Interact button | Enter a nearby door or gate |
 | Gamepad left stick | Walk, with a deadzone |
-| E / Space / Enter | Interact |
+| E / Space / Enter | Interact: a door underfoot, else the nearest character, else a nearby door |
+| Click a character | Talk when beside it; otherwise walk beside it, then talk |
+| C / Codex button | Open or close the Codex |
 | M / Map button | Open or close the full overworld map |
 | Esc / Pause button | Pause; settings stub and readable font option |
 | Mouse wheel / − / + | Three camera zoom levels |
@@ -43,6 +45,32 @@ fully revealed; it is not marked understood. Proximity signs show file names;
 hovering a sign displays its path in the status line. Breadcrumbs track the
 kingdom, region, district and current file.
 
+## Characters, Code Panel and Codex (Phase 05)
+
+Every function, method, class and type is a character (`src/npc/`). Bodies come
+from its kind, guild tint from its class or folder, 5×5 badges from traits
+(wings async, hammer constructor, ear trumpet event handler, mirror recursive,
+coin I/O, lotus pure candidate, ghost deprecated), and idle behavior from traits
+(brisk errands, busy work, meditation, standing alone, wandering; visitors circle
+characters with five or more callers). Idle motion stops for
+`prefers-reduced-motion`. A name tag appears within three tiles and marks the
+character `seen`.
+
+Talking opens template dialogue and the Code Panel: signature, doc comment, the
+real lines (fetched from `source/<fileId>?start&end` beside `world.json`, Shiki
+highlighted, collapsible over 40 lines), metrics, callers, callees and tests with
+confidence lines (solid exact, dashed likely, dotted guess). Arrow keys, Home and
+End move through a list; Enter offers **Walk there** (arrow + minimap ring through
+gates and doors) or **Teleport**. **Open in editor** uses `cq play --editor`
+(default `vscode://file/{path}:{line}`); **Open on GitHub** appears for GitHub
+remotes with a commit. Talking marks a character `read` in the Codex, which has
+search, region/kind/trait filters, completion, Markdown notes and **Export notes**.
+Only Codex entries and notes persist (`localStorage["cq:codex:<repo>:<commit>"]`).
+Any overlay pauses the world; Esc closes the innermost layer.
+
+Debug API additions (dev/test only): `interactWithNpc`, `getOpenPanel`,
+`getCodexCount`, `gotoNpc`, `getGuide`, `getNpcs`.
+
 ## Implementation boundaries
 
 - `loader.ts`: runtime WorldModel/Tiled validation, local asset paths, lazy map fetch.
@@ -50,12 +78,16 @@ kingdom, region, district and current file.
 - `session.ts`: indexed map/location references, fog and comprehension state.
 - `game.ts`: Phaser Preload/Title/map/HUD scenes, camera and rendered chunks.
 - `hud.ts`: persistent native HTML controls, minimap and accessible modal panels.
-- `apps/cli/src/play.ts`: safe discovery fingerprint, cache, loopback server/opener.
+- `apps/cli/src/play.ts`: safe discovery fingerprint, cache, loopback server/opener, live links.
+- `apps/cli/src/source.ts`: the safe line-range reader behind `source/<fileId>`.
+- `src/npc/`: fact index, appearance, crowd layout, guide routing, Codex store, Phaser entity, lazy Shiki.
+- `src/overlay/`: typed event bus, overlay store and Preact dialogue/Code Panel/Codex.
+- `packages/content`: fact sheets (Node) and the template dialogue engine with `locales/en.json`.
 
 Rendering uses the existing Kenney CC0 placeholder theme. Large maps instantiate
 64×64 tilemap chunks around the camera, while their collision arrays remain
 available for navigation. WorldModel JSON is still a complete logical model.
-This phase does not implement final art, dialogue, combat or persistent saves.
+This phase does not implement final art, AI dialogue, combat or a save system.
 
 ## Verification
 
@@ -73,8 +105,8 @@ frame/chunk statistics. Production bundles are tested to exclude the debug API.
 For an intentional visual update, run:
 
 ```sh
-pnpm e2e apps/game/e2e/explore.e2e.ts --update-snapshots
+pnpm e2e apps/game/e2e/explore.e2e.ts apps/game/e2e/npcs.e2e.ts --update-snapshots=all
 ```
 
-Inspect all three PNGs in `apps/game/e2e/explore.e2e.ts-snapshots/` before committing.
+Inspect the PNGs in `apps/game/e2e/*-snapshots/` before committing.
 They use Git LFS. Remote CI and physical gamepad comfort require separate checks.

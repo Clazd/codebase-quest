@@ -69,6 +69,8 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install --with-deps chromium
+      # The Code Panel e2e tests compare displayed code with the built tiny-ts fixture.
+      - run: pnpm fixtures
       - run: pnpm e2e
       - name: Upload the Playwright report
         if: failure()

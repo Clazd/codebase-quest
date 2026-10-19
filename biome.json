@@ -14,7 +14,8 @@
       "!docs/plans",
       "!packages/assets/kenney",
       "!packages/analyzer/goldens",
-      "!packages/worldgen/goldens"
+      "!packages/worldgen/goldens",
+      "!packages/content/goldens"
     ]
   },
   "formatter": {

@@ -1,7 +1,7 @@
 # Phase 05: NPCs, Code Panel and Codex
 
 > **Milestone:** C · The People · **Depends on:** 04 · **Effort:** 1–1.5 weeks ·
-> **Status:** Not started
+> **Status:** Implemented and tested; owner template rating pending
 > **Read first:** MASTER-PLAN §5.5, §12, §16.8
 
 ## Goal
@@ -171,7 +171,55 @@ walk me through the manual test script, and fill in the Results section.
 ```
 
 ## Results (fill in after testing)
-- Date:
-- Automated tests:
-- Template usefulness score (x/10):
-- Decisions / ADRs:
+- Date: 2026-10-19, Windows, Node.js 24 / pnpm, Chromium headless.
+- Automated tests: `pnpm test` passed **273 tests in 32 files**. New: template
+  rule selection for every rule, placeholder filling, per-seed deterministic
+  variants, the `tiny-ts` fact-sheet golden plus an independent re-derivation of
+  callers/callees/tests from graph edges; the source reader returning exact file
+  lines, refusing traversal (`../`, `src/../../`, absolute, backslash, drive
+  paths, symlink when the OS allows it) and secret-skipped files (`.env*`, `.pem`,
+  `secrets.json`, `node_modules`), masking without shifting line numbers, range
+  limits; HTTP `facts.json`/`source` through `cq play`; GitHub link parsing and
+  editor-URL validation; Codex store/search/filters/completion/export; crowd
+  layout; guide routing; link building and range-only cached fetch.
+  `pnpm e2e` passed **29 tests** (all earlier phases plus seven new): Code Panel
+  text equals lines 2–8 of the real `src/utils/slugify.ts`; clicking callee
+  `saveTask` → Teleport changes `getLocation()` to its building and greets it;
+  Walk there sets a guide whose first waypoint is the building exit; the Codex
+  count increments once per character, search finds `formatDate`, a note survives
+  reload and exports to Markdown; E by proximity and a sprite click both talk, the
+  world is frozen while the panel is open and moves again after Esc; a
+  keyboard-only run (E, Tab, arrows/Home/End, Enter, Esc, Esc); axe on the Code
+  Panel and Codex (zero violations of any impact, full page included); a Code
+  Panel screenshot baseline. The three Phase 04 baselines were regenerated
+  because NPC sprites replaced dots, and inspected. The 2,000-building stress
+  world with NPC sprites averaged **16.75 ms/frame** (187 samples).
+- Other checks: frozen-lockfile install, `pnpm check`, `pnpm build`, license
+  check and `git diff --check` passed. The production bundle contains no
+  `window.__CQ__`; Shiki grammars load as lazy chunks. Remote CI has not run; the
+  CI e2e job now builds fixtures first.
+- CLI smoke run by the agent: `pnpm cq -- play fixtures/repos/tiny-ts --no-open
+  --port 4194` (cache hit, 194 ms) served `facts.json` with local links,
+  `/world/source/<taskService>?start=20&end=24` returned the exact lines with
+  `stale: false`, and an out-of-range request returned 416. The production page
+  loaded, entered Port of api and opened the Codex showing 0 of 58 characters.
+  `pnpm cq -- play . --no-open --port 4195` built this repository in **2,150 ms**
+  (10 regions, 340 buildings, 1,021 NPCs, 848 monsters). Port 4184 was already
+  occupied by an older server and was left untouched.
+- Template usefulness score (x/10): **pending owner rating** (manual step 6).
+  Agent pre-check on this repository, ten characters (`analyze`, `generate`,
+  `discover`, `secretPath`, `prepareWorld`, `serveWorld`, `buildFactBook`,
+  `findPath`, `maskLines`, `CodexStore`): 26 lines, all factually true by
+  construction. The doc-quote, caller-count, complexity and tested-in lines were
+  specific; async/I/O lines were true but generic. One awkward template
+  ("Welcome to the class CodexStore household") was fixed to use the bare name.
+  This is not the owner's "true and useful" rating.
+- Not verified by the agent: VS Code actually opening from **Open in editor**
+  (only the `vscode://` href was tested), a GitHub remote link on a real GitHub
+  checkout, a full production-build conversation by walking (covered in the
+  test build), physical gamepad or screen-reader use.
+- Decisions / ADRs: [ADR 0008](../../adr/0008-npcs-code-panel-and-codex.md)
+  records fact sheets, live local links and `--editor`, the world-relative
+  `source/` path, dialogue rules, crowd layout, reduced motion, overlay/Shiki
+  choices, navigation, Codex storage key and CI fixture build. Usage and module
+  ownership are in `apps/game/src/explore/README.md`.

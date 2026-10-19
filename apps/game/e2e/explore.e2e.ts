@@ -150,6 +150,8 @@ test("map, pause and controls work keyboard-only and pass axe", async ({ page })
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
 });
 test("overworld, region and interior visual regression", async ({ page }) => {
+  // Reduced motion freezes idle NPC behaviors, so frames are deterministic.
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await start(page);
   await expect(page.locator("main")).toHaveScreenshot("overworld.png", { maxDiffPixelRatio: 0.015 });
   await region(page);

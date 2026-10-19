@@ -1,9 +1,13 @@
 import type { WorldModel, WorldPosition } from "@codebase-quest/shared";
+import { layoutNpcs, type NpcSpot } from "../npc/layout.ts";
 import { walkable } from "./navigation.ts";
 import { required } from "./required.ts";
 export class ExploreSession {
   readonly seen = new Map<string, Uint8Array>();
   readonly seenFiles = new Set<string>();
+  /** Characters seen up close this session (`seen`); talking makes them `read` in the Codex. */
+  readonly seenNpcs = new Set<string>();
+  private readonly layouts = new Map<string, NpcSpot[]>();
   readonly maps;
   private readonly regionByMap;
   private readonly buildingByMap;
@@ -26,6 +30,15 @@ export class ExploreSession {
       const r = regions.get(b.regionId);
       if (r) this.regionByMap.set(mapId, r);
     }
+  }
+  /** Where characters stand on a map, after spreading out shared spots. */
+  npcLayout(mapId: string): NpcSpot[] {
+    let layout = this.layouts.get(mapId);
+    if (!layout) {
+      layout = layoutNpcs(this.world, required(this.maps.get(mapId)));
+      this.layouts.set(mapId, layout);
+    }
+    return layout;
   }
   get map() {
     return required(this.maps.get(this.position.mapId));
