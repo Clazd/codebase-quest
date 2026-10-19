@@ -5,7 +5,18 @@
   "description": "Pixelize, outline, pack-atlas and tile generators.",
   "license": "MIT",
   "type": "module",
+  "scripts": {
+    "assets": "node scripts/build.ts",
+    "pixelize": "node scripts/pixelize.ts",
+    "pack-atlas": "node scripts/pack-atlas.ts"
+  },
   "exports": {
     ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "pngjs": "7.0.0"
+  },
+  "devDependencies": {
+    "@types/pngjs": "6.0.5"
   }
 }

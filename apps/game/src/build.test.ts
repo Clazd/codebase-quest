@@ -37,5 +37,8 @@ describe("game bundle", () => {
     expect(test).toContain("__CQ__");
     expect(production).not.toContain("__CQ__");
     expect(production).not.toContain("pressKey");
+    expect(test).toContain("Know the code.");
+    expect(production).not.toContain("Know the code.");
+    expect(production).not.toContain("sever-c1");
   });
 });

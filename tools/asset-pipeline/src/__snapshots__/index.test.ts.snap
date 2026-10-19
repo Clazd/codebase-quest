@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`@codebase-quest/asset-pipeline > generates deterministic, distinct tiles with a golden snapshot 1`] = `
+[
+  "bed5c76730a5dfbccb24c7944751ea1c99fc302f9e174afe4984e73ce8daabb6",
+  "3e450ec13803fbf5305991125670563af3752ce1aafdbe147c727542332a2a12",
+  "5421b6e696d5cdc9e65e7046756178f4dfda16b6e21a60a379799c02681c3b0f",
+  "a114a545ebb5618ab90072413e611010560beaa2e3b043b47ca6d7c5e64ed601",
+  "e71dbc2e8807f176884de04bb10135e5e667ea4c760debc0a08bdea9edd38f80",
+  "475e82ea2c6d07a63fd25b2eda72fd97b14e1976a24afe38fe39b3030a12c083",
+]
+`;
+
+exports[`@codebase-quest/asset-pipeline > packs in stable name order, checks frame size and matches committed output 1`] = `"d02bdef06fac7b53ac68578f358c8f09a782624f31083d4b4d6030f58ab2baab"`;

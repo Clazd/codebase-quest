@@ -1,7 +1,7 @@
 # Phase 01: Prototype: Fun and Look
 
 > **Milestone:** A · Prove the Fun · **Depends on:** 00 · **Effort:** ~1 week ·
-> **Status:** Not started
+> **Status:** In progress — prototype implemented on `phase/01-prototype`; human playtest and final adoption decisions pending
 > **Read first:** MASTER-PLAN §2 (pillars 1, 2, 4), §7, §8, §21
 
 ## Goal
@@ -111,19 +111,19 @@ question-and-answer combat (questions targeting cells). Record it in ADR 0003.
    `packages/assets/LICENSES.md` (original, CC-BY-4.0).
 
 ## Tasks
-- [ ] Prototype scene + routing (dev only).
-- [ ] Hand-author the 3 body JSON files with questions, answers and evidence; double-check each answer against the code and tests.
-- [ ] Combat state machine + `balance.json`.
-- [ ] Grid panel UI (cell kinds by shape + icon + color), Code Panel (revealed lines only), action bar, meters.
-- [ ] Actions: Read, Trace Strike, Sever, Disable Organ, Pierce Heart, Ask Gitling (fixed hints), Flee.
-- [ ] Monster turn: telegraph, token animation (skippable), exit prediction; Mimic twin bodies; minion summon.
-- [ ] Keyboard controls.
-- [ ] Blender MCP: Gitling + Gremlin models and renders.
-- [ ] `tools/asset-pipeline`: `pixelize`, `pack-atlas`.
-- [ ] Code-generated tile sample.
-- [ ] Enforce the license manifest in the CI `license-check` job.
+- [x] Prototype scene + routing (dev only).
+- [x] Hand-author the 3 body JSON files with questions, answers and evidence; double-check each answer against the code and tests.
+- [x] Combat state machine + `balance.json`.
+- [x] Grid panel UI (cell kinds by shape + icon + color), Code Panel (revealed lines only), action bar, meters.
+- [x] Actions: Read, Trace Strike, Sever, Disable Organ, Pierce Heart, Ask Gitling (fixed hints), Flee.
+- [x] Monster turn: telegraph, token animation (skippable), exit prediction; Mimic twin bodies; minion summon.
+- [x] Keyboard controls.
+- [x] Blender MCP: Gitling + Gremlin models and renders.
+- [x] `tools/asset-pipeline`: `pixelize`, `pack-atlas`.
+- [x] Code-generated tile sample.
+- [x] Enforce the license manifest in the CI `license-check` job.
 - [ ] Run the playtest; fill in the survey results.
-- [ ] ADR 0003 (combat: go / adjust / fallback) and ADR 0004 (art style).
+- [x] ADR 0003 (combat: go / adjust / fallback) and ADR 0004 (art style). Both record adjust/hold pending human observations.
 
 ## Automated tests
 - **Data validation:** each body JSON validates against the CodeBody schema; every cell's line range exists in the fixture file; every `pathCellIds` path follows real control flow (checked by hand-written assertions in the test).
@@ -140,9 +140,9 @@ question-and-answer combat (questions targeting cells). Record it in ADR 0003.
 5. Decide go / adjust / fallback, and write the ADRs.
 
 ## Definition of done
-- [ ] All tests green.
+- [x] All tests green (local automated checks; remote CI not run).
 - [ ] Playtest done with recorded results.
-- [ ] ADR 0003 and ADR 0004 written with clear decisions.
+- [x] ADR 0003 and ADR 0004 written with clear decisions (prototype accepted; final adoption pending playtest).
 - [ ] If "go": the combat rules and `balance.json` become the starting point for Phase 07.
 
 ## Risks
@@ -168,8 +168,57 @@ When finished, run the automated tests and give me the playtest kit.
 ```
 
 ## Results (fill in after testing)
-- Date:
+- Date: 2026-10-19 (Windows, Node 24.20.0, pnpm 10.33.1).
+- Implementation: continued the interrupted work on `phase/01-prototype`.
+  Three hand-authored monsters, a pure combat engine, Preact combat UI, keyboard
+  grid controls, revealed-code panel, fixed hints, flee memory, two Serpent
+  phases, mirrored Mimic bodies, Gatekeeper summon, telegraphs and skippable
+  path animation are implemented. The dev/test pages are `/prototype/combat/`
+  and `/prototype/art/`; production contains neither prototype nor answer data.
 - Automated tests:
+  - `pnpm install --frozen-lockfile`: passed.
+  - `pnpm test`: **132/132 tests passed in 24 files**. Includes 33 body/ground-
+    truth tests (every scored question, fixture source/ranges, references and
+    literal control-flow paths), 18 combat-rule tests, three asset pipeline
+    golden/determinism tests and all existing Phase 00 checks. No fixture code
+    was executed by the answer audit.
+  - `pnpm e2e` with `CQ_E2E_PORT=4181`: **14/14 passed** in headless Chromium.
+    Includes victories for all three monsters, defeat after wrong answers and
+    predictions, a full keyboard-only fight, hidden/revealed lines, minion
+    summon, flee damage, token animation/skip, Phaser atlas load and axe checks
+    on combat questions, victories and the art study; Phase 00 walking checks
+    also pass. The test server is rebuilt each run, with two workers.
+  - `pnpm check`: Biome (107 files) and strict TypeScript passed.
+  - `pnpm build`: passed; the production-bundle test additionally checks for
+    absence of prototype UI text and question IDs.
+  - `pnpm license-check -- --enforce`: passed for shipped assets and all 34
+    Blender source/raw-frame files; CI now enforces this check.
+  - `pnpm --filter @codebase-quest/asset-pipeline assets`: passed. Two Blender
+    renders and pipeline builds produced the golden-tested sprite pixels.
+    32 frames, a Phaser atlas and six tiles are available. Git LFS attributes
+    were checked for `.blend` and raw `.png` files; CI's test checkout fetches LFS.
+  - `git diff --check`: passed. No remote CI run, push or PR was performed.
+  - During development, browser checks exposed a stale reused preview server,
+    keyboard handler timing, code-scroll keyboard access, label mismatch and
+    low line-number contrast. These were fixed before the passing final E2E run.
+- Blender: **connected**, using Blender 5.1.2's installed local MCP add-on on
+  port 9876. Created original Gitling and TODO Gremlin models in a separate
+  scene; rendered four directions × four idle frames per character at 32px;
+  saved study-only `.blend` sources and raw frames under `art/blender/prototype/`.
+  The authored Python and transport are included for reproduction. The pixel
+  pipeline applies 32-color palette snap, alpha threshold and a one-pixel outline.
+- Manual inspection: combat UI and art study opened in the in-app browser.
+  The owner has not yet run the manual smoke script or recruited participants.
+  [Playtest kit](../../playtests/phase-01/README.md) includes the manual script,
+  facilitator instructions, rubric, thresholds and a copyable session survey.
 - Playtest (fun / explanation accuracy / time to understand the grid):
-- Decision (go / adjust / fallback):
-- Art style decision:
+  **Not run. No participant results exist.** Phase 01 remains in progress.
+- Decision (go / adjust / fallback): **Adjust / hold adoption pending playtest**.
+  [ADR 0003](../../adr/0003-combat-model.md) records the prototype's trace/heart
+  interpretation, fixed clock, implicit-return heart and two-phase presentation.
+  Apply the planned go criteria only after 3–5 real sessions; tune once before
+  choosing fallback if needed.
+- Art style decision: **Adjust / evaluate the study before final adoption**.
+  [ADR 0004](../../adr/0004-art-style.md) records the Blender MCP transport,
+  flat hard-band rendering, palette/outline cleanup and provenance. In particular,
+  collect human feedback on the tiny TODO sign and direction readability.

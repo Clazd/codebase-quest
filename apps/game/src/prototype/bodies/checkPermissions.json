@@ -1,0 +1,248 @@
+{
+  "id": "gatekeeper",
+  "name": "The Gatekeeper",
+  "species": "Guard with an organ (summons a minion)",
+  "smell": "checkPermissions calls loadTeam. Leave that call alone and loadTeam crawls out to fight you too.",
+  "intro": "Its body is checkPermissions from src/services/shareService.ts. The ⚙ organ is a call to another function: ignore it for 2 turns and it summons that function as a minion.",
+  "spriteFrame": 111,
+  "twist": "none",
+  "bodies": [
+    {
+      "id": "main",
+      "symbolId": "proto-checkPermissions",
+      "name": "checkPermissions",
+      "source": "fixtures/repos/tiny-ts/src/services/shareService.ts",
+      "code": {
+        "startLine": 13,
+        "lines": [
+          "export function checkPermissions(task: Task, userId: string): void {",
+          "  const team = loadTeam(task.teamId);",
+          "  if (!team.memberIds.includes(userId)) {",
+          "    throw new PermissionError(`User \"${userId}\" is not in team \"${team.name}\"`);",
+          "  }",
+          "}"
+        ]
+      },
+      "cells": [
+        {
+          "id": "p1",
+          "row": 0,
+          "col": 0,
+          "kind": "organ",
+          "lines": [14, 14],
+          "hp": 2,
+          "label": "const team = loadTeam(task.teamId)",
+          "calleeId": "loadTeam",
+          "minionId": "loadTeam"
+        },
+        {
+          "id": "p2",
+          "row": 1,
+          "col": 0,
+          "kind": "joint",
+          "lines": [15, 15],
+          "hp": 1,
+          "label": "if (!team.memberIds.includes(userId))",
+          "limbId": "P1"
+        },
+        {
+          "id": "p3",
+          "row": 2,
+          "col": 1,
+          "kind": "heart",
+          "lines": [16, 16],
+          "hp": 1,
+          "label": "throw new PermissionError(…)",
+          "limbId": "P1",
+          "guardJointIds": ["p2"]
+        },
+        {
+          "id": "p4",
+          "row": 3,
+          "col": 0,
+          "kind": "heart",
+          "lines": [18, 18],
+          "hp": 1,
+          "label": "} (end: returns undefined)",
+          "guardJointIds": ["p2"]
+        }
+      ],
+      "limbs": [{ "id": "P1", "jointId": "p2", "cellIds": ["p3"] }],
+      "inputs": []
+    }
+  ],
+  "minions": [
+    {
+      "id": "loadTeam",
+      "symbolId": "proto-loadTeam",
+      "name": "loadTeam",
+      "source": "fixtures/repos/tiny-ts/src/db/teams.ts",
+      "spriteFrame": 122,
+      "code": {
+        "startLine": 7,
+        "lines": [
+          "export function loadTeam(teamId: string): Team {",
+          "  const [team] = query<Team>(\"teams\", { id: teamId });",
+          "  if (!team) throw new TeamNotFoundError(`No team \"${teamId}\"`);",
+          "  return team;",
+          "}"
+        ]
+      },
+      "cells": [
+        {
+          "id": "m1",
+          "row": 0,
+          "col": 0,
+          "kind": "organ",
+          "lines": [8, 8],
+          "hp": 2,
+          "label": "const [team] = query<Team>(\"teams\", { id: teamId })",
+          "calleeId": "query"
+        },
+        {
+          "id": "m2",
+          "row": 1,
+          "col": 0,
+          "kind": "joint",
+          "lines": [9, 9],
+          "hp": 1,
+          "label": "if (!team)",
+          "limbId": "M1"
+        },
+        {
+          "id": "m3",
+          "row": 1,
+          "col": 1,
+          "kind": "heart",
+          "lines": [9, 9],
+          "hp": 1,
+          "label": "throw new TeamNotFoundError(…)",
+          "limbId": "M1",
+          "guardJointIds": ["m2"]
+        },
+        {
+          "id": "m4",
+          "row": 2,
+          "col": 0,
+          "kind": "heart",
+          "lines": [10, 10],
+          "hp": 1,
+          "label": "return team",
+          "guardJointIds": ["m2"]
+        }
+      ],
+      "limbs": [{ "id": "M1", "jointId": "m2", "cellIds": ["m3"] }],
+      "inputs": []
+    }
+  ],
+  "questions": [
+    {
+      "id": "disable-p1",
+      "action": "disable",
+      "cellId": "p1",
+      "prompt": "Which function does line 14 call?",
+      "choices": ["loadTeam", "query", "getTask"],
+      "answer": 0,
+      "source": "call-graph",
+      "evidence": "shareService.ts:14 calls loadTeam, imported from ../db/teams (shareService.ts:2)",
+      "explanation": "loadTeam looks the team up. It calls query itself, one level further down."
+    },
+    {
+      "id": "sever-p2",
+      "action": "sever",
+      "cellId": "p2",
+      "prompt": "When is `!team.memberIds.includes(userId)` true?",
+      "choices": [
+        "When userId is in team.memberIds",
+        "When userId is not in team.memberIds",
+        "When the team doesn't exist"
+      ],
+      "answer": 1,
+      "source": "ast",
+      "evidence": "shareService.ts:15; teams.ts:9 throws before a missing team gets here",
+      "explanation": "The `!` flips includes(): true when the user is NOT a member. A missing team never gets here: loadTeam throws on line 14 first."
+    },
+    {
+      "id": "pierce-p3",
+      "action": "pierce",
+      "cellId": "p3",
+      "prompt": "What happens when someone outside the team calls checkPermissions?",
+      "choices": ["It throws a PermissionError", "It returns false", "It returns undefined"],
+      "answer": 0,
+      "source": "ast",
+      "evidence": "shareService.ts:15–16",
+      "explanation": "Line 15 is true for non-members, so line 16 throws a PermissionError."
+    },
+    {
+      "id": "pierce-p4",
+      "action": "pierce",
+      "cellId": "p4",
+      "prompt": "What does checkPermissions return for a team member?",
+      "choices": ["undefined (it's a void function)", "true", "the team"],
+      "answer": 0,
+      "source": "type-info",
+      "evidence": "shareService.ts:13 declares `: void`",
+      "explanation": "For members nothing is thrown and nothing is returned. Callers only care that it didn't throw."
+    },
+    {
+      "id": "disable-m1",
+      "action": "disable",
+      "cellId": "m1",
+      "prompt": "Which function does line 8 of loadTeam call?",
+      "choices": ["query", "loadTeam", "findTask"],
+      "answer": 0,
+      "source": "call-graph",
+      "evidence": "teams.ts:8 calls query, imported from ./client (teams.ts:2)",
+      "explanation": "query is the in-memory database lookup."
+    },
+    {
+      "id": "sever-m2",
+      "action": "sever",
+      "cellId": "m2",
+      "prompt": "When is `!team` true in loadTeam?",
+      "choices": ["When no team has that id", "When the team has no members", "Never: query always finds one"],
+      "answer": 0,
+      "source": "ast",
+      "evidence": "teams.ts:8–9; client.ts query() returns [] when nothing matches",
+      "explanation": "query returns an empty array when nothing matches, so `[team]` destructures to undefined."
+    },
+    {
+      "id": "pierce-m3",
+      "action": "pierce",
+      "cellId": "m3",
+      "prompt": "What does loadTeam do when no team has that id?",
+      "choices": ["Throws a TeamNotFoundError", "Returns undefined", "Returns an empty team"],
+      "answer": 0,
+      "source": "ast",
+      "evidence": "teams.ts:9",
+      "explanation": "Line 9 throws instead of returning a missing team."
+    },
+    {
+      "id": "pierce-m4",
+      "action": "pierce",
+      "cellId": "m4",
+      "prompt": "What type does loadTeam return?",
+      "choices": ["Team", "Team | undefined", "Promise<Team>"],
+      "answer": 0,
+      "source": "type-info",
+      "evidence": "teams.ts:7 declares `: Team`",
+      "explanation": "Because line 9 throws for missing teams, the return type can promise a real Team."
+    }
+  ],
+  "hints": {
+    "p1": "An organ: a call to another function. Disable it before it summons that function as a minion.",
+    "p2": "The `!` matters. Read the condition carefully.",
+    "p3": "A thrown error also ends the function, so it counts as a heart.",
+    "p4": "The function ends here without a return statement.",
+    "m1": "The minion's own organ: it calls the database.",
+    "m2": "What does destructuring an empty array give you?",
+    "m3": "A missing team never comes back as a value.",
+    "m4": "The return type promises a real team."
+  },
+  "phases": [],
+  "smellAttack": {
+    "name": "Access Denied",
+    "text": "The Gatekeeper slams the gate on you.",
+    "focusDamage": 2
+  }
+}

@@ -1,0 +1,371 @@
+{
+  "id": "serpent",
+  "name": "The Status Serpent",
+  "species": "Spaghetti Serpent (Guardian-like, 2 phases)",
+  "smell": "The hotspot of Taskly: the function changed in 4 of 7 commits, with branches nested inside branches.",
+  "intro": "Its body is computeTaskStatus from src/services/taskService.ts. Each row is a line of code; each step to the right is one level of nesting.",
+  "spriteFrame": 110,
+  "twist": "none",
+  "bodies": [
+    {
+      "id": "main",
+      "symbolId": "proto-computeTaskStatus",
+      "name": "computeTaskStatus",
+      "source": "fixtures/repos/tiny-ts/src/services/taskService.ts",
+      "code": {
+        "startLine": 6,
+        "lines": [
+          "export function computeTaskStatus(task: StatusFields): TaskStatus {",
+          "  if (!task.dueDate) return \"open\";",
+          "  if (task.done) {",
+          "    if (task.doneAt > task.dueDate)",
+          "      return \"late\";",
+          "    return \"done\";",
+          "  }",
+          "  const now = Date.now();",
+          "  if (now > task.dueDate) return \"overdue\";",
+          "  return \"open\";",
+          "}"
+        ]
+      },
+      "cells": [
+        {
+          "id": "c1",
+          "row": 0,
+          "col": 0,
+          "kind": "joint",
+          "lines": [7, 7],
+          "hp": 1,
+          "label": "if (!task.dueDate)",
+          "limbId": "L1"
+        },
+        {
+          "id": "c2",
+          "row": 0,
+          "col": 1,
+          "kind": "heart",
+          "lines": [7, 7],
+          "hp": 1,
+          "label": "return \"open\"",
+          "limbId": "L1",
+          "guardJointIds": ["c1"]
+        },
+        {
+          "id": "c3",
+          "row": 1,
+          "col": 0,
+          "kind": "joint",
+          "lines": [8, 8],
+          "hp": 1,
+          "label": "if (task.done)",
+          "limbId": "L2"
+        },
+        {
+          "id": "c4",
+          "row": 2,
+          "col": 1,
+          "kind": "joint",
+          "lines": [9, 9],
+          "hp": 1,
+          "label": "if (task.doneAt > task.dueDate)",
+          "limbId": "L3"
+        },
+        {
+          "id": "c5",
+          "row": 3,
+          "col": 2,
+          "kind": "heart",
+          "lines": [10, 10],
+          "hp": 1,
+          "label": "return \"late\"",
+          "limbId": "L3",
+          "guardJointIds": ["c1", "c3", "c4"]
+        },
+        {
+          "id": "c6",
+          "row": 4,
+          "col": 1,
+          "kind": "heart",
+          "lines": [11, 11],
+          "hp": 1,
+          "label": "return \"done\"",
+          "limbId": "L2",
+          "guardJointIds": ["c1", "c3", "c4"]
+        },
+        {
+          "id": "c7",
+          "row": 5,
+          "col": 0,
+          "kind": "organ",
+          "lines": [13, 13],
+          "hp": 2,
+          "label": "const now = Date.now()",
+          "calleeId": "Date.now"
+        },
+        {
+          "id": "c8",
+          "row": 6,
+          "col": 0,
+          "kind": "joint",
+          "lines": [14, 14],
+          "hp": 1,
+          "label": "if (now > task.dueDate)",
+          "limbId": "L4"
+        },
+        {
+          "id": "c9",
+          "row": 6,
+          "col": 1,
+          "kind": "heart",
+          "lines": [14, 14],
+          "hp": 1,
+          "label": "return \"overdue\"",
+          "limbId": "L4",
+          "guardJointIds": ["c1", "c3", "c8"]
+        },
+        {
+          "id": "c10",
+          "row": 7,
+          "col": 0,
+          "kind": "heart",
+          "lines": [15, 15],
+          "hp": 1,
+          "label": "return \"open\"",
+          "guardJointIds": ["c1", "c3", "c8"]
+        }
+      ],
+      "limbs": [
+        { "id": "L1", "jointId": "c1", "cellIds": ["c2"] },
+        { "id": "L2", "jointId": "c3", "cellIds": ["c4", "c5", "c6"] },
+        { "id": "L3", "jointId": "c4", "cellIds": ["c5"] },
+        { "id": "L4", "jointId": "c8", "cellIds": ["c9"] }
+      ],
+      "inputs": [
+        {
+          "id": "I1",
+          "args": [{ "done": false }],
+          "telegraph": "a task with no due date",
+          "pathCellIds": ["c1", "c2"],
+          "exitHeartId": "c2",
+          "source": "test-assertion",
+          "evidence": "tests/taskService.test.ts:6"
+        },
+        {
+          "id": "I2",
+          "args": [{ "dueDate": 10, "done": true, "doneAt": 5 }],
+          "telegraph": "a task that is done, finished before its due date",
+          "pathCellIds": ["c1", "c3", "c4", "c6"],
+          "exitHeartId": "c6",
+          "source": "test-assertion",
+          "evidence": "tests/taskService.test.ts:10"
+        },
+        {
+          "id": "I3",
+          "args": [{ "dueDate": 10, "done": true, "doneAt": 20 }],
+          "telegraph": "a task that is done, finished after its due date",
+          "pathCellIds": ["c1", "c3", "c4", "c5"],
+          "exitHeartId": "c5",
+          "source": "test-assertion",
+          "evidence": "tests/taskService.test.ts:14"
+        },
+        {
+          "id": "I4",
+          "args": [{ "dueDate": 1, "done": false }],
+          "now": 100,
+          "telegraph": "an open task with dueDate 1, using a fixed now of 100",
+          "pathCellIds": ["c1", "c3", "c7", "c8", "c9"],
+          "exitHeartId": "c9",
+          "source": "test-assertion",
+          "evidence": "tests/taskService.test.ts:18"
+        }
+      ]
+    }
+  ],
+  "minions": [],
+  "questions": [
+    {
+      "id": "sever-c1",
+      "action": "sever",
+      "cellId": "c1",
+      "prompt": "Which task makes `!task.dueDate` true?",
+      "choices": ["{ done: false }", "{ dueDate: 10, done: false }", "{ dueDate: 1, done: true, doneAt: 5 }"],
+      "answer": 0,
+      "source": "evaluator",
+      "evidence": "taskService.ts:7",
+      "explanation": "`!task.dueDate` is true when dueDate is missing (or 0). The other two tasks have a due date."
+    },
+    {
+      "id": "sever-c3",
+      "action": "sever",
+      "cellId": "c3",
+      "prompt": "Which task makes `task.done` true?",
+      "choices": ["{ dueDate: 10, done: false }", "{ dueDate: 10, done: true, doneAt: 5 }", "{ done: false }"],
+      "answer": 1,
+      "source": "evaluator",
+      "evidence": "taskService.ts:8",
+      "explanation": "Only the second task has `done: true`."
+    },
+    {
+      "id": "sever-c4",
+      "action": "sever",
+      "cellId": "c4",
+      "prompt": "For which task is `task.doneAt > task.dueDate` true?",
+      "choices": [
+        "{ dueDate: 10, done: true, doneAt: 10 }",
+        "{ dueDate: 10, done: true, doneAt: 5 }",
+        "{ dueDate: 10, done: true, doneAt: 20 }"
+      ],
+      "answer": 2,
+      "source": "evaluator",
+      "evidence": "taskService.ts:9",
+      "explanation": "20 > 10 is true. 10 > 10 is false (finishing exactly on the due date is not late), and 5 > 10 is false."
+    },
+    {
+      "id": "sever-c8",
+      "action": "sever",
+      "cellId": "c8",
+      "prompt": "With now fixed at 100, which task reaches line 14 and makes `now > task.dueDate` true?",
+      "choices": ["{ dueDate: 8640000000000000, done: false }", "{ dueDate: 1, done: false }", "{ done: false }"],
+      "answer": 1,
+      "source": "test-assertion",
+      "evidence": "tests/taskService.test.ts:18 expects \"overdue\" for { dueDate: 1, done: false }",
+      "explanation": "With now fixed at 100, 100 > 1 is true and 100 > 8640000000000000 is false. `{ done: false }` returns on line 7 before reaching line 14."
+    },
+    {
+      "id": "disable-c7",
+      "action": "disable",
+      "cellId": "c7",
+      "prompt": "What type does `Date.now()` return?",
+      "choices": ["number", "string", "Date"],
+      "answer": 0,
+      "source": "type-info",
+      "evidence": "TypeScript lib.es5.d.ts: DateConstructor.now(): number",
+      "explanation": "Date.now() returns the milliseconds since 1970-01-01 UTC as a number, which is why line 14 can compare it with dueDate."
+    },
+    {
+      "id": "pierce-c2",
+      "action": "pierce",
+      "cellId": "c2",
+      "prompt": "What does `computeTaskStatus({ done: false })` return?",
+      "choices": ["\"open\"", "\"done\"", "\"late\"", "\"overdue\""],
+      "answer": 0,
+      "source": "test-assertion",
+      "evidence": "tests/taskService.test.ts:6",
+      "explanation": "No due date, so line 7 returns \"open\" right away."
+    },
+    {
+      "id": "pierce-c5",
+      "action": "pierce",
+      "cellId": "c5",
+      "prompt": "What does `computeTaskStatus({ dueDate: 10, done: true, doneAt: 20 })` return?",
+      "choices": ["\"open\"", "\"done\"", "\"late\"", "\"overdue\""],
+      "answer": 2,
+      "source": "test-assertion",
+      "evidence": "tests/taskService.test.ts:14",
+      "explanation": "It's done (line 8), and finished at 20, after the due date 10 (line 9), so line 10 returns \"late\"."
+    },
+    {
+      "id": "pierce-c6",
+      "action": "pierce",
+      "cellId": "c6",
+      "prompt": "What does `computeTaskStatus({ dueDate: 10, done: true, doneAt: 5 })` return?",
+      "choices": ["\"open\"", "\"done\"", "\"late\"", "\"overdue\""],
+      "answer": 1,
+      "source": "test-assertion",
+      "evidence": "tests/taskService.test.ts:10",
+      "explanation": "It's done (line 8) and finished at 5, before the due date 10, so line 9 is false and line 11 returns \"done\"."
+    },
+    {
+      "id": "pierce-c9",
+      "action": "pierce",
+      "cellId": "c9",
+      "prompt": "With now fixed at 100, what does `computeTaskStatus({ dueDate: 1, done: false })` return?",
+      "choices": ["\"open\"", "\"done\"", "\"late\"", "\"overdue\""],
+      "answer": 3,
+      "source": "test-assertion",
+      "evidence": "tests/taskService.test.ts:18",
+      "explanation": "It has a due date and isn't done, so it reaches line 14. 100 > 1 is true, so it returns \"overdue\"."
+    },
+    {
+      "id": "pierce-c10",
+      "action": "pierce",
+      "cellId": "c10",
+      "prompt": "With now fixed at 100, which task leaves through `return \"open\"` on line 15?",
+      "choices": ["{ done: false }", "{ dueDate: 1, done: false }", "{ dueDate: 8640000000000000, done: false }"],
+      "answer": 2,
+      "source": "evaluator",
+      "evidence": "taskService.ts:7, :14, :15",
+      "explanation": "`{ done: false }` returns on line 7. DueDate 1 is below now 100, so is overdue. DueDate 8640000000000000 is above the fixed now, so falls through to line 15."
+    },
+    {
+      "id": "trace-I1",
+      "action": "trace",
+      "inputId": "I1",
+      "prompt": "Trace `computeTaskStatus({ done: false })`: which lines run?",
+      "choices": ["7", "7 → 8 → 13 → 14 → 15", "7 → 8 → 9 → 11"],
+      "answer": 0,
+      "source": "test-assertion",
+      "evidence": "tests/taskService.test.ts:6 (\"open\"), and only line 7 returns \"open\" before line 15",
+      "explanation": "Line 7 is true (no due date) and returns at once."
+    },
+    {
+      "id": "trace-I2",
+      "action": "trace",
+      "inputId": "I2",
+      "prompt": "Trace `computeTaskStatus({ dueDate: 10, done: true, doneAt: 5 })`: which lines run?",
+      "choices": ["7 → 8 → 9 → 10", "7 → 8 → 9 → 11", "7 → 8 → 13 → 14"],
+      "answer": 1,
+      "source": "test-assertion",
+      "evidence": "tests/taskService.test.ts:10 (\"done\" is returned only on line 11)",
+      "explanation": "7 is false, 8 is true, 9 is false (5 > 10 is false), so line 11 returns \"done\"."
+    },
+    {
+      "id": "trace-I3",
+      "action": "trace",
+      "inputId": "I3",
+      "prompt": "Trace `computeTaskStatus({ dueDate: 10, done: true, doneAt: 20 })`: which lines run?",
+      "choices": ["7 → 8 → 9 → 11", "7 → 8 → 9 → 10", "7"],
+      "answer": 1,
+      "source": "test-assertion",
+      "evidence": "tests/taskService.test.ts:14 (\"late\" is returned only on line 10)",
+      "explanation": "7 is false, 8 is true, 9 is true (20 > 10), so line 10 returns \"late\"."
+    },
+    {
+      "id": "trace-I4",
+      "action": "trace",
+      "inputId": "I4",
+      "prompt": "With now fixed at 100, trace `computeTaskStatus({ dueDate: 1, done: false })`: which lines run?",
+      "choices": ["7 → 8 → 13 → 14", "7 → 8 → 9 → 11", "7 → 8 → 13 → 14 → 15"],
+      "answer": 0,
+      "source": "test-assertion",
+      "evidence": "tests/taskService.test.ts:18 (\"overdue\" is returned only on line 14)",
+      "explanation": "7 and 8 are false, line 13 reads the clock, and line 14 is true, so it returns \"overdue\" there."
+    }
+  ],
+  "hints": {
+    "c1": "A joint guards the cells nested under it (to its right). This one asks whether the task has a due date at all.",
+    "c2": "This heart is the earliest way out of the function. Which tasks leave this soon?",
+    "c3": "Everything indented under this joint (three cells) only runs for one kind of task. Severing it removes all of them.",
+    "c4": "A comparison between two timestamps. Watch out for equal values.",
+    "c5": "The deepest heart. To get here, two joints above it must both say yes.",
+    "c6": "A heart one level in: inside the first joint, but past the second one.",
+    "c7": "An organ is a call to another function. This one reads the current time.",
+    "c8": "Only open tasks with a due date ever reach this joint.",
+    "c9": "Leaves when the clock has passed the due date.",
+    "c10": "The last way out. Notice it returns the same word as the very first heart, for a very different reason."
+  },
+  "phases": [
+    {
+      "name": "Phase 2: the Serpent sheds its skin",
+      "heartsLeft": 2,
+      "telegraph": "The Serpent sheds its skin! Cells you read are hidden again, and its strikes hurt more.",
+      "rehide": true,
+      "wrongPredictionBonus": 1
+    }
+  ],
+  "smellAttack": {
+    "name": "Tangle",
+    "text": "The Serpent wraps you in tangled branches.",
+    "focusDamage": 2
+  }
+}

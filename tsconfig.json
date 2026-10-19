@@ -2,14 +2,18 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "lib": ["ES2024", "DOM", "DOM.Iterable"],
-    "types": ["node"]
+    "types": ["node"],
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
   },
   "include": [
     "apps/*/src/**/*.ts",
+    "apps/*/src/**/*.tsx",
     "apps/*/e2e/**/*.ts",
     "apps/*/*.config.ts",
     "packages/*/src/**/*.ts",
     "tools/*/src/**/*.ts",
+    "tools/*/scripts/**/*.ts",
     "scripts/**/*.ts",
     "*.config.ts"
   ],

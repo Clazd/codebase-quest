@@ -7,6 +7,7 @@
   "type": "module",
   "exports": {
     ".": "./src/index.ts",
-    "./kenney/*": "./kenney/*"
+    "./kenney/*": "./kenney/*",
+    "./prototype/*": "./prototype/*"
   }
 }

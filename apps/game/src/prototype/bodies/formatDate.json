@@ -1,0 +1,250 @@
+{
+  "id": "mimic",
+  "name": "The Date Mimic",
+  "species": "Mimic (duplicated code)",
+  "smell": "formatDate was copied from src/utils/dates.ts into src/api/handlers.ts. The copies look the same, but one line is not.",
+  "intro": "Two mirrored bodies: formatDate in utils/dates.ts (left) and its copy in api/handlers.ts (right). Find the one cell that differs.",
+  "spriteFrame": 92,
+  "twist": "mimic",
+  "bodies": [
+    {
+      "id": "utils",
+      "symbolId": "proto-formatDate-utils",
+      "name": "formatDate (utils/dates.ts)",
+      "source": "fixtures/repos/tiny-ts/src/utils/dates.ts",
+      "code": {
+        "startLine": 4,
+        "lines": [
+          "export function formatDate(timestamp: number): string {",
+          "  const date = new Date(timestamp);",
+          "  const year = date.getUTCFullYear();",
+          "  const month = String(date.getUTCMonth() + 1).padStart(2, \"0\");",
+          "  const day = String(date.getUTCDate()).padStart(2, \"0\");",
+          "  const label = `${year}-${month}-${day}`;",
+          "  return label;",
+          "}"
+        ]
+      },
+      "cells": [
+        {
+          "id": "a1",
+          "row": 0,
+          "col": 0,
+          "kind": "body",
+          "lines": [5, 5],
+          "hp": 1,
+          "label": "const date = new Date(timestamp)"
+        },
+        {
+          "id": "a2",
+          "row": 1,
+          "col": 0,
+          "kind": "body",
+          "lines": [6, 6],
+          "hp": 1,
+          "label": "const year = date.getUTCFullYear()"
+        },
+        {
+          "id": "a3",
+          "row": 2,
+          "col": 0,
+          "kind": "body",
+          "lines": [7, 7],
+          "hp": 2,
+          "label": "const month = String(date.getUTCMonth() + 1).padStart(2, \"0\")"
+        },
+        {
+          "id": "a4",
+          "row": 3,
+          "col": 0,
+          "kind": "body",
+          "lines": [8, 8],
+          "hp": 2,
+          "label": "const day = String(date.getUTCDate()).padStart(2, \"0\")",
+          "twinDiff": true
+        },
+        {
+          "id": "a5",
+          "row": 4,
+          "col": 0,
+          "kind": "body",
+          "lines": [9, 9],
+          "hp": 1,
+          "label": "const label = `${year}-${month}-${day}`"
+        },
+        {
+          "id": "a6",
+          "row": 5,
+          "col": 0,
+          "kind": "heart",
+          "lines": [10, 10],
+          "hp": 1,
+          "label": "return label",
+          "guardJointIds": []
+        }
+      ],
+      "limbs": [],
+      "inputs": [
+        {
+          "id": "IA",
+          "args": [0],
+          "telegraph": "formatDate(0), the very first millisecond of 1970",
+          "pathCellIds": ["a1", "a2", "a3", "a4", "a5", "a6"],
+          "exitHeartId": "a6",
+          "source": "test-assertion",
+          "evidence": "tests/dates.test.ts:6"
+        }
+      ]
+    },
+    {
+      "id": "handlers",
+      "symbolId": "proto-formatDate-handlers",
+      "name": "formatDate (api/handlers.ts)",
+      "source": "fixtures/repos/tiny-ts/src/api/handlers.ts",
+      "code": {
+        "startLine": 7,
+        "lines": [
+          "function formatDate(timestamp: number): string {",
+          "  const date = new Date(timestamp);",
+          "  const year = date.getUTCFullYear();",
+          "  const month = String(date.getUTCMonth() + 1).padStart(2, \"0\");",
+          "  const day = String(date.getDate()).padStart(2, \"0\");",
+          "  const label = `${year}-${month}-${day}`;",
+          "  return label;",
+          "}"
+        ]
+      },
+      "cells": [
+        {
+          "id": "b1",
+          "row": 0,
+          "col": 0,
+          "kind": "body",
+          "lines": [8, 8],
+          "hp": 1,
+          "label": "const date = new Date(timestamp)"
+        },
+        {
+          "id": "b2",
+          "row": 1,
+          "col": 0,
+          "kind": "body",
+          "lines": [9, 9],
+          "hp": 1,
+          "label": "const year = date.getUTCFullYear()"
+        },
+        {
+          "id": "b3",
+          "row": 2,
+          "col": 0,
+          "kind": "body",
+          "lines": [10, 10],
+          "hp": 2,
+          "label": "const month = String(date.getUTCMonth() + 1).padStart(2, \"0\")"
+        },
+        {
+          "id": "b4",
+          "row": 3,
+          "col": 0,
+          "kind": "body",
+          "lines": [11, 11],
+          "hp": 2,
+          "label": "const day = String(date.getDate()).padStart(2, \"0\")",
+          "twinDiff": true
+        },
+        {
+          "id": "b5",
+          "row": 4,
+          "col": 0,
+          "kind": "body",
+          "lines": [12, 12],
+          "hp": 1,
+          "label": "const label = `${year}-${month}-${day}`"
+        },
+        {
+          "id": "b6",
+          "row": 5,
+          "col": 0,
+          "kind": "heart",
+          "lines": [13, 13],
+          "hp": 1,
+          "label": "return label",
+          "guardJointIds": []
+        }
+      ],
+      "limbs": [],
+      "inputs": []
+    }
+  ],
+  "minions": [],
+  "questions": [
+    {
+      "id": "compare-row3",
+      "action": "compare",
+      "cellId": "b4",
+      "prompt": "These twin lines differ. What does the difference do?",
+      "choices": [
+        "`getDate()` uses the server's local time zone; `getUTCDate()` uses UTC",
+        "`getDate()` returns the day of the week instead of the day of the month",
+        "Nothing: both always return the same number"
+      ],
+      "answer": 0,
+      "source": "ast",
+      "evidence": "dates.ts:8 calls getUTCDate(); handlers.ts:11 calls getDate(). Every other line is identical.",
+      "explanation": "The copy mixes UTC year and month with a local-time day. On servers west of UTC, dates near midnight come out wrong."
+    },
+    {
+      "id": "pierce-a6",
+      "action": "pierce",
+      "cellId": "a6",
+      "prompt": "What does `formatDate(0)` in utils/dates.ts return?",
+      "choices": ["\"1970-01-01\"", "\"1969-12-31\"", "\"1970-01-31\""],
+      "answer": 0,
+      "source": "test-assertion",
+      "evidence": "tests/dates.test.ts:6",
+      "explanation": "Timestamp 0 is 1970-01-01 00:00 UTC, and every part is read in UTC."
+    },
+    {
+      "id": "pierce-b6",
+      "action": "pierce",
+      "cellId": "b6",
+      "prompt": "On a server in New York (UTC−5), what does `formatDate(0)` in api/handlers.ts return?",
+      "choices": ["\"1970-01-01\"", "\"1969-12-31\"", "\"1970-01-31\""],
+      "answer": 2,
+      "source": "ast",
+      "evidence": "handlers.ts:9–11: year and month from UTC (1970-01), day from local time (Dec 31, 1969 at 19:00 in New York)",
+      "explanation": "At timestamp 0 it's still December 31 in New York. Year and month come from UTC (1970-01) but the day comes from local time (31): a date that never existed in either zone."
+    },
+    {
+      "id": "trace-IA",
+      "action": "trace",
+      "inputId": "IA",
+      "prompt": "Trace `formatDate(0)` in utils/dates.ts: which lines run?",
+      "choices": ["5 → 10", "5 → 6 → 7 → 8 → 9 → 10", "5 → 6 → 10"],
+      "answer": 1,
+      "source": "ast",
+      "evidence": "dates.ts:5–10 has no branches",
+      "explanation": "No joints, no early returns: straight-line code runs every line in order."
+    }
+  ],
+  "hints": {
+    "a1": "Both twins start the same way. Comparing them row by row is cheaper than reading everything.",
+    "a2": "Year, from UTC. Check the same row on the other twin.",
+    "a3": "Month, from UTC. Months start at 0 in JavaScript, hence the + 1.",
+    "a4": "The day of the month. Is the twin reading it the same way?",
+    "a5": "Glues the parts into YYYY-MM-DD.",
+    "a6": "This twin's only heart.",
+    "b1": "The copy starts exactly like the original.",
+    "b2": "Same as the original's row 2.",
+    "b3": "Same as the original's row 3.",
+    "b4": "Look closely at the method name on this row.",
+    "b5": "Same as the original's row 5.",
+    "b6": "The copy's only heart. Its value depends on where the server runs."
+  },
+  "phases": [],
+  "smellAttack": {
+    "name": "Mirror Glare",
+    "text": "The twins flash at once, and you can't tell them apart. Find the difference to break the spell.",
+    "focusDamage": 2
+  }
+}
