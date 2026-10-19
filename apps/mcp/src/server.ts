@@ -24,7 +24,13 @@ import { BridgeClient, type IncomingQuestion } from "./bridgeClient.ts";
 import { SERVER_INSTRUCTIONS } from "./instructions.ts";
 
 /** Content an agent can prebuild today; fight afterwords have no question data. */
-export const PREBUILD_TYPES = ["npc-dialogue", "region-lore", "kingdom-lore", "combat-explanation"] as const;
+export const PREBUILD_TYPES = [
+  "npc-dialogue",
+  "region-lore",
+  "kingdom-lore",
+  "combat-explanation",
+  "quest-narration",
+] as const;
 const PathInput = z
   .string()
   .max(1000)
@@ -191,7 +197,7 @@ export function createCqServer(options: ServerOptions = {}) {
         coverage,
         missing,
         complete: Boolean(ws) && missing === 0,
-        notApplicableYet: ["quest-narration", "issue-mapping", "gitling-answer (live only)"],
+        notApplicableYet: ["issue-mapping", "gitling-answer (live only)"],
         gameRunning: await bridge(root).connect(),
         aiMode: loadAiConfig(options.home).mode,
       });

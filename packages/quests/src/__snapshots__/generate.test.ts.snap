@@ -1,0 +1,4689 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`quest atlas smelly-ts > is deterministic, reachable, grounded and has independently verified signature keys 1`] = `
+{
+  "dailyCandidates": [
+    {
+      "encounterId": "14197e0ee1ea",
+      "symbolId": "65a0b665b01b",
+    },
+    {
+      "encounterId": "198ebfda6e93",
+      "symbolId": "19378847328c",
+    },
+    {
+      "encounterId": "772fcdd1720e",
+      "symbolId": "7ac889ae64f9",
+    },
+    {
+      "encounterId": "7afa4887bcef",
+      "symbolId": "54bacf963097",
+    },
+    {
+      "encounterId": "7d0bd67a4775",
+      "symbolId": "c224d0487236",
+    },
+    {
+      "encounterId": "821c4fe75f61",
+      "symbolId": "6cfa0977c21a",
+    },
+    {
+      "encounterId": "af94a38fe068",
+      "symbolId": "2e571fa4a41e",
+    },
+    {
+      "encounterId": "b91235020dd9",
+      "symbolId": "ac6827b5064c",
+    },
+    {
+      "encounterId": "c86f9e5d744b",
+      "symbolId": "c818dabe32bb",
+    },
+    {
+      "encounterId": "cf729c4ffee7",
+      "symbolId": "546c0d551d8e",
+    },
+    {
+      "encounterId": "dbaef342242a",
+      "symbolId": "bae4249edd11",
+    },
+    {
+      "encounterId": "mutant-ac6827b5064c",
+      "symbolId": "ac6827b5064c",
+    },
+    {
+      "encounterId": "mutant-18770ea0fed3",
+      "symbolId": "18770ea0fed3",
+    },
+  ],
+  "deliveries": [],
+  "dependencies": [
+    {
+      "from": "0c7baca3f4d1",
+      "to": "920172bf9aaf",
+      "weight": 1,
+    },
+    {
+      "from": "18ec850f3635",
+      "to": "0c7baca3f4d1",
+      "weight": 1,
+    },
+    {
+      "from": "18ec850f3635",
+      "to": "39c9ab63cdfc",
+      "weight": 3,
+    },
+    {
+      "from": "18ec850f3635",
+      "to": "4cee3713a6c5",
+      "weight": 2,
+    },
+    {
+      "from": "18ec850f3635",
+      "to": "7cb9478bab1c",
+      "weight": 3,
+    },
+    {
+      "from": "18ec850f3635",
+      "to": "920172bf9aaf",
+      "weight": 2,
+    },
+    {
+      "from": "18ec850f3635",
+      "to": "d7845cf4ec86",
+      "weight": 1,
+    },
+    {
+      "from": "18ec850f3635",
+      "to": "e7508b466efb",
+      "weight": 5,
+    },
+    {
+      "from": "7cb9478bab1c",
+      "to": "920172bf9aaf",
+      "weight": 2,
+    },
+    {
+      "from": "7cb9478bab1c",
+      "to": "e7508b466efb",
+      "weight": 1,
+    },
+    {
+      "from": "e7508b466efb",
+      "to": "920172bf9aaf",
+      "weight": 5,
+    },
+  ],
+  "gates": [
+    {
+      "key": "key:920172bf9aaf",
+      "regionId": "e7508b466efb",
+      "sourceRegionId": "920172bf9aaf",
+    },
+    {
+      "key": "key:920172bf9aaf",
+      "regionId": "7cb9478bab1c",
+      "sourceRegionId": "920172bf9aaf",
+    },
+    {
+      "key": "key:e7508b466efb",
+      "regionId": "18ec850f3635",
+      "sourceRegionId": "e7508b466efb",
+    },
+  ],
+  "quests": [
+    {
+      "chapter": 0,
+      "id": "prologue",
+      "narration": {
+        "intro": "Prologue: Meet the kingdom",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "welcome",
+          "step": "gate",
+        },
+        {
+          "kind": "welcome",
+          "step": "readme",
+        },
+        {
+          "kind": "welcome",
+          "step": "gitling",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "64800c061569",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "7afa4887bcef",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "64800c061569",
+      ],
+      "prerequisites": [],
+      "regionId": null,
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Enter the Gate, read the welcome scroll, meet Gitling, greet a resident and tame your first monster.",
+      "title": "Prologue: Meet the kingdom",
+      "type": "main",
+    },
+    {
+      "chapter": 1,
+      "id": "chapter:1",
+      "narration": {
+        "intro": "Chapter 1: lowStockSkus",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "talk",
+          "symbolId": "64800c061569",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "64800c061569",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a6c79995939c",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a6c79995939c",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "1e383dfda612",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "1e383dfda612",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "bb625e6f02e8",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "bb625e6f02e8",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "0512b16cb4c9",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "0512b16cb4c9",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "1ee87b1a9dd3",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "1ee87b1a9dd3",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "54bacf963097",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "54bacf963097",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "6d03178f74c5",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "6d03178f74c5",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "806f8df4190b",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "806f8df4190b",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a6da4b6fc60e",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a6da4b6fc60e",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "b2f83c3b0217",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "b2f83c3b0217",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "bae4249edd11",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "bae4249edd11",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "d5b568a0afbe",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "d5b568a0afbe",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "dc937a53fc63",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "dc937a53fc63",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "fe6b4e6b8a4e",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "fe6b4e6b8a4e",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "64800c061569",
+        "a6c79995939c",
+        "1e383dfda612",
+        "bb625e6f02e8",
+      ],
+      "prerequisites": [
+        "prologue",
+      ],
+      "regionId": "39c9ab63cdfc",
+      "rewards": {
+        "gold": 35,
+        "items": [
+          "hint",
+        ],
+        "keys": [
+          "key:39c9ab63cdfc",
+          "key:18ec850f3635",
+          "key:e7508b466efb",
+          "key:d7845cf4ec86",
+          "key:920172bf9aaf",
+        ],
+        "xp": 1500,
+      },
+      "summary": "Exact call path: lowStockSkus → needsRestock → available → warehouseFor. Then inspect nearby residents' signatures; these survey stops are not call edges.",
+      "title": "Chapter 1: lowStockSkus",
+      "type": "main",
+    },
+    {
+      "chapter": 2,
+      "id": "chapter:2",
+      "narration": {
+        "intro": "Chapter 2: needsRestock",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "talk",
+          "symbolId": "a6c79995939c",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a6c79995939c",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "1e383dfda612",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "1e383dfda612",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "bb625e6f02e8",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "bb625e6f02e8",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "062488198670",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "062488198670",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "2e571fa4a41e",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "2e571fa4a41e",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "556640304d92",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "556640304d92",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "6f2e4de9d635",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "6f2e4de9d635",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "93b5c08c2841",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "93b5c08c2841",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a7c0d01e4643",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a7c0d01e4643",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "b4cb5f8c26d7",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "b4cb5f8c26d7",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "c224d0487236",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "c224d0487236",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "d5ed23416f5d",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "d5ed23416f5d",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "def464c82428",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "def464c82428",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "a6c79995939c",
+        "1e383dfda612",
+        "bb625e6f02e8",
+      ],
+      "prerequisites": [
+        "chapter:1",
+      ],
+      "regionId": "39c9ab63cdfc",
+      "rewards": {
+        "gold": 35,
+        "items": [
+          "hint",
+        ],
+        "keys": [
+          "key:39c9ab63cdfc",
+          "key:18ec850f3635",
+          "key:e7508b466efb",
+          "key:d7845cf4ec86",
+          "key:7cb9478bab1c",
+        ],
+        "xp": 3000,
+      },
+      "summary": "Exact call path: needsRestock → available → warehouseFor. Then inspect nearby residents' signatures; these survey stops are not call edges.",
+      "title": "Chapter 2: needsRestock",
+      "type": "main",
+    },
+    {
+      "chapter": 3,
+      "id": "chapter:3",
+      "narration": {
+        "intro": "Chapter 3: available",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "talk",
+          "symbolId": "1e383dfda612",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "1e383dfda612",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "bb625e6f02e8",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "bb625e6f02e8",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "0f7e6b4d471e",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "0f7e6b4d471e",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "42cfbff3b81f",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "42cfbff3b81f",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "637084ee32cb",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "637084ee32cb",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "77ec29e7cb3a",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "77ec29e7cb3a",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "9b08d73a7f18",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "9b08d73a7f18",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a97807c29e18",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a97807c29e18",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "b69312c98eeb",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "b69312c98eeb",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "c818dabe32bb",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "c818dabe32bb",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "d61211517723",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "d61211517723",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "e1c9f5cac15d",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "e1c9f5cac15d",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "1e383dfda612",
+        "bb625e6f02e8",
+      ],
+      "prerequisites": [
+        "chapter:2",
+      ],
+      "regionId": "39c9ab63cdfc",
+      "rewards": {
+        "gold": 35,
+        "items": [
+          "hint",
+        ],
+        "keys": [
+          "key:39c9ab63cdfc",
+          "key:18ec850f3635",
+          "key:e7508b466efb",
+          "key:920172bf9aaf",
+          "key:d7845cf4ec86",
+        ],
+        "xp": 4500,
+      },
+      "summary": "Exact call path: available → warehouseFor. Then inspect nearby residents' signatures; these survey stops are not call edges.",
+      "title": "Chapter 3: available",
+      "type": "main",
+    },
+    {
+      "chapter": 4,
+      "id": "chapter:4",
+      "narration": {
+        "intro": "Chapter 4: reset",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "talk",
+          "symbolId": "535b253c7de2",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "535b253c7de2",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "0b174eb23e4a",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "0b174eb23e4a",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "13f9eed01d8d",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "13f9eed01d8d",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "4f44538b9bc5",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "4f44538b9bc5",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "64aca39a8e13",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "64aca39a8e13",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "795af8bb57d0",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "795af8bb57d0",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a1fb92c2683c",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a1fb92c2683c",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "ac6827b5064c",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "ac6827b5064c",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "b8022b3bc960",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "b8022b3bc960",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "c88f0965778f",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "c88f0965778f",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "d6ab4fc024e8",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "d6ab4fc024e8",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "e5909dd1bc93",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "e5909dd1bc93",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "535b253c7de2",
+        "0b174eb23e4a",
+      ],
+      "prerequisites": [
+        "chapter:3",
+      ],
+      "regionId": "d7845cf4ec86",
+      "rewards": {
+        "gold": 35,
+        "items": [
+          "hint",
+        ],
+        "keys": [
+          "key:d7845cf4ec86",
+          "key:18ec850f3635",
+          "key:920172bf9aaf",
+          "key:4cee3713a6c5",
+        ],
+        "xp": 6000,
+      },
+      "summary": "Exact call path: reset → clearLog. Then inspect nearby residents' signatures; these survey stops are not call edges.",
+      "title": "Chapter 4: reset",
+      "type": "main",
+    },
+    {
+      "chapter": 5,
+      "id": "chapter:5",
+      "narration": {
+        "intro": "Chapter 5: removeStock",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "talk",
+          "symbolId": "22fa09c49df8",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "22fa09c49df8",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a7df77d8b0b6",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a7df77d8b0b6",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "18770ea0fed3",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "18770ea0fed3",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "5016ab5a6514",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "5016ab5a6514",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "65a0b665b01b",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "65a0b665b01b",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "7ac889ae64f9",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "7ac889ae64f9",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a51a67aaecc5",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a51a67aaecc5",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "ad4a30e556fe",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "ad4a30e556fe",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "b81f2bf18884",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "b81f2bf18884",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "ca90f6d00699",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "ca90f6d00699",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "daab9fe79b1b",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "daab9fe79b1b",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "e665f3dbac45",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "e665f3dbac45",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "22fa09c49df8",
+        "a7df77d8b0b6",
+      ],
+      "prerequisites": [
+        "chapter:4",
+      ],
+      "regionId": "d7845cf4ec86",
+      "rewards": {
+        "gold": 35,
+        "items": [
+          "hint",
+        ],
+        "keys": [
+          "key:d7845cf4ec86",
+          "key:e7508b466efb",
+          "key:18ec850f3635",
+          "key:7cb9478bab1c",
+          "key:920172bf9aaf",
+          "key:39c9ab63cdfc",
+        ],
+        "xp": 7500,
+      },
+      "summary": "Exact call path: removeStock → stockLevel. Then inspect nearby residents' signatures; these survey stops are not call edges.",
+      "title": "Chapter 5: removeStock",
+      "type": "main",
+    },
+    {
+      "chapter": 6,
+      "id": "chapter:6",
+      "narration": {
+        "intro": "Chapter 6: isInStock",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "talk",
+          "symbolId": "6a0d13788b39",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "6a0d13788b39",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a7df77d8b0b6",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a7df77d8b0b6",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "19378847328c",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "19378847328c",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "523f4b61b4dd",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "523f4b61b4dd",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "689893dae282",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "689893dae282",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "7c3217474063",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "7c3217474063",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a6b6d43c60ed",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a6b6d43c60ed",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "ae8a2da0843a",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "ae8a2da0843a",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "b85db3e9bd14",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "b85db3e9bd14",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "ccfe53f76de9",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "ccfe53f76de9",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "daf50d177fca",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "daf50d177fca",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "ea5547b82028",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "ea5547b82028",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "6a0d13788b39",
+        "a7df77d8b0b6",
+      ],
+      "prerequisites": [
+        "chapter:5",
+      ],
+      "regionId": "d7845cf4ec86",
+      "rewards": {
+        "gold": 35,
+        "items": [
+          "hint",
+        ],
+        "keys": [
+          "key:d7845cf4ec86",
+          "key:0c7baca3f4d1",
+          "key:655b7d8a53db",
+          "key:920172bf9aaf",
+          "key:7cb9478bab1c",
+          "key:18ec850f3635",
+        ],
+        "xp": 9000,
+      },
+      "summary": "Exact call path: isInStock → stockLevel. Then inspect nearby residents' signatures; these survey stops are not call edges.",
+      "title": "Chapter 6: isInStock",
+      "type": "main",
+    },
+    {
+      "chapter": 7,
+      "id": "chapter:7",
+      "narration": {
+        "intro": "Chapter 7: addStock",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "talk",
+          "symbolId": "85314b45a7fa",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "85314b45a7fa",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a7df77d8b0b6",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a7df77d8b0b6",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "1bfca828cf6a",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "1bfca828cf6a",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "546c0d551d8e",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "546c0d551d8e",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "6cfa0977c21a",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "6cfa0977c21a",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "7cdbf383b4ab",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "7cdbf383b4ab",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a6c109940cca",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a6c109940cca",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "ae966bcdbc4b",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "ae966bcdbc4b",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "ba8fc94a3ce8",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "ba8fc94a3ce8",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "d368ffe412a6",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "d368ffe412a6",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "dc0702d2fb39",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "dc0702d2fb39",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "edf22d666454",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "edf22d666454",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "85314b45a7fa",
+        "a7df77d8b0b6",
+      ],
+      "prerequisites": [
+        "chapter:6",
+      ],
+      "regionId": "d7845cf4ec86",
+      "rewards": {
+        "gold": 35,
+        "items": [
+          "hint",
+        ],
+        "keys": [
+          "key:d7845cf4ec86",
+          "key:7cb9478bab1c",
+          "key:e7508b466efb",
+          "key:18ec850f3635",
+          "key:4cee3713a6c5",
+          "key:920172bf9aaf",
+        ],
+        "xp": 10500,
+      },
+      "summary": "Exact call path: addStock → stockLevel. Then inspect nearby residents' signatures; these survey stops are not call edges.",
+      "title": "Chapter 7: addStock",
+      "type": "main",
+    },
+    {
+      "id": "explore:0c7baca3f4d1",
+      "narration": {
+        "intro": "Explore Wildlands of pricing",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "6eee34cb0c07",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "0c7baca3f4d1",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Wildlands of pricing",
+      "title": "Explore Wildlands of pricing",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:0c7baca3f4d1",
+      "narration": {
+        "intro": "Codex of Wildlands of pricing",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "19378847328c",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "0c7baca3f4d1",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:0c7baca3f4d1",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Wildlands of pricing",
+      "title": "Codex of Wildlands of pricing",
+      "type": "collection",
+    },
+    {
+      "id": "bounty:0c7baca3f4d1",
+      "narration": {
+        "intro": "Tame the monsters of Wildlands of pricing",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "defeat",
+          "smellId": "198ebfda6e93",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "0c7baca3f4d1",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Tame the monsters of Wildlands of pricing",
+      "title": "Tame the monsters of Wildlands of pricing",
+      "type": "bounty",
+    },
+    {
+      "id": "explore:18ec850f3635",
+      "narration": {
+        "intro": "Explore Training Grounds of tests",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "eb2a68331814",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "f03cceda3402",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "f39e98758b13",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "18ec850f3635",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Training Grounds of tests",
+      "title": "Explore Training Grounds of tests",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:18ec850f3635",
+      "narration": {
+        "intro": "Codex of Training Grounds of tests",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "0512b16cb4c9",
+            "062488198670",
+            "0f7e6b4d471e",
+            "42cfbff3b81f",
+            "4f44538b9bc5",
+            "5016ab5a6514",
+            "556640304d92",
+            "637084ee32cb",
+            "6f2e4de9d635",
+            "77ec29e7cb3a",
+            "7cdbf383b4ab",
+            "93b5c08c2841",
+            "9b08d73a7f18",
+            "a6c109940cca",
+            "a6da4b6fc60e",
+            "b2f83c3b0217",
+            "b4cb5f8c26d7",
+            "b69312c98eeb",
+            "b81f2bf18884",
+            "ba8fc94a3ce8",
+            "c88f0965778f",
+            "ca90f6d00699",
+            "d5ed23416f5d",
+            "d6ab4fc024e8",
+            "daf50d177fca",
+            "def464c82428",
+            "e5909dd1bc93",
+            "ea5547b82028",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "18ec850f3635",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:18ec850f3635",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Training Grounds of tests",
+      "title": "Codex of Training Grounds of tests",
+      "type": "collection",
+    },
+    {
+      "id": "explore:39c9ab63cdfc",
+      "narration": {
+        "intro": "Explore Wildlands of inventory",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "554f5cfb6371",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "a591911c30de",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "c4629173f930",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "39c9ab63cdfc",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Wildlands of inventory",
+      "title": "Explore Wildlands of inventory",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:39c9ab63cdfc",
+      "narration": {
+        "intro": "Codex of Wildlands of inventory",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "1e383dfda612",
+            "64800c061569",
+            "a6c79995939c",
+            "ad4a30e556fe",
+            "bb625e6f02e8",
+            "e1c9f5cac15d",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "39c9ab63cdfc",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:39c9ab63cdfc",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Wildlands of inventory",
+      "title": "Codex of Wildlands of inventory",
+      "type": "collection",
+    },
+    {
+      "id": "explore:4cee3713a6c5",
+      "narration": {
+        "intro": "Explore Wildlands of format",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "34e811b79cb9",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "7f3c5f5ed020",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "4cee3713a6c5",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Wildlands of format",
+      "title": "Explore Wildlands of format",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:4cee3713a6c5",
+      "narration": {
+        "intro": "Codex of Wildlands of format",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "ac6827b5064c",
+            "dc0702d2fb39",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "4cee3713a6c5",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:4cee3713a6c5",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Wildlands of format",
+      "title": "Codex of Wildlands of format",
+      "type": "collection",
+    },
+    {
+      "id": "bounty:4cee3713a6c5",
+      "narration": {
+        "intro": "Tame the monsters of Wildlands of format",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "defeat",
+          "smellId": "b91235020dd9",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "mutant-ac6827b5064c",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "4cee3713a6c5",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Tame the monsters of Wildlands of format",
+      "title": "Tame the monsters of Wildlands of format",
+      "type": "bounty",
+    },
+    {
+      "id": "explore:655b7d8a53db",
+      "narration": {
+        "intro": "Explore Wildlands of i18n",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "82258a9b9caa",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "655b7d8a53db",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Wildlands of i18n",
+      "title": "Explore Wildlands of i18n",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:655b7d8a53db",
+      "narration": {
+        "intro": "Codex of Wildlands of i18n",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "689893dae282",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "655b7d8a53db",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:655b7d8a53db",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Wildlands of i18n",
+      "title": "Codex of Wildlands of i18n",
+      "type": "collection",
+    },
+    {
+      "id": "explore:7cb9478bab1c",
+      "narration": {
+        "intro": "Explore Wildlands of orders",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "42b370e57c8d",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "63f635050cb5",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "ec152703e152",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "7cb9478bab1c",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Wildlands of orders",
+      "title": "Explore Wildlands of orders",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:7cb9478bab1c",
+      "narration": {
+        "intro": "Codex of Wildlands of orders",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "546c0d551d8e",
+            "65a0b665b01b",
+            "c224d0487236",
+            "ccfe53f76de9",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "7cb9478bab1c",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:7cb9478bab1c",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Wildlands of orders",
+      "title": "Codex of Wildlands of orders",
+      "type": "collection",
+    },
+    {
+      "id": "bounty:7cb9478bab1c",
+      "narration": {
+        "intro": "Tame the monsters of Wildlands of orders",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "defeat",
+          "smellId": "14197e0ee1ea",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "7d0bd67a4775",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "cf729c4ffee7",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "7cb9478bab1c",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Tame the monsters of Wildlands of orders",
+      "title": "Tame the monsters of Wildlands of orders",
+      "type": "bounty",
+    },
+    {
+      "id": "explore:920172bf9aaf",
+      "narration": {
+        "intro": "Explore Port of api",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "2713dce6ea9d",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "817b01025167",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "81a67e619d83",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "8f6b865f3226",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "da1f43417f14",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "920172bf9aaf",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Port of api",
+      "title": "Explore Port of api",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:920172bf9aaf",
+      "narration": {
+        "intro": "Codex of Port of api",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "64aca39a8e13",
+            "806f8df4190b",
+            "a51a67aaecc5",
+            "ae8a2da0843a",
+            "b85db3e9bd14",
+            "c818dabe32bb",
+            "edf22d666454",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "920172bf9aaf",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:920172bf9aaf",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Port of api",
+      "title": "Codex of Port of api",
+      "type": "collection",
+    },
+    {
+      "id": "bounty:920172bf9aaf",
+      "narration": {
+        "intro": "Tame the monsters of Port of api",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "defeat",
+          "smellId": "c86f9e5d744b",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "920172bf9aaf",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Tame the monsters of Port of api",
+      "title": "Tame the monsters of Port of api",
+      "type": "bounty",
+    },
+    {
+      "id": "explore:d7845cf4ec86",
+      "narration": {
+        "intro": "Explore Capital of core",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "6f0996a31279",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "d7845cf4ec86",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Capital of core",
+      "title": "Explore Capital of core",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:d7845cf4ec86",
+      "narration": {
+        "intro": "Codex of Capital of core",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "0b174eb23e4a",
+            "13f9eed01d8d",
+            "1bfca828cf6a",
+            "22fa09c49df8",
+            "523f4b61b4dd",
+            "535b253c7de2",
+            "6a0d13788b39",
+            "6d03178f74c5",
+            "795af8bb57d0",
+            "7c3217474063",
+            "85314b45a7fa",
+            "a1fb92c2683c",
+            "a6b6d43c60ed",
+            "a7c0d01e4643",
+            "a7df77d8b0b6",
+            "ae966bcdbc4b",
+            "b8022b3bc960",
+            "d5b568a0afbe",
+            "d61211517723",
+            "daab9fe79b1b",
+            "dc937a53fc63",
+            "e665f3dbac45",
+            "fe6b4e6b8a4e",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "d7845cf4ec86",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:d7845cf4ec86",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Capital of core",
+      "title": "Codex of Capital of core",
+      "type": "collection",
+    },
+    {
+      "id": "explore:e7508b466efb",
+      "narration": {
+        "intro": "Explore Outskirts",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "287560e2cf84",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "554c30f2d37b",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "6c5e851d332c",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "a2a3c3503ee7",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "b16fb01f51e4",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "e7508b466efb",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Outskirts",
+      "title": "Explore Outskirts",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:e7508b466efb",
+      "narration": {
+        "intro": "Codex of Outskirts",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "18770ea0fed3",
+            "1ee87b1a9dd3",
+            "2e571fa4a41e",
+            "54bacf963097",
+            "6cfa0977c21a",
+            "7ac889ae64f9",
+            "a97807c29e18",
+            "bae4249edd11",
+            "d368ffe412a6",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "e7508b466efb",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:e7508b466efb",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Outskirts",
+      "title": "Codex of Outskirts",
+      "type": "collection",
+    },
+    {
+      "id": "bounty:e7508b466efb",
+      "narration": {
+        "intro": "Tame the monsters of Outskirts",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "defeat",
+          "smellId": "772fcdd1720e",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "7afa4887bcef",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "821c4fe75f61",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "af94a38fe068",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "dbaef342242a",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "e7508b466efb",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Tame the monsters of Outskirts",
+      "title": "Tame the monsters of Outskirts",
+      "type": "bounty",
+    },
+    {
+      "id": "find:email",
+      "narration": {
+        "intro": "Find email",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "answerSymbolIds": [
+            "6d03178f74c5",
+            "ccfe53f76de9",
+          ],
+          "kind": "find",
+          "query": "email",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": null,
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Find email",
+      "title": "Find email",
+      "type": "investigation",
+    },
+  ],
+}
+`;
+
+exports[`quest atlas tiny-ts > is deterministic, reachable, grounded and has independently verified signature keys 1`] = `
+{
+  "dailyCandidates": [
+    {
+      "encounterId": "0817ba49358e",
+      "symbolId": "b1773202662f",
+    },
+    {
+      "encounterId": "0d606203b362",
+      "symbolId": "873b8efbde95",
+    },
+    {
+      "encounterId": "1a73c7683587",
+      "symbolId": "5bd816ff5cd4",
+    },
+    {
+      "encounterId": "1bb1c7c21304",
+      "symbolId": "a8b28e09a2c7",
+    },
+    {
+      "encounterId": "2241225979da",
+      "symbolId": "f3939c050186",
+    },
+    {
+      "encounterId": "268c9a980815",
+      "symbolId": "03dd08ec9b93",
+    },
+    {
+      "encounterId": "2eec9316c3ce",
+      "symbolId": "e81922d7fcdc",
+    },
+    {
+      "encounterId": "313a888e33ac",
+      "symbolId": "a8b28e09a2c7",
+    },
+    {
+      "encounterId": "338686440d35",
+      "symbolId": "2da9d0741dc9",
+    },
+    {
+      "encounterId": "35bd05452efe",
+      "symbolId": "3819146f4035",
+    },
+    {
+      "encounterId": "3ba603d5b54c",
+      "symbolId": "d473462fbfc6",
+    },
+    {
+      "encounterId": "49ab194db7d9",
+      "symbolId": "22a63996759c",
+    },
+    {
+      "encounterId": "4a744f8ba70e",
+      "symbolId": "4f931614a4d0",
+    },
+    {
+      "encounterId": "4bea68de4162",
+      "symbolId": "639c9568a8ee",
+    },
+    {
+      "encounterId": "67a81bfb5a56",
+      "symbolId": "e81922d7fcdc",
+    },
+    {
+      "encounterId": "6a8761cc8609",
+      "symbolId": "75bd400ce1ce",
+    },
+    {
+      "encounterId": "6a8f2d26811a",
+      "symbolId": "71eda6d16526",
+    },
+    {
+      "encounterId": "6d8166675a9c",
+      "symbolId": "0f02ac705a33",
+    },
+    {
+      "encounterId": "73d2974a5bf8",
+      "symbolId": "0d16c50f3ee4",
+    },
+    {
+      "encounterId": "794c662cdad4",
+      "symbolId": "b4581e63abfe",
+    },
+    {
+      "encounterId": "7f33c7db5efe",
+      "symbolId": "e1aa58a89588",
+    },
+    {
+      "encounterId": "8037a2cf77f4",
+      "symbolId": "ed53d8601b58",
+    },
+    {
+      "encounterId": "81cf91e034cf",
+      "symbolId": "5b59b569deed",
+    },
+    {
+      "encounterId": "91c50922d445",
+      "symbolId": "fe848568b293",
+    },
+    {
+      "encounterId": "91cce42c92dd",
+      "symbolId": "3110d0d14758",
+    },
+    {
+      "encounterId": "9a1b0ccda82c",
+      "symbolId": "98e4ca7659b8",
+    },
+    {
+      "encounterId": "a2c303db0ccb",
+      "symbolId": "4f931614a4d0",
+    },
+    {
+      "encounterId": "b2692d22fe3e",
+      "symbolId": "527d1dd9aa54",
+    },
+    {
+      "encounterId": "b8f8c45f54b2",
+      "symbolId": "db84e3bf41ff",
+    },
+    {
+      "encounterId": "bd1451e9b368",
+      "symbolId": "a8bed04a28b8",
+    },
+    {
+      "encounterId": "c061c5719519",
+      "symbolId": "0771bfc945b7",
+    },
+    {
+      "encounterId": "c7e177c24376",
+      "symbolId": "bd1a5e5bd673",
+    },
+    {
+      "encounterId": "cdb7fc0aa377",
+      "symbolId": "8d335ebb80fc",
+    },
+    {
+      "encounterId": "d553b110a054",
+      "symbolId": "f4046ea787de",
+    },
+    {
+      "encounterId": "d60440bdbb6b",
+      "symbolId": "97f1d8ac0f01",
+    },
+    {
+      "encounterId": "d88c7a0e85e4",
+      "symbolId": "a9eefee860e4",
+    },
+    {
+      "encounterId": "e08f8bbef6e1",
+      "symbolId": "4fe50c7b0530",
+    },
+    {
+      "encounterId": "f0bf90c52876",
+      "symbolId": "20702b58d324",
+    },
+    {
+      "encounterId": "ff1bf578182a",
+      "symbolId": "e81922d7fcdc",
+    },
+    {
+      "encounterId": "mutant-639c9568a8ee",
+      "symbolId": "639c9568a8ee",
+    },
+    {
+      "encounterId": "mutant-dad6c4c4107e",
+      "symbolId": "dad6c4c4107e",
+    },
+  ],
+  "deliveries": [],
+  "dependencies": [
+    {
+      "from": "1338bc60a8dd",
+      "to": "920172bf9aaf",
+      "weight": 2,
+    },
+    {
+      "from": "18ec850f3635",
+      "to": "5723f295c690",
+      "weight": 2,
+    },
+    {
+      "from": "18ec850f3635",
+      "to": "752c434d4b17",
+      "weight": 1,
+    },
+    {
+      "from": "752c434d4b17",
+      "to": "1338bc60a8dd",
+      "weight": 3,
+    },
+    {
+      "from": "752c434d4b17",
+      "to": "5723f295c690",
+      "weight": 1,
+    },
+    {
+      "from": "752c434d4b17",
+      "to": "920172bf9aaf",
+      "weight": 2,
+    },
+    {
+      "from": "920172bf9aaf",
+      "to": "1338bc60a8dd",
+      "weight": 1,
+    },
+    {
+      "from": "920172bf9aaf",
+      "to": "752c434d4b17",
+      "weight": 2,
+    },
+  ],
+  "gates": [
+    {
+      "key": "key:5723f295c690",
+      "regionId": "18ec850f3635",
+      "sourceRegionId": "5723f295c690",
+    },
+  ],
+  "quests": [
+    {
+      "chapter": 0,
+      "id": "prologue",
+      "narration": {
+        "intro": "Prologue: Meet the kingdom",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "welcome",
+          "step": "gate",
+        },
+        {
+          "kind": "welcome",
+          "step": "readme",
+        },
+        {
+          "kind": "welcome",
+          "step": "gitling",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "bd1a5e5bd673",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "3ba603d5b54c",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "bd1a5e5bd673",
+      ],
+      "prerequisites": [],
+      "regionId": null,
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Enter the Gate, read the welcome scroll, meet Gitling, greet a resident and tame your first monster.",
+      "title": "Prologue: Meet the kingdom",
+      "type": "main",
+    },
+    {
+      "chapter": 1,
+      "id": "chapter:1",
+      "narration": {
+        "intro": "Chapter 1: shareTaskHandler",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "talk",
+          "symbolId": "bd1a5e5bd673",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "bd1a5e5bd673",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "f3939c050186",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "f3939c050186",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "5b59b569deed",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "5b59b569deed",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "4fe50c7b0530",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "4fe50c7b0530",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "5bd816ff5cd4",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "5bd816ff5cd4",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "75bd400ce1ce",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "75bd400ce1ce",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "03dd08ec9b93",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "03dd08ec9b93",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "131be4932e38",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "131be4932e38",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "4f931614a4d0",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "4f931614a4d0",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "639c9568a8ee",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "639c9568a8ee",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "772b8d375746",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "772b8d375746",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "98810d4da821",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "98810d4da821",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "c9e7b70ee154",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "c9e7b70ee154",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "e2baed704c25",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "e2baed704c25",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "bd1a5e5bd673",
+        "f3939c050186",
+        "5b59b569deed",
+        "4fe50c7b0530",
+        "5bd816ff5cd4",
+        "75bd400ce1ce",
+      ],
+      "prerequisites": [
+        "prologue",
+      ],
+      "regionId": "920172bf9aaf",
+      "rewards": {
+        "gold": 35,
+        "items": [
+          "hint",
+        ],
+        "keys": [
+          "key:920172bf9aaf",
+          "key:752c434d4b17",
+          "key:1338bc60a8dd",
+          "key:18ec850f3635",
+          "key:5723f295c690",
+        ],
+        "xp": 1500,
+      },
+      "summary": "Exact call path: shareTaskHandler → shareTask → getTask → findTask → query → table. Then inspect nearby residents' signatures; these survey stops are not call edges.",
+      "title": "Chapter 1: shareTaskHandler",
+      "type": "main",
+    },
+    {
+      "chapter": 2,
+      "id": "chapter:2",
+      "narration": {
+        "intro": "Chapter 2: createTaskHandler",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "talk",
+          "symbolId": "a8b28e09a2c7",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a8b28e09a2c7",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "97f1d8ac0f01",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "97f1d8ac0f01",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "b4581e63abfe",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "b4581e63abfe",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a8bed04a28b8",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a8bed04a28b8",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "75bd400ce1ce",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "75bd400ce1ce",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "0a1af7c96082",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "0a1af7c96082",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "20702b58d324",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "20702b58d324",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "527d1dd9aa54",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "527d1dd9aa54",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "686e392ed4c3",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "686e392ed4c3",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "783b5e0e6b97",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "783b5e0e6b97",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "9f08ad2e48b1",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "9f08ad2e48b1",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "d50406a1ceb8",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "d50406a1ceb8",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "e81922d7fcdc",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "e81922d7fcdc",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "a8b28e09a2c7",
+        "97f1d8ac0f01",
+        "b4581e63abfe",
+        "a8bed04a28b8",
+        "75bd400ce1ce",
+      ],
+      "prerequisites": [
+        "chapter:1",
+      ],
+      "regionId": "920172bf9aaf",
+      "rewards": {
+        "gold": 35,
+        "items": [
+          "hint",
+        ],
+        "keys": [
+          "key:920172bf9aaf",
+          "key:752c434d4b17",
+          "key:1338bc60a8dd",
+          "key:18ec850f3635",
+        ],
+        "xp": 3000,
+      },
+      "summary": "Exact call path: createTaskHandler → createTask → saveTask → insert → table. Then inspect nearby residents' signatures; these survey stops are not call edges.",
+      "title": "Chapter 2: createTaskHandler",
+      "type": "main",
+    },
+    {
+      "chapter": 3,
+      "id": "chapter:3",
+      "narration": {
+        "intro": "Chapter 3: getTaskHandler",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "talk",
+          "symbolId": "b1773202662f",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "b1773202662f",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "5b59b569deed",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "5b59b569deed",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "4fe50c7b0530",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "4fe50c7b0530",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "5bd816ff5cd4",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "5bd816ff5cd4",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "75bd400ce1ce",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "75bd400ce1ce",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "0d15d24de47f",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "0d15d24de47f",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "22a63996759c",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "22a63996759c",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "538bdf96c40e",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "538bdf96c40e",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "688e37939780",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "688e37939780",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "7be8d509a5f4",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "7be8d509a5f4",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a0aa187f7ddc",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a0aa187f7ddc",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "dad6c4c4107e",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "dad6c4c4107e",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "f4046ea787de",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "f4046ea787de",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "b1773202662f",
+        "5b59b569deed",
+        "4fe50c7b0530",
+        "5bd816ff5cd4",
+        "75bd400ce1ce",
+      ],
+      "prerequisites": [
+        "chapter:2",
+      ],
+      "regionId": "920172bf9aaf",
+      "rewards": {
+        "gold": 35,
+        "items": [
+          "hint",
+        ],
+        "keys": [
+          "key:920172bf9aaf",
+          "key:752c434d4b17",
+          "key:1338bc60a8dd",
+          "key:18ec850f3635",
+        ],
+        "xp": 4500,
+      },
+      "summary": "Exact call path: getTaskHandler → getTask → findTask → query → table. Then inspect nearby residents' signatures; these survey stops are not call edges.",
+      "title": "Chapter 3: getTaskHandler",
+      "type": "main",
+    },
+    {
+      "chapter": 4,
+      "id": "chapter:4",
+      "narration": {
+        "intro": "Chapter 4: listTasksHandler",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "talk",
+          "symbolId": "d473462fbfc6",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "d473462fbfc6",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "3110d0d14758",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "3110d0d14758",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "98e4ca7659b8",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "98e4ca7659b8",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "5bd816ff5cd4",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "5bd816ff5cd4",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "75bd400ce1ce",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "75bd400ce1ce",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "0d5bc4c4070c",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "0d5bc4c4070c",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "2da9d0741dc9",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "2da9d0741dc9",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "5d650622ab1d",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "5d650622ab1d",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "6d7b75eee827",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "6d7b75eee827",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "873b8efbde95",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "873b8efbde95",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "a9eefee860e4",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "a9eefee860e4",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "db84e3bf41ff",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "db84e3bf41ff",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "f8296f3439a7",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "f8296f3439a7",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "d473462fbfc6",
+        "3110d0d14758",
+        "98e4ca7659b8",
+        "5bd816ff5cd4",
+        "75bd400ce1ce",
+      ],
+      "prerequisites": [
+        "chapter:3",
+      ],
+      "regionId": "920172bf9aaf",
+      "rewards": {
+        "gold": 35,
+        "items": [
+          "hint",
+        ],
+        "keys": [
+          "key:920172bf9aaf",
+          "key:752c434d4b17",
+          "key:1338bc60a8dd",
+          "key:18ec850f3635",
+          "key:5723f295c690",
+        ],
+        "xp": 6000,
+      },
+      "summary": "Exact call path: listTasksHandler → listTasksForUser → allTasks → query → table. Then inspect nearby residents' signatures; these survey stops are not call edges.",
+      "title": "Chapter 4: listTasksHandler",
+      "type": "main",
+    },
+    {
+      "chapter": 5,
+      "id": "chapter:5",
+      "narration": {
+        "intro": "Chapter 5: completeTaskHandler",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "talk",
+          "symbolId": "ed53d8601b58",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "ed53d8601b58",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "0d16c50f3ee4",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "0d16c50f3ee4",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "8d335ebb80fc",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "8d335ebb80fc",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "0771bfc945b7",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "0771bfc945b7",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "75bd400ce1ce",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "75bd400ce1ce",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "0f02ac705a33",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "0f02ac705a33",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "3819146f4035",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "3819146f4035",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "5da1f099aac5",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "5da1f099aac5",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "71eda6d16526",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "71eda6d16526",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "974b3f53876c",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "974b3f53876c",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "bc7547d6fb0b",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "bc7547d6fb0b",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "e1aa58a89588",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "e1aa58a89588",
+        },
+        {
+          "kind": "talk",
+          "symbolId": "fe848568b293",
+        },
+        {
+          "kind": "answer",
+          "puzzleTypes": [
+            "signature",
+            "trace",
+            "type-sense",
+            "who-calls",
+            "call-order",
+          ],
+          "symbolId": "fe848568b293",
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "ed53d8601b58",
+        "0d16c50f3ee4",
+        "8d335ebb80fc",
+        "0771bfc945b7",
+        "75bd400ce1ce",
+      ],
+      "prerequisites": [
+        "chapter:4",
+      ],
+      "regionId": "920172bf9aaf",
+      "rewards": {
+        "gold": 35,
+        "items": [
+          "hint",
+        ],
+        "keys": [
+          "key:920172bf9aaf",
+          "key:752c434d4b17",
+          "key:1338bc60a8dd",
+          "key:5723f295c690",
+        ],
+        "xp": 7500,
+      },
+      "summary": "Exact call path: completeTaskHandler → completeTask → patchTask → update → table. Then inspect nearby residents' signatures; these survey stops are not call edges.",
+      "title": "Chapter 5: completeTaskHandler",
+      "type": "main",
+    },
+    {
+      "id": "explore:1338bc60a8dd",
+      "narration": {
+        "intro": "Explore Mines of db",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "6e69c5d0e73f",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "f4948b6f177c",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "fdda20686326",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "1338bc60a8dd",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Mines of db",
+      "title": "Explore Mines of db",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:1338bc60a8dd",
+      "narration": {
+        "intro": "Codex of Mines of db",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "0771bfc945b7",
+            "0f02ac705a33",
+            "2da9d0741dc9",
+            "4f931614a4d0",
+            "4fe50c7b0530",
+            "5bd816ff5cd4",
+            "75bd400ce1ce",
+            "8d335ebb80fc",
+            "98e4ca7659b8",
+            "9f08ad2e48b1",
+            "a8bed04a28b8",
+            "a9eefee860e4",
+            "b4581e63abfe",
+            "c9e7b70ee154",
+            "db84e3bf41ff",
+            "e1aa58a89588",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "1338bc60a8dd",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:1338bc60a8dd",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Mines of db",
+      "title": "Codex of Mines of db",
+      "type": "collection",
+    },
+    {
+      "id": "bounty:1338bc60a8dd",
+      "narration": {
+        "intro": "Tame the monsters of Mines of db",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "defeat",
+          "smellId": "1a73c7683587",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "338686440d35",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "4a744f8ba70e",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "6a8761cc8609",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "6d8166675a9c",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "1338bc60a8dd",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Tame the monsters of Mines of db",
+      "title": "Tame the monsters of Mines of db",
+      "type": "bounty",
+    },
+    {
+      "id": "explore:18ec850f3635",
+      "narration": {
+        "intro": "Explore Training Grounds of tests",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "18253e35d10d",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "ceefd8ef2b19",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "f96d3fd442fe",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "18ec850f3635",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Training Grounds of tests",
+      "title": "Explore Training Grounds of tests",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:18ec850f3635",
+      "narration": {
+        "intro": "Codex of Training Grounds of tests",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "0a1af7c96082",
+            "0d15d24de47f",
+            "0d5bc4c4070c",
+            "131be4932e38",
+            "5d650622ab1d",
+            "686e392ed4c3",
+            "688e37939780",
+            "6d7b75eee827",
+            "772b8d375746",
+            "7be8d509a5f4",
+            "98810d4da821",
+            "d50406a1ceb8",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "18ec850f3635",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:18ec850f3635",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Training Grounds of tests",
+      "title": "Codex of Training Grounds of tests",
+      "type": "collection",
+    },
+    {
+      "id": "explore:5723f295c690",
+      "narration": {
+        "intro": "Explore Bazaar of utils",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "31daaf58de5a",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "7718490bf8ac",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "5723f295c690",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Bazaar of utils",
+      "title": "Explore Bazaar of utils",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:5723f295c690",
+      "narration": {
+        "intro": "Codex of Bazaar of utils",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "639c9568a8ee",
+            "71eda6d16526",
+            "e2baed704c25",
+            "f8296f3439a7",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "5723f295c690",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:5723f295c690",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Bazaar of utils",
+      "title": "Codex of Bazaar of utils",
+      "type": "collection",
+    },
+    {
+      "id": "bounty:5723f295c690",
+      "narration": {
+        "intro": "Tame the monsters of Bazaar of utils",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "defeat",
+          "smellId": "4bea68de4162",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "6a8f2d26811a",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "mutant-639c9568a8ee",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "5723f295c690",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Tame the monsters of Bazaar of utils",
+      "title": "Tame the monsters of Bazaar of utils",
+      "type": "bounty",
+    },
+    {
+      "id": "explore:752c434d4b17",
+      "narration": {
+        "intro": "Explore Capital of services",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "3cd2275a08f6",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "b7ce7c134a58",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "752c434d4b17",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Capital of services",
+      "title": "Explore Capital of services",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:752c434d4b17",
+      "narration": {
+        "intro": "Codex of Capital of services",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "03dd08ec9b93",
+            "0d16c50f3ee4",
+            "3110d0d14758",
+            "5b59b569deed",
+            "5da1f099aac5",
+            "873b8efbde95",
+            "97f1d8ac0f01",
+            "dad6c4c4107e",
+            "f3939c050186",
+            "f4046ea787de",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "752c434d4b17",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:752c434d4b17",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Capital of services",
+      "title": "Codex of Capital of services",
+      "type": "collection",
+    },
+    {
+      "id": "bounty:752c434d4b17",
+      "narration": {
+        "intro": "Tame the monsters of Capital of services",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "defeat",
+          "smellId": "0d606203b362",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "2241225979da",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "268c9a980815",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "73d2974a5bf8",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "81cf91e034cf",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "752c434d4b17",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Tame the monsters of Capital of services",
+      "title": "Tame the monsters of Capital of services",
+      "type": "bounty",
+    },
+    {
+      "id": "explore:920172bf9aaf",
+      "narration": {
+        "intro": "Explore Port of api",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "buildingId": "14762abacca4",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "2713dce6ea9d",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "407ea283820e",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "81a67e619d83",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "8511629e1609",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "8f6b865f3226",
+          "kind": "visit",
+        },
+        {
+          "buildingId": "da1f43417f14",
+          "kind": "visit",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "920172bf9aaf",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Explore Port of api",
+      "title": "Explore Port of api",
+      "type": "exploration",
+    },
+    {
+      "id": "collect:920172bf9aaf",
+      "narration": {
+        "intro": "Codex of Port of api",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "codexIds": [
+            "20702b58d324",
+            "22a63996759c",
+            "3819146f4035",
+            "527d1dd9aa54",
+            "538bdf96c40e",
+            "783b5e0e6b97",
+            "974b3f53876c",
+            "a0aa187f7ddc",
+            "a8b28e09a2c7",
+            "b1773202662f",
+            "bc7547d6fb0b",
+            "bd1a5e5bd673",
+            "d473462fbfc6",
+            "e81922d7fcdc",
+            "ed53d8601b58",
+            "fe848568b293",
+          ],
+          "kind": "collect",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "920172bf9aaf",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [
+          "key:920172bf9aaf",
+        ],
+        "xp": 80,
+      },
+      "summary": "Codex of Port of api",
+      "title": "Codex of Port of api",
+      "type": "collection",
+    },
+    {
+      "id": "bounty:920172bf9aaf",
+      "narration": {
+        "intro": "Tame the monsters of Port of api",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "defeat",
+          "smellId": "0817ba49358e",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "1bb1c7c21304",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "2eec9316c3ce",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "313a888e33ac",
+        },
+        {
+          "kind": "defeat",
+          "smellId": "35bd05452efe",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": "920172bf9aaf",
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Tame the monsters of Port of api",
+      "title": "Tame the monsters of Port of api",
+      "type": "bounty",
+    },
+    {
+      "id": "find:task",
+      "narration": {
+        "intro": "Find task",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "answerSymbolIds": [
+            "0d16c50f3ee4",
+            "3110d0d14758",
+            "4fe50c7b0530",
+            "5b59b569deed",
+            "5da1f099aac5",
+            "783b5e0e6b97",
+            "8d335ebb80fc",
+            "974b3f53876c",
+            "97f1d8ac0f01",
+            "98e4ca7659b8",
+            "a8b28e09a2c7",
+            "b1773202662f",
+            "b4581e63abfe",
+            "bc7547d6fb0b",
+            "bd1a5e5bd673",
+            "d473462fbfc6",
+            "dad6c4c4107e",
+            "db84e3bf41ff",
+            "ed53d8601b58",
+            "f3939c050186",
+            "f4046ea787de",
+          ],
+          "kind": "find",
+          "query": "task",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": null,
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Find task",
+      "title": "Find task",
+      "type": "investigation",
+    },
+    {
+      "id": "find:date",
+      "narration": {
+        "intro": "Find date",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "answerSymbolIds": [
+            "0771bfc945b7",
+            "639c9568a8ee",
+            "fe848568b293",
+          ],
+          "kind": "find",
+          "query": "date",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": null,
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Find date",
+      "title": "Find date",
+      "type": "investigation",
+    },
+    {
+      "id": "find:team",
+      "narration": {
+        "intro": "Find team",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "answerSymbolIds": [
+            "2da9d0741dc9",
+            "a0aa187f7ddc",
+            "db84e3bf41ff",
+            "e1aa58a89588",
+            "f3939c050186",
+            "f4046ea787de",
+          ],
+          "kind": "find",
+          "query": "team",
+        },
+      ],
+      "ordered": false,
+      "path": [],
+      "prerequisites": [],
+      "regionId": null,
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Find team",
+      "title": "Find team",
+      "type": "investigation",
+    },
+  ],
+}
+`;

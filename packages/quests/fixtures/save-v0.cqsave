@@ -1,0 +1,47 @@
+{
+  "saveVersion": 0,
+  "repoId": "migration-fixture",
+  "createdAt": "2026-10-19T00:00:00Z",
+  "updatedAt": "2026-10-19T00:00:00Z",
+  "lastCommit": null,
+  "player": {
+    "level": 1,
+    "xp": 0,
+    "gold": 0,
+    "position": {
+      "mapId": "overworld",
+      "x": 1,
+      "y": 1
+    },
+    "skills": []
+  },
+  "inventory": {
+    "hint": 2,
+    "tonic": 1,
+    "recall": 1,
+    "smoke": 1
+  },
+  "equipment": [],
+  "keys": [],
+  "comprehension": {},
+  "quests": {},
+  "bestiary": {},
+  "codexNotes": {},
+  "achievements": {},
+  "settings": {
+    "difficulty": "normal",
+    "readableFont": false,
+    "reducedMotion": false
+  },
+  "hashes": {},
+  "fileHashes": {},
+  "archive": [],
+  "evidence": {},
+  "visited": [],
+  "regions": [],
+  "docs": [],
+  "dailyDays": [],
+  "rewarded": [],
+  "tracked": null,
+  "codex": {}
+}

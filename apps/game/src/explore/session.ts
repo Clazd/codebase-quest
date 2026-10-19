@@ -3,6 +3,8 @@ import { layoutNpcs, type NpcSpot } from "../npc/layout.ts";
 import { walkable } from "./navigation.ts";
 import { required } from "./required.ts";
 export class ExploreSession {
+  kingdomLight: { kingdom: number; regions: Record<string, number> } | null = null;
+  questMarkers: { position: WorldPosition; label: "!" | "?"; title: string }[] = [];
   readonly seen = new Map<string, Uint8Array>();
   readonly seenFiles = new Set<string>();
   /** Characters seen up close this session (`seen`); talking makes them `read` in the Codex. */

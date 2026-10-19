@@ -1,0 +1,118 @@
+#progression-dialog {
+  width: min(92vw, 940px);
+  max-width: 940px;
+  max-height: 86vh;
+  padding: 24px;
+  box-sizing: border-box;
+}
+#progression-dialog header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+#progression-dialog h2 {
+  font-size: 22px;
+}
+#progression-dialog h3 {
+  color: #ffdc87;
+}
+#progression-dialog nav {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  position: sticky;
+  top: -24px;
+  background: #14252f;
+  padding: 8px 0;
+  z-index: 2;
+}
+#progression-dialog button {
+  margin: 3px;
+}
+#progression-dialog button[aria-pressed="true"] {
+  outline: 2px solid #ffdc87;
+}
+#progression-dialog select,
+#progression-dialog input {
+  background: #101923;
+  color: #f4edda;
+  font: inherit;
+  padding: 8px;
+  border: 1px solid #81978a;
+  max-width: 100%;
+}
+#progression-dialog article,
+#progression-dialog section {
+  border-bottom: 1px solid #607a78;
+  padding: 10px 0;
+}
+#progression-dialog p,
+#progression-dialog li {
+  line-height: 1.6;
+}
+#progression-dialog pre,
+#progression-dialog code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+#progression-dialog [aria-current="step"] {
+  background: #344b43;
+  outline: 1px solid #b1d2ba;
+}
+.skill-branches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+#progression-dialog .skill-branches section {
+  flex: 1 1 130px;
+}
+#progression-dialog .skill-branches button {
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+#quest-tracker {
+  max-width: 100%;
+  font-size: 13px;
+  text-align: left;
+}
+#progression-notice {
+  display: block;
+  min-height: 24px;
+  color: #ffdc87;
+  margin-top: 8px;
+  font-size: 13px;
+}
+#progression-notice:not(:empty) {
+  position: fixed;
+  left: 24px;
+  bottom: 18px;
+  max-width: min(80vw, 760px);
+  padding: 12px;
+  border: 1px solid #ffdc87;
+  border-radius: 6px;
+  background: #14252f;
+  z-index: 10;
+  pointer-events: none;
+}
+.static-steps {
+  max-height: 320px;
+  overflow: auto;
+}
+.quest-list h4 {
+  font-size: 17px;
+  margin: 8px 0;
+}
+.welcome-scroll {
+  max-height: 260px;
+  overflow: auto;
+}
+.type-highlight {
+  border-left: 3px solid #8edee4;
+}
+.step-current {
+  outline: 2px solid #ffdc87;
+  background: #344b43;
+}

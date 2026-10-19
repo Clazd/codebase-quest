@@ -29,6 +29,8 @@ import {
   saveSpend,
 } from "@codebase-quest/content/node";
 import { buildEncounters } from "@codebase-quest/puzzles";
+import { AtlasSchema } from "@codebase-quest/quests";
+import { generateQuests, readCoverage } from "@codebase-quest/quests/node";
 import { type FactBook, FactBookSchema, type FactLinks, WorldModelSchema } from "@codebase-quest/shared";
 import { generate, writeWorld } from "@codebase-quest/worldgen";
 import { discover, secretPath } from "../../../packages/analyzer/src/discover.ts";
@@ -36,7 +38,7 @@ import { BridgeHub, removeSession, writeSession } from "./bridge.ts";
 import { createSourceReader, maskLines, sourceResponse } from "./source.ts";
 import { Workspace } from "./workspace.ts";
 
-const CACHE_VERSION = "combat-v2";
+const CACHE_VERSION = "quests-v1.1";
 export const DEFAULT_EDITOR = "vscode://file/{path}:{line}";
 const gameRoot = fileURLToPath(new URL("../../game", import.meta.url));
 function safeParents(path: string) {
@@ -69,6 +71,14 @@ async function prepare(repo: string, cacheRoot: string | undefined, build: boole
     }).trim();
   } catch {}
   const hash = createHash("sha256").update(CACHE_VERSION).update(root).update(commit);
+  hash.update(
+    JSON.stringify([
+      ...readCoverage(
+        root,
+        discovery.files.map((f) => f.path),
+      ),
+    ]),
+  );
   for (const file of discovery.files) hash.update(file.path).update("\0").update(file.text).update("\0");
   const digest = hash.digest("hex").slice(0, 20);
   const bases = cacheRoot
@@ -89,6 +99,7 @@ async function prepare(repo: string, cacheRoot: string | undefined, build: boole
       existsSync(json) &&
       existsSync(factsJson) &&
       existsSync(join(directory, "search.json")) &&
+      existsSync(join(directory, "quests.json")) &&
       existsSync(join(directory, "encounters", "index.json"))
     ) {
       safeParents(ready);
@@ -97,6 +108,7 @@ async function prepare(repo: string, cacheRoot: string | undefined, build: boole
       try {
         const world = WorldModelSchema.parse(JSON.parse(readFileSync(json, "utf8")));
         const facts = FactBookSchema.parse(JSON.parse(readFileSync(factsJson, "utf8")));
+        AtlasSchema.parse(JSON.parse(readFileSync(join(directory, "quests.json"), "utf8")));
         if (
           world.maps.every((m) => existsSync(join(directory, m.path))) &&
           existsSync(join(directory, world.theme.image))
@@ -150,6 +162,26 @@ async function prepare(repo: string, cacheRoot: string | undefined, build: boole
         writeFileSync(join(directory, "encounters", "index.json"), `${JSON.stringify(built.index)}\n`);
         for (const [id, encounter] of built.encounters)
           writeFileSync(join(directory, "encounters", `${id}.json`), `${JSON.stringify(encounter)}\n`);
+        const atlas = await generateQuests(
+          world,
+          graph,
+          facts,
+          (path) => {
+            const f = masked.get(path);
+            return f?.language ? { text: maskLines(f.text.split("\n")).lines.join("\n"), language: f.language } : null;
+          },
+          built.index,
+          createHash("sha256")
+            .update(process.platform === "win32" ? root.toLowerCase() : root)
+            .digest("hex")
+            .slice(0, 20),
+        );
+        const reports = readCoverage(
+          root,
+          graph.files.map((f) => f.path),
+        );
+        for (const f of atlas.files) f.coverage = reports.get(f.path) ?? null;
+        writeFileSync(join(directory, "quests.json"), `${JSON.stringify(atlas)}\n`);
       }
       writeFileSync(join(directory, "ready.json"), JSON.stringify({ version: CACHE_VERSION }));
       return { world, facts, root, directory, commit, cached: false, ms: performance.now() - started };
@@ -396,7 +428,8 @@ export async function playCommand(args: readonly string[]) {
   if (!repo || repo.startsWith("--"))
     throw new Error("Usage: cq play <repo> [--no-open] [--port N] [--editor vscode://file/{path}:{line}]");
   let open = true,
-    port = 0,
+    // A stable CLI origin lets localStorage saves survive restarting `cq play`.
+    port = 38000 + (Number.parseInt(createHash("sha256").update(resolve(repo)).digest("hex").slice(0, 6), 16) % 1000),
     editor: string | undefined;
   for (let i = 2; i < args.length; i++) {
     if (args[i] === "--no-open") open = false;

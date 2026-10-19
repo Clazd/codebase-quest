@@ -1,0 +1,83 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generates a proven local middleware escort in source registration order 1`] = `
+{
+  "deliveries": [
+    {
+      "from": "d9785a217389",
+      "line": 26,
+      "owner": "74c4464f8f29",
+      "to": "c99e1fa49565",
+      "via": "task",
+    },
+  ],
+  "quests": [
+    {
+      "id": "delivery:7f219939add1ce36",
+      "narration": {
+        "intro": "Carry task",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "deliver",
+          "path": [
+            "d9785a217389",
+            "c99e1fa49565",
+          ],
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "d9785a217389",
+        "c99e1fa49565",
+      ],
+      "prerequisites": [],
+      "regionId": null,
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Assignment followed by a direct argument in forward, line 26.",
+      "title": "Carry task",
+      "type": "delivery",
+    },
+    {
+      "id": "escort:3c667586936dcbdd",
+      "narration": {
+        "intro": "Walk the middleware chain",
+        "outro": "Your map of the code is clearer.",
+      },
+      "objectives": [
+        {
+          "kind": "deliver",
+          "path": [
+            "9ecf86472d4f",
+            "fd19087dd964",
+            "09c31af99b6f",
+          ],
+        },
+      ],
+      "ordered": true,
+      "path": [
+        "9ecf86472d4f",
+        "fd19087dd964",
+        "09c31af99b6f",
+      ],
+      "prerequisites": [],
+      "regionId": null,
+      "rewards": {
+        "gold": 20,
+        "items": [],
+        "keys": [],
+        "xp": 80,
+      },
+      "summary": "Walk the middleware chain",
+      "title": "Walk the middleware chain",
+      "type": "escort",
+    },
+  ],
+}
+`;

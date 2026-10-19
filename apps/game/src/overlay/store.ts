@@ -46,6 +46,8 @@ const EMPTY_FILTERS: CodexFilters = { query: "", regionId: "", kind: "", trait: 
 
 /** Overlay state shared by Phaser (via the bus and debug API) and the Preact components. */
 export class OverlayStore {
+  equipment: { types: () => boolean; stepLine: () => number | null } | null = null;
+  staticStepLine: number | null = null;
   state: OverlayState = {
     panel: null,
     codex: { open: false, entry: null, ...EMPTY_FILTERS },
@@ -61,7 +63,7 @@ export class OverlayStore {
   onAsk: (id: string, question: string, consent: boolean) => boolean = () => false;
   private asked = 0;
   readonly facts: FactIndex;
-  readonly codex: CodexStore;
+  codex: CodexStore;
   readonly bus: EventBus<OverlayEvents>;
   readonly seen: Set<string>;
   private readonly listeners = new Set<() => void>();

@@ -11,6 +11,7 @@ import {
   type PlayerAction,
   predict,
   publicView,
+  questionById,
   testAnswerKey,
 } from "@codebase-quest/combat";
 import balanceJson from "@codebase-quest/combat/balance.json" with { type: "json" };
@@ -40,6 +41,16 @@ const DIFFICULTY_KEY = "cq:settings:difficulty";
  * `@codebase-quest/combat`; the UI reads `publicView` and calls these methods.
  */
 export class CombatController {
+  progression: null | {
+    inventory: () => Record<string, number>;
+    skills: () => string[];
+    onInventory: (items: Record<string, number>) => void;
+    onAnswer: (symbolId: string, type: string, evidence: string, firstTry: boolean) => void;
+    rewarded?: (id: string) => boolean;
+  } = null;
+  rewardNotice = false;
+  private outcomeReported = false;
+  private readonly attempted = new Set<string>();
   state: CombatState | null = null;
   difficulty: Difficulty = "normal";
   /** Phase 07 rewards are session-only. Phase 08 owns saving and progression. */
@@ -93,8 +104,42 @@ export class CombatController {
     return pending;
   }
   start(encounter: Encounter, now = Date.now()) {
-    let s = createCombat(encounter, balance, this.difficulty);
-    s.potions += this.rewards.hintPotions;
+    this.outcomeReported = false;
+    this.rewardNotice = false;
+    const skills = this.progression?.skills() ?? [];
+    const adjusted = structuredClone(balance);
+    if (skills.includes("debugging-2")) adjusted.costs.armor = 2;
+    if (skills.includes("debugging-3")) adjusted.mutantSpreadEvery = 2;
+    if (skills.includes("debugging-4")) adjusted.freeFirstRead = true;
+    const target =
+      skills.includes("testing-3") || skills.includes("testing-1") ? structuredClone(encounter) : encounter;
+    if (target !== encounter && target.kind === "shadow")
+      target.smellAttack.focusDamage = Math.max(
+        0,
+        target.smellAttack.focusDamage - (skills.includes("testing-3") ? 2 : 1),
+      );
+    let s = createCombat(target, adjusted, this.difficulty);
+    if (this.progression) {
+      const i = this.progression.inventory();
+      s.potions = i.hint ?? 0;
+      s.items = { tonics: i.tonic ?? 0, smokeBombs: i.smoke ?? 0, recallScrolls: i.recall ?? 0 };
+      if (skills.includes("debugging-1"))
+        for (const body of encounter.bodies)
+          for (const cell of body.cells)
+            if (cell.kind === "armor" || cell.label.startsWith("throw")) {
+              const state = s.cells[cell.id];
+              if (state) state.revealed = true;
+            }
+      if (skills.includes("debugging-5")) {
+        const hint = Object.values(encounter.hints)[0];
+        if (hint) s.log.push({ tone: "info", text: `Evidence hint: ${hint.pointer.text}` });
+      }
+      if (skills.includes("tracing-2")) {
+        const first = encounter.bodies[0]?.cells[0];
+        const cell = first ? s.cells[first.id] : null;
+        if (cell) cell.revealed = true;
+      }
+    } else s.potions += this.rewards.hintPotions;
     this.rewards.hintPotions = 0;
     const remembered = this.memory.get(encounter.id);
     if (remembered && remembered.until > now) {
@@ -106,13 +151,39 @@ export class CombatController {
   }
   private update(next: CombatState) {
     this.state = next;
+    if (this.progression)
+      this.progression.onInventory({
+        hint: next.potions,
+        tonic: next.items.tonics,
+        smoke: next.items.smokeBombs,
+        recall: next.items.recallScrolls,
+      });
+    if (this.progression && !this.outcomeReported && (next.outcome === "victory" || next.outcome === "tamed")) {
+      this.rewardNotice = !this.progression.rewarded?.(next.encounter.id);
+      this.outcomeReported = true;
+      this.onEnd({ encounter: next.encounter, state: next });
+    }
     this.emit();
   }
   act(action: PlayerAction, cellId: string | null) {
     if (this.state) this.update(act(this.state, action, cellId));
   }
   answer(choice: number) {
-    if (this.state) this.update(answer(this.state, choice));
+    if (this.state) {
+      const pending = this.state.pending;
+      const question = pending?.kind === "question" ? questionById(this.state.encounter, pending.questionId) : null;
+      const next = answer(this.state, choice);
+      if (question?.scored && choice === question.answer)
+        for (const id of question.symbolIds)
+          this.progression?.onAnswer(
+            id,
+            question.type,
+            `combat:${this.state.encounter.id}:${question.id}`,
+            !this.attempted.has(question.id),
+          );
+      if (question) this.attempted.add(question.id);
+      this.update(next);
+    }
   }
   predict(heartId: string) {
     if (this.state) this.update(predict(this.state, heartId));
@@ -131,14 +202,14 @@ export class CombatController {
         until: now + s.balance.fleeMemorySeconds * 1000,
       });
     else this.memory.delete(s.encounter.id);
-    if ((s.outcome === "victory" || s.outcome === "tamed") && !this.rewarded.has(s.encounter.id)) {
+    if (!this.progression && (s.outcome === "victory" || s.outcome === "tamed") && !this.rewarded.has(s.encounter.id)) {
       this.rewarded.add(s.encounter.id);
       this.rewards.xp += s.xp + 10;
       this.rewards.hintPotions++;
     }
     this.state = null;
     this.emit();
-    this.onEnd({ encounter: s.encounter, state: s });
+    if (!this.outcomeReported) this.onEnd({ encounter: s.encounter, state: s });
   }
   view() {
     return this.state ? publicView(this.state) : null;

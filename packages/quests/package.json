@@ -6,6 +6,12 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./node": "./src/generate.ts"
+  },
+  "dependencies": {
+    "@codebase-quest/shared": "workspace:*",
+    "@codebase-quest/combat": "workspace:*",
+    "zod": "4.6.7"
   }
 }

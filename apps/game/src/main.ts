@@ -73,6 +73,31 @@ if (world) {
           return symbolId ? { kind, symbolId } : { kind };
         },
         getCodexCount: () => app.overlay.codex.count,
+        getQuests: () =>
+          app.progression?.engine.definitions.map((q) => ({
+            ...q,
+            progress: app.progression?.engine.save.quests[q.id],
+          })) ?? [],
+        getLight: () => app.progression?.engine.illumination ?? { kingdom: 0, regions: {} },
+        getSave: () => {
+          if (!app.progression) throw new Error("No progression data");
+          app.progression.persist();
+          return structuredClone(app.progression.engine.save);
+        },
+        loadSave: async (save) => {
+          if (!app.progression) throw new Error("No progression data");
+          await app.progression.load(save);
+        },
+        getEquipment: (id) => app.progression?.equipmentView(id) ?? null,
+        ...(__CQ_TEST__
+          ? {
+              completeObjective: (id: string, index: number) => {
+                app.progression?.engine.completeObjective(id, index);
+                app.progression?.changed();
+                app.progression?.persist();
+              },
+            }
+          : {}),
         gotoNpc: (symbolId: string) => app.teleportToNpc(symbolId),
         getNpcs: () => app.active?.npcPositions() ?? [],
         bridgeReceive: (message: unknown) => app.bridge.receive(message as never),

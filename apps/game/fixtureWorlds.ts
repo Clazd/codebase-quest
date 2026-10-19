@@ -3,6 +3,7 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 import { fileURLToPath } from "node:url";
 import { buildSearchIndex } from "@codebase-quest/content";
 import { buildFactBook } from "@codebase-quest/content/facts";
+import { generateQuests } from "@codebase-quest/quests/node";
 import { type CodeGraph, CodeGraphSchema, type WorldModel, WorldModelSchema } from "@codebase-quest/shared";
 import { generate, tiledMap } from "@codebase-quest/worldgen";
 import type { Plugin } from "vite";
@@ -89,6 +90,32 @@ export function fixtureWorlds(includeStress = false): Plugin {
   /** Built on first request from the real fixture files (masked), exactly like `cq play`. */
   async function lazyFile(name: string, file: string): Promise<string | null> {
     const key = `${name}/${file}`;
+    if (file === "quests.json") {
+      let pending = lazy.get(key);
+      if (!pending) {
+        pending = (async () => {
+          const index = JSON.parse((await lazyFile(name, "encounters/index.json")) ?? "[]");
+          return JSON.stringify(
+            await generateQuests(
+              worldOf(name),
+              graphOf(name),
+              buildFactBook(graphOf(name), worldOf(name)),
+              (path) => {
+                const full = `${repoOf(name)}/${path}`;
+                if (!existsSync(full)) return null;
+                return {
+                  text: maskLines(readFileSync(full, "utf8").replaceAll("\r\n", "\n").split("\n")).lines.join("\n"),
+                  language: path.endsWith(".py") ? "python" : path.endsWith(".js") ? "javascript" : "typescript",
+                };
+              },
+              index,
+            ),
+          );
+        })();
+        lazy.set(key, pending);
+      }
+      return pending;
+    }
     if (file === "search.json" || file.startsWith("encounters/")) {
       let pending = lazy.get(file === "search.json" ? key : `${name}/encounters`);
       if (!pending) {
@@ -150,7 +177,7 @@ export function fixtureWorlds(includeStress = false): Plugin {
       }
       return;
     }
-    if (file !== "search.json" && !file.startsWith("encounters/")) return next();
+    if (file !== "search.json" && file !== "quests.json" && !file.startsWith("encounters/")) return next();
     lazyFile(name, file)
       .then((body) => (body ? json(200, body) : json(404, "{}")))
       .catch(() => json(503, JSON.stringify({ error: "Run `pnpm fixtures` to build fixtures/repos/" })));

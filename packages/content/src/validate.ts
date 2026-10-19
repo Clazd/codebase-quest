@@ -74,7 +74,14 @@ export function allowedIdentifiers(facts: ItemFacts, book?: Pick<FactBook, "symb
       add(l.path);
     }
   };
-  if (facts.kind === "symbol") {
+  if (facts.kind === "quest") {
+    add(facts.title);
+    add(facts.summary);
+    for (const s of facts.symbols) {
+      add(s.name);
+      add(s.path);
+    }
+  } else if (facts.kind === "symbol") {
     sheet(facts.sheet);
     for (const line of facts.code?.value ?? []) add(line);
   } else if (facts.kind === "region") {

@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`quest event state machine > daily choice is deterministic, changes by UTC date and never needs an API 1`] = `
+{
+  "id": "daily:2026-10-19",
+  "narration": {
+    "intro": "Daily 2026-10-19: createTaskHandler",
+    "outro": "Another day of code reading.",
+  },
+  "objectives": [
+    {
+      "kind": "defeat",
+      "smellId": "313a888e33ac",
+    },
+  ],
+  "ordered": true,
+  "path": [
+    "a8b28e09a2c7",
+  ],
+  "prerequisites": [],
+  "regionId": "920172bf9aaf",
+  "rewards": {
+    "gold": 15,
+    "items": [
+      "hint",
+    ],
+    "keys": [],
+    "xp": 40,
+  },
+  "summary": "Win today's seeded Code-Body fight.",
+  "title": "Daily 2026-10-19: createTaskHandler",
+  "type": "daily",
+}
+`;

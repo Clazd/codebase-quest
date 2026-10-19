@@ -9,6 +9,7 @@ import {
   worldItems,
 } from "@codebase-quest/content";
 import { ContentStore } from "@codebase-quest/content/node";
+import { AtlasSchema } from "@codebase-quest/quests";
 import type { FactBook, FactSheet, WorldModel } from "@codebase-quest/shared";
 import { locateWorld, prepareWorld } from "./play.ts";
 import { createSourceReader } from "./source.ts";
@@ -54,7 +55,12 @@ export class Workspace {
     return result.status === 200 ? result.body.lines : null;
   }
   get items(): ContentItem[] {
-    this.cachedItems ??= worldItems(this.world, this.book, (s) => this.codeOf(s));
+    this.cachedItems ??= worldItems(
+      this.world,
+      this.book,
+      (s) => this.codeOf(s),
+      AtlasSchema.parse(JSON.parse(readFileSync(join(this.directory, "quests.json"), "utf8"))).quests,
+    );
     return this.cachedItems;
   }
   item(id: string): ContentItem | undefined {

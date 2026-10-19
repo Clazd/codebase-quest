@@ -507,7 +507,9 @@ export function CombatPanel({
               {state.stats.reads} reads · {state.stats.answersRight} correct answers · {state.stats.predictionsRight}{" "}
               blocks
               {(state.outcome === "victory" || state.outcome === "tamed") &&
-                ` · ${state.xp + 10} XP and a Hint Potion earned`}
+                (controller.progression && !controller.rewardNotice
+                  ? " · Practice: this monster's rewards were already earned"
+                  : ` · ${state.xp + 10} XP and a Hint Potion earned${controller.progression ? " · 5 gold" : ""}`)}
               {view?.outcome === "victory" ? ` · understood: ${state.understood.length} symbol(s)` : ""}
             </p>
             <p class="muted">How to fix it in real life: {encounter.bestiary.fix}</p>

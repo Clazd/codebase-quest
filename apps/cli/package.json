@@ -22,7 +22,8 @@
     "ws": "8.22.0",
     "@codebase-quest/mcp": "workspace:*",
     "@codebase-quest/combat": "workspace:*",
-    "@codebase-quest/puzzles": "workspace:*"
+    "@codebase-quest/puzzles": "workspace:*",
+    "@codebase-quest/quests": "workspace:*"
   },
   "devDependencies": {
     "@types/ws": "8.18.1"

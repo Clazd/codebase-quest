@@ -47,8 +47,21 @@ export function worldItems(
   world: WorldModel,
   book: FactBook,
   codeOf: (sheet: FactSheet) => string[] | null,
+  quests: { id: string; title: string; summary: string; path: string[] }[] = [],
 ): ContentItem[] {
   const items: ContentItem[] = [];
+  for (const quest of quests)
+    items.push(
+      makeItem("quest-narration", quest.id, {
+        kind: "quest",
+        title: quest.title,
+        summary: quest.summary,
+        symbols: quest.path.flatMap((id) => {
+          const s = book.symbols.find((s) => s.symbolId === id);
+          return s ? [{ name: s.name, path: s.path }] : [];
+        }),
+      }),
+    );
   const npcSymbols = new Set(world.npcs.map((n) => n.symbolId));
   for (const sheet of book.symbols)
     if (npcSymbols.has(sheet.symbolId)) {
@@ -105,6 +118,8 @@ export function templateOutput(
   context: { index?: SearchIndex; book?: Pick<FactBook, "symbols"> } = {},
 ): ContentOutput<ContentType> {
   const f = item.facts;
+  if (item.contentType === "quest-narration" && f.kind === "quest")
+    return { text: clip(`${f.title}. ${f.summary}`, 400) };
   if (item.contentType === "combat-explanation" && f.kind === "symbol")
     return {
       text: clip(

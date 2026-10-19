@@ -7,6 +7,8 @@ import type { BodyInput, Cell, CodeBody, Encounter, Question, QuestionAction } f
  * inside this module; public views (`publicView`) never include it.
  */
 export interface Balance {
+  freeFirstRead?: boolean;
+  mutantSpreadEvery?: number;
   energyPerTurn: number;
   costs: Record<string, number>;
   difficulties: Record<
@@ -215,6 +217,7 @@ export function questionFor(state: CombatState, action: PlayerAction, cellId: st
   return qs.find((q) => q.action === action && q.cellId === cellId);
 }
 export function costOf(state: CombatState, action: PlayerAction): number {
+  if (action === "read" && state.balance.freeFirstRead && state.stats.reads === 0) return 0;
   return state.balance.costs[action] ?? ACTION_COSTS[action] ?? 3;
 }
 export function createCombat(encounter: Encounter, balance: Balance, difficulty: Difficulty): CombatState {
@@ -606,7 +609,11 @@ export function endTurn(state: CombatState): CombatState {
         });
       }
     }
-  if (next.encounter.kind === "mutant" && !next.twistResolved) {
+  if (
+    next.encounter.kind === "mutant" &&
+    !next.twistResolved &&
+    next.turn % (next.balance.mutantSpreadEvery ?? 1) === 0
+  ) {
     // The corruption spreads one neighbor per turn (visual only: the answer stays the original line).
     const main = next.encounter.bodies[0]?.cells ?? [];
     const source = [main.find((c) => c.corrupted)?.id, ...next.spread].filter(Boolean) as string[];

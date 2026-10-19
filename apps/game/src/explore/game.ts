@@ -1,3 +1,4 @@
+import { type Atlas, AtlasSchema } from "@codebase-quest/quests";
 import type { WorldPosition } from "@codebase-quest/shared";
 import Phaser from "phaser";
 import { CombatController, type EncounterIndex, EncounterIndexSchema } from "../combat/controller.ts";
@@ -11,6 +12,7 @@ import { mapGraph, nearestSpot, nextWaypoint, standBeside } from "../npc/guide.t
 import { EventBus, type OverlayEvents } from "../overlay/bus.ts";
 import { mountOverlay } from "../overlay/Overlay.tsx";
 import { OverlayStore } from "../overlay/store.ts";
+import { Progression } from "../progression/controller.ts";
 import { ExploreHud } from "./hud.ts";
 import { assetUrl, type TiledMap, WorldLoader } from "./loader.ts";
 import { BINDINGS, direction, findPath, move, type Point, visibleChunks, walkable } from "./navigation.ts";
@@ -55,11 +57,12 @@ export class Explorer {
   readonly bridge: GameBridge;
   /** Code-Body Combat (Phase 07): fights, the encounter index and tamed monsters. */
   readonly combat: CombatController;
+  readonly progression: Progression | null;
   encounters: EncounterIndex = [];
   readonly tamed = new Set<string>();
   private startingFight = false;
   sneaking = false;
-  constructor(loader: WorldLoader, virtualKeys: VirtualKeys, facts: FactIndex) {
+  constructor(loader: WorldLoader, virtualKeys: VirtualKeys, facts: FactIndex, atlas: Atlas | null = null) {
     this.loader = loader;
     this.virtualKeys = virtualKeys;
     this.facts = facts;
@@ -69,22 +72,51 @@ export class Explorer {
     try {
       storage = window.localStorage;
     } catch {}
-    const codex = new CodexStore(storage, codexKey(facts.book.repo.name, facts.book.repo.commit));
-    this.overlay = new OverlayStore(facts, codex, this.bus, this.session.seenNpcs);
     this.combat = new CombatController(loader.url);
+    const codex = new CodexStore(atlas ? null : storage, codexKey(facts.book.repo.name, facts.book.repo.commit));
+    this.overlay = new OverlayStore(facts, codex, this.bus, this.session.seenNpcs);
     this.overlay.tileset = assetUrl(loader.world.theme.image, loader.url);
     this.overlay.attachCombat(this.combat);
     for (const id of Object.keys(codex.data.bestiary)) this.tamed.add(id);
     this.combat.onEnd = (end) => this.fightEnded(end.encounter, end.state);
     this.hud = new ExploreHud(this.session, {
       start: () => {
-        void this.go(this.session.world.kingdom.gate).catch(() => {});
+        const saved = this.progression?.engine.save.player.position;
+        const map = saved ? this.session.maps.get(saved.mapId) : null;
+        const resume =
+          saved && map && saved.x < map.width && saved.y < map.height && !map.collision[saved.y * map.width + saved.x]
+            ? saved
+            : this.session.world.kingdom.gate;
+        void this.go(resume, true)
+          .then(() => this.progression?.event({ kind: "welcome", step: "gate" }))
+          .catch(() => {});
       },
       interact: () => this.interact(),
       zoom: (d) => this.changeZoom(d),
       codex: () => this.overlay.openCodex(),
       gitling: () => this.openGitling(),
     });
+    this.progression = atlas ? new Progression(this, atlas, storage) : null;
+    if (this.progression) {
+      const p = this.progression;
+      this.overlay.codex = p.codex;
+      for (const id of Object.keys(p.engine.save.bestiary)) this.tamed.add(id);
+      this.combat.difficulty = p.engine.save.settings.difficulty;
+      document.documentElement.dataset.mapFont = p.engine.save.settings.readableFont ? "system" : "pixel";
+      this.combat.progression = {
+        inventory: () => p.engine.save.inventory,
+        skills: () => p.engine.save.player.skills,
+        onInventory: (inventory) => {
+          Object.assign(p.engine.save.inventory, inventory);
+          p.changed();
+          p.persist();
+        },
+        onAnswer: (symbolId, puzzleType, evidence, firstTry) =>
+          p.event({ kind: "answer", symbolId, puzzleType, evidence, firstTry }),
+        rewarded: (id) => p.engine.save.rewarded.includes(`fight:${id}`),
+      };
+      this.overlay.equipment = { types: () => p.has("spyglass"), stepLine: () => this.overlay.staticStepLine };
+    }
     this.bridge = new GameBridge({
       focus: async (symbolId) => {
         if (this.combat.active) return { ok: false, error: "Finish the fight before changing focus" };
@@ -101,7 +133,7 @@ export class Explorer {
     this.bridge.connect();
     mountOverlay(this.overlay, required(document.querySelector("main")));
     this.bus.on("overlay:changed", ({ open }) => {
-      this.hud.overlayOpen = open;
+      this.hud.overlayOpen = open || Boolean(this.progression?.panelOpen);
       this.held.clear();
       this.active?.stopPath();
     });
@@ -110,11 +142,18 @@ export class Explorer {
       else this.walkTo(symbolId);
     });
     const motion = window.matchMedia?.("(prefers-reduced-motion: reduce)");
-    this.animate = !motion?.matches;
+    this.animate = !motion?.matches && !this.progression?.engine.save.settings.reducedMotion;
     motion?.addEventListener?.("change", (e) => {
-      this.animate = !e.matches;
+      this.animate = !e.matches && !this.progression?.engine.save.settings.reducedMotion;
     });
     const keydown = (event: KeyboardEvent) => {
+      if (this.progression?.panelOpen) {
+        if (event.key === "Escape" || (event.key.toLowerCase() === "q" && !typing(event.target))) {
+          event.preventDefault();
+          this.progression.close();
+        }
+        return;
+      }
       if (this.overlay.open) {
         // Overlays own the keyboard; Esc closes the innermost one.
         if (event.key === "Escape") {
@@ -130,6 +169,11 @@ export class Explorer {
         return;
       }
       if (typing(event.target) || this.hud.title) return;
+      if (event.key.toLowerCase() === "q" && !event.repeat && this.progression) {
+        event.preventDefault();
+        this.progression.open();
+        return;
+      }
       if (event.repeat && ["m", "M", "F3", "Escape", "e", "E", "Enter", " "].includes(event.key)) return;
       if (BINDINGS.map.includes(event.key as "m")) {
         event.preventDefault();
@@ -213,6 +257,7 @@ export class Explorer {
             window.removeEventListener("keyup", keyup);
             window.removeEventListener("blur", blur);
             this.hud.root.remove();
+            this.progression?.dispose();
           }),
       },
     });
@@ -223,10 +268,37 @@ export class Explorer {
     this.zoom = required(levels[Math.max(0, Math.min(2, index + Math.sign(delta)))]);
     this.active?.cameras.main.setZoom(this.zoom);
   }
-  async go(p: WorldPosition): Promise<void> {
+  async go(p: WorldPosition, restore = false): Promise<void> {
     if (this.loading) return;
     const map = this.session.maps.get(p.mapId);
     if (!map || !walkable(map, p.x, p.y)) throw new Error("Destination is blocked or missing");
+    const region = this.session.world.regions.find(
+      (r) =>
+        r.mapId === p.mapId ||
+        this.session.world.interiors.some(
+          (i) =>
+            i.mapId === p.mapId &&
+            this.session.world.buildings.some((b) => b.id === i.buildingId && b.regionId === r.id),
+        ),
+    );
+    const gate = region ? this.progression?.engine.gate(region.id) : null;
+    if (gate && !restore) {
+      const source = this.session.world.regions.find((r) => r.id === gate.sourceRegionId)?.name ?? gate.sourceRegionId;
+      this.message = `Concept Gate: learn ${source} first. Its Collection quest awards the key.`;
+      if (this.progression) {
+        this.progression.message = this.message;
+        this.progression.changed();
+      }
+      if (this.combat.difficulty === "expert") {
+        this.progression?.changed();
+        return;
+      }
+      if (this.progression) {
+        this.progression.message = `${this.message} You may continue in ${this.combat.difficulty} mode.`;
+        this.progression.changed();
+      }
+    }
+    if (!restore) this.progression?.persist();
     this.loading = true;
     this.held.clear();
     this.active?.stopPath();
@@ -235,10 +307,21 @@ export class Explorer {
       this.tiled = tiled;
       this.position = p;
       const old = this.active;
-      old?.cameras.main.fadeOut(90, 16, 25, 35);
+      old?.cameras.main?.fadeOut(90, 16, 25, 35);
       if (old) await new Promise((resolve) => setTimeout(resolve, 95));
       this.session.setPosition(p);
-      old?.scene.stop();
+      const building = this.session.building;
+      if (building && this.session.region)
+        this.progression?.event({ kind: "visit", buildingId: building.id, regionId: this.session.region.id });
+      if (
+        this.session.region &&
+        this.progression &&
+        !this.progression.engine.save.regions.includes(this.session.region.id)
+      )
+        this.progression.engine.save.regions.push(this.session.region.id);
+      // Use the manager synchronously: ScenePlugin.stop queues a stop that can
+      // otherwise kill the newly restarted scene when both use the same key.
+      if (old) this.game.scene.stop(old.sys.settings.key);
       this.game.scene.stop("Title");
       const serial = this.sceneSerial;
       this.game.scene.start(SCENE_KEYS[map.kind]);
@@ -251,12 +334,13 @@ export class Explorer {
       });
     } catch (error) {
       this.message = `Could not enter map: ${error instanceof Error ? error.message : String(error)}`;
-      this.active?.cameras.main.resetFX();
+      this.active?.cameras.main?.resetFX();
       this.hud.status.textContent = this.message;
       if (!this.active) this.hud.retryTitle();
       throw error;
     } finally {
       this.loading = false;
+      this.progression?.persist();
     }
   }
   sceneData() {
@@ -294,7 +378,7 @@ export class Explorer {
       this.message = entry.reason ?? "This monster cannot be fought yet.";
       return;
     }
-    if (this.combat.active || this.startingFight) return;
+    if (this.combat.active || this.startingFight || this.progression?.panelOpen) return;
     this.startingFight = true;
     this.held.clear();
     this.active?.stopPath();
@@ -312,6 +396,12 @@ export class Explorer {
   ) {
     const entity = this.active?.monsterById(encounter.id);
     if (state.outcome === "victory" || state.outcome === "tamed") {
+      this.progression?.event({
+        kind: "defeat",
+        smellId: encounter.id,
+        symbolIds: state.understood,
+        xp: state.xp + 10,
+      });
       this.tamed.add(encounter.id);
       entity?.tame();
       const body = encounter.bodies[0];
@@ -348,6 +438,7 @@ export class Explorer {
       );
       for (const s of state.understood) this.overlay.codex.markRead(s);
       this.message = `${encounter.name} is tamed. Its body map is in your Codex (C).`;
+      this.progression?.persist();
     } else if (state.outcome === "defeat") {
       const region = this.session.region;
       if (region) void this.go(region.spawn).catch(() => {});
@@ -359,6 +450,7 @@ export class Explorer {
   }
   /** Opens the Gitling chat and refreshes which answer levels are available. */
   openGitling() {
+    this.progression?.event({ kind: "welcome", step: "gitling" });
     this.held.clear();
     this.overlay.openGitling();
     void fetch(new URL("ai.json", this.loader.url).href)
@@ -378,13 +470,16 @@ export class Explorer {
       openPanel: this.overlay.kind,
       panelSymbol: this.overlay.state.panel?.symbolId ?? null,
       codex: { read: this.overlay.codex.count, characters: this.facts.characters.length },
-      quest: null,
-      kingdomLight: null,
+      quest:
+        this.progression?.engine.definitions.find((q) => q.id === this.progression?.engine.save.tracked)?.title ?? null,
+      kingdomLight: this.progression?.engine.illumination.kingdom ?? null,
     };
   }
   talk(symbolId: string) {
     if (this.guide?.symbolId === symbolId) this.guide = null;
     this.overlay.talk(symbolId);
+    this.progression?.event({ kind: "talk", symbolId });
+    this.progression?.persist();
   }
   /** The tile where a character stands on the given map spot (after crowd layout). */
   npcTile(symbolId: string, spot: WorldPosition): WorldPosition {
@@ -479,6 +574,7 @@ export class MapScene extends Phaser.Scene {
   private path: Point[] = [];
   private labels: Phaser.GameObjects.Text[] = [];
   private nextHud = 0;
+  private monsterGraceUntil = 0;
   private chunkStamp = "";
   private tiled!: TiledMap;
   private readonly app: Explorer;
@@ -493,6 +589,7 @@ export class MapScene extends Phaser.Scene {
     this.labels = [];
     this.chunkStamp = "";
     this.nextHud = 0;
+    this.monsterGraceUntil = this.time.now + 1500;
     this.path = [];
     const map = this.app.session.map;
     this.player = this.add.sprite((position.x + 0.5) * 16, (position.y + 0.5) * 16, TEXTURE, 85).setDepth(8);
@@ -636,6 +733,7 @@ export class MapScene extends Phaser.Scene {
       throw new Error("Teleport destination is blocked");
     this.path = [];
     this.player.setPosition(x, y);
+    this.gitling.setPosition(x - 14, y - 8);
     this.app.session.setPosition({ mapId: map.id, x: tx, y: ty });
     this.cameras.main.centerOn(x, y);
   }
@@ -727,6 +825,98 @@ export class MapScene extends Phaser.Scene {
       this.labels.push(t);
       return t;
     };
+    const progress = this.app.progression;
+    if (progress) {
+      const illumination = progress.engine.illumination;
+      const percent = s.region ? (illumination.regions[s.region.id] ?? 0) : illumination.kingdom;
+      // Pale mist over explored terrain gradually clears as comprehension grows.
+      this.fog.fillStyle(0xadb9ba, (1 - percent / 100) * 0.2);
+      for (let y = Math.max(0, Math.floor(view.y / 16)); y < Math.min(map.height, Math.ceil(view.bottom / 16)); y++)
+        for (let x = Math.max(0, Math.floor(view.x / 16)); x < Math.min(map.width, Math.ceil(view.right / 16)); x++)
+          if (seen[y * map.width + x]) this.fog.fillRect(x * 16, y * 16, 16, 16);
+      const placed = new Set<string>();
+      for (const mark of progress.markers()) {
+        const point =
+          mark.position.mapId === map.id
+            ? mark.position
+            : nextWaypoint(this.app.graph, s.position, mark.position)?.position;
+        if (!point || point.mapId !== map.id || !view.contains(point.x * 16, point.y * 16)) continue;
+        const key = `${point.x}:${point.y}:${mark.label}`;
+        if (placed.has(key)) continue;
+        placed.add(key);
+        text(point.x * 16, (point.y - 1) * 16, mark.label, 12);
+      }
+      if (progress.has("spyglass"))
+        for (const npc of this.npcs)
+          if (npc.sprite.visible && Math.hypot(npc.x - this.player.x, npc.y - this.player.y) < 100) {
+            const sym = progress.atlas.symbols.find((s) => s.id === npc.sheet.symbolId);
+            text(npc.x, npc.y - 40, sym?.returnType ?? "type unknown", 8);
+          }
+      if (progress.has("lantern"))
+        for (const b of s.world.buildings)
+          if (
+            b.door.mapId === map.id &&
+            (b.traits.tested || progress.atlas.files.some((f) => b.fileIds.includes(f.id) && (f.coverage ?? 0) > 0))
+          )
+            this.markers.lineStyle(2, 0x9ff0dc, 0.8).strokeCircle((b.door.x + 0.5) * 16, (b.door.y + 0.5) * 16, 32);
+      if (progress.has("chronicle"))
+        for (const b of s.world.buildings)
+          if (b.door.mapId === map.id && Math.hypot(b.door.x - s.position.x, b.door.y - s.position.y) < 6) {
+            const f = progress.atlas.files.find((f) => b.fileIds.includes(f.id));
+            text(
+              b.bounds.x * 16,
+              (b.bounds.y - 2) * 16,
+              `Age ${b.traits.ageDays ?? "?"}d · changed ${f?.lastCommitAt?.slice(0, 10) ?? "unknown"}`,
+              8,
+            );
+          }
+      const arrow = (from: { x: number; y: number }, to: { x: number; y: number }, label: string) => {
+        const x = Phaser.Math.Clamp(to.x, view.x + 16, view.right - 16),
+          y = Phaser.Math.Clamp(to.y, view.y + 16, view.bottom - 16);
+        this.markers.lineStyle(2, 0x9ff0dc, 0.9).lineBetween(from.x, from.y, x, y);
+        const angle = Math.atan2(y - from.y, x - from.x);
+        this.markers
+          .lineBetween(x, y, x - Math.cos(angle - 0.5) * 7, y - Math.sin(angle - 0.5) * 7)
+          .lineBetween(x, y, x - Math.cos(angle + 0.5) * 7, y - Math.sin(angle + 0.5) * 7);
+        text(x, y, label, 8);
+      };
+      if (progress.has("compass") && progress.currentSymbol) {
+        const symbol = progress.atlas.symbols.find((s) => s.id === progress.currentSymbol);
+        const origin = this.npcOnMap(progress.currentSymbol) ?? this.player;
+        for (const id of symbol?.callers ?? []) {
+          const target = progress.atlas.symbols.find((s) => s.id === id);
+          if (!target) continue;
+          const live = this.npcOnMap(id),
+            point = nextWaypoint(this.app.graph, s.position, target.position)?.position;
+          if (live) arrow(origin, live, target.name);
+          else if (point) arrow(origin, { x: (point.x + 0.5) * 16, y: (point.y + 0.5) * 16 }, target.name);
+        }
+      }
+      if (progress.has("lens") && map.kind === "overworld")
+        for (const edge of progress.atlas.dependencies) {
+          const from = s.world.regions.find((r) => r.id === edge.from),
+            to = s.world.regions.find((r) => r.id === edge.to);
+          if (from && to)
+            arrow(
+              { x: from.entrance.x * 16, y: from.entrance.y * 16 },
+              { x: to.entrance.x * 16, y: to.entrance.y * 16 },
+              String(edge.weight),
+            );
+        }
+      const shape = progress.engine.save.inventory.hat ?? 0;
+      if (shape)
+        this.markers
+          .fillStyle(0xffdc87)
+          .fillTriangle(
+            this.player.x - 6,
+            this.player.y - 20,
+            this.player.x + 6,
+            this.player.y - 20,
+            this.player.x,
+            this.player.y - 27,
+          );
+      if ((progress.engine.save.inventory.color ?? 0) > 0) this.player.setTint(0x9ad9f2);
+    }
     if (map.kind === "overworld")
       for (const r of s.world.regions)
         if (view.contains((r.bounds.x + 2) * 16, (r.bounds.y + 3) * 16))
@@ -755,10 +945,20 @@ export class MapScene extends Phaser.Scene {
     const paused = this.app.hud.blocked || this.app.loading || this.app.combat.active;
     for (const m of this.monsters) {
       const inView = m.x > view.x - 64 && m.x < view.right + 64 && m.y > view.y - 64 && m.y < view.bottom + 64;
-      const shown = inView && Boolean(seen[m.tileY * map.width + m.tileX]);
+      const shown =
+        inView &&
+        (Boolean(seen[m.tileY * map.width + m.tileX]) ||
+          (m.entry.kind === "shadow" &&
+            Boolean(this.app.progression?.has("lantern")) &&
+            Math.hypot(m.x - this.player.x, m.y - this.player.y) < 120));
       m.setShown(shown);
       if (!shown || paused) continue;
-      if (m.update(time, delta, map, this.player, this.app.sneaking, this.app.animate) && m.entry.fightable) {
+      if (
+        m.update(time, delta, map, this.player, this.app.sneaking, this.app.animate) &&
+        m.entry.fightable &&
+        time >= this.monsterGraceUntil &&
+        !this.app.session.nearbyTransition()
+      ) {
         void this.app.startFight(m.entry.id).catch(() => {});
         break;
       }
@@ -777,16 +977,21 @@ export class MapScene extends Phaser.Scene {
       npc.update(time, delta, map, this.app.animate && !this.app.hud.blocked);
       const near = Math.hypot(npc.x - this.player.x, npc.y - this.player.y) <= 3 * 16;
       npc.showTag(near, font);
-      if (near) this.app.session.seenNpcs.add(npc.sheet.symbolId);
+      if (near) {
+        this.app.session.seenNpcs.add(npc.sheet.symbolId);
+        if (!this.app.progression?.engine.save.comprehension[npc.sheet.symbolId])
+          this.app.progression?.event({ kind: "seen", symbolId: npc.sheet.symbolId });
+      }
     }
   }
   /** Draws the guide arrow beside the player; returns the status text, or null without a guide. */
   private drawGuide(): string | null {
     this.arrow.clear();
-    const waypoint = this.app.guideWaypoint(),
+    const quest = this.app.progression?.waypoint;
+    const waypoint = this.app.guideWaypoint() ?? (quest ? { ...quest, arrived: false } : null),
       guide = this.app.guide;
-    if (!waypoint || !guide) return null;
-    const name = this.app.facts.sheet(guide.symbolId)?.displayName ?? "the character";
+    if (!waypoint) return null;
+    const name = guide ? (this.app.facts.sheet(guide.symbolId)?.displayName ?? "the character") : "quest objective";
     if (waypoint.arrived) {
       this.app.guide = null;
       this.app.message = `You found ${name}. Press E to talk.`;
@@ -885,6 +1090,7 @@ export class MapScene extends Phaser.Scene {
     this.updateChunks();
     if (time >= this.nextHud) {
       this.nextHud = time + 100;
+      this.app.progression?.updateTracker();
       this.drawOverlays();
       const t = this.app.target();
       const guide = this.drawGuide();
@@ -938,7 +1144,12 @@ export class MapScene extends Phaser.Scene {
 export async function startExplorer(url: string, virtualKeys: VirtualKeys): Promise<Explorer> {
   const loader = await WorldLoader.open(url);
   const facts = await FactIndex.load(loader.world, loader.url);
-  const explorer = new Explorer(loader, virtualKeys, facts);
+  let atlas: Atlas | null = null;
+  try {
+    const r = await fetch(new URL("quests.json", loader.url).href);
+    if (r.ok) atlas = AtlasSchema.parse(await r.json());
+  } catch {}
+  const explorer = new Explorer(loader, virtualKeys, facts, atlas);
   // Fights are optional data: a world without encounters still plays (monsters stay markers).
   try {
     const r = await fetch(new URL("encounters/index.json", loader.url).href);

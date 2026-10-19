@@ -144,11 +144,13 @@ describe("MCP contract", () => {
     }
     const done = body(await agent.call("cq_status"));
     expect(done.complete).toBe(true);
-    for (const type of ["npc-dialogue", "region-lore", "kingdom-lore"]) {
+    for (const type of ["npc-dialogue", "region-lore", "kingdom-lore", "combat-explanation", "quest-narration"]) {
       const c = (done.coverage as Record<string, { done: number; total: number }>)[type];
       expect(c?.done, type).toBe(c?.total);
     }
-    expect(accepted).toBe(58 * 2 + 5 + 1); // dialogue + key-free combat afterword per character
+    const questCount = (done.coverage as Record<string, { total: number }>)["quest-narration"]?.total ?? 0;
+    expect(questCount).toBeGreaterThan(0);
+    expect(accepted).toBe(58 * 2 + 5 + 1 + questCount);
   });
   it("searches code and returns fact sheets with refs; repository text is marked untrusted", async () => {
     const found = body(await agent.call("cq_search_code", { query: "where are tasks saved" }));

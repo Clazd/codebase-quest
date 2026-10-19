@@ -181,10 +181,31 @@ export class ExploreHud {
         ctx.fillText(r.name, x, y);
       }
     }
+    ctx.font = "bold 14px system-ui";
+    for (const marker of s.questMarkers) {
+      let p = marker.position;
+      if (full && p.mapId !== map.id) {
+        const region = s.world.regions.find(
+          (r) =>
+            r.mapId === p.mapId ||
+            s.world.interiors.some(
+              (i) => i.mapId === p.mapId && s.world.buildings.some((b) => b.id === i.buildingId && b.regionId === r.id),
+            ),
+        );
+        if (region) p = region.entrance;
+      }
+      if (p.mapId !== map.id) continue;
+      ctx.fillStyle = "#101923";
+      ctx.fillRect(ox + p.x * scale - 2, oy + p.y * scale - 11, 13, 16);
+      ctx.fillStyle = "#ffdc87";
+      ctx.fillText(marker.label, ox + p.x * scale, oy + p.y * scale + 2);
+    }
   }
   update(message: string, canAct: boolean, guide: WorldPosition | null, debug: string) {
     this.breadcrumb.textContent = this.session.breadcrumb;
-    required(this.root.querySelector("#light")).textContent = `${this.session.seenFiles.size} files seen`;
+    required(this.root.querySelector("#light")).textContent = this.session.kingdomLight
+      ? `${this.session.kingdomLight.kingdom.toFixed(1)}% Kingdom Light`
+      : `${this.session.seenFiles.size} files seen`;
     this.status.textContent = message;
     this.action.disabled = !canAct || this.blocked;
     this.debug.hidden = !this.debugOpen;

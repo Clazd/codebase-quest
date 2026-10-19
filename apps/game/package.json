@@ -20,7 +20,8 @@
     "zod": "4.6.7",
     "@codebase-quest/content": "workspace:*",
     "@codebase-quest/combat": "workspace:*",
-    "@codebase-quest/puzzles": "workspace:*"
+    "@codebase-quest/puzzles": "workspace:*",
+    "@codebase-quest/quests": "workspace:*"
   },
   "devDependencies": {
     "@codebase-quest/worldgen": "workspace:*",

@@ -1,7 +1,7 @@
 # Phase 08: Quests, Progression and Saves
 
 > **Milestone:** D · The Game · **Depends on:** 07 · **Effort:** 2–2.5 weeks ·
-> **Status:** Not started
+> **Status:** Implemented and tested; owner architecture playtest pending
 > **Read first:** MASTER-PLAN §5.7, §10, §11, §13
 
 ## Goal
@@ -162,17 +162,17 @@ getSave(): SaveV1;  loadSave(save: SaveV1): void;
 ```
 
 ## Tasks
-- [ ] Quest schema + state machine engine + event wiring.
-- [ ] Generators: main story (prologue + chapters), exploration, delivery, escort, bounty, investigation, collection, daily.
-- [ ] Quest log, tracker, markers, narration (template + AI hook).
-- [ ] XP, levels, skill tree UI + effects.
-- [ ] Equipment overlays (7 items above).
-- [ ] Inventory, shop, gold, Concept Keys and gates.
-- [ ] Comprehension states + Kingdom Light computation + fog and saturation visuals + mastery stars.
-- [ ] Achievements + profile card PNG.
-- [ ] Save system: schema, autosave, export/import, migrations, commit-change mapping + summary screen.
-- [ ] Move the Phase 05 Codex storage into the save.
-- [ ] Bot playthrough script: completes the whole main story of `tiny-ts` through the debug API.
+- [x] Quest schema + state machine engine + event wiring.
+- [x] Generators: main story (prologue + chapters), exploration, delivery, escort, bounty, investigation, collection, daily.
+- [x] Quest log, tracker, markers, narration (template + AI hook).
+- [x] XP, levels, skill tree UI + effects.
+- [x] Equipment overlays (7 items above).
+- [x] Inventory, shop, gold, Concept Keys and gates.
+- [x] Comprehension states + Kingdom Light computation + fog and saturation visuals + mastery stars.
+- [x] Achievements + profile card PNG.
+- [x] Save system: schema, autosave, export/import, migrations, commit-change mapping + summary screen.
+- [x] Move the Phase 05 Codex storage into the save.
+- [x] Bot playthrough script: completes the whole main story of `tiny-ts` through the debug API.
 
 ## Automated tests
 - **Quest engine:** state transitions, prerequisites, out-of-order objectives, rewards granted once.
@@ -193,7 +193,7 @@ getSave(): SaveV1;  loadSave(save: SaveV1): void;
 
 ## Definition of done
 - [ ] All tests green; the bot playthrough passes in CI.
-- [ ] Saves survive reloads, export/import and code changes.
+- [x] Saves survive reloads, export/import and code changes (automated; owner walkthrough pending).
 - [ ] Your own-project chapter 1 matches what you would teach first (or the generator rule is adjusted).
 
 ## Risks
@@ -216,7 +216,58 @@ walk me through the manual test script, and fill in the Results section.
 ```
 
 ## Results (fill in after testing)
-- Date:
+- Date: 2026-10-19, Windows, Node 24 / pnpm 10.33.1.
+- Implementation: Phase 08 on `phase/08-quests-progression`. Deterministic quest
+  atlas and event state machine; prologue, chapters, grounded side quests and UTC
+  daily fights; quest log/tracker/markers and safe optional narration; XP, gold,
+  inventory, five skill branches and seven equipment views; Concept Gates;
+  LOC-weighted Kingdom Light, achievements, documentation scrolls and profile PNG.
+  Versioned local saves include Codex notes/maps/Bestiary, explored fog, checkpoint
+  recovery, import/export, code fingerprints, changed-quest rechecks and Archive.
 - Automated tests / bot playthrough:
-- Architecture sentence from memory:
-- Decisions / ADRs:
+  - `pnpm test`: **396/396 tests in 47 files passed**. Includes all earlier
+    analyzer/world/combat/content/MCP regressions, the quest state machine and
+    rewards-once checks, side-quest limits, XP/skills/equipment economy,
+    hand-computed Light/stars, UTC daily determinism/streaks and story completion.
+  - Quest goldens/determinism and target invariants pass on all six repository
+    fixtures. Positive delivery and local middleware fixtures have their own
+    golden; a seeded daily has a golden too. Scored call-order, parameter-count,
+    declaration-kind and investigation checks are independently re-derived from
+    source/graph evidence. No analyzed source is imported or executed.
+  - Save round trips, the V0 fixture migration, nested corruption/quota errors,
+    last-good/damaged/checkpoint backups, changed-quest reward retention and two
+    real temporary fixture commits (rename/edit/delete/add) pass. Equipment
+    facts are checked against syntax, exact edges, test references, imports and
+    git dates. Persistent combat consumables and immediate victory saving pass.
+  - `$env:CQ_E2E_PORT='4298'; pnpm e2e --workers=1`: **52/52 passed** in
+    headless Chromium (full run: 1.6 minutes). The bot finishes Taskly's prologue
+    and all five chapters with **Kingdom Light ≥60%**. Real controls cover quest
+    acceptance, a rejected distractor/correct answer, rewards, reload, file
+    import/export and damaged backup; Story/Expert gates, all six progression
+    pages with keyboard + axe, equipment data and profile PNG download pass.
+    All previous prototype, combat, NPC, bridge and exploration regressions pass.
+    The 2,000-building world measured **16.66 ms/frame**, below its 40 ms budget.
+    After tightening the fallback for unpaired exact calls, the complete unit
+    suite passed again and the six Phase 08 browser tests passed again (29 s).
+  - `pnpm check` (Biome, RNG guard and strict TypeScript), `pnpm build`,
+    `pnpm license-check -- --enforce` and `git diff --check`: passed.
+    Production debug/answer-key exclusion is covered by the bundle test.
+    `pnpm install --frozen-lockfile --offline` also passed with no lockfile drift.
+  - The first parallel browser run hit local memory pressure and exposed an
+    immediate exit ambush. Later checks exposed a same-scene stop/start race
+    and Gitling crossing a debug-teleport click target. Those defects were
+    corrected. The overworld/region screenshot baselines were visually reviewed
+    and updated for the new HUD, markers and Light mist; existing Code Panel
+    and interior baselines remain valid. The final complete serial run is green.
+  - `pnpm bot:story` selects the same bot test; the existing CI `pnpm e2e`
+    job includes it. **Remote CI was not run**, because this branch was not
+    pushed. The CI Definition-of-done checkbox therefore remains open.
+- Architecture sentence from memory: **not measured; owner playtest pending**.
+  Automated visits and test-only objective completion are not human learning
+  evidence. Own-project first-flow review and equipment usefulness are pending.
+  Follow the [manual walkthrough](../../playtests/phase-08/README.md).
+- Decisions / ADRs: [ADR 0011](../../adr/0011-quests-progression-and-local-saves.md)
+  records conservative generation, supplementary surveys, the XP economy,
+  equipment/evidence rules, key gates, save recovery and scene-transition fixes.
+  Phase 07's human adoption/playtest status remains pending. No push, PR, remote
+  CI or GitHub settings change was made.

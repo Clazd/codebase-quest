@@ -65,6 +65,7 @@ export const UNTRUSTED_NOTE =
 export const untrusted = <T>(value: T): Untrusted<T> => ({ untrusted: true, note: UNTRUSTED_NOTE, value });
 
 export type ItemFacts =
+  | { kind: "quest"; title: string; summary: string; symbols: { name: string; path: string }[] }
   | { kind: "symbol"; sheet: FactSheet; code: Untrusted<string[]> | null }
   | {
       kind: "region";

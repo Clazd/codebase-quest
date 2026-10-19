@@ -91,7 +91,11 @@ function CodeView({ store, sheet }: { store: OverlayStore; sheet: FactSheet }) {
           {shown.map((line, i) => {
             const number = slice.startLine + i;
             return (
-              <span class={`code-line${masked.has(number) ? " masked" : ""}`} key={number} data-line={number}>
+              <span
+                class={`code-line${masked.has(number) ? " masked" : ""}${store.equipment?.stepLine() === number ? " step-current" : ""}${store.equipment?.types() && /:\s*[\w{[]/.test(line) ? " type-highlight" : ""}`}
+                key={number}
+                data-line={number}
+              >
                 <span class="ln" aria-hidden="true">
                   {number}
                 </span>

@@ -14,6 +14,7 @@
     "build": "pnpm -r --if-present run build",
     "test": "vitest run",
     "e2e": "playwright test",
+    "bot:story": "playwright test apps/game/e2e/progression.e2e.ts --grep \"bot completes\"",
     "check": "biome check . && node scripts/check-worldgen-rng.ts && tsc --noEmit -p tsconfig.json",
     "format": "biome check --write .",
     "cq": "node apps/cli/src/main.ts",

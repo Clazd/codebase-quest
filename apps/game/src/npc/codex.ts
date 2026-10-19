@@ -1,42 +1,9 @@
+import { BestiaryEntrySchema, BodyMapSchema, CodexDataSchema } from "@codebase-quest/quests";
 import type { FactSheet, Region } from "@codebase-quest/shared";
-import { z } from "zod";
+import type { z } from "zod";
 
 export const CODEX_VERSION = 1;
-const Id = z.string().regex(/^[a-f0-9]{12}$/);
-/** A defeated body as a one-glance map: [row, col, kind] per cell. */
-export const BodyMapSchema = z.object({
-  name: z.string().max(200),
-  path: z.string().max(400),
-  cells: z
-    .array(
-      z.tuple([z.number().int().min(0), z.number().int().min(0), z.enum(["joint", "body", "organ", "armor", "heart"])]),
-    )
-    .max(40),
-  at: z.string().max(40),
-});
-export const BestiaryEntrySchema = z.object({
-  name: z.string().max(200),
-  species: z.string().max(80),
-  smellKind: z.string().max(60),
-  title: z.string().max(400),
-  path: z.string().max(400),
-  lines: z.tuple([z.number().int(), z.number().int()]),
-  message: z.string().max(400),
-  measured: z.number().nullable(),
-  threshold: z.number().nullable(),
-  fix: z.string().max(1000),
-  outcome: z.enum(["victory", "tamed"]),
-  note: z.string().max(2000),
-  at: z.string().max(40),
-});
-const CodexDataSchema = z.object({
-  version: z.literal(CODEX_VERSION),
-  entries: z.record(Id, z.object({ readAt: z.string().max(40), note: z.string().max(20_000) })),
-  /** Phase 07 (additive): body maps by symbol, Bestiary by encounter, `understood` symbols. */
-  bodyMaps: z.record(Id, BodyMapSchema).default({}),
-  bestiary: z.record(z.string().max(80), BestiaryEntrySchema).default({}),
-  understood: z.array(Id).default([]),
-});
+export { BestiaryEntrySchema, BodyMapSchema, CodexDataSchema } from "@codebase-quest/quests";
 export type CodexData = z.infer<typeof CodexDataSchema>;
 type KeyValueStore = Pick<Storage, "getItem" | "setItem">;
 
@@ -49,6 +16,8 @@ export function codexKey(repoId: string, commit: string | null): string {
  * and personal notes. Unreadable or future-version data is ignored, not trusted.
  */
 export class CodexStore {
+  externalPersistence = false;
+  onChange: () => void = () => {};
   data: CodexData = { version: CODEX_VERSION, entries: {}, bodyMaps: {}, bestiary: {}, understood: [] };
   /** False when storage is unavailable or full; the Codex still works for this session. */
   persistent = true;
@@ -110,6 +79,8 @@ export class CodexStore {
     return this.data.understood.includes(symbolId);
   }
   private save(): void {
+    this.onChange();
+    if (this.externalPersistence) return;
     try {
       this.storage?.setItem(this.key, JSON.stringify(this.data));
       this.persistent = Boolean(this.storage);

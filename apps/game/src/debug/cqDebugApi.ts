@@ -1,3 +1,4 @@
+import type { QuestDef, QuestProgress, SaveV1 } from "@codebase-quest/quests";
 import pkg from "../../package.json" with { type: "json" };
 import type { VirtualKeys } from "../input/movement.ts";
 
@@ -6,6 +7,12 @@ import type { VirtualKeys } from "../input/movement.ts";
  * the game through it, and every later phase extends it.
  */
 export interface CqDebugApi {
+  getQuests(): (QuestDef & { progress: QuestProgress | undefined })[];
+  getLight(): { kingdom: number; regions: Record<string, number> };
+  getSave(): SaveV1;
+  loadSave(save: SaveV1): Promise<void>;
+  completeObjective?(questId: string, index: number): void;
+  getEquipment(symbolId: string): unknown;
   /** The game client's version. */
   version: string;
   /** Key of the topmost active scene, e.g. `"Test"`. */
@@ -101,6 +108,15 @@ export function createDebugApi(game: SceneSource, virtualKeys: VirtualKeys): CqD
   };
 
   return {
+    getQuests: () => [],
+    getLight: () => ({ kingdom: 0, regions: {} }),
+    getSave: () => {
+      throw new Error("Load a world to save");
+    },
+    loadSave: async () => {
+      throw new Error("Load a world to save");
+    },
+    getEquipment: () => null,
     getWorldSummary: () => ({ regions: 0, buildings: 0, npcs: 0 }),
     getLocation: () => ({ scene: "Test", breadcrumb: "Test scene" }),
     enterBuilding: async () => {

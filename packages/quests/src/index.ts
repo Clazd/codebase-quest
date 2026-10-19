@@ -1,11 +1,6 @@
-/**
- * @codebase-quest/quests: Quest engine and quest generators.
- *
- * Placeholder until Phase 08. It exists so the workspace is
- * complete from day one; see docs/plans/phases/.
- */
-export const packageInfo = {
-  name: "@codebase-quest/quests",
-  phase: 8,
-  status: "placeholder",
-} as const;
+export * from "./achievements.ts";
+export * from "./codexSchema.ts";
+export * from "./engine.ts";
+export * from "./model.ts";
+export * from "./progression.ts";
+export * from "./save.ts";
